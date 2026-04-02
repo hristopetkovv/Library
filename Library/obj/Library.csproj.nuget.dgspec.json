@@ -1,23 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\GitHub\\Library\\Library\\Library.csproj": {}
+    "D:\\Work\\Library\\Library\\Library.csproj": {}
   },
   "projects": {
-    "D:\\GitHub\\Library\\Library\\Library.csproj": {
+    "D:\\Work\\Library\\Library\\Library.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GitHub\\Library\\Library\\Library.csproj",
+        "projectUniqueName": "D:\\Work\\Library\\Library\\Library.csproj",
         "projectName": "Library",
-        "projectPath": "D:\\GitHub\\Library\\Library\\Library.csproj",
-        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "D:\\GitHub\\Library\\Library\\obj\\",
+        "projectPath": "D:\\Work\\Library\\Library\\Library.csproj",
+        "packagesPath": "C:\\Users\\hristo.petkov\\.nuget\\packages\\",
+        "outputPath": "D:\\Work\\Library\\Library\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hristo.petkov\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +27,10 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "D:\\Work\\regiX\\Packages": {},
+          "http://192.168.0.38:20202/nuget": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://git.egov.bg/api/v4/projects/187/packages/nuget/index.json": {}
         },
         "frameworks": {
           "net9.0": {
