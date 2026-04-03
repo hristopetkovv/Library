@@ -68,3 +68,4 @@ Library/appsettings.Development.json
 *.csproj.user
 /.vs
 /Library/obj
+/.vs/Library/v17

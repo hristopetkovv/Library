@@ -3,4 +3,8 @@ global using Library.Domain.Entities.Books;
 global using Library.Domain.Entities.Users;
 global using System.Reflection;
 global using Microsoft.EntityFrameworkCore.Metadata.Builders;
-
+global using Library.Application.Common.Interfaces;
+global using Microsoft.EntityFrameworkCore.Diagnostics;
+global using Library.Infrastructure.Persistence.Extensions;
+global using Library.Domain.Interfaces;
+global using Microsoft.EntityFrameworkCore.ChangeTracking;
