@@ -66,3 +66,5 @@ Library/appsettings.Development.json
 *.tmp
 *.suo
 *.csproj.user
+/.vs
+/Library/obj
