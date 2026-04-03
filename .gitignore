@@ -69,3 +69,9 @@ Library/appsettings.Development.json
 /.vs
 /Library/obj
 /.vs/Library/v17
+.vs/Library/v17/DocumentLayout.json
+.vs/Library/v17/.suo
+Library/obj/Debug/net9.0/Library.AssemblyInfo.cs
+Library/obj/Debug/net9.0/Library.AssemblyInfoInputs.cache
+Library/obj/Debug/net9.0/Library.assets.cache
+/Library/obj
