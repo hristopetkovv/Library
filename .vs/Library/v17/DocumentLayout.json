@@ -3,16 +3,8 @@
   "WorkspaceRootPath": "D:\\GitHub\\Library\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|d:\\github\\library\\library.infrastructure\\services\\users\\usercontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|solutionrelative:library.infrastructure\\services\\users\\usercontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|d:\\github\\library\\library.infrastructure\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|solutionrelative:library.infrastructure\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|d:\\github\\library\\library.infrastructure\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|solutionrelative:library.infrastructure\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FCD7760B-BDA6-4DB4-92B6-431F659F8E12}|Library.Domain\\Library.Domain.csproj|d:\\github\\library\\library.domain\\interfaces\\common\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FCD7760B-BDA6-4DB4-92B6-431F659F8E12}|Library.Domain\\Library.Domain.csproj|solutionrelative:library.domain\\interfaces\\common\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,47 +14,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "globalUsings.cs",
-              "DocumentMoniker": "D:\\GitHub\\Library\\Library.Infrastructure\\globalUsings.cs",
-              "RelativeDocumentMoniker": "Library.Infrastructure\\globalUsings.cs",
-              "ToolTip": "D:\\GitHub\\Library\\Library.Infrastructure\\globalUsings.cs",
-              "RelativeToolTip": "Library.Infrastructure\\globalUsings.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-03T08:13:52.339Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DependencyInjection.cs",
-              "DocumentMoniker": "D:\\GitHub\\Library\\Library.Infrastructure\\DependencyInjection.cs",
-              "RelativeDocumentMoniker": "Library.Infrastructure\\DependencyInjection.cs",
-              "ToolTip": "D:\\GitHub\\Library\\Library.Infrastructure\\DependencyInjection.cs",
-              "RelativeToolTip": "Library.Infrastructure\\DependencyInjection.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-03T10:29:37.313Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "UserContext.cs",
-              "DocumentMoniker": "D:\\GitHub\\Library\\Library.Infrastructure\\Services\\Users\\UserContext.cs",
-              "RelativeDocumentMoniker": "Library.Infrastructure\\Services\\Users\\UserContext.cs",
-              "ToolTip": "D:\\GitHub\\Library\\Library.Infrastructure\\Services\\Users\\UserContext.cs",
-              "RelativeToolTip": "Library.Infrastructure\\Services\\Users\\UserContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
+              "Title": "IRepository.cs",
+              "DocumentMoniker": "D:\\GitHub\\Library\\Library.Domain\\Interfaces\\Common\\IRepository.cs",
+              "RelativeDocumentMoniker": "Library.Domain\\Interfaces\\Common\\IRepository.cs",
+              "ToolTip": "D:\\GitHub\\Library\\Library.Domain\\Interfaces\\Common\\IRepository.cs",
+              "RelativeToolTip": "Library.Domain\\Interfaces\\Common\\IRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-04T14:16:19.096Z",
+              "WhenOpened": "2026-04-04T14:48:23.196Z",
               "EditorCaption": ""
             }
           ]

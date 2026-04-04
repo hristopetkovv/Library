@@ -1,4 +1,4 @@
-﻿namespace Library.Domain.Interfaces
+﻿namespace Library.Domain.Interfaces.Common
 {
 	public interface IAuditable
 	{
