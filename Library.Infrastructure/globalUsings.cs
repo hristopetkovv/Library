@@ -8,3 +8,5 @@ global using Microsoft.EntityFrameworkCore.Diagnostics;
 global using Library.Infrastructure.Persistence.Extensions;
 global using Library.Domain.Interfaces;
 global using Microsoft.EntityFrameworkCore.ChangeTracking;
+global using Microsoft.AspNetCore.Http;
+global using System.Security.Claims;

@@ -1,24 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Work\\Library\\Library\\Library.csproj": {}
+    "D:\\GitHub\\Library\\Library\\Library.csproj": {}
   },
   "projects": {
-    "D:\\Work\\Library\\Library.Application\\Library.Application.csproj": {
+    "D:\\GitHub\\Library\\Library.Application\\Library.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Work\\Library\\Library.Application\\Library.Application.csproj",
+        "projectUniqueName": "D:\\GitHub\\Library\\Library.Application\\Library.Application.csproj",
         "projectName": "Library.Application",
-        "projectPath": "D:\\Work\\Library\\Library.Application\\Library.Application.csproj",
-        "packagesPath": "C:\\Users\\hristo.petkov\\.nuget\\packages\\",
-        "outputPath": "D:\\Work\\Library\\Library.Application\\obj\\",
+        "projectPath": "D:\\GitHub\\Library\\Library.Application\\Library.Application.csproj",
+        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+        "outputPath": "D:\\GitHub\\Library\\Library.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\hristo.petkov\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -27,17 +26,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "D:\\Work\\regiX\\Packages": {},
-          "http://192.168.0.38:20202/nuget": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://git.egov.bg/api/v4/projects/187/packages/nuget/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "D:\\Work\\Library\\Library.Domain\\Library.Domain.csproj": {
-                "projectPath": "D:\\Work\\Library\\Library.Domain\\Library.Domain.csproj"
+              "D:\\GitHub\\Library\\Library.Domain\\Library.Domain.csproj": {
+                "projectPath": "D:\\GitHub\\Library\\Library.Domain\\Library.Domain.csproj"
               }
             }
           }
@@ -77,21 +73,20 @@
         }
       }
     },
-    "D:\\Work\\Library\\Library.Domain\\Library.Domain.csproj": {
+    "D:\\GitHub\\Library\\Library.Domain\\Library.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Work\\Library\\Library.Domain\\Library.Domain.csproj",
+        "projectUniqueName": "D:\\GitHub\\Library\\Library.Domain\\Library.Domain.csproj",
         "projectName": "Library.Domain",
-        "projectPath": "D:\\Work\\Library\\Library.Domain\\Library.Domain.csproj",
-        "packagesPath": "C:\\Users\\hristo.petkov\\.nuget\\packages\\",
-        "outputPath": "D:\\Work\\Library\\Library.Domain\\obj\\",
+        "projectPath": "D:\\GitHub\\Library\\Library.Domain\\Library.Domain.csproj",
+        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+        "outputPath": "D:\\GitHub\\Library\\Library.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\hristo.petkov\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -100,10 +95,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "D:\\Work\\regiX\\Packages": {},
-          "http://192.168.0.38:20202/nuget": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://git.egov.bg/api/v4/projects/187/packages/nuget/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net9.0": {
@@ -152,21 +144,20 @@
         }
       }
     },
-    "D:\\Work\\Library\\Library.Infrastructure\\Library.Infrastructure.csproj": {
+    "D:\\GitHub\\Library\\Library.Infrastructure\\Library.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Work\\Library\\Library.Infrastructure\\Library.Infrastructure.csproj",
+        "projectUniqueName": "D:\\GitHub\\Library\\Library.Infrastructure\\Library.Infrastructure.csproj",
         "projectName": "Library.Infrastructure",
-        "projectPath": "D:\\Work\\Library\\Library.Infrastructure\\Library.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\hristo.petkov\\.nuget\\packages\\",
-        "outputPath": "D:\\Work\\Library\\Library.Infrastructure\\obj\\",
+        "projectPath": "D:\\GitHub\\Library\\Library.Infrastructure\\Library.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+        "outputPath": "D:\\GitHub\\Library\\Library.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\hristo.petkov\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -175,17 +166,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "D:\\Work\\regiX\\Packages": {},
-          "http://192.168.0.38:20202/nuget": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://git.egov.bg/api/v4/projects/187/packages/nuget/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "D:\\Work\\Library\\Library.Application\\Library.Application.csproj": {
-                "projectPath": "D:\\Work\\Library\\Library.Application\\Library.Application.csproj"
+              "D:\\GitHub\\Library\\Library.Application\\Library.Application.csproj": {
+                "projectPath": "D:\\GitHub\\Library\\Library.Application\\Library.Application.csproj"
               }
             }
           }
@@ -211,6 +199,10 @@
               "version": "[9.0.0, )"
             },
             "Microsoft.AspNetCore.Http": {
+              "target": "Package",
+              "version": "[2.3.9, )"
+            },
+            "Microsoft.AspNetCore.Http.Abstractions": {
               "target": "Package",
               "version": "[2.3.9, )"
             },
@@ -249,21 +241,20 @@
         }
       }
     },
-    "D:\\Work\\Library\\Library\\Library.csproj": {
+    "D:\\GitHub\\Library\\Library\\Library.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Work\\Library\\Library\\Library.csproj",
+        "projectUniqueName": "D:\\GitHub\\Library\\Library\\Library.csproj",
         "projectName": "Library",
-        "projectPath": "D:\\Work\\Library\\Library\\Library.csproj",
-        "packagesPath": "C:\\Users\\hristo.petkov\\.nuget\\packages\\",
-        "outputPath": "D:\\Work\\Library\\Library\\obj\\",
+        "projectPath": "D:\\GitHub\\Library\\Library\\Library.csproj",
+        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+        "outputPath": "D:\\GitHub\\Library\\Library\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\hristo.petkov\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -272,20 +263,17 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "D:\\Work\\regiX\\Packages": {},
-          "http://192.168.0.38:20202/nuget": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://git.egov.bg/api/v4/projects/187/packages/nuget/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "D:\\Work\\Library\\Library.Application\\Library.Application.csproj": {
-                "projectPath": "D:\\Work\\Library\\Library.Application\\Library.Application.csproj"
+              "D:\\GitHub\\Library\\Library.Application\\Library.Application.csproj": {
+                "projectPath": "D:\\GitHub\\Library\\Library.Application\\Library.Application.csproj"
               },
-              "D:\\Work\\Library\\Library.Infrastructure\\Library.Infrastructure.csproj": {
-                "projectPath": "D:\\Work\\Library\\Library.Infrastructure\\Library.Infrastructure.csproj"
+              "D:\\GitHub\\Library\\Library.Infrastructure\\Library.Infrastructure.csproj": {
+                "projectPath": "D:\\GitHub\\Library\\Library.Infrastructure\\Library.Infrastructure.csproj"
               }
             }
           }
