@@ -1,17 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Work\\Library\\",
+  "WorkspaceRootPath": "D:\\GitHub\\Library\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|d:\\work\\library\\library.application\\authors\\queries\\getallauthors\\getallauthorsqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|solutionrelative:library.application\\authors\\queries\\getallauthors\\getallauthorsqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|d:\\github\\library\\library.infrastructure\\services\\auth\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|solutionrelative:library.infrastructure\\services\\auth\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|d:\\work\\library\\library.infrastructure\\repositories\\authorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|solutionrelative:library.infrastructure\\repositories\\authorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|d:\\work\\library\\library.application\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|d:\\github\\library\\library.application\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|solutionrelative:library.application\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -22,17 +18,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "globalUsings.cs",
-              "DocumentMoniker": "D:\\Work\\Library\\Library.Application\\globalUsings.cs",
+              "DocumentMoniker": "D:\\GitHub\\Library\\Library.Application\\globalUsings.cs",
               "RelativeDocumentMoniker": "Library.Application\\globalUsings.cs",
-              "ToolTip": "D:\\Work\\Library\\Library.Application\\globalUsings.cs",
+              "ToolTip": "D:\\GitHub\\Library\\Library.Application\\globalUsings.cs",
               "RelativeToolTip": "Library.Application\\globalUsings.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-06T12:31:15.838Z",
               "IsPinned": true,
@@ -40,69 +36,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AuthorRepository.cs",
-              "DocumentMoniker": "D:\\Work\\Library\\Library.Infrastructure\\Repositories\\AuthorRepository.cs",
-              "RelativeDocumentMoniker": "Library.Infrastructure\\Repositories\\AuthorRepository.cs",
-              "ToolTip": "D:\\Work\\Library\\Library.Infrastructure\\Repositories\\AuthorRepository.cs",
-              "RelativeToolTip": "Library.Infrastructure\\Repositories\\AuthorRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-07T07:29:27.459Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "GetAllAuthorsQueryHandler.cs",
-              "DocumentMoniker": "D:\\Work\\Library\\Library.Application\\Authors\\Queries\\GetAllAuthors\\GetAllAuthorsQueryHandler.cs",
-              "RelativeDocumentMoniker": "Library.Application\\Authors\\Queries\\GetAllAuthors\\GetAllAuthorsQueryHandler.cs",
-              "ToolTip": "D:\\Work\\Library\\Library.Application\\Authors\\Queries\\GetAllAuthors\\GetAllAuthorsQueryHandler.cs",
-              "RelativeToolTip": "Library.Application\\Authors\\Queries\\GetAllAuthors\\GetAllAuthorsQueryHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAACAAAAAAAAAA==",
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "D:\\GitHub\\Library\\Library.Infrastructure\\Services\\Auth\\AuthService.cs",
+              "RelativeDocumentMoniker": "Library.Infrastructure\\Services\\Auth\\AuthService.cs",
+              "ToolTip": "D:\\GitHub\\Library\\Library.Infrastructure\\Services\\Auth\\AuthService.cs",
+              "RelativeToolTip": "Library.Infrastructure\\Services\\Auth\\AuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-07T07:27:56.521Z",
+              "WhenOpened": "2026-04-07T18:52:11.841Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:134:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:133:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:132:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:133:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             }
           ]
         }

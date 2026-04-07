@@ -77,3 +77,8 @@ Library/obj/Debug/net9.0/Library.assets.cache
 /Library/obj
 .vs/Library/v17/.suo
 .vs/Library/v17/DocumentLayout.json
+Library/obj/Library.csproj.nuget.dgspec.json
+Library/obj/Debug/net9.0/Library.AssemblyInfo.cs
+Library/obj/project.nuget.cache
+Library/obj/project.assets.json
+Library/obj/Library.csproj.nuget.g.props
