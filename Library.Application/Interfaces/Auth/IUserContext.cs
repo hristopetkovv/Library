@@ -1,4 +1,4 @@
-﻿namespace Library.Application.Common.Interfaces
+﻿namespace Library.Application.Interfaces.Auth
 {
 	public interface IUserContext
 	{

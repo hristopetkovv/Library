@@ -5,6 +5,7 @@
         public async Task<List<Borrowing>> GetActiveBorrowingsByUserIdAsync(int userId, CancellationToken cancellationToken = default)
         {
             return await dbSet
+                .AsNoTracking()
                 .Include(b => b.Book)
                     .ThenInclude(book => book.Author)
                 .Include(b => b.Book)
@@ -18,8 +19,12 @@
             var now = DateTime.UtcNow;
 
             return await dbSet
-                .Include(b => b.Book)
-                .Include(b => b.User)
+                .AsNoTracking()
+				.Include(b => b.Book)
+					.ThenInclude(book => book.Author)
+				.Include(b => b.Book)
+					.ThenInclude(book => book.Publisher)
+				.Include(b => b.User)
                 .Where(b => b.Status == BorrowingStatus.Borrowed && b.DueDate < now)
                 .ToListAsync(cancellationToken);
         }
@@ -27,9 +32,12 @@
         public async Task<List<Borrowing>> GetBorrowingHistoryByUserAsync(int userId, CancellationToken cancellationToken = default)
         {
             return await dbSet
+                .AsNoTracking()
                 .Include(b => b.Book)
                     .ThenInclude(book => book.Author)
-                .Where(b => b.UserId == userId)
+				.Include(b => b.Book)
+					.ThenInclude(book => book.Publisher)
+				.Where(b => b.UserId == userId)
                 .OrderByDescending(b => b.BorrowDate)
                 .ToListAsync(cancellationToken);
         }

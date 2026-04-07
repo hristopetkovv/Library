@@ -1,4 +1,4 @@
-﻿namespace Library.Infrastructure.Services.Users
+﻿namespace Library.Infrastructure.Services.Auth
 {
     public class UserContext(IHttpContextAccessor httpContextAccessor) : IUserContext
     {
