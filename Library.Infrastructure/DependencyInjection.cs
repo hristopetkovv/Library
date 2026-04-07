@@ -38,7 +38,6 @@
 
             services.AddScoped<IUserContext, UserContext>();
 			services.AddScoped<IAuthService, AuthService>();
-			services.AddScoped<IPasswordService, PasswordService>();
 		}
 
 		public static async Task SeedDatabaseAsync(this IServiceProvider sp)
