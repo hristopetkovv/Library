@@ -1,4 +1,4 @@
 ﻿namespace Library.Application.Authors.Queries.GetAllAuthors
 {
-	public record GetAllAuthorsQuery : IQuery<List<AuthorListDto>>;
+	public record GetAllAuthorsQuery : IRequest<List<AuthorListDto>>;
 }
