@@ -17,5 +17,11 @@
 				Biography = biography
 			};
 		}
+
+		public void Update(string name, string biography)
+		{
+			Name = name;
+			Biography = biography;
+		}
 	}
 }

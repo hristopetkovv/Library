@@ -2,15 +2,14 @@
 {
 	public static class DependencyInjection
 	{
-		public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
+		public static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
 		{
-			services.AddDbContext(configuration);
-			services.AddServices();
 			services.AddHttpContextAccessor();
 
-			return services;
-        }
+			services.AddServices();
 
+			services.AddDbContext(configuration);
+        }
 		private static void AddDbContext(this IServiceCollection services, IConfiguration configuration)
 		{
             services.AddScoped<AuditableEntityInterceptor>();
@@ -24,7 +23,7 @@
 					.UseSnakeCaseNamingConvention()
 					.AddInterceptors(interceptor);
 			});
-        }
+		}
 
 		private static void AddServices(this IServiceCollection services)
 		{
@@ -38,6 +37,15 @@
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddScoped<IUserContext, UserContext>();
-        }
-    }
+			services.AddScoped<IAuthService, AuthService>();
+			services.AddScoped<IPasswordService, PasswordService>();
+		}
+
+		public static async Task SeedDatabaseAsync(this IServiceProvider sp)
+		{
+			using var scope = sp.CreateScope();
+			var context = scope.ServiceProvider.GetRequiredService<LibraryDbContext>();
+			await ContextExtensions.SeedAsync(context);
+		}
+	}
 }

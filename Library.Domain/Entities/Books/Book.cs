@@ -45,6 +45,20 @@
 			};
 		}
 
+		public void Update(string title, int authorId, int publisherId, ISBN isbn, string? description, int pages, Language language, CoverType coverType, int publicationYear, int totalCopies)
+		{
+			Title = title;
+			AuthorId = authorId;
+			PublisherId = publisherId;
+			ISBN = isbn;
+			Description = description;
+			Pages = pages;
+			Language = language;
+			CoverType = coverType;
+			PublicationYear = publicationYear;
+			TotalCopies = totalCopies;
+		}
+
 		public bool CanBeBorrowed() => AvailableCopies > 0;
 
 		public void DecrementAvailableCopies()
