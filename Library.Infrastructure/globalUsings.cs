@@ -26,3 +26,4 @@ global using Library.Application.Interfaces.Auth;
 global using Library.Application.Dtos.Auth;
 global using System.Security.Cryptography;
 global using System.Text;
+global using Library.Infrastructure.Helpers.Services;

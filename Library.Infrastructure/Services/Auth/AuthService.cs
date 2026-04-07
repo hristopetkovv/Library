@@ -1,30 +1,31 @@
 ﻿namespace Library.Infrastructure.Services.Auth
 {
-	public class AuthService : IAuthService
+	public class AuthService(IUnitOfWork unitOfWork) : IAuthService
 	{
-		private readonly IUnitOfWork unitOfWork;
-		private readonly IPasswordService passwordService;
-
-		public AuthService(IUnitOfWork unitOfWork, IPasswordService passwordService)
-		{
-			this.unitOfWork = unitOfWork;
-			this.passwordService = passwordService;
-		}
-
-		public Task<AuthResponse> Login(LoginRequest request)
+        public Task<AuthResponse> Login(LoginRequest request)
 		{
 			throw new NotImplementedException();
 		}
 
 		public async Task Register(RegisterRequest request)
 		{
-			var isEmailExist = await unitOfWork.Users.EmailExistsAsync(request.Email);
+            // TODO : Validate request data (e.g., email format, password strength)
+            var isEmailExist = await unitOfWork.Users.EmailExistsAsync(request.Email);
 			if (isEmailExist)
 				throw new InvalidOperationException("Email already exists.");
 
-			var passwordHash = passwordService.HashPassword(request.Password, out var salt);
+			var passwordHash = PasswordHelper.HashPassword(request.Password, out var salt);
 
-			// TODO: CreateUserCommand
-		}
+			var user = User.Create(
+				passwordHash, 
+				salt, 
+				Email.Create(request.Email), 
+				UserRole.Member, 
+				FullName.Create(request.FirstName, request.LastName),
+				ContactInfo.Create(request.Address ?? string.Empty, request.PhoneNumber ?? string.Empty));
+
+			await unitOfWork.Users.AddAsync(user);
+			await unitOfWork.SaveChangesAsync();
+        }
 	}
 }
