@@ -3,32 +3,24 @@
   "WorkspaceRootPath": "D:\\Work\\Library\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|d:\\work\\library\\library.infrastructure\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|solutionrelative:library.infrastructure\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|d:\\work\\library\\library.application\\users\\commands\\updateuserrole\\updateuserrolecommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|solutionrelative:library.application\\users\\commands\\updateuserrole\\updateuserrolecommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|d:\\work\\library\\library.infrastructure\\services\\auth\\usercontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|solutionrelative:library.infrastructure\\services\\auth\\usercontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|d:\\work\\library\\library.application\\users\\commands\\updateuser\\updateusercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|solutionrelative:library.application\\users\\commands\\updateuser\\updateusercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|d:\\work\\library\\library.infrastructure\\services\\auth\\jwttokengenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|solutionrelative:library.infrastructure\\services\\auth\\jwttokengenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|d:\\work\\library\\library.infrastructure\\services\\auth\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|solutionrelative:library.infrastructure\\services\\auth\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|d:\\work\\library\\library.infrastructure\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|solutionrelative:library.infrastructure\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|d:\\work\\library\\library.application\\validations\\auth\\registerrequestvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|solutionrelative:library.application\\validations\\auth\\registerrequestvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|d:\\work\\library\\library.application\\users\\commands\\updateuser\\updateusercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|solutionrelative:library.application\\users\\commands\\updateuser\\updateusercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D064BEB5-A8EA-4535-B31A-F4EE9CAA7E67}|Library\\Library.csproj|d:\\work\\library\\library\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D064BEB5-A8EA-4535-B31A-F4EE9CAA7E67}|Library\\Library.csproj|solutionrelative:library\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D064BEB5-A8EA-4535-B31A-F4EE9CAA7E67}|Library\\Library.csproj|d:\\work\\library\\library\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{D064BEB5-A8EA-4535-B31A-F4EE9CAA7E67}|Library\\Library.csproj|solutionrelative:library\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,17 +30,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Work\\Library\\Library\\Program.cs",
               "RelativeDocumentMoniker": "Library\\Program.cs",
               "ToolTip": "D:\\Work\\Library\\Library\\Program.cs",
               "RelativeToolTip": "Library\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-08T06:33:11.416Z",
               "IsPinned": true,
@@ -57,81 +49,54 @@
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "globalUsings.cs",
-              "DocumentMoniker": "D:\\Work\\Library\\Library.Infrastructure\\globalUsings.cs",
-              "RelativeDocumentMoniker": "Library.Infrastructure\\globalUsings.cs",
-              "ToolTip": "D:\\Work\\Library\\Library.Infrastructure\\globalUsings.cs",
-              "RelativeToolTip": "Library.Infrastructure\\globalUsings.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T07:17:20.144Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "RegisterRequestValidator.cs",
-              "DocumentMoniker": "D:\\Work\\Library\\Library.Application\\Validations\\Auth\\RegisterRequestValidator.cs",
-              "RelativeDocumentMoniker": "Library.Application\\Validations\\Auth\\RegisterRequestValidator.cs",
-              "ToolTip": "D:\\Work\\Library\\Library.Application\\Validations\\Auth\\RegisterRequestValidator.cs",
-              "RelativeToolTip": "Library.Application\\Validations\\Auth\\RegisterRequestValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T07:09:08.246Z",
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "D:\\Work\\Library\\Library\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "Library\\appsettings.Development.json",
+              "ToolTip": "D:\\Work\\Library\\Library\\appsettings.Development.json",
+              "RelativeToolTip": "Library\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-09T10:41:02.535Z",
               "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "DependencyInjection.cs",
-              "DocumentMoniker": "D:\\Work\\Library\\Library.Infrastructure\\DependencyInjection.cs",
-              "RelativeDocumentMoniker": "Library.Infrastructure\\DependencyInjection.cs",
-              "ToolTip": "D:\\Work\\Library\\Library.Infrastructure\\DependencyInjection.cs",
-              "RelativeToolTip": "Library.Infrastructure\\DependencyInjection.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAywAoAAAAoAAAAAAAAAA==",
+              "Title": "UpdateUserRoleCommandHandler.cs",
+              "DocumentMoniker": "D:\\Work\\Library\\Library.Application\\Users\\Commands\\UpdateUserRole\\UpdateUserRoleCommandHandler.cs",
+              "RelativeDocumentMoniker": "Library.Application\\Users\\Commands\\UpdateUserRole\\UpdateUserRoleCommandHandler.cs",
+              "ToolTip": "D:\\Work\\Library\\Library.Application\\Users\\Commands\\UpdateUserRole\\UpdateUserRoleCommandHandler.cs",
+              "RelativeToolTip": "Library.Application\\Users\\Commands\\UpdateUserRole\\UpdateUserRoleCommandHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T07:18:03.656Z",
+              "WhenOpened": "2026-04-09T11:18:08.969Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "UserContext.cs",
-              "DocumentMoniker": "D:\\Work\\Library\\Library.Infrastructure\\Services\\Auth\\UserContext.cs",
-              "RelativeDocumentMoniker": "Library.Infrastructure\\Services\\Auth\\UserContext.cs",
-              "ToolTip": "D:\\Work\\Library\\Library.Infrastructure\\Services\\Auth\\UserContext.cs",
-              "RelativeToolTip": "Library.Infrastructure\\Services\\Auth\\UserContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAeAAAAAAAAAA==",
+              "Title": "UpdateUserCommandHandler.cs",
+              "DocumentMoniker": "D:\\Work\\Library\\Library.Application\\Users\\Commands\\UpdateUser\\UpdateUserCommandHandler.cs",
+              "RelativeDocumentMoniker": "Library.Application\\Users\\Commands\\UpdateUser\\UpdateUserCommandHandler.cs",
+              "ToolTip": "D:\\Work\\Library\\Library.Application\\Users\\Commands\\UpdateUser\\UpdateUserCommandHandler.cs",
+              "RelativeToolTip": "Library.Application\\Users\\Commands\\UpdateUser\\UpdateUserCommandHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T07:17:57.482Z",
+              "WhenOpened": "2026-04-09T11:08:45.459Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "JwtTokenGenerator.cs",
-              "DocumentMoniker": "D:\\Work\\Library\\Library.Infrastructure\\Services\\Auth\\JwtTokenGenerator.cs",
-              "RelativeDocumentMoniker": "Library.Infrastructure\\Services\\Auth\\JwtTokenGenerator.cs",
-              "ToolTip": "D:\\Work\\Library\\Library.Infrastructure\\Services\\Auth\\JwtTokenGenerator.cs",
-              "RelativeToolTip": "Library.Infrastructure\\Services\\Auth\\JwtTokenGenerator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "UpdateUserCommand.cs",
+              "DocumentMoniker": "D:\\Work\\Library\\Library.Application\\Users\\Commands\\UpdateUser\\UpdateUserCommand.cs",
+              "RelativeDocumentMoniker": "Library.Application\\Users\\Commands\\UpdateUser\\UpdateUserCommand.cs",
+              "ToolTip": "D:\\Work\\Library\\Library.Application\\Users\\Commands\\UpdateUser\\UpdateUserCommand.cs",
+              "RelativeToolTip": "Library.Application\\Users\\Commands\\UpdateUser\\UpdateUserCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T07:17:53.398Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AuthService.cs",
-              "DocumentMoniker": "D:\\Work\\Library\\Library.Infrastructure\\Services\\Auth\\AuthService.cs",
-              "RelativeDocumentMoniker": "Library.Infrastructure\\Services\\Auth\\AuthService.cs",
-              "ToolTip": "D:\\Work\\Library\\Library.Infrastructure\\Services\\Auth\\AuthService.cs",
-              "RelativeToolTip": "Library.Infrastructure\\Services\\Auth\\AuthService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T06:15:54.597Z",
+              "WhenOpened": "2026-04-09T11:07:13.993Z",
               "EditorCaption": ""
             },
             {

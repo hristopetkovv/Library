@@ -1,12 +1,18 @@
 ﻿namespace Library.Application.Users.Commands.UpdateUser
 {
-	public class UpdateUserCommandHandler(IUnitOfWork unitOfWork) : IRequestHandler<UpdateUserCommand, Unit>
+	public class UpdateUserCommandHandler(IUnitOfWork unitOfWork, IUserContext userContext) : IRequestHandler<UpdateUserCommand, Unit>
 	{
 		public async Task<Unit> Handle(UpdateUserCommand command, CancellationToken cancellationToken)
 		{
-			var user = await unitOfWork.Users.GetByIdAsync(command.Id, cancellationToken);
+			var userId = userContext.GetUserId();
+
+			var user = await unitOfWork.Users.GetByIdForUpdateAsync(userId, cancellationToken);
 			if (user == null)
-				throw new NotFoundException($"User with ID {command.Id} not found.");
+				throw new NotFoundException($"User with ID {userId} not found.");
+
+			var emailExists = await unitOfWork.Users.AnyAsync(u => u.Email.Value == command.Email && u.Id != userId, cancellationToken);
+			if (emailExists)
+				throw new InvalidOperationException($"Email '{command.Email}' is already in use by another user.");
 
 			user.Update(
 				Email.Create(command.Email), 

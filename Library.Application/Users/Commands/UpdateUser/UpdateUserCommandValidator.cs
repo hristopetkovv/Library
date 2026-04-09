@@ -4,9 +4,6 @@
 	{
 		public UpdateUserCommandValidator()
 		{
-			RuleFor(x => x.Id)
-				.GreaterThan(0).WithMessage("Valid User ID is required");
-
 			RuleFor(x => x.Email)
 				.NotEmpty().WithMessage("Email is required")
 				.Matches(ValidationRegexes.Email);

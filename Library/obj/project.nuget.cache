@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "PwbZ5iOYg5Y=",
+  "dgSpecHash": "SocvPXbR9so=",
   "success": true,
   "projectFilePath": "D:\\Work\\Library\\Library\\Library.csproj",
   "expectedPackageFiles": [
@@ -43,6 +43,7 @@
     "C:\\Users\\hristo.petkov\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\10.0.0\\microsoft.extensions.logging.abstractions.10.0.0.nupkg.sha512",
     "C:\\Users\\hristo.petkov\\.nuget\\packages\\microsoft.extensions.objectpool\\8.0.11\\microsoft.extensions.objectpool.8.0.11.nupkg.sha512",
     "C:\\Users\\hristo.petkov\\.nuget\\packages\\microsoft.extensions.options\\9.0.14\\microsoft.extensions.options.9.0.14.nupkg.sha512",
+    "C:\\Users\\hristo.petkov\\.nuget\\packages\\microsoft.extensions.options.configurationextensions\\9.0.14\\microsoft.extensions.options.configurationextensions.9.0.14.nupkg.sha512",
     "C:\\Users\\hristo.petkov\\.nuget\\packages\\microsoft.extensions.primitives\\9.0.14\\microsoft.extensions.primitives.9.0.14.nupkg.sha512",
     "C:\\Users\\hristo.petkov\\.nuget\\packages\\microsoft.identitymodel.abstractions\\8.17.0\\microsoft.identitymodel.abstractions.8.17.0.nupkg.sha512",
     "C:\\Users\\hristo.petkov\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\8.17.0\\microsoft.identitymodel.jsonwebtokens.8.17.0.nupkg.sha512",

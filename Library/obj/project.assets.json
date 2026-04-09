@@ -849,6 +849,29 @@
           "buildTransitive/net8.0/Microsoft.Extensions.Options.targets": {}
         }
       },
+      "Microsoft.Extensions.Options.ConfigurationExtensions/9.0.14": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "9.0.14",
+          "Microsoft.Extensions.Configuration.Binder": "9.0.14",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.14",
+          "Microsoft.Extensions.Options": "9.0.14",
+          "Microsoft.Extensions.Primitives": "9.0.14"
+        },
+        "compile": {
+          "lib/net9.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net9.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/_._": {}
+        }
+      },
       "Microsoft.Extensions.Primitives/9.0.14": {
         "type": "package",
         "compile": {
@@ -1554,6 +1577,7 @@
           "Microsoft.AspNetCore.Http.Abstractions": "2.3.9",
           "Microsoft.EntityFrameworkCore": "9.0.14",
           "Microsoft.Extensions.Configuration.Binder": "9.0.14",
+          "Microsoft.Extensions.Options.ConfigurationExtensions": "9.0.14",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "9.0.4",
           "System.IdentityModel.Tokens.Jwt": "8.17.0"
         },
@@ -3221,6 +3245,34 @@
         "lib/netstandard2.1/Microsoft.Extensions.Options.xml",
         "microsoft.extensions.options.9.0.14.nupkg.sha512",
         "microsoft.extensions.options.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Microsoft.Extensions.Options.ConfigurationExtensions/9.0.14": {
+      "sha512": "JEru5Xno8+JzjqCeSzfCtmWqMv4Js1sw4yzflbGMoWe/3VmZlhWRIlbJDbbi78r222BmteOL0b0c/Wct6Jp1AA==",
+      "type": "package",
+      "path": "microsoft.extensions.options.configurationextensions/9.0.14",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/Microsoft.Extensions.Options.ConfigurationExtensions.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net8.0/_._",
+        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.Options.ConfigurationExtensions.targets",
+        "lib/net462/Microsoft.Extensions.Options.ConfigurationExtensions.dll",
+        "lib/net462/Microsoft.Extensions.Options.ConfigurationExtensions.xml",
+        "lib/net8.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll",
+        "lib/net8.0/Microsoft.Extensions.Options.ConfigurationExtensions.xml",
+        "lib/net9.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll",
+        "lib/net9.0/Microsoft.Extensions.Options.ConfigurationExtensions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Options.ConfigurationExtensions.xml",
+        "microsoft.extensions.options.configurationextensions.9.0.14.nupkg.sha512",
+        "microsoft.extensions.options.configurationextensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
     },

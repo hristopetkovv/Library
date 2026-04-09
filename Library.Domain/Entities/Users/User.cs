@@ -36,6 +36,11 @@
 			ContactInfo = contactInfo;
 		}
 
+		public void UpdateRole(UserRole newRole)
+		{
+			Role = newRole;
+		}
+
 		public bool CanBorrow()
 		{
 			var activeBorrowings = borrowings.Count(b => b.Status == BorrowingStatus.Borrowed);
