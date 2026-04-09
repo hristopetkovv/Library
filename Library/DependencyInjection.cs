@@ -2,20 +2,20 @@
 {
 	public static class DependencyInjection
 	{
-		public static void AddApi(this IServiceCollection services)
+		public static void AddApi(this IServiceCollection services, IConfiguration configuration)
 		{
 			services.AddControllers();
 
-			services.AddJwtAuthentication();
+			services.AddJwtAuthentication(configuration);
 			services.AddAuthorization();
 		}
 
-		private static void AddJwtAuthentication(this IServiceCollection services)
+		private static void AddJwtAuthentication(this IServiceCollection services, IConfiguration configuration)
 		{
-			services.AddAuthentication(options =>
-			{
-				options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-			})
+			var jwtConfig = configuration.GetSection("JwtConfiguration").Get<JwtConfiguration>();
+
+			services
+				.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 				.AddJwtBearer(e =>
 				{
 					e.SaveToken = true;
@@ -26,9 +26,9 @@
 						ValidateAudience = true,
 						ValidateLifetime = true,
 						ValidateIssuerSigningKey = true,
-						ValidIssuer = AppSettingsProvider.JwtConfiguration.Issuer,
-						ValidAudience = AppSettingsProvider.JwtConfiguration.Audience,
-						IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(AppSettingsProvider.JwtConfiguration.SecretKey)),
+						ValidIssuer = jwtConfig!.Issuer,
+						ValidAudience = jwtConfig.Audience,
+						IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtConfig.SecretKey)),
 						RequireExpirationTime = true
 					};
 				});

@@ -6,11 +6,11 @@
 		{
 			services.AddHttpContextAccessor();
 
+			services.AddConfiguration(configuration);
+
 			services.AddServices();
 
 			services.AddDbContext(configuration);
-
-			AppSettingsProvider.AddAppSettingsConfiguration(configuration);
 		}
 		private static void AddDbContext(this IServiceCollection services, IConfiguration configuration)
 		{
@@ -49,6 +49,12 @@
 			using var scope = sp.CreateScope();
 			var context = scope.ServiceProvider.GetRequiredService<LibraryDbContext>();
 			await ContextExtensions.SeedAsync(context);
+		}
+
+		private static void AddConfiguration(this IServiceCollection services, IConfiguration configuration)
+		{
+			services
+				.Configure<JwtConfiguration>(configuration.GetSection(JwtConfiguration.SectionName));
 		}
 	}
 }
