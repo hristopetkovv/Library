@@ -1,6 +1,6 @@
 ﻿namespace Library.Domain.Entities.Books
 {
-	public class Author : BaseAuditableEntity
+	public class Author : BaseAuditableEntity, IEntity
 	{
 		private readonly List<Book> books = [];
 

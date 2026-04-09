@@ -4,16 +4,12 @@
 	{
 		public async Task<List<BorrowingDto>> Handle(GetBorrowingHistoryByUserIdQuery query, CancellationToken cancellationToken)
 		{
-			var user = await unitOfWork.Users.GetByIdAsync(query.UserId, cancellationToken);
-			if (user == null)
-				throw new NotFoundException(nameof(User), query.UserId);
-
 			var historyBorrowings = await unitOfWork.Borrowings.GetBorrowingHistoryByUserAsync(query.UserId, cancellationToken);
 
 			return [.. historyBorrowings.Select(b => new BorrowingDto(
 				b.Id,
 				b.Book.Adapt<BookListDto>(),
-				user.Email.Value,
+				b.User.Email.Value,
 				b.BorrowDate,
 				b.DueDate,
 				b.ReturnDate,

@@ -4,12 +4,11 @@
 	{
 		public async Task<Unit> Handle(DeleteAuthorCommand command, CancellationToken cancellationToken)
 		{
-			var author = await unitOfWork.Authors.GetByIdAsync(command.Id, cancellationToken);
+			var author = await unitOfWork.Authors.GetByIdAsync(command.Id, cancellationToken, a => a.Books);
 			if (author == null)
 				throw new NotFoundException(nameof(Author), command.Id);
 
-			var hasBooks = await unitOfWork.Books.AnyAsync(b => b.AuthorId == command.Id, cancellationToken);
-			if (hasBooks)
+			if (author.Books.Any())
 				throw new InvalidOperationException("Cannot delete an author that has associated books");
 
 			unitOfWork.Authors.Remove(author);

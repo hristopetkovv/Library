@@ -1,22 +1,22 @@
 ﻿namespace Library.Application.Authors.Commands.UpdateAuthor
 {
-	public class UpdateAuthorCommandHandler(IUnitOfWork unitOfWork) : IRequestHandler<UpdateAuthorCommand, AuthorDetailDto>
+	public class UpdateAuthorCommandHandler(IUnitOfWork unitOfWork) : IRequestHandler<UpdateAuthorCommand, Unit>
 	{
-		public async Task<AuthorDetailDto> Handle(UpdateAuthorCommand command, CancellationToken cancellationToken)
+		public async Task<Unit> Handle(UpdateAuthorCommand command, CancellationToken cancellationToken)
 		{
-			var author = await unitOfWork.Authors.GetByIdAsync(command.Id, cancellationToken);
+			var author = await unitOfWork.Authors.GetByIdForUpdateAsync(command.Id, cancellationToken);
 			if (author == null)
 				throw new NotFoundException(nameof(Author), command.Id);
 
-			var existingAuthor = await unitOfWork.Authors.GetByNameAsync(command.Name, cancellationToken);
+			var existingAuthor = await unitOfWork.Authors.FirstOrDefaultAsync(a => a.Name == command.Name, cancellationToken);
 			if (existingAuthor != null && existingAuthor.Id != command.Id)
 				throw new InvalidOperationException($"Another author with name '{command.Name}' already exists");
 
-			author.Update(command.Name, command.Biography ?? string.Empty);
+			author.Update(command.Name, command.Biography);
 
 			await unitOfWork.SaveChangesAsync(cancellationToken);
 
-			return author.Adapt<AuthorDetailDto>();
+			return Unit.Value;
 		}
 	}
 }

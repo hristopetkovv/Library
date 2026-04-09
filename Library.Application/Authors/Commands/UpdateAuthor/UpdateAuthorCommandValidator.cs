@@ -12,8 +12,8 @@
 				.MaximumLength(200).WithMessage("Author name cannot exceed 200 characters");
 
 			RuleFor(x => x.Biography)
-				.MaximumLength(2000).When(x => !string.IsNullOrEmpty(x.Biography))
-				.WithMessage("Biography cannot exceed 2000 characters");
+				.NotEmpty().WithMessage("Biography is required")
+				.MaximumLength(2000).WithMessage("Biography cannot exceed 2000 characters");
 		}
 	}
 }

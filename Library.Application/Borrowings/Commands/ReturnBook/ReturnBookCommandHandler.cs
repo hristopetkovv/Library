@@ -4,7 +4,7 @@
 	{
 		public async Task<Unit> Handle(ReturnBookCommand command, CancellationToken cancellationToken)
 		{
-			var borrowing = await unitOfWork.Borrowings.GetByIdAsync(command.BorrowingId, cancellationToken);
+			var borrowing = await unitOfWork.Borrowings.GetByIdForUpdateAsync(command.BorrowingId, cancellationToken, b => b.Book);
 			if (borrowing == null)
 				throw new NotFoundException(nameof(Borrowing), command.BorrowingId);
 
@@ -14,8 +14,7 @@
 			{
 				borrowing.MarkAsReturned();
 
-				var book = await unitOfWork.Books.GetByIdAsync(borrowing.BookId, cancellationToken);
-				book!.IncrementAvailableCopies();
+				borrowing.Book.IncrementAvailableCopies();
 
 				await unitOfWork.SaveChangesAsync(cancellationToken);
 				await unitOfWork.CommitTransactionAsync(cancellationToken);

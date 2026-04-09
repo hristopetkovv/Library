@@ -4,7 +4,7 @@
 	{
 		public async Task<PublisherDetailDto> Handle(GetPublisherByIdQuery query, CancellationToken cancellationToken)
 		{
-			var publisher = await unitOfWork.Publishers.GetByIdAsync(query.Id, cancellationToken);
+			var publisher = await unitOfWork.Publishers.GetByIdAsync(query.Id, cancellationToken, p => p.Books);
 			if (publisher == null)
 				throw new NotFoundException(nameof(Publisher), query.Id);
 
