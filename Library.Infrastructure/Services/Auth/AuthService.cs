@@ -1,31 +1,42 @@
 ﻿namespace Library.Infrastructure.Services.Auth
 {
-	public class AuthService(IUnitOfWork unitOfWork) : IAuthService
+	public class AuthService(IUnitOfWork unitOfWork, IPasswordHasher passwordHasher, IJwtTokenGenerator jwt) : IAuthService
 	{
-        public Task<AuthResponse> Login(LoginRequest request)
+		public async Task<AuthResponse> LoginAsync(LoginRequest request, CancellationToken cancellationToken)
 		{
-			throw new NotImplementedException();
+			await new LoginRequestValidator().ValidateAndThrowAsync(request, cancellationToken);
+
+			// TODO: implement User status and failed logic count for better security and user experience
+			var user = await unitOfWork.Users.FirstOrDefaultAsync(u => u.Email.Value == request.Email, cancellationToken);
+
+			if (user == null || !passwordHasher.VerifyPassword(request.Password, user.PasswordHash, user.PasswordSalt))
+				throw new UnauthorizedAccessException("Invalid email or password.");
+
+			return new AuthResponse(jwt.GenerateToken(user), new UserLoginInfoDto(user.FullName.FirstName, user.FullName.LastName, user.Email.Value, user.Role));
 		}
 
-		public async Task Register(RegisterRequest request)
+		public async Task RegisterAsync(RegisterRequest request, CancellationToken cancellationToken)
 		{
-            // TODO : Validate request data (e.g., email format, password strength)
-            var isEmailExist = await unitOfWork.Users.EmailExistsAsync(request.Email);
+			await new RegisterRequestValidator().ValidateAndThrowAsync(request, cancellationToken);
+
+			var isEmailExist = await unitOfWork.Users.AnyAsync(u => u.Email.Value == request.Email, cancellationToken);
 			if (isEmailExist)
 				throw new InvalidOperationException("Email already exists.");
 
-			var passwordHash = PasswordHelper.HashPassword(request.Password, out var salt);
+			var (passwordHash, passwordSalt) = passwordHasher.HashPassword(request.Password);
 
 			var user = User.Create(
-				passwordHash, 
-				salt, 
-				Email.Create(request.Email), 
-				UserRole.Member, 
+				passwordHash,
+				passwordSalt,
+				Email.Create(request.Email),
+				UserRole.Member,
 				FullName.Create(request.FirstName, request.LastName),
-				ContactInfo.Create(request.Address ?? string.Empty, request.PhoneNumber ?? string.Empty));
+				!string.IsNullOrEmpty(request.Address) && !string.IsNullOrEmpty(request.PhoneNumber)
+					? ContactInfo.Create(request.Address, request.PhoneNumber)
+					: null);
 
-			await unitOfWork.Users.AddAsync(user);
-			await unitOfWork.SaveChangesAsync();
-        }
+			await unitOfWork.Users.AddAsync(user, cancellationToken);
+			await unitOfWork.SaveChangesAsync(cancellationToken);
+		}
 	}
 }

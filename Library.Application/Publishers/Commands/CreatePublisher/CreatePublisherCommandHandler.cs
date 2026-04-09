@@ -4,8 +4,8 @@
 	{
 		public async Task<PublisherDetailDto> Handle(CreatePublisherCommand command, CancellationToken cancellationToken)
 		{
-			var existingPublisher = await unitOfWork.Publishers.GetByNameAsync(command.Name, cancellationToken);
-			if (existingPublisher != null)
+			var existingPublisher = await unitOfWork.Publishers.AnyAsync(p => p.Name == command.Name, cancellationToken);
+			if (existingPublisher)
 				throw new InvalidOperationException($"Publisher with name '{command.Name}' already exists");
 
 			var publisher = Publisher.Create(command.Name);

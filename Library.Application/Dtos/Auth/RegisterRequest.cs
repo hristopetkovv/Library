@@ -2,6 +2,7 @@
 {
 	public record RegisterRequest(
 		string Password,
+		string PasswordAgain,
 		string Email,
 		string FirstName,
 		string LastName,

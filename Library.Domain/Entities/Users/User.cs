@@ -1,6 +1,6 @@
 ﻿namespace Library.Domain.Entities.Users
 {
-	public class User : BaseAuditableEntity
+	public class User : BaseAuditableEntity, IEntity
 	{
 		private readonly List<Borrowing> borrowings = [];
 		private const int MaxActiveBorrowings = 5;
@@ -27,6 +27,13 @@
 				FullName = fullName,
 				ContactInfo = contactInfo
 			};
+		}
+
+		public void Update(Email email, FullName fullName, ContactInfo? contactInfo)
+		{
+			Email = email;
+			FullName = fullName;
+			ContactInfo = contactInfo;
 		}
 
 		public bool CanBorrow()

@@ -1,22 +1,34 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\GitHub\\Library\\",
+  "WorkspaceRootPath": "D:\\Work\\Library\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|d:\\github\\library\\library.application\\authors\\queries\\getallauthors\\getallauthorsqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|solutionrelative:library.application\\authors\\queries\\getallauthors\\getallauthorsqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|d:\\work\\library\\library.infrastructure\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|solutionrelative:library.infrastructure\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|d:\\github\\library\\library.application\\authors\\queries\\getallauthors\\getallauthorsquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|solutionrelative:library.application\\authors\\queries\\getallauthors\\getallauthorsquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|d:\\work\\library\\library.infrastructure\\services\\auth\\usercontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|solutionrelative:library.infrastructure\\services\\auth\\usercontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|d:\\github\\library\\library.infrastructure\\services\\auth\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|d:\\work\\library\\library.infrastructure\\services\\auth\\jwttokengenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|solutionrelative:library.infrastructure\\services\\auth\\jwttokengenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|d:\\work\\library\\library.infrastructure\\services\\auth\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|solutionrelative:library.infrastructure\\services\\auth\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|d:\\github\\library\\library.application\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|solutionrelative:library.application\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|d:\\work\\library\\library.infrastructure\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|solutionrelative:library.infrastructure\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|d:\\work\\library\\library.application\\validations\\auth\\registerrequestvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|solutionrelative:library.application\\validations\\auth\\registerrequestvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D064BEB5-A8EA-4535-B31A-F4EE9CAA7E67}|Library\\Library.csproj|d:\\work\\library\\library\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D064BEB5-A8EA-4535-B31A-F4EE9CAA7E67}|Library\\Library.csproj|solutionrelative:library\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,60 +38,141 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "globalUsings.cs",
-              "DocumentMoniker": "D:\\GitHub\\Library\\Library.Application\\globalUsings.cs",
-              "RelativeDocumentMoniker": "Library.Application\\globalUsings.cs",
-              "ToolTip": "D:\\GitHub\\Library\\Library.Application\\globalUsings.cs",
-              "RelativeToolTip": "Library.Application\\globalUsings.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAArAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Work\\Library\\Library\\Program.cs",
+              "RelativeDocumentMoniker": "Library\\Program.cs",
+              "ToolTip": "D:\\Work\\Library\\Library\\Program.cs",
+              "RelativeToolTip": "Library\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T12:31:15.838Z",
+              "WhenOpened": "2026-04-08T06:33:11.416Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "globalUsings.cs",
+              "DocumentMoniker": "D:\\Work\\Library\\Library.Infrastructure\\globalUsings.cs",
+              "RelativeDocumentMoniker": "Library.Infrastructure\\globalUsings.cs",
+              "ToolTip": "D:\\Work\\Library\\Library.Infrastructure\\globalUsings.cs",
+              "RelativeToolTip": "Library.Infrastructure\\globalUsings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-09T07:17:20.144Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "RegisterRequestValidator.cs",
+              "DocumentMoniker": "D:\\Work\\Library\\Library.Application\\Validations\\Auth\\RegisterRequestValidator.cs",
+              "RelativeDocumentMoniker": "Library.Application\\Validations\\Auth\\RegisterRequestValidator.cs",
+              "ToolTip": "D:\\Work\\Library\\Library.Application\\Validations\\Auth\\RegisterRequestValidator.cs",
+              "RelativeToolTip": "Library.Application\\Validations\\Auth\\RegisterRequestValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-09T07:09:08.246Z",
               "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "GetAllAuthorsQueryHandler.cs",
-              "DocumentMoniker": "D:\\GitHub\\Library\\Library.Application\\Authors\\Queries\\GetAllAuthors\\GetAllAuthorsQueryHandler.cs",
-              "RelativeDocumentMoniker": "Library.Application\\Authors\\Queries\\GetAllAuthors\\GetAllAuthorsQueryHandler.cs",
-              "ToolTip": "D:\\GitHub\\Library\\Library.Application\\Authors\\Queries\\GetAllAuthors\\GetAllAuthorsQueryHandler.cs",
-              "RelativeToolTip": "Library.Application\\Authors\\Queries\\GetAllAuthors\\GetAllAuthorsQueryHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAOAAAAAAAAAA==",
+              "Title": "DependencyInjection.cs",
+              "DocumentMoniker": "D:\\Work\\Library\\Library.Infrastructure\\DependencyInjection.cs",
+              "RelativeDocumentMoniker": "Library.Infrastructure\\DependencyInjection.cs",
+              "ToolTip": "D:\\Work\\Library\\Library.Infrastructure\\DependencyInjection.cs",
+              "RelativeToolTip": "Library.Infrastructure\\DependencyInjection.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAywAoAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-07T19:08:39.267Z",
+              "WhenOpened": "2026-04-09T07:18:03.656Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "GetAllAuthorsQuery.cs",
-              "DocumentMoniker": "D:\\GitHub\\Library\\Library.Application\\Authors\\Queries\\GetAllAuthors\\GetAllAuthorsQuery.cs",
-              "RelativeDocumentMoniker": "Library.Application\\Authors\\Queries\\GetAllAuthors\\GetAllAuthorsQuery.cs",
-              "ToolTip": "D:\\GitHub\\Library\\Library.Application\\Authors\\Queries\\GetAllAuthors\\GetAllAuthorsQuery.cs",
-              "RelativeToolTip": "Library.Application\\Authors\\Queries\\GetAllAuthors\\GetAllAuthorsQuery.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Title": "UserContext.cs",
+              "DocumentMoniker": "D:\\Work\\Library\\Library.Infrastructure\\Services\\Auth\\UserContext.cs",
+              "RelativeDocumentMoniker": "Library.Infrastructure\\Services\\Auth\\UserContext.cs",
+              "ToolTip": "D:\\Work\\Library\\Library.Infrastructure\\Services\\Auth\\UserContext.cs",
+              "RelativeToolTip": "Library.Infrastructure\\Services\\Auth\\UserContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-07T19:08:25.904Z",
+              "WhenOpened": "2026-04-09T07:17:57.482Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "JwtTokenGenerator.cs",
+              "DocumentMoniker": "D:\\Work\\Library\\Library.Infrastructure\\Services\\Auth\\JwtTokenGenerator.cs",
+              "RelativeDocumentMoniker": "Library.Infrastructure\\Services\\Auth\\JwtTokenGenerator.cs",
+              "ToolTip": "D:\\Work\\Library\\Library.Infrastructure\\Services\\Auth\\JwtTokenGenerator.cs",
+              "RelativeToolTip": "Library.Infrastructure\\Services\\Auth\\JwtTokenGenerator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-09T07:17:53.398Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "AuthService.cs",
-              "DocumentMoniker": "D:\\GitHub\\Library\\Library.Infrastructure\\Services\\Auth\\AuthService.cs",
+              "DocumentMoniker": "D:\\Work\\Library\\Library.Infrastructure\\Services\\Auth\\AuthService.cs",
               "RelativeDocumentMoniker": "Library.Infrastructure\\Services\\Auth\\AuthService.cs",
-              "ToolTip": "D:\\GitHub\\Library\\Library.Infrastructure\\Services\\Auth\\AuthService.cs",
+              "ToolTip": "D:\\Work\\Library\\Library.Infrastructure\\Services\\Auth\\AuthService.cs",
               "RelativeToolTip": "Library.Infrastructure\\Services\\Auth\\AuthService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-07T18:52:11.841Z",
+              "WhenOpened": "2026-04-09T06:15:54.597Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:134:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             }
           ]
         }

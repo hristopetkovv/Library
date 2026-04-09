@@ -1,6 +1,6 @@
 ﻿namespace Library.Domain.Entities.Books
 {
-	public class Book : BaseAuditableEntity
+	public class Book : BaseAuditableEntity, IEntity
 	{
 		private readonly List<Borrowing> borrowings = [];
 

@@ -16,5 +16,7 @@ global using Library.Domain.Entities.Users;
 global using Library.Application.Borrowings.Dtos;
 global using Library.Application.Common.Behaviors;
 global using Library.Application.Users.Dtos;
+global using Library.Domain.Constants;
+global using Library.Domain.ValueObjects.Users;
 global using Library.Application.Dtos.Auth;
 

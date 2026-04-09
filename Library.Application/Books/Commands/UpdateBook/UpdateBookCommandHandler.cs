@@ -1,19 +1,19 @@
 ﻿namespace Library.Application.Books.Commands.UpdateBook
 {
-	public class UpdateBookCommandHandler(IUnitOfWork unitOfWork) : IRequestHandler<UpdateBookCommand, BookDetailDto>
+	public class UpdateBookCommandHandler(IUnitOfWork unitOfWork) : IRequestHandler<UpdateBookCommand, Unit>
 	{
-		public async Task<BookDetailDto> Handle(UpdateBookCommand command, CancellationToken cancellationToken)
+		public async Task<Unit> Handle(UpdateBookCommand command, CancellationToken cancellationToken)
 		{
-			var book = await unitOfWork.Books.GetByIdAsync(command.Id, cancellationToken);
+			var book = await unitOfWork.Books.GetByIdForUpdateAsync(command.Id, cancellationToken);
 			if (book == null)
 				throw new NotFoundException(nameof(Book), command.Id);
 
-			var author = await unitOfWork.Authors.GetByIdAsync(command.AuthorId, cancellationToken);
-			if (author == null)
+			var authorExist = await unitOfWork.Authors.AnyAsync(a => a.Id == command.AuthorId, cancellationToken);
+			if (!authorExist)
 				throw new NotFoundException(nameof(Author), command.AuthorId);
 
-			var publisher = await unitOfWork.Publishers.GetByIdAsync(command.PublisherId, cancellationToken);
-			if (publisher == null)
+			var publisherExist = await unitOfWork.Publishers.AnyAsync(p => p.Id == command.PublisherId, cancellationToken);
+			if (!publisherExist)
 				throw new NotFoundException(nameof(Publisher), command.PublisherId);
 
 			book.Update(
@@ -31,10 +31,7 @@
 
 			await unitOfWork.SaveChangesAsync(cancellationToken);
 
-			var updatedBook = await unitOfWork.Books
-				.GetByIdAsync(command.Id, cancellationToken);
-
-			return updatedBook.Adapt<BookDetailDto>()!;
+			return Unit.Value;
 		}
 	}
 }

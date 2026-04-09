@@ -2,6 +2,6 @@
 {
 	public record CreateAuthorCommand(
 		string Name,
-		string? Biography
+		string Biography
 	) : ICommand<AuthorDetailDto>;
 }

@@ -9,3 +9,4 @@ global using Library.Domain.ValueObjects.Books;
 global using System.Linq.Expressions;
 global using Library.Domain.Interfaces.Common;
 global using Library.Domain.Interfaces.Repositories;
+global using Library.Domain.Constants;

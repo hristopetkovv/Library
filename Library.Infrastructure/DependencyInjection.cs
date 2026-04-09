@@ -9,7 +9,9 @@
 			services.AddServices();
 
 			services.AddDbContext(configuration);
-        }
+
+			AppSettingsProvider.AddAppSettingsConfiguration(configuration);
+		}
 		private static void AddDbContext(this IServiceCollection services, IConfiguration configuration)
 		{
             services.AddScoped<AuditableEntityInterceptor>();
@@ -38,6 +40,8 @@
 
             services.AddScoped<IUserContext, UserContext>();
 			services.AddScoped<IAuthService, AuthService>();
+			services.AddScoped<IPasswordHasher, PasswordHasher>();
+			services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
 		}
 
 		public static async Task SeedDatabaseAsync(this IServiceProvider sp)

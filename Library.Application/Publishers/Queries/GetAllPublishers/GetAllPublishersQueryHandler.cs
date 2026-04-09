@@ -4,7 +4,7 @@
 	{
 		public async Task<List<PublisherListDto>> Handle(GetAllPublishersQuery query, CancellationToken cancellationToken)
 		{
-			var publishers = await unitOfWork.Publishers.GetAllWithBooksAsync(cancellationToken);
+			var publishers = await unitOfWork.Publishers.GetAllAsync(cancellationToken, p => p.Books);
 
 			return [.. publishers.Select(a => new PublisherListDto(
 				a.Id,

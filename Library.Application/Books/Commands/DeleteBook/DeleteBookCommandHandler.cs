@@ -4,12 +4,11 @@
 	{
 		public async Task<Unit> Handle(DeleteBookCommand command, CancellationToken cancellationToken)
 		{
-			var book = await unitOfWork.Books.GetByIdAsync(command.Id, cancellationToken);
+			var book = await unitOfWork.Books.GetByIdAsync(command.Id, cancellationToken, b => b.Borrowings);
 			if (book == null)
 				throw new NotFoundException(nameof(Book), command.Id);
 
-			var hasActiveBorrowings = await unitOfWork.Borrowings.AnyAsync(b => b.BookId == command.Id && b.Status == BorrowingStatus.Borrowed, cancellationToken);
-			if (hasActiveBorrowings)
+			if (book.Borrowings.Any(b => b.Status == BorrowingStatus.Borrowed))
 				throw new InvalidOperationException("Cannot delete a book with active borrowings.");
 
 			unitOfWork.Books.Remove(book);

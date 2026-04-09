@@ -12,5 +12,5 @@
 		CoverType CoverType,
 		int PublicationYear,
 		int TotalCopies
-	) : ICommand<BookDetailDto>;
+	) : ICommand<Unit>;
 }

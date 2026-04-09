@@ -22,7 +22,7 @@
 
 		private static bool IsValidEmail(string email)
 		{
-			return Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$");
+			return Regex.IsMatch(email, ValidationRegexes.Email);
 		}
 	}
 }

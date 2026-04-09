@@ -4,11 +4,11 @@
 	{
 		public async Task<AuthorDetailDto> Handle(CreateAuthorCommand command, CancellationToken cancellationToken)
 		{
-			var existingAuthor = await unitOfWork.Authors.GetByNameAsync(command.Name, cancellationToken);
-			if (existingAuthor != null)
+			var existingAuthor = await unitOfWork.Authors.AnyAsync(a => a.Name == command.Name, cancellationToken);
+			if (existingAuthor)
 				throw new InvalidOperationException($"Author with name '{command.Name}' already exists");
 
-			var author = Author.Create(command.Name, command.Biography ?? string.Empty);
+			var author = Author.Create(command.Name, command.Biography);
 
 			await unitOfWork.Authors.AddAsync(author, cancellationToken);
 			await unitOfWork.SaveChangesAsync(cancellationToken);

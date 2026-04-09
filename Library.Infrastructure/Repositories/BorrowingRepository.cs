@@ -2,7 +2,7 @@
 {
     public class BorrowingRepository(LibraryDbContext context) : Repository<Borrowing>(context), IBorrowingRepository
     {
-        public async Task<List<Borrowing>> GetActiveBorrowingsByUserIdAsync(int userId, CancellationToken cancellationToken = default)
+		public async Task<List<Borrowing>> GetActiveBorrowingsByUserIdAsync(int userId, CancellationToken cancellationToken = default)
         {
             return await dbSet
                 .AsNoTracking()
@@ -10,6 +10,7 @@
                     .ThenInclude(book => book.Author)
                 .Include(b => b.Book)
                     .ThenInclude(book => book.Publisher)
+                .Include(b => b.User)
                 .Where(b => b.UserId == userId && b.Status == BorrowingStatus.Borrowed)
                 .ToListAsync(cancellationToken);
         }
@@ -37,6 +38,7 @@
                     .ThenInclude(book => book.Author)
 				.Include(b => b.Book)
 					.ThenInclude(book => book.Publisher)
+                .Include(b => b.User)
 				.Where(b => b.UserId == userId)
                 .OrderByDescending(b => b.BorrowDate)
                 .ToListAsync(cancellationToken);

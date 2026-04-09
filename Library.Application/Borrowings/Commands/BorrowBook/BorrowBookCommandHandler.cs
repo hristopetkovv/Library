@@ -4,19 +4,10 @@
 	{
 		public async Task<Unit> Handle(BorrowBookCommand command, CancellationToken cancellationToken)
 		{
-			var book = await unitOfWork.Books.GetByIdAsync(command.BookId, cancellationToken);
-			if (book == null)
-				throw new NotFoundException(nameof(Book), command.BookId);
+			var book = await unitOfWork.Books.GetByIdForUpdateAsync(command.BookId, cancellationToken);
+			var user = await unitOfWork.Users.GetByIdAsync(command.UserId, cancellationToken, u => u.Borrowings);
 
-			if (!book.CanBeBorrowed())
-				throw new InvalidOperationException("Book is not available for borrowing.");
-
-			var user = await unitOfWork.Users.GetByIdAsync(command.UserId, cancellationToken);
-			if (user == null)
-				throw new NotFoundException(nameof(User), command.UserId);
-
-			if (!user.CanBorrow())
-				throw new InvalidOperationException("User cannot borrow more books.");
+			ValidateBorrowing(command, user, book);
 
 			await unitOfWork.BeginTransactionAsync(cancellationToken);
 
@@ -24,7 +15,7 @@
 			{
 				var borrowing = Borrowing.Create(command.BookId, command.UserId);
 
-				book.DecrementAvailableCopies();
+				book!.DecrementAvailableCopies();
 
 				await unitOfWork.Borrowings.AddAsync(borrowing, cancellationToken);
 				await unitOfWork.SaveChangesAsync(cancellationToken);
@@ -37,6 +28,24 @@
 				await unitOfWork.RollbackTransactionAsync(cancellationToken);
 				throw;
 			}
+		}
+
+		private void ValidateBorrowing(BorrowBookCommand command, User? user, Book? book)
+		{
+			if (book == null)
+				throw new NotFoundException(nameof(Book), command.BookId);
+
+			if (!book.CanBeBorrowed())
+				throw new InvalidOperationException($"Book '{book.Title}' has no available copies");
+
+			if (user == null)
+				throw new NotFoundException(nameof(User), command.UserId);
+
+			if (!user.CanBorrow())
+				throw new InvalidOperationException("User cannot borrow more books.");
+
+			if (user.HasOverdueBooks())
+				throw new InvalidOperationException("User has overdue books and cannot borrow until they are returned");
 		}
 	}
 }

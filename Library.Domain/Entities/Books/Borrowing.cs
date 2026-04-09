@@ -1,6 +1,6 @@
 ﻿namespace Library.Domain.Entities.Books
 {
-	public class Borrowing
+	public class Borrowing : IEntity
 	{
 		public int Id { get; private set; }
 		public int BookId { get; private set; }
