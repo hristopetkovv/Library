@@ -1,6 +1,6 @@
 ﻿namespace Library.Domain.Interfaces.Common
 {
-    public interface IUnitOfWork : IDisposable
+    public interface IUnitOfWork
     {
         IBookRepository Books { get; }
         IUserRepository Users { get; }

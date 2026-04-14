@@ -1,7 +1,7 @@
 ﻿namespace Library.Infrastructure.Persistence
 {
-    public class UnitOfWork : IUnitOfWork
-    {
+    public class UnitOfWork : IUnitOfWork, IDisposable
+	{
         private readonly LibraryDbContext context;
         private IDbContextTransaction? transaction;
 
@@ -40,9 +40,11 @@
 
         public async Task CommitTransactionAsync(CancellationToken cancellationToken = default)
         {
-            try
+			if (transaction == null)
+				throw new InvalidOperationException("Transaction not started");
+
+			try
             {
-                await context.SaveChangesAsync(cancellationToken);
                 if (transaction is not null)
                 {
                     await transaction.CommitAsync(cancellationToken);
@@ -62,7 +64,11 @@
 
         public async Task RollbackTransactionAsync(CancellationToken cancellationToken = default)
         {
-            await transaction?.RollbackAsync(cancellationToken)!;
+			if (transaction == null)
+				throw new InvalidOperationException("Transaction has not been started.");
+
+			await transaction?.RollbackAsync(cancellationToken)!;
+
             transaction?.Dispose();
             transaction = null;
         }
