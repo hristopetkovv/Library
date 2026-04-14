@@ -43,20 +43,7 @@
 			if (transaction is null)
 				throw new InvalidOperationException("Transaction not started");
 
-			try
-			{
-				await transaction.CommitAsync(cancellationToken);
-			}
-			catch
-			{
-				await RollbackTransactionAsync(cancellationToken);
-				throw;
-			}
-			finally
-			{
-				transaction?.Dispose();
-				transaction = null;
-			}
+			await transaction.CommitAsync(cancellationToken);
 		}
 
 		public async Task RollbackTransactionAsync(CancellationToken cancellationToken = default)
