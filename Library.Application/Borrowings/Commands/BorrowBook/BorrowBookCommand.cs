@@ -3,5 +3,5 @@
 	public record BorrowBookCommand(
 		int BookId,
 		int UserId
-	) : IRequest<Unit>;
+	) : ICommand<Unit>;
 }

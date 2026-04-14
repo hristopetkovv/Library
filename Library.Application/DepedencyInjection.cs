@@ -6,7 +6,7 @@
 		{
 			services.AddMediatR(cfg =>
 			{
-				cfg.RegisterServicesFromAssembly(typeof(DepedencyInjection).Assembly);
+				cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
 				cfg.AddBehavior(typeof(ValidateCommandBehavior<,>));
 			});
 		}

@@ -5,4 +5,14 @@ global using Microsoft.AspNetCore.Authentication.JwtBearer;
 global using Microsoft.IdentityModel.Tokens;
 global using System.Text;
 global using Library.Infrastructure.Helpers.Configuration.Models;
-
+global using Library.Application.Books.Commands.CreateBook;
+global using Library.Application.Books.Commands.DeleteBook;
+global using Library.Application.Books.Commands.UpdateBook;
+global using Library.Application.Books.Dtos;
+global using Library.Application.Books.Queries.GetAllBooks;
+global using Library.Application.Books.Queries.GetAvailableBooks;
+global using Library.Application.Books.Queries.GetBookById;
+global using Library.Application.Books.Queries.SearchBooks;
+global using MediatR;
+global using Microsoft.AspNetCore.Authorization;
+global using Microsoft.AspNetCore.Mvc;
