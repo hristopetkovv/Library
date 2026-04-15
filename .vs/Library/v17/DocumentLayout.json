@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "D:\\Work\\Library\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|d:\\work\\library\\library.application\\users\\commands\\updateuserrole\\updateuserrolecommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|solutionrelative:library.application\\users\\commands\\updateuserrole\\updateuserrolecommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|d:\\work\\library\\library.infrastructure\\persistence\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|solutionrelative:library.infrastructure\\persistence\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|d:\\work\\library\\library.application\\users\\commands\\updateuser\\updateusercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|solutionrelative:library.application\\users\\commands\\updateuser\\updateusercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|d:\\work\\library\\library.application\\users\\commands\\updateuser\\updateusercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|solutionrelative:library.application\\users\\commands\\updateuser\\updateusercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|d:\\work\\library\\library.application\\borrowings\\commands\\borrowbook\\borrowbookcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|solutionrelative:library.application\\borrowings\\commands\\borrowbook\\borrowbookcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D064BEB5-A8EA-4535-B31A-F4EE9CAA7E67}|Library\\Library.csproj|d:\\work\\library\\library\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -30,17 +26,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Work\\Library\\Library\\Program.cs",
               "RelativeDocumentMoniker": "Library\\Program.cs",
               "ToolTip": "D:\\Work\\Library\\Library\\Program.cs",
               "RelativeToolTip": "Library\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-08T06:33:11.416Z",
               "IsPinned": true,
@@ -48,7 +44,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "appsettings.Development.json",
               "DocumentMoniker": "D:\\Work\\Library\\Library\\appsettings.Development.json",
               "RelativeDocumentMoniker": "Library\\appsettings.Development.json",
@@ -62,41 +58,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UpdateUserRoleCommandHandler.cs",
-              "DocumentMoniker": "D:\\Work\\Library\\Library.Application\\Users\\Commands\\UpdateUserRole\\UpdateUserRoleCommandHandler.cs",
-              "RelativeDocumentMoniker": "Library.Application\\Users\\Commands\\UpdateUserRole\\UpdateUserRoleCommandHandler.cs",
-              "ToolTip": "D:\\Work\\Library\\Library.Application\\Users\\Commands\\UpdateUserRole\\UpdateUserRoleCommandHandler.cs",
-              "RelativeToolTip": "Library.Application\\Users\\Commands\\UpdateUserRole\\UpdateUserRoleCommandHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T11:18:08.969Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "UpdateUserCommandHandler.cs",
-              "DocumentMoniker": "D:\\Work\\Library\\Library.Application\\Users\\Commands\\UpdateUser\\UpdateUserCommandHandler.cs",
-              "RelativeDocumentMoniker": "Library.Application\\Users\\Commands\\UpdateUser\\UpdateUserCommandHandler.cs",
-              "ToolTip": "D:\\Work\\Library\\Library.Application\\Users\\Commands\\UpdateUser\\UpdateUserCommandHandler.cs",
-              "RelativeToolTip": "Library.Application\\Users\\Commands\\UpdateUser\\UpdateUserCommandHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAUAAAAAAAAAA==",
+              "Title": "BorrowBookCommandHandler.cs",
+              "DocumentMoniker": "D:\\Work\\Library\\Library.Application\\Borrowings\\Commands\\BorrowBook\\BorrowBookCommandHandler.cs",
+              "RelativeDocumentMoniker": "Library.Application\\Borrowings\\Commands\\BorrowBook\\BorrowBookCommandHandler.cs",
+              "ToolTip": "D:\\Work\\Library\\Library.Application\\Borrowings\\Commands\\BorrowBook\\BorrowBookCommandHandler.cs",
+              "RelativeToolTip": "Library.Application\\Borrowings\\Commands\\BorrowBook\\BorrowBookCommandHandler.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAIA0wBQAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T11:08:45.459Z",
+              "WhenOpened": "2026-04-14T10:22:14.58Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UpdateUserCommand.cs",
-              "DocumentMoniker": "D:\\Work\\Library\\Library.Application\\Users\\Commands\\UpdateUser\\UpdateUserCommand.cs",
-              "RelativeDocumentMoniker": "Library.Application\\Users\\Commands\\UpdateUser\\UpdateUserCommand.cs",
-              "ToolTip": "D:\\Work\\Library\\Library.Application\\Users\\Commands\\UpdateUser\\UpdateUserCommand.cs",
-              "RelativeToolTip": "Library.Application\\Users\\Commands\\UpdateUser\\UpdateUserCommand.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAASAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "UnitOfWork.cs",
+              "DocumentMoniker": "D:\\Work\\Library\\Library.Infrastructure\\Persistence\\UnitOfWork.cs",
+              "RelativeDocumentMoniker": "Library.Infrastructure\\Persistence\\UnitOfWork.cs",
+              "ToolTip": "D:\\Work\\Library\\Library.Infrastructure\\Persistence\\UnitOfWork.cs",
+              "RelativeToolTip": "Library.Infrastructure\\Persistence\\UnitOfWork.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAmwCsAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T11:07:13.993Z",
+              "WhenOpened": "2026-04-14T07:35:03.081Z",
               "EditorCaption": ""
             },
             {
