@@ -51,9 +51,9 @@
 			if (transaction is null)
 				throw new InvalidOperationException("Transaction has not been started.");
 
-			await transaction?.RollbackAsync(cancellationToken)!;
+			await transaction.RollbackAsync(cancellationToken)!;
 
-			transaction?.Dispose();
+			transaction.Dispose();
 			transaction = null;
 		}
 

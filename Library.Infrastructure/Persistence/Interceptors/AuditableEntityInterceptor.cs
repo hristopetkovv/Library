@@ -1,6 +1,4 @@
-﻿using Library.Application.Interfaces.Auth;
-
-namespace Library.Infrastructure.Persistence.Interceptors
+﻿namespace Library.Infrastructure.Persistence.Interceptors
 {
 	public class AuditableEntityInterceptor(IUserContext userContext) : SaveChangesInterceptor
 	{

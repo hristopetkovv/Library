@@ -21,7 +21,7 @@
 				var interceptor = serviceProvider.GetRequiredService<AuditableEntityInterceptor>();
 
 				options
-					.UseNpgsql(configuration.GetConnectionString("DefaultConnection"))
+					.UseNpgsql(configuration.GetConnectionString("DefaultConnection"), e => e.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery))
 					.UseSnakeCaseNamingConvention()
 					.AddInterceptors(interceptor);
 			});

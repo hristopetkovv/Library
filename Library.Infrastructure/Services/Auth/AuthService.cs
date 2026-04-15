@@ -23,11 +23,12 @@
 			if (isEmailExist)
 				throw new InvalidOperationException("Email already exists.");
 
-			var (passwordHash, passwordSalt) = passwordHasher.HashPassword(request.Password);
+			var passwordSalt = passwordHasher.GenerateSalt();
+			var passwordHash = passwordHasher.GenerateHash(request.Password, passwordSalt);
 
 			var user = User.Create(
-				passwordHash,
 				passwordSalt,
+				passwordHash,
 				Email.Create(request.Email),
 				UserRole.Member,
 				FullName.Create(request.FirstName, request.LastName),
