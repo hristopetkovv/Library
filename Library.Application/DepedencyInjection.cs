@@ -7,7 +7,7 @@
 			services.AddMediatR(cfg =>
 			{
 				cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
-				cfg.AddBehavior(typeof(ValidateCommandBehavior<,>));
+				cfg.AddOpenBehavior(typeof(ValidateCommandBehavior<,>));
 			});
 		}
 	}

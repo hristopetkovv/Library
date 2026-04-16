@@ -7,7 +7,11 @@
 			services.AddControllers();
 
 			services.AddJwtAuthentication(configuration);
-			services.AddAuthorization();
+
+			services.AddAuthorizationBuilder()
+				.SetFallbackPolicy(new AuthorizationPolicyBuilder()
+					.RequireAuthenticatedUser()
+					.Build());
 		}
 
 		private static void AddJwtAuthentication(this IServiceCollection services, IConfiguration configuration)

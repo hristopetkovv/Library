@@ -16,3 +16,7 @@ global using Library.Application.Books.Queries.SearchBooks;
 global using MediatR;
 global using Microsoft.AspNetCore.Authorization;
 global using Microsoft.AspNetCore.Mvc;
+global using Library.Application.Dtos.Auth;
+global using Library.Application.Interfaces.Auth;
+global using Library.Domain.Enums.Users;
+global using Library.Attributes.Authorize;
