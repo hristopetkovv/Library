@@ -32,9 +32,11 @@
 						entry.Entity.CreatedByUserId = userId;
 						entry.Entity.CreatedDate = utcNow;
 					}
-
-					entry.Entity.LastModifiedByUserId = userId;
-					entry.Entity.LastModifiedDate = utcNow;
+					else
+					{
+						entry.Entity.LastModifiedByUserId = userId;
+						entry.Entity.LastModifiedDate = utcNow;
+					}
 				}
 			}
 		}

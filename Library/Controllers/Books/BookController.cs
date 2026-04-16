@@ -20,11 +20,12 @@
 			=> Ok(await mediator.Send(new GetAvailableBooksQuery(), cancellationToken));
 
 		[HttpGet("search")]
+		[AllowAnonymous]
 		public async Task<ActionResult<List<BookListDto>>> SearchBooks([FromQuery] string term, CancellationToken cancellationToken)
 			=> Ok(await mediator.Send(new SearchBooksQuery(term), cancellationToken));
 
 		[HttpPost]
-		[Authorize(Roles = "Admin")]
+		[AuthorizeRoles(UserRole.Admin)]
 		public async Task<ActionResult<BookDetailDto>> CreateBook([FromBody] CreateBookCommand command, CancellationToken cancellationToken)
 		{
 			var book = await mediator.Send(command, cancellationToken);
@@ -33,12 +34,12 @@
 		}
 
 		[HttpPut]
-		[Authorize(Roles = "Admin")]
+		[AuthorizeRoles(UserRole.Admin)]
 		public async Task<ActionResult<BookDetailDto>> UpdateBook(UpdateBookCommand command, CancellationToken cancellationToken)
 			=> Ok(await mediator.Send(command, cancellationToken));
 
 		[HttpDelete("{id}")]
-		[Authorize(Roles = "Admin")]
+		[AuthorizeRoles(UserRole.Admin)]
 		public async Task<IActionResult> DeleteBook([FromRoute] int id, CancellationToken cancellationToken)
 		{
 			await mediator.Send(new DeleteBookCommand(id), cancellationToken);
