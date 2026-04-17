@@ -5,7 +5,7 @@
 		public async Task<Unit> Handle(UpdateBookCommand command, CancellationToken cancellationToken)
 		{
 			var book = await unitOfWork.Books.GetByIdForUpdateAsync(command.Id, cancellationToken);
-			if (book == null)
+			if (book is null)
 				throw new NotFoundException(nameof(Book), command.Id);
 
 			var authorExist = await unitOfWork.Authors.AnyAsync(a => a.Id == command.AuthorId, cancellationToken);
@@ -26,7 +26,8 @@
 				command.Language, 
 				command.CoverType, 
 				command.PublicationYear, 
-				command.TotalCopies
+				command.TotalCopies,
+				command.AvailableCopies
 			);
 
 			await unitOfWork.SaveChangesAsync(cancellationToken);

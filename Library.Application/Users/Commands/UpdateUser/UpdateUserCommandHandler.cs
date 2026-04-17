@@ -6,13 +6,16 @@
 		{
 			var userId = userContext.GetUserId();
 
+			if (command.Id != userId)
+				throw new ForbiddenException("You can only update your own profile.");
+
 			var user = await unitOfWork.Users.GetByIdForUpdateAsync(userId, cancellationToken);
-			if (user == null)
+			if (user is null)
 				throw new NotFoundException($"User with ID {userId} not found.");
 
 			var emailExists = await unitOfWork.Users.AnyAsync(u => u.Email.Value == command.Email && u.Id != userId, cancellationToken);
 			if (emailExists)
-				throw new InvalidOperationException($"Email '{command.Email}' is already in use by another user.");
+				throw new BadRequestException($"Email '{command.Email}' is already in use by another user.");
 
 			user.Update(
 				Email.Create(command.Email), 

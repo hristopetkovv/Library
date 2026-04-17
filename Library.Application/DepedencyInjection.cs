@@ -4,10 +4,14 @@
 	{
 		public static void AddApplication(this IServiceCollection services)
 		{
+			var assembly = Assembly.GetExecutingAssembly();
+
+			services.AddValidatorsFromAssembly(assembly);
+
 			services.AddMediatR(cfg =>
 			{
-				cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
-				cfg.AddOpenBehavior(typeof(ValidateCommandBehavior<,>));
+				cfg.RegisterServicesFromAssembly(assembly);
+				cfg.AddOpenBehavior(typeof(ValidationCommandBehavior<,>));
 			});
 		}
 	}

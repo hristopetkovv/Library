@@ -15,9 +15,10 @@
 		public static FullName Create(string firstName, string lastName)
 		{
 			if (string.IsNullOrWhiteSpace(firstName))
-				throw new ArgumentException("First name is required", nameof(firstName));
+				throw new DomainException("First name is required");
+
 			if (string.IsNullOrWhiteSpace(lastName))
-				throw new ArgumentException("Last name is required", nameof(lastName));
+				throw new DomainException("Last name is required");
 
 			return new FullName(firstName, lastName);
 		}

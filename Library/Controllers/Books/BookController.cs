@@ -35,7 +35,7 @@
 
 		[HttpPut]
 		[AuthorizeRoles(UserRole.Admin)]
-		public async Task<ActionResult<BookDetailDto>> UpdateBook(UpdateBookCommand command, CancellationToken cancellationToken)
+		public async Task<IActionResult> UpdateBook(UpdateBookCommand command, CancellationToken cancellationToken)
 			=> Ok(await mediator.Send(command, cancellationToken));
 
 		[HttpDelete("{id}")]

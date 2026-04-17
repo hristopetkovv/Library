@@ -41,7 +41,7 @@
 		public async Task CommitTransactionAsync(CancellationToken cancellationToken = default)
 		{
 			if (transaction is null)
-				throw new InvalidOperationException("Transaction not started");
+				throw new BadRequestException("Transaction not started");
 
 			await transaction.CommitAsync(cancellationToken);
 		}
@@ -49,7 +49,7 @@
 		public async Task RollbackTransactionAsync(CancellationToken cancellationToken = default)
 		{
 			if (transaction is null)
-				throw new InvalidOperationException("Transaction has not been started.");
+				throw new BadRequestException("Transaction has not been started.");
 
 			await transaction.RollbackAsync(cancellationToken)!;
 

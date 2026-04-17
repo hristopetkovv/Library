@@ -5,7 +5,7 @@
 		public async Task<AuthorDetailDto> Handle(GetAuthorByIdQuery query, CancellationToken cancellationToken)
 		{
 			var author = await unitOfWork.Authors.GetByIdAsync(query.Id, cancellationToken, a => a.Books);
-			if (author == null)
+			if (author is null)
 				throw new NotFoundException(nameof(Author), query.Id);
 
 			return author.Adapt<AuthorDetailDto>();

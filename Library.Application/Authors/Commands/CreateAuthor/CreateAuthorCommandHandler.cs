@@ -6,7 +6,7 @@
 		{
 			var existingAuthor = await unitOfWork.Authors.AnyAsync(a => a.Name == command.Name, cancellationToken);
 			if (existingAuthor)
-				throw new InvalidOperationException($"Author with name '{command.Name}' already exists");
+				throw new BadRequestException($"Author with name '{command.Name}' already exists");
 
 			var author = Author.Create(command.Name, command.Biography);
 

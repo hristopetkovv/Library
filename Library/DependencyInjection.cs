@@ -6,6 +6,11 @@
 		{
 			services.AddControllers();
 
+			services.Configure<ApiBehaviorOptions>(options => options.SuppressModelStateInvalidFilter = true);
+
+			services.AddExceptionHandler<GlobalExceptionHandler>();
+			services.AddProblemDetails();
+
 			services.AddJwtAuthentication(configuration);
 
 			services.AddAuthorizationBuilder()
