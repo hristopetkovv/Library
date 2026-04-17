@@ -20,3 +20,7 @@ global using Library.Application.Dtos.Auth;
 global using Library.Application.Interfaces.Auth;
 global using Library.Domain.Enums.Users;
 global using Library.Attributes.Authorize;
+global using Library.Infrastructure.Handlers;
+global using Library.Application.Common.Exceptions;
+global using Library.Domain.Exceptions;
+global using Microsoft.AspNetCore.Diagnostics;

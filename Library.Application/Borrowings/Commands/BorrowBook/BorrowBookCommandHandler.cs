@@ -32,20 +32,20 @@
 
 		private void ValidateBorrowing(BorrowBookCommand command, User? user, Book? book)
 		{
-			if (book == null)
+			if (book is null)
 				throw new NotFoundException(nameof(Book), command.BookId);
 
 			if (!book.CanBeBorrowed())
-				throw new InvalidOperationException($"Book '{book.Title}' has no available copies");
+				throw new BadRequestException($"Book '{book.Title}' has no available copies");
 
-			if (user == null)
+			if (user is null)
 				throw new NotFoundException(nameof(User), command.UserId);
 
 			if (!user.CanBorrow())
-				throw new InvalidOperationException("User cannot borrow more books.");
+				throw new BadRequestException("User cannot borrow more books.");
 
 			if (user.HasOverdueBooks())
-				throw new InvalidOperationException("User has overdue books and cannot borrow until they are returned");
+				throw new BadRequestException("User has overdue books and cannot borrow until they are returned");
 		}
 	}
 }

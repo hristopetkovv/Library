@@ -5,7 +5,7 @@
 		public async Task<Unit> Handle(ReturnBookCommand command, CancellationToken cancellationToken)
 		{
 			var borrowing = await unitOfWork.Borrowings.GetByIdForUpdateAsync(command.BorrowingId, cancellationToken, b => b.Book);
-			if (borrowing == null)
+			if (borrowing is null)
 				throw new NotFoundException(nameof(Borrowing), command.BorrowingId);
 
 			await unitOfWork.BeginTransactionAsync(cancellationToken);

@@ -1,27 +1,48 @@
 ﻿namespace Library.Infrastructure.Services.Auth
 {
-	public class AuthService(IUnitOfWork unitOfWork, IPasswordHasher passwordHasher, IJwtTokenGenerator jwt) : IAuthService
+	public class AuthService : IAuthService
 	{
+		private readonly IUnitOfWork unitOfWork;
+		private readonly IPasswordHasher passwordHasher;
+		private readonly IJwtTokenGenerator jwt;
+		private readonly IValidator<LoginRequest> loginValidator;
+		private readonly IValidator<RegisterRequest> registerValidator;
+
+		public AuthService(
+			IUnitOfWork unitOfWork, 
+			IPasswordHasher passwordHasher, 
+			IJwtTokenGenerator jwt,
+			IValidator<LoginRequest> loginValidator,
+			IValidator<RegisterRequest> registerValidator
+			)
+		{
+			this.unitOfWork = unitOfWork;
+			this.passwordHasher = passwordHasher;
+			this.jwt = jwt;
+			this.loginValidator = loginValidator;
+			this.registerValidator = registerValidator;
+		}
+
 		public async Task<AuthResponse> LoginAsync(LoginRequest request, CancellationToken cancellationToken)
 		{
-			await new LoginRequestValidator().ValidateAndThrowAsync(request, cancellationToken);
+			await ValidateAsync(loginValidator, request, cancellationToken);
 
 			// TODO: implement User status and failed logic count for better security and user experience
 			var user = await unitOfWork.Users.FirstOrDefaultAsync(u => u.Email.Value == request.Email, cancellationToken);
 
-			if (user == null || !passwordHasher.VerifyPassword(request.Password, user.PasswordHash, user.PasswordSalt))
-				throw new UnauthorizedAccessException("Invalid email or password.");
+			if (user is null || !passwordHasher.VerifyPassword(request.Password, user.PasswordHash, user.PasswordSalt))
+				throw new UnauthorizedException("Invalid email or password.");
 
 			return new AuthResponse(jwt.GenerateToken(user), new UserLoginInfoDto(user.FullName.FirstName, user.FullName.LastName, user.Email.Value, user.Role));
 		}
 
 		public async Task RegisterAsync(RegisterRequest request, CancellationToken cancellationToken)
 		{
-			await new RegisterRequestValidator().ValidateAndThrowAsync(request, cancellationToken);
+			await ValidateAsync(registerValidator, request, cancellationToken);
 
 			var isEmailExist = await unitOfWork.Users.AnyAsync(u => u.Email.Value == request.Email, cancellationToken);
 			if (isEmailExist)
-				throw new InvalidOperationException("Email already exists.");
+				throw new BadRequestException("Email already exists.");
 
 			var passwordHash = passwordHasher.HashPassword(request.Password, out var passwordSalt);
 
@@ -37,6 +58,21 @@
 
 			await unitOfWork.Users.AddAsync(user, cancellationToken);
 			await unitOfWork.SaveChangesAsync(cancellationToken);
+		}
+
+		private static async Task ValidateAsync<TRequest>(IValidator<TRequest> validator, TRequest request, CancellationToken ct)
+		{
+			var result = await validator.ValidateAsync(request, ct);
+
+			if (!result.IsValid)
+			{
+				throw new ValidationErrorException(result.Errors
+					.GroupBy(e => e.PropertyName)
+					.ToDictionary(
+						g => g.Key,
+						g => g.Select(e => e.ErrorMessage).ToArray()
+					));
+			}
 		}
 	}
 }

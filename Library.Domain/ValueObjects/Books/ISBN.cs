@@ -11,9 +11,6 @@
 
 		public static ISBN Create(string isbn)
 		{
-			if (string.IsNullOrWhiteSpace(isbn))
-				throw new ArgumentException("ISBN is required");
-
 			// Remove hyphens and spaces
 			var cleaned = isbn.Replace("-", "").Replace(" ", "");
 

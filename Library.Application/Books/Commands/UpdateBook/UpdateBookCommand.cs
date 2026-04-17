@@ -11,6 +11,7 @@
 		Language Language,
 		CoverType CoverType,
 		int PublicationYear,
-		int TotalCopies
+		int TotalCopies,
+		int AvailableCopies
 	) : ICommand<Unit>;
 }

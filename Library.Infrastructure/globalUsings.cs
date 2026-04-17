@@ -31,10 +31,11 @@ global using System.IdentityModel.Tokens.Jwt;
 global using Library.Application.Users.Dtos;
 global using Library.Infrastructure.Services.Helpers;
 global using Library.Application.Interfaces.Helpers;
-global using FluentValidation;
 global using Library.Application.Dtos.Auth;
 global using Library.Application.Interfaces.Auth;
 global using Library.Application.Validations.Auth;
 global using Microsoft.Extensions.Options;
+global using Library.Application.Common.Exceptions;
+global using FluentValidation;
 
 

@@ -12,10 +12,10 @@
 		public static Email Create(string email)
 		{
 			if (string.IsNullOrWhiteSpace(email))
-				throw new ArgumentException("Email is required");
+				throw new DomainException("Email is required");
 
 			if (!IsValidEmail(email))
-				throw new ArgumentException("Invalid email format");
+				throw new DomainException("Invalid email format");
 
 			return new Email(email.ToLowerInvariant());
 		}

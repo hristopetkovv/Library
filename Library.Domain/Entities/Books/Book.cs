@@ -23,12 +23,6 @@
 
 		public static Book Create(string title, int authorId, int publisherId, ISBN isbn, string? description, int pages, Language language, CoverType coverType, int publicationYear, int totalCopies)
 		{
-			if (string.IsNullOrWhiteSpace(title))
-				throw new ArgumentException("Title cannot be null or empty.", nameof(title));
-
-			if (totalCopies < 0)
-				throw new ArgumentException("Total copies cannot be negative.", nameof(totalCopies));
-
 			return new Book
 			{
 				Title = title,
@@ -45,7 +39,7 @@
 			};
 		}
 
-		public void Update(string title, int authorId, int publisherId, ISBN isbn, string? description, int pages, Language language, CoverType coverType, int publicationYear, int totalCopies)
+		public void Update(string title, int authorId, int publisherId, ISBN isbn, string? description, int pages, Language language, CoverType coverType, int publicationYear, int totalCopies, int availableCopies)
 		{
 			Title = title;
 			AuthorId = authorId;
@@ -57,6 +51,7 @@
 			CoverType = coverType;
 			PublicationYear = publicationYear;
 			TotalCopies = totalCopies;
+			AvailableCopies = availableCopies;
 		}
 
 		public bool CanBeBorrowed() => AvailableCopies > 0;
@@ -64,7 +59,7 @@
 		public void DecrementAvailableCopies()
 		{
 			if (AvailableCopies <= 0)
-				throw new InvalidOperationException($"No available copies of '{Title}'");
+				throw new DomainException($"No available copies of '{Title}'");
 
 			AvailableCopies--;
 		}
@@ -72,7 +67,7 @@
 		public void IncrementAvailableCopies()
 		{
 			if (AvailableCopies >= TotalCopies)
-				throw new InvalidOperationException($"Available copies cannot exceed total copies");
+				throw new DomainException($"Available copies cannot exceed total copies");
 
 			AvailableCopies++;
 		}

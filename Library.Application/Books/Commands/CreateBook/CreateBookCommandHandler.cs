@@ -5,11 +5,11 @@
 		public async Task<BookDetailDto> Handle(CreateBookCommand command, CancellationToken cancellationToken)
 		{
 			var author = await unitOfWork.Authors.GetByIdAsync(command.AuthorId, cancellationToken);
-			if (author == null)
+			if (author is null)
 				throw new NotFoundException(nameof(Author), command.AuthorId);
 
 			var publisher = await unitOfWork.Publishers.GetByIdAsync(command.PublisherId, cancellationToken);
-			if (publisher == null)
+			if (publisher is null)
 				throw new NotFoundException(nameof(Publisher), command.PublisherId);
 
 			var book = Book.Create(
