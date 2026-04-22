@@ -1,7 +1,7 @@
 ﻿namespace Library.Application.Books.Commands.CreateBook
 {
 	public record CreateBookCommand(
-		string Title, 
+		string Title,
 		int AuthorId,
 		int PublisherId,
 		string ISBN,

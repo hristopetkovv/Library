@@ -21,5 +21,8 @@ global using Library.Domain.ValueObjects.Users;
 global using Library.Application.Dtos.Auth;
 global using Library.Application.Interfaces.Auth;
 global using System.Reflection;
-
+global using Library.Domain.Entities.Authors;
+global using Library.Domain.Entities.Publishers;
+global using Microsoft.Extensions.Logging;
+global using System.Diagnostics;
 

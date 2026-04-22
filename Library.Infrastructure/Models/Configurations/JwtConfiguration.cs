@@ -1,4 +1,4 @@
-﻿namespace Library.Infrastructure.Helpers.Configuration.Models
+﻿namespace Library.Infrastructure.Models.Configurations
 {
 	public class JwtConfiguration
 	{

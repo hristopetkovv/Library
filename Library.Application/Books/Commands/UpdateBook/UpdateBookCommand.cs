@@ -13,5 +13,5 @@
 		int PublicationYear,
 		int TotalCopies,
 		int AvailableCopies
-	) : ICommand<Unit>;
+	) : ICommand<BookDetailDto>;
 }

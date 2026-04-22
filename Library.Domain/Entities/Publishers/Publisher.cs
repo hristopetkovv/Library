@@ -1,4 +1,4 @@
-﻿namespace Library.Domain.Entities.Books
+﻿namespace Library.Domain.Entities.Publishers
 {
 	public class Publisher : BaseAuditableEntity, IEntity
 	{

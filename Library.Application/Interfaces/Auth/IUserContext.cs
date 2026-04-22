@@ -2,7 +2,7 @@
 {
 	public interface IUserContext
 	{
-		int GetUserId();
-		string? GetUserEmail();
+		int UserId { get; }
+		UserRole Role { get; }
 	}
 }
