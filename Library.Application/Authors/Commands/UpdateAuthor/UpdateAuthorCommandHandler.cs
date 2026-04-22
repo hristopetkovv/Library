@@ -1,8 +1,8 @@
 ﻿namespace Library.Application.Authors.Commands.UpdateAuthor
 {
-	public class UpdateAuthorCommandHandler(IUnitOfWork unitOfWork) : IRequestHandler<UpdateAuthorCommand, Unit>
+	public class UpdateAuthorCommandHandler(IUnitOfWork unitOfWork) : IRequestHandler<UpdateAuthorCommand, AuthorDetailDto>
 	{
-		public async Task<Unit> Handle(UpdateAuthorCommand command, CancellationToken cancellationToken)
+		public async Task<AuthorDetailDto> Handle(UpdateAuthorCommand command, CancellationToken cancellationToken)
 		{
 			var author = await unitOfWork.Authors.GetByIdForUpdateAsync(command.Id, cancellationToken);
 			if (author is null)
@@ -16,7 +16,7 @@
 
 			await unitOfWork.SaveChangesAsync(cancellationToken);
 
-			return Unit.Value;
+			return author.Adapt<AuthorDetailDto>();
 		}
 	}
 }

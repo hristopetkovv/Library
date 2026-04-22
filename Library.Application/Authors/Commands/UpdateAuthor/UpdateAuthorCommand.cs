@@ -4,5 +4,5 @@
 		int Id,
 		string Name,
 		string Biography
-	) : ICommand<Unit>;
+	) : ICommand<AuthorDetailDto>;
 }

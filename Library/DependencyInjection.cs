@@ -4,6 +4,8 @@
 	{
 		public static void AddApi(this IServiceCollection services, IConfiguration configuration)
 		{
+			services.AddOpenApi();
+
 			services.AddControllers();
 
 			services.Configure<ApiBehaviorOptions>(options => options.SuppressModelStateInvalidFilter = true);
@@ -24,7 +26,11 @@
 			var jwtConfig = configuration.GetSection("JwtConfiguration").Get<JwtConfiguration>();
 
 			services
-				.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+				.AddAuthentication(options =>
+				{
+					options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+					options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+				})
 				.AddJwtBearer(e =>
 				{
 					e.SaveToken = true;
@@ -41,6 +47,42 @@
 						RequireExpirationTime = true
 					};
 				});
+		}
+
+		private static void AddOpenApi(this IServiceCollection services)
+		{
+			services.AddOpenApi(options =>
+			{
+				options.AddDocumentTransformer((document, context, cancellationToken) =>
+				{
+					document.Components ??= new OpenApiComponents();
+					document.Components.SecuritySchemes.Add("Bearer", new OpenApiSecurityScheme
+					{
+						Type = SecuritySchemeType.Http,
+						Scheme = "bearer",
+						BearerFormat = "JWT",
+						In = ParameterLocation.Header,
+						Description = "Enter your JWT token"
+					});
+
+					document.SecurityRequirements.Add(new OpenApiSecurityRequirement
+					{
+						{
+							new OpenApiSecurityScheme
+							{
+								Reference = new OpenApiReference
+								{
+									Type = ReferenceType.SecurityScheme,
+									Id = "Bearer"
+								}
+							},
+							Array.Empty<string>()
+						}
+					});
+
+					return Task.CompletedTask;
+				});
+			});
 		}
 	}
 }

@@ -20,7 +20,7 @@
 		{
 			if (context == null) return;
 
-			var userId = userContext.GetUserId();
+			var currentUserId = userContext.UserId;
 			var utcNow = DateTime.UtcNow;
 
 			foreach (var entry in context.ChangeTracker.Entries<IAuditable>())
@@ -29,12 +29,12 @@
 				{
 					if (entry.State == EntityState.Added)
 					{
-						entry.Entity.CreatedByUserId = userId;
+						entry.Entity.CreatedByUserId = currentUserId;
 						entry.Entity.CreatedDate = utcNow;
 					}
 					else
 					{
-						entry.Entity.LastModifiedByUserId = userId;
+						entry.Entity.LastModifiedByUserId = currentUserId;
 						entry.Entity.LastModifiedDate = utcNow;
 					}
 				}

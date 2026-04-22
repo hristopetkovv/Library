@@ -1,8 +1,8 @@
 ﻿namespace Library.Application.Books.Commands.UpdateBook
 {
-	public class UpdateBookCommandHandler(IUnitOfWork unitOfWork) : IRequestHandler<UpdateBookCommand, Unit>
+	public class UpdateBookCommandHandler(IUnitOfWork unitOfWork) : IRequestHandler<UpdateBookCommand, BookDetailDto>
 	{
-		public async Task<Unit> Handle(UpdateBookCommand command, CancellationToken cancellationToken)
+		public async Task<BookDetailDto> Handle(UpdateBookCommand command, CancellationToken cancellationToken)
 		{
 			var book = await unitOfWork.Books.GetByIdForUpdateAsync(command.Id, cancellationToken);
 			if (book is null)
@@ -32,7 +32,7 @@
 
 			await unitOfWork.SaveChangesAsync(cancellationToken);
 
-			return Unit.Value;
+			return book.Adapt<BookDetailDto>();
 		}
 	}
 }

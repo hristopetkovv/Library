@@ -24,7 +24,6 @@ global using Library.Domain.ValueObjects.Books;
 global using Library.Domain.ValueObjects.Users;
 global using System.Security.Cryptography;
 global using System.Text;
-global using Library.Infrastructure.Helpers.Configuration.Models;
 global using Mapster;
 global using Microsoft.IdentityModel.Tokens;
 global using System.IdentityModel.Tokens.Jwt;
@@ -33,9 +32,12 @@ global using Library.Infrastructure.Services.Helpers;
 global using Library.Application.Interfaces.Helpers;
 global using Library.Application.Dtos.Auth;
 global using Library.Application.Interfaces.Auth;
-global using Library.Application.Validations.Auth;
 global using Microsoft.Extensions.Options;
 global using Library.Application.Common.Exceptions;
 global using FluentValidation;
-
-
+global using Library.Domain.Entities.Authors;
+global using Library.Domain.Entities.Publishers;
+global using Library.Infrastructure.Models.Configurations;
+global using Microsoft.Extensions.Hosting;
+global using Serilog;
+global using Microsoft.Extensions.Logging;

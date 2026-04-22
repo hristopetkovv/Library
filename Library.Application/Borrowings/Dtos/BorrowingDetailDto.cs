@@ -1,6 +1,6 @@
 ﻿namespace Library.Application.Borrowings.Dtos
 {
-	public record BorrowingDto(
+	public record BorrowingDetailDto(
 		int Id,
 		BookListDto Book,
 		string UserEmail,

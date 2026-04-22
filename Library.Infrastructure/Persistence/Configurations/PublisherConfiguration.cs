@@ -1,4 +1,6 @@
-﻿namespace Library.Infrastructure.Persistence.Configurations
+﻿using Library.Domain.Entities.Publishers;
+
+namespace Library.Infrastructure.Persistence.Configurations
 {
 	public class PublisherConfiguration : IEntityTypeConfiguration<Publisher>
 	{

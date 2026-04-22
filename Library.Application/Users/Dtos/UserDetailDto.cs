@@ -1,6 +1,6 @@
 ﻿namespace Library.Application.Users.Dtos
 {
-	public record UserDto(
+	public record UserDetailDto(
 		int Id,
 		string Email,
 		UserRole Role,

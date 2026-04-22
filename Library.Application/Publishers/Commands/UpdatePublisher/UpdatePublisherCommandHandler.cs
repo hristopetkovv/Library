@@ -1,8 +1,8 @@
 ﻿namespace Library.Application.Publishers.Commands.UpdatePublisher
 {
-	public class UpdatePublisherCommandHandler(IUnitOfWork unitOfWork) : IRequestHandler<UpdatePublisherCommand, Unit>
+	public class UpdatePublisherCommandHandler(IUnitOfWork unitOfWork) : IRequestHandler<UpdatePublisherCommand, PublisherDetailDto>
 	{
-		public async Task<Unit> Handle(UpdatePublisherCommand command, CancellationToken cancellationToken)
+		public async Task<PublisherDetailDto> Handle(UpdatePublisherCommand command, CancellationToken cancellationToken)
 		{
 			var publisher = await unitOfWork.Publishers.GetByIdForUpdateAsync(command.Id, cancellationToken);
 			if (publisher is null)
@@ -16,7 +16,7 @@
 
 			await unitOfWork.SaveChangesAsync(cancellationToken);
 
-			return Unit.Value;
+			return publisher.Adapt<PublisherDetailDto>();
 		}
 	}
 }
