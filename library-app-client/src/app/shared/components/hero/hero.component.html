@@ -1,0 +1,33 @@
+<div class="hero-section">
+    <div class="hero-overlay">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Открий следващата си любима история</h1>
+                <p>Мястото, където знанието и въображението се срещат.</p>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number"
+                              [countUp]="libraryService.stats().totalBooks"
+                              [countUpOptions]="{ duration: 2, useEasing: true, suffix: '+' }">0+</span>
+                        <span class="stat-label">Книги</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number"
+                              [countUp]="libraryService.stats().totalAuthors"
+                              [countUpOptions]="{ duration: 2, useEasing: true, suffix: '+' }">0</span>
+                        <span class="stat-label">Автори</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number"
+                              [countUp]="libraryService.stats().totalPublishers"
+                              [countUpOptions]="{ duration: 2, useEasing: true, suffix: '+' }">0</span>
+                        <span class="stat-label">Издателства</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

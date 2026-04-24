@@ -77,7 +77,14 @@
         public async Task<bool> AnyAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken = default) 
             => await dbSet.AsNoTracking().AnyAsync(predicate, cancellationToken);
 
-        public async Task<int> CountAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken = default) 
-            => await dbSet.AsNoTracking().CountAsync(predicate, cancellationToken);
+        public async Task<int> CountAsync(Expression<Func<T, bool>>? predicate = null, CancellationToken cancellationToken = default)
+		{
+			if (predicate == null)
+			{
+				return await context.Set<T>().CountAsync(cancellationToken);
+			}
+
+			return await context.Set<T>().CountAsync(predicate, cancellationToken);
+		}
 	}
 }

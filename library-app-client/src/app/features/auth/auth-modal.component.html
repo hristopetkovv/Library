@@ -1,0 +1,116 @@
+<nz-tabs nzCentered
+         [(nzSelectedIndex)]="tabIndex"
+         nzSize="large">
+
+    <!-- ТАБ: ВХОД -->
+    <nz-tab nzTitle="Вход">
+        <form #loginForm="ngForm"
+              (ngSubmit)="login()"
+              class="auth-form">
+
+            <div class="input-container">
+                <input nz-input
+                       name="email"
+                       [(ngModel)]="loginData.email"
+                       placeholder="Електронна поща *"
+                       required
+                       email
+                       class="rounded-input" />
+            </div>
+
+            <div class="input-container password-wrapper">
+                <input nz-input
+                       [type]="passwordVisible ? 'text' : 'password'"
+                       name="password"
+                       [(ngModel)]="loginData.password"
+                       placeholder="Парола *"
+                       required
+                       class="rounded-input" />
+                <span nz-icon
+                      [nzType]="passwordVisible ? 'eye-invisible' : 'eye'"
+                      (click)="passwordVisible = !passwordVisible"
+                      class="password-icon">
+                </span>
+            </div>
+
+            <div class="forgot-password-link">
+                <a>Забравена парола?</a>
+            </div>
+
+            <button nz-button
+                    nzBlock
+                    nzType="primary"
+                    class="auth-btn"
+                    [nzLoading]="isLoading()"
+                    [disabled]="!loginForm.valid">
+                Влез
+            </button>
+        </form>
+    </nz-tab>
+
+    <!-- ТАБ: РЕГИСТРАЦИЯ -->
+    <nz-tab nzTitle="Регистрация">
+        <form #regForm="ngForm"
+              (ngSubmit)="register()"
+              class="auth-form">
+
+            <div class="name-row">
+                <input nz-input
+                       name="firstName"
+                       [(ngModel)]="registerData.firstName"
+                       placeholder="Име *"
+                       required
+                       class="rounded-input" />
+                <input nz-input
+                       name="lastName"
+                       [(ngModel)]="registerData.lastName"
+                       placeholder="Фамилия *"
+                       required
+                       class="rounded-input" />
+            </div>
+
+            <input nz-input
+                   name="email"
+                   [(ngModel)]="registerData.email"
+                   placeholder="Електронна поща *"
+                   required
+                   email
+                   class="rounded-input mt" />
+            <input nz-input
+                   name="phoneNumber"
+                   [(ngModel)]="registerData.phoneNumber"
+                   placeholder="Телефон"
+                   class="rounded-input mt" />
+
+            <div class="password-wrapper mt">
+                <input nz-input
+                       type="password"
+                       name="password"
+                       [(ngModel)]="registerData.password"
+                       placeholder="Парола *"
+                       required
+                       class="rounded-input" />
+            </div>
+
+            <div class="password-wrapper mt">
+                <input nz-input
+                       type="password"
+                       name="passwordAgain"
+                       [(ngModel)]="registerData.passwordAgain"
+                       placeholder="Повтори парола *"
+                       required
+                       class="rounded-input" />
+            </div>
+
+            <button nz-button
+                    nzBlock
+                    nzType="primary"
+                    class="auth-btn mt"
+                    [nzLoading]="isLoading()"
+                    [disabled]="!regForm.valid">
+                Регистрирай се
+            </button>
+        </form>
+    </nz-tab>
+
+</nz-tabs>

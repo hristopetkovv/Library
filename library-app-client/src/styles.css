@@ -1,0 +1,9 @@
+:root {
+  --library-green: #2d5a27; 
+  --library-light-green: #e9f0e8;
+}
+
+.auth-modal-wrapper .ant-modal-content {
+  border-radius: 20px !important;
+  overflow: hidden;
+}
