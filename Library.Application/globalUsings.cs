@@ -25,4 +25,5 @@ global using Library.Domain.Entities.Authors;
 global using Library.Domain.Entities.Publishers;
 global using Microsoft.Extensions.Logging;
 global using System.Diagnostics;
+global using Library.Application.Libraries.Dtos;
 

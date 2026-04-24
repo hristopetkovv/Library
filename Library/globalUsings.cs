@@ -57,3 +57,5 @@ global using Library.Infrastructure.Models.Configurations;
 global using Serilog;
 global using Microsoft.OpenApi.Models;
 global using Scalar.AspNetCore;
+global using Library.Application.Libraries.Dtos;
+global using Library.Application.Libraries.Queries.GetLibraryStats;

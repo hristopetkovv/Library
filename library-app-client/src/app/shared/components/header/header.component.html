@@ -1,0 +1,73 @@
+<nz-header class="light-header">
+    <div class="header-container">
+        <div class="header-left">
+            <div class="brand-wrapper"
+                 routerLink="/">
+                <span class="brand-text">Библиотека</span>
+            </div>
+
+            <ul nz-menu
+                nzMode="horizontal"
+                nzTheme="light"
+                class="nav-menu">
+                <li nz-menu-item
+                    routerLink="/books"
+                    nzMatchRouter>
+                    <div class="menu-item-content">
+
+                        <span class="menu-text">Книги</span>
+                    </div>
+                </li>
+                <li nz-menu-item
+                    routerLink="/authors"
+                    nzMatchRouter>
+                    <div class="menu-item-content">
+
+                        <span class="menu-text">Автори</span>
+                    </div>
+                </li>
+                <li nz-menu-item
+                    routerLink="/publishers"
+                    nzMatchRouter>
+                    <div class="menu-item-content">
+
+                        <span class="menu-text">Издатели</span>
+                    </div>
+                </li>
+
+                @if (authService.currentUser()?.role == userRole.admin) {
+                <li nz-menu-item
+                    routerLink="/admin/users"
+                    nzMatchRouter>
+                    <div class="menu-item-content">
+                        <span class="menu-text">Потребители</span>
+                    </div>
+                </li>
+                }
+            </ul>
+        </div>
+
+        <div class="header-right">
+            @if (authService.isAuthenticated()) {
+            <div class="user-section">
+                <span class="username">{{ authService.currentUser()?.firstName }}</span>
+                <button nz-button
+                        nzType="text"
+                        nzDanger
+                        (click)="authService.logout()">
+                    <span nz-icon
+                          nzType="logout"></span> Изход
+                </button>
+            </div>
+            } @else {
+            <button nz-button
+                    nzType="primary"
+                    nzShape="round"
+                    (click)="openAuthModal()"
+                    class="login-btn">
+                Влез
+            </button>
+            }
+        </div>
+    </div>
+</nz-header>
