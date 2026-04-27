@@ -2,29 +2,29 @@
     <div class="hero-overlay">
         <div class="hero-container">
             <div class="hero-content">
-                <h1>Открий следващата си любима история</h1>
-                <p>Мястото, където знанието и въображението се срещат.</p>
+                <h1>{{ 'hero.header' | translate }}</h1>
+                <p>{{ 'hero.paragraph' | translate }}</p>
 
                 <div class="hero-stats">
                     <div class="stat-item">
                         <span class="stat-number"
-                              [countUp]="libraryService.stats().totalBooks"
-                              [countUpOptions]="{ duration: 2, useEasing: true, suffix: '+' }">0+</span>
-                        <span class="stat-label">Книги</span>
+                              [countUp]="stats().totalBooks"
+                              [countUpOptions]="{ duration: 2, useEasing: true, suffix: '+' }">0</span>
+                        <span class="stat-label">{{ 'hero.books' | translate }}</span>
                     </div>
                     <div class="stat-divider"></div>
                     <div class="stat-item">
                         <span class="stat-number"
-                              [countUp]="libraryService.stats().totalAuthors"
+                              [countUp]="stats().totalAuthors"
                               [countUpOptions]="{ duration: 2, useEasing: true, suffix: '+' }">0</span>
-                        <span class="stat-label">Автори</span>
+                        <span class="stat-label">{{ 'hero.authors' | translate }}</span>
                     </div>
                     <div class="stat-divider"></div>
                     <div class="stat-item">
                         <span class="stat-number"
-                              [countUp]="libraryService.stats().totalPublishers"
+                              [countUp]="stats().totalPublishers"
                               [countUpOptions]="{ duration: 2, useEasing: true, suffix: '+' }">0</span>
-                        <span class="stat-label">Издателства</span>
+                        <span class="stat-label">{{ 'hero.publishers' | translate }}</span>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,61 @@
+<form #regForm="ngForm"
+      (ngSubmit)="register()"
+      class="auth-form">
+
+       <div class="name-row">
+              <input nz-input
+                     name="firstName"
+                     [(ngModel)]="registerData.firstName"
+                     placeholder="{{ 'auth.register.firstNamePlaceholder' | translate }}"
+                     required
+                     class="rounded-input" />
+              <input nz-input
+                     name="lastName"
+                     [(ngModel)]="registerData.lastName"
+                     placeholder="{{ 'auth.register.lastNamePlaceholder' | translate }}"
+                     required
+                     class="rounded-input" />
+       </div>
+
+       <input nz-input
+              name="email"
+              [(ngModel)]="registerData.email"
+              placeholder="{{ 'auth.register.emailPlaceholder' | translate }}"
+              required
+              email
+              class="rounded-input mt" />
+       <input nz-input
+              name="phoneNumber"
+              [(ngModel)]="registerData.phoneNumber"
+              placeholder="{{ 'auth.register.phoneNumberPlaceholder' | translate }}"
+              class="rounded-input mt" />
+
+       <div class="password-wrapper mt">
+              <input nz-input
+                     type="password"
+                     name="password"
+                     [(ngModel)]="registerData.password"
+                     placeholder="{{ 'auth.register.passwordPlaceholder' | translate }}"
+                     required
+                     class="rounded-input" />
+       </div>
+
+       <div class="password-wrapper mt">
+              <input nz-input
+                     type="password"
+                     name="passwordAgain"
+                     [(ngModel)]="registerData.passwordAgain"
+                     placeholder="{{ 'auth.register.passwordAgainPlaceholder' | translate }}"
+                     required
+                     class="rounded-input" />
+       </div>
+
+       <button nz-button
+               nzBlock
+               nzType="primary"
+               class="auth-btn mt"
+               [nzLoading]="isLoading()"
+               [disabled]="!regForm.valid">
+              {{ 'auth.register.registerBtn' | translate }}
+       </button>
+</form>

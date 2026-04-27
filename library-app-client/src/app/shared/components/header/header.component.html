@@ -3,7 +3,7 @@
         <div class="header-left">
             <div class="brand-wrapper"
                  routerLink="/">
-                <span class="brand-text">Библиотека</span>
+                <span class="brand-text">{{ 'header.title' | translate }}</span>
             </div>
 
             <ul nz-menu
@@ -15,7 +15,7 @@
                     nzMatchRouter>
                     <div class="menu-item-content">
 
-                        <span class="menu-text">Книги</span>
+                        <span class="menu-text">{{ 'header.books' | translate }}</span>
                     </div>
                 </li>
                 <li nz-menu-item
@@ -23,7 +23,7 @@
                     nzMatchRouter>
                     <div class="menu-item-content">
 
-                        <span class="menu-text">Автори</span>
+                        <span class="menu-text">{{ 'header.authors' | translate }}</span>
                     </div>
                 </li>
                 <li nz-menu-item
@@ -31,7 +31,7 @@
                     nzMatchRouter>
                     <div class="menu-item-content">
 
-                        <span class="menu-text">Издатели</span>
+                        <span class="menu-text">{{ 'header.publishers' | translate }}</span>
                     </div>
                 </li>
 
@@ -40,7 +40,7 @@
                     routerLink="/admin/users"
                     nzMatchRouter>
                     <div class="menu-item-content">
-                        <span class="menu-text">Потребители</span>
+                        <span class="menu-text">{{ 'header.users' | translate }}</span>
                     </div>
                 </li>
                 }
@@ -56,7 +56,7 @@
                         nzDanger
                         (click)="authService.logout()">
                     <span nz-icon
-                          nzType="logout"></span> Изход
+                          nzType="logout"></span> {{ 'header.logout' | translate }}
                 </button>
             </div>
             } @else {
@@ -65,7 +65,7 @@
                     nzShape="round"
                     (click)="openAuthModal()"
                     class="login-btn">
-                Влез
+                {{ 'header.login' | translate }}
             </button>
             }
         </div>

@@ -11,5 +11,4 @@ import { FooterComponent } from './shared/components/footer/footer.component';
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
-export class App {
-}
+export class App { }

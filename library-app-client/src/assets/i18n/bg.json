@@ -1,0 +1,55 @@
+{
+    "header": {
+        "title": "Библиотека",
+        "books": "Книги",
+        "authors": "Автори",
+        "publishers": "Издатели",
+        "users": "Потребители",
+        "logout": "Изход",
+        "login": "Вход"
+    },
+    "footer": {
+        "address": "гр. София, ул. Библиотечна 10",
+        "info": "Библиотека - Система за управление"
+    },
+    "hero": {
+        "header": "Открий следващата си любима история",
+        "paragraph": "Мястото, където знанието и въображението се срещат.",
+        "books": "Книги",
+        "authors": "Автори",
+        "publishers": "Издатели"
+    },
+    "auth": {
+        "loginTitle": "Вход",
+        "registerTitle": "Регистрация",
+        "login": {
+            "emailPlaceholder": "Електронна поща *",
+            "passwordPlaceholder": "Парола *",
+            "forgottenPassword": "Забравена парола",
+            "enterBtn": "Влез"
+        },
+        "register": {
+            "firstNamePlaceholder": "Име *",
+            "lastNamePlaceholder": "Фамилия *",
+            "emailPlaceholder": "Електронна поща *",
+            "phoneNumberPlaceholder": "Телефон",
+            "passwordPlaceholder": "Парола *",
+            "passwordAgainPlaceholder": "Повтори парола *",
+            "registerBtn": "Регистрирай се"
+        }
+    },
+    "notification": {
+        "success": {
+            "login": "Добре дошли!",
+            "register": "Регистрацията е успешна! Моля, влезте в профила си."
+        }
+    },
+    "error": {
+        "title": "Грешка",
+        "detail": "Възникна неочаквана грешка",
+        "unauthorized": "Неоторизиран",
+        "forbidden": "Нямате права",
+        "notFound": "Не съществува",
+        "notFoundMessage": "Заявеният ресурс не съществува."
+    }
+}

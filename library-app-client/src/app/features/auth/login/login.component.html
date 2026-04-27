@@ -1,0 +1,42 @@
+<form #loginForm="ngForm"
+      (ngSubmit)="login()"
+      class="auth-form">
+
+    <div class="input-container">
+        <input nz-input
+               name="email"
+               [(ngModel)]="loginData.email"
+               placeholder="{{ 'auth.login.emailPlaceholder' | translate }}"
+               required
+               email
+               class="rounded-input" />
+    </div>
+
+    <div class="input-container password-wrapper">
+        <input nz-input
+               [type]="passwordVisible ? 'text' : 'password'"
+               name="password"
+               [(ngModel)]="loginData.password"
+               placeholder="{{ 'auth.login.passwordPlaceholder' | translate }}"
+               required
+               class="rounded-input" />
+        <span nz-icon
+              [nzType]="passwordVisible ? 'eye-invisible' : 'eye'"
+              (click)="passwordVisible = !passwordVisible"
+              class="password-icon">
+        </span>
+    </div>
+
+    <div class="forgot-password-link">
+        <a (click)="forgotPassword()">{{ 'auth.login.forgottenPassword' | translate }}?</a>
+    </div>
+
+    <button nz-button
+            nzBlock
+            nzType="primary"
+            class="auth-btn"
+            [nzLoading]="isLoading()"
+            [disabled]="!loginForm.valid">
+        {{ 'auth.login.enterBtn' | translate }}
+    </button>
+</form>
