@@ -7,17 +7,19 @@ import { UserRole } from "../../../core/enums/users/user-role.enum";
 import { NzLayoutModule } from "ng-zorro-antd/layout";
 import { NzModalService } from "ng-zorro-antd/modal";
 import { AuthModalComponent } from "../../../features/auth/auth-modal.component";
+import { TranslatePipe, TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, NzMenuModule, NzButtonModule, NzLayoutModule],
+  imports: [RouterLink, NzMenuModule, NzButtonModule, NzLayoutModule, TranslatePipe],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
   public authService = inject(AuthService);
   private modalService = inject(NzModalService);
+  private translateService = inject(TranslateService);
 
   userRole = UserRole;
 
@@ -29,7 +31,7 @@ export class HeaderComponent {
       nzWidth: 450,
       nzClassName: 'auth-modal-wrapper',
       nzMaskClosable: true, 
-      nzOnCancel: (instance) => instance.handleCancel()
+      nzOnCancel: (instance) => instance.closeModal()
     });
   }
 }

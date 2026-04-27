@@ -1,10 +1,11 @@
 import { Component } from "@angular/core";
+import { TranslatePipe } from "@ngx-translate/core";
 import { NzLayoutModule } from "ng-zorro-antd/layout";
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [NzLayoutModule],
+  imports: [NzLayoutModule, TranslatePipe],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.css'
 })

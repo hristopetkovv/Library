@@ -103,3 +103,12 @@
   background-color: #3d7a35 !important;
   border-color: #3d7a35 !important;
 }
+
+::ng-deep .ant-menu-horizontal > .ant-menu-item:hover::after,
+::ng-deep .ant-menu-horizontal > .ant-menu-submenu:hover::after,
+::ng-deep .ant-menu-horizontal > .ant-menu-item-active::after,
+::ng-deep .ant-menu-horizontal > .ant-menu-submenu-active::after,
+::ng-deep .ant-menu-horizontal > .ant-menu-item-selected::after,
+::ng-deep .ant-menu-horizontal > .ant-menu-submenu-selected::after {
+    border-bottom-color: #2e4d32 !important;
+}

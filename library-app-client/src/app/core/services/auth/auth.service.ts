@@ -27,8 +27,9 @@ export class AuthService {
     logout() {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
+        
         this.currentUser.set(null);
-        this.router.navigate(["/auth/login"]);
+        this.router.navigate(["/books"]);
     }
 
     register(request: RegisterRequestDto) {

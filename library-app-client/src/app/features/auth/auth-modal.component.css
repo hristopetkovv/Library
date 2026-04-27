@@ -20,6 +20,10 @@
   box-shadow: 0 0 0 2px rgba(46, 77, 50, 0.1);
 }
 
+::ng-deep .ant-tabs-tab:hover {
+  color: #3d6642 !important;
+}
+
 .password-wrapper {
   position: relative;
   display: flex;
@@ -41,7 +45,7 @@
 }
 
 .forgot-password-link a {
-  color: #d87a30; 
+  color: #2e4d32; 
   font-size: 13px;
   font-weight: 500;
 }
@@ -57,10 +61,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  color: white;
 }
 
 .auth-btn:hover {
   background-color: #3d6642 !important;
+  color: white;
 }
 
 .name-row {
@@ -81,3 +87,4 @@
 ::ng-deep .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
   color: #2e4d32 !important; 
 }
+
