@@ -48,16 +48,81 @@
         </div>
 
         <div class="header-right">
+            <a nz-dropdown
+               [nzDropdownMenu]="langMenu"
+               (nzVisibleChange)="isLangOpen = $event"
+               nzTrigger="click"
+               class="lang-trigger">
+                <img [src]="lang() === 'bg' ? 'bg_flag.png' : 'en_flag.png'"
+                     class="current-flag"
+                     alt="flag">
+                <span nz-icon
+                      [nzType]="isLangOpen ? 'caret-up' : 'caret-down'"
+                      nzTheme="fill"
+                      class="dropdown-arrow"></span>
+            </a>
+
+            <nz-dropdown-menu #langMenu="nzDropdownMenu">
+                <ul nz-menu>
+                    <li nz-menu-item
+                        [nzSelected]="lang() === 'bg'"
+                        (click)="switchLanguage('bg')">
+                        <img src="bg_flag.png"
+                             class="menu-flag"> Български (БГ)
+                    </li>
+                    <li nz-menu-item
+                        [nzSelected]="lang() === 'en'"
+                        (click)="switchLanguage('en')">
+                        <img src="en_flag.png"
+                             class="menu-flag"> English (EN)
+                    </li>
+                </ul>
+            </nz-dropdown-menu>
+
             @if (authService.isAuthenticated()) {
             <div class="user-section">
-                <span class="username">{{ authService.currentUser()?.firstName }}</span>
-                <button nz-button
-                        nzType="text"
-                        nzDanger
-                        (click)="authService.logout()">
-                    <span nz-icon
-                          nzType="logout"></span> {{ 'header.logout' | translate }}
-                </button>
+                <a nz-dropdown
+                   [nzDropdownMenu]="userMenu"
+                   (nzVisibleChange)="isUserOpen = $event"
+                   nzTrigger="click"
+                   class="user-trigger">
+                    <div class="user-pill">
+                        <span nz-icon
+                              nzType="user"
+                              nzTheme="outline"
+                              class="user-main-icon"></span>
+                        <span nz-icon
+                              [nzType]="isUserOpen ? 'caret-up' : 'caret-down'"
+                              nzTheme="fill"
+                              class="dropdown-arrow"></span>
+                    </div>
+                </a>
+
+                <nz-dropdown-menu #userMenu="nzDropdownMenu">
+                    <ul nz-menu
+                        class="user-menu">
+                        <li nz-menu-group
+                            [nzTitle]="userTitle">
+                            <ng-template #userTitle>
+                                <span class="logged-as">{{ 'header.loggedAs' | translate }}: <b>{{
+                                        authService.currentUser()?.firstName
+                                        }}</b></span>
+                            </ng-template>
+                        </li>
+                        <li nz-menu-divider></li>
+                        <li nz-menu-item
+                            routerLink="/profile">
+                            <span nz-icon
+                                  nzType="idcard"></span> {{ 'header.profile' | translate }}
+                        </li>
+                        <li nz-menu-item
+                            nzDanger
+                            (click)="authService.logout(); isUserOpen = false">
+                            <span nz-icon
+                                  nzType="logout"></span> {{ 'header.logout' | translate }}
+                        </li>
+                    </ul>
+                </nz-dropdown-menu>
             </div>
             } @else {
             <button nz-button

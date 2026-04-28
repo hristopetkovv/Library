@@ -6,7 +6,9 @@
         "publishers": "Издатели",
         "users": "Потребители",
         "logout": "Изход",
-        "login": "Вход"
+        "login": "Вход",
+        "profile": "Профил",
+        "loggedAs": "Влезли сте като"
     },
     "footer": {
         "address": "гр. София, ул. Библиотечна 10",
@@ -32,16 +34,30 @@
             "firstNamePlaceholder": "Име *",
             "lastNamePlaceholder": "Фамилия *",
             "emailPlaceholder": "Електронна поща *",
+            "addressPlaceholder": "Адрес",
             "phoneNumberPlaceholder": "Телефон",
             "passwordPlaceholder": "Парола *",
             "passwordAgainPlaceholder": "Повтори парола *",
+            "passwordHint": "Поне 8 знака: главна и малка буква, цифра и специален символ (!@#$).",
             "registerBtn": "Регистрирай се"
+        }
+    },
+    "user": {
+        "forgottenPassword": {
+            "title": "Забравена парола",
+            "description": "Ще изпратим инструкции за възстановяване на имейла, с който сте регистрирани.",
+            "emailPlaceholder": "Електронна поща *",
+            "sendBtn": "Изпрати линк"
         }
     },
     "notification": {
         "success": {
             "login": "Добре дошли!",
             "register": "Регистрацията е успешна! Моля, влезте в профила си."
+        },
+        "info": {
+            "forgottenPasswordTitle": "Забравена парола",
+            "forgottenPassword": "Изпратен е линк за възстановяване на вашата парола на посоченият имейл адрес!"
         }
     },
     "error": {

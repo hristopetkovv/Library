@@ -8,12 +8,14 @@
                      [(ngModel)]="registerData.firstName"
                      placeholder="{{ 'auth.register.firstNamePlaceholder' | translate }}"
                      required
+                     maxlength="50"
                      class="rounded-input" />
               <input nz-input
                      name="lastName"
                      [(ngModel)]="registerData.lastName"
                      placeholder="{{ 'auth.register.lastNamePlaceholder' | translate }}"
                      required
+                     maxlength="50"
                      class="rounded-input" />
        </div>
 
@@ -22,38 +24,51 @@
               [(ngModel)]="registerData.email"
               placeholder="{{ 'auth.register.emailPlaceholder' | translate }}"
               required
-              email
-              class="rounded-input mt" />
+              [pattern]="emailPattern"
+              class="rounded-input mt-15" />
+       <input nz-input
+              name="adress"
+              [(ngModel)]="registerData.address"
+              placeholder="{{ 'auth.register.addressPlaceholder' | translate }}"
+              maxlength="500"
+              class="rounded-input mt-15" />
        <input nz-input
               name="phoneNumber"
               [(ngModel)]="registerData.phoneNumber"
               placeholder="{{ 'auth.register.phoneNumberPlaceholder' | translate }}"
-              class="rounded-input mt" />
+              maxlength="20"
+              class="rounded-input mt-15" />
 
-       <div class="password-wrapper mt">
+       <div class="password-wrapper mt-15">
               <input nz-input
                      type="password"
                      name="password"
                      [(ngModel)]="registerData.password"
                      placeholder="{{ 'auth.register.passwordPlaceholder' | translate }}"
                      required
+                     [pattern]="passwordPattern"
                      class="rounded-input" />
        </div>
 
-       <div class="password-wrapper mt">
+       <div class="password-hint">
+              *{{ 'auth.register.passwordHint' | translate }}
+       </div>
+
+       <div class="password-wrapper mt-15">
               <input nz-input
                      type="password"
                      name="passwordAgain"
                      [(ngModel)]="registerData.passwordAgain"
                      placeholder="{{ 'auth.register.passwordAgainPlaceholder' | translate }}"
                      required
+                     [pattern]="passwordPattern"
                      class="rounded-input" />
        </div>
 
        <button nz-button
                nzBlock
                nzType="primary"
-               class="auth-btn mt"
+               class="auth-btn mt-15"
                [nzLoading]="isLoading()"
                [disabled]="!regForm.valid">
               {{ 'auth.register.registerBtn' | translate }}

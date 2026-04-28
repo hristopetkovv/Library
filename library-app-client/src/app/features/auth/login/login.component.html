@@ -8,7 +8,7 @@
                [(ngModel)]="loginData.email"
                placeholder="{{ 'auth.login.emailPlaceholder' | translate }}"
                required
-               email
+               [pattern]="emailPattern"
                class="rounded-input" />
     </div>
 
@@ -19,6 +19,7 @@
                [(ngModel)]="loginData.password"
                placeholder="{{ 'auth.login.passwordPlaceholder' | translate }}"
                required
+               [pattern]="passwordPattern"
                class="rounded-input" />
         <span nz-icon
               [nzType]="passwordVisible ? 'eye-invisible' : 'eye'"

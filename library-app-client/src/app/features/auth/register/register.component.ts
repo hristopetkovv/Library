@@ -3,10 +3,11 @@ import { FormsModule } from "@angular/forms";
 import { NzButtonModule } from "ng-zorro-antd/button";
 import { NzInputModule } from "ng-zorro-antd/input";
 import { AuthService } from "../../../core/services/auth/auth.service";
-import { NzMessageService } from "ng-zorro-antd/message";
 import { RegisterRequestDto } from "../../../core/dtos/auth/register-request.dto";
 import { finalize } from "rxjs";
 import { TranslatePipe, TranslateService } from "@ngx-translate/core";
+import { REGEX_PATTERNS } from "../../../core/constants/regex.constants";
+import { NzNotificationService } from "ng-zorro-antd/notification";
 
 @Component({
   selector: 'app-register',
@@ -17,7 +18,7 @@ import { TranslatePipe, TranslateService } from "@ngx-translate/core";
 })
 export class RegisterComponent {
   private authService = inject(AuthService);
-  private message = inject(NzMessageService);
+  private notification = inject(NzNotificationService);
   private translate = inject(TranslateService);
   
   isLoading = signal(false);
@@ -25,6 +26,9 @@ export class RegisterComponent {
     email: '', password: '', passwordAgain: '',
     firstName: '', lastName: '', phoneNumber: '', address: ''
   };
+
+  readonly emailPattern = REGEX_PATTERNS.EMAIL;
+  readonly passwordPattern = REGEX_PATTERNS.PASSWORD;
 
   onRegisterSuccess = output<string>();
 
@@ -39,7 +43,7 @@ export class RegisterComponent {
       next: () => {
         this.onRegisterSuccess.emit(this.registerData.email);
         this.resetRegisterModel();
-        this.message.success(this.translate.instant("notification.success.register"));
+        this.notification.success(this.translate.instant("notification.success.register"), "");
       }
     });
   }

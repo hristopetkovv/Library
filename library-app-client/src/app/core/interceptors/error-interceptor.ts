@@ -37,7 +37,7 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
             break;
         }
 
-      notification.error(errorTitle, errorMessage, { nzPlacement: 'topRight', nzDuration: 5000 });
+      notification.error(errorTitle, errorMessage, { nzDuration: 5000 });
 
       return throwError(() => error);
     })

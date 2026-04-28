@@ -1,9 +1,10 @@
 import { Component, inject, viewChild } from "@angular/core";
-import { NzModalModule, NzModalRef } from "ng-zorro-antd/modal";
+import { NzModalModule, NzModalRef, NzModalService } from "ng-zorro-antd/modal";
 import { NzTabsModule } from "ng-zorro-antd/tabs";
 import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./register/register.component";
-import { TranslatePipe } from "@ngx-translate/core";
+import { TranslatePipe, TranslateService } from "@ngx-translate/core";
+import { ForgottenPasswordModalComponent } from "../user/forgotten-password/forgotten-password-modal.component";
 
 @Component({
   selector: 'app-auth-modal',
@@ -16,6 +17,8 @@ export class AuthModalComponent {
   private loginComp = viewChild(LoginComponent);
 
   private modalRef = inject(NzModalRef);
+  private modalService = inject(NzModalService);
+  private translate = inject(TranslateService);
 
   tabIndex = 0;
 
@@ -32,7 +35,15 @@ export class AuthModalComponent {
 
   handleForgot() {
     this.closeModal();
-    // this.modalService.create({ nzContent: ForgotPasswordComponent });
+    
+    this.modalService.create({
+      nzTitle: this.translate.instant('user.forgottenPassword.title'),
+      nzClassName: 'center-modal-title',
+      nzContent: ForgottenPasswordModalComponent,
+      nzFooter: null,
+      nzCentered: true,
+      nzWidth: 400
+    });
   }
 
    closeModal(): void {

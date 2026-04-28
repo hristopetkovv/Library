@@ -59,3 +59,4 @@ global using Microsoft.OpenApi.Models;
 global using Scalar.AspNetCore;
 global using Library.Application.Libraries.Dtos;
 global using Library.Application.Libraries.Queries.GetLibraryStats;
+global using Library.Application.Users.Commands.ForgottenPassword;

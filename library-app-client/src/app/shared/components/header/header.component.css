@@ -74,22 +74,9 @@
 }
 
 .user-section {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--library-green);
-  padding: 4px 12px;
-  border-radius: 50px;
-  border: 1px solid #eee;
-}
-
-.user-avatar-circle {
-  background-color: var(--library-green) !important;
-}
-
-.username {
-  font-weight: 500;
-  color: #555;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .login-btn {
@@ -111,4 +98,86 @@
 ::ng-deep .ant-menu-horizontal > .ant-menu-item-selected::after,
 ::ng-deep .ant-menu-horizontal > .ant-menu-submenu-selected::after {
     border-bottom-color: #2e4d32 !important;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.lang-trigger {
+  display: flex !important;
+  align-items: center;
+  gap: 8px; 
+  padding: 6px 12px; 
+  border-radius: 20px;
+  background: #f5f5f5;
+  border: 1px solid #e8e8e8;
+}
+
+.lang-trigger:hover {
+  background: #eeeeee;
+  border-color: #d9d9d9;
+}
+
+.current-flag {
+  width: 26px;
+  height: auto;
+  border-radius: 2px;
+  display: block;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.dropdown-arrow {
+  font-size: 12px;
+  color: #333;
+}
+
+.menu-flag {
+  width: 18px;
+  margin-right: 8px;
+}
+
+::ng-deep li.ant-dropdown-menu-item-selected {
+    color: #2e4d32 !important;
+    background-color: rgba(46, 77, 50, 0.1) !important;
+}
+
+.user-trigger {
+  display: flex !important;
+  align-items: center;
+  transition: all 0.3s;
+}
+
+.user-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px; 
+  padding: 6px 12px; 
+  background: #f5f5f5;
+  border-radius: 20px; 
+  border: 1px solid #e8e8e8;
+  transition: all 0.3s;
+}
+
+.user-trigger:hover .user-pill {
+  background: #eeeeee;
+  border-color: #d9d9d9;
+}
+
+.user-main-icon {
+  font-size: 18px;
+  color: #2e4d32;
+  display: flex;
+  align-items: center;
+}
+
+.logged-as {
+  font-size: 12px;
+  color: #8c8c8c;
+}
+
+.user-menu [nz-icon] {
+  margin-right: 8px;
 }

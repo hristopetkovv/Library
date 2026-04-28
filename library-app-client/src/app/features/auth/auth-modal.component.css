@@ -2,6 +2,24 @@
   padding: 24px 10px 10px 10px;
 }
 
+::ng-deep .ant-tabs-nav-list {
+  width: 100%;
+  display: flex;
+}
+
+::ng-deep .ant-tabs-tab {
+  flex: 1;
+  justify-content: center;
+  margin: 0 !important;
+  padding: 12px 0;
+}
+
+::ng-deep .ant-tabs-tab-btn {
+  font-weight: 500; 
+  font-size: 17px;
+  transition: all 0.3s;
+}
+
 .input-container {
   margin-bottom: 16px;
   position: relative;
@@ -76,15 +94,21 @@
   margin-bottom: 15px;
 }
 
-.mt {
-  margin-top: 15px;
-}
-
 ::ng-deep .ant-tabs-ink-bar {
   background: #2e4d32 !important; 
 }
 
 ::ng-deep .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
   color: #2e4d32 !important; 
+}
+
+.password-hint {
+  font-size: 11px; 
+  color: #8c8c8c; 
+  margin-top: 4px;
+  padding-left: 15px;
+  line-height: 1.4;
+  display: block;
+  text-align: left;
 }
 
