@@ -11,8 +11,13 @@ import { NzModalModule } from 'ng-zorro-antd/modal';
 import { errorInterceptor } from './core/interceptors/error-interceptor';
 import { provideTranslateService } from "@ngx-translate/core";
 import { provideTranslateHttpLoader } from "@ngx-translate/http-loader";
+import { NzConfig, provideNzConfig } from 'ng-zorro-antd/core/config';
 
 registerLocaleData(en);
+
+const ngZorroConfig: NzConfig = {
+  notification: { nzPlacement: 'topRight', nzDuration: 2000 }
+};
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -24,12 +29,11 @@ export const appConfig: ApplicationConfig = {
       FormsModule, 
       NzModalModule),
     provideTranslateService({
-      loader: provideTranslateHttpLoader({
-        prefix: '/assets/i18n/',
-        suffix: '.json'
-      }),
+      loader: provideTranslateHttpLoader({prefix:'/i18n/', suffix:'.json'}),
       fallbackLang: 'bg',
       lang: 'bg'
-    })
+    }),
+    provideNzConfig(ngZorroConfig)
   ],
 };
+

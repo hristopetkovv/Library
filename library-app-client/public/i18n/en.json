@@ -1,0 +1,71 @@
+{
+    "header": {
+        "title": "Library",
+        "books": "Books",
+        "authors": "Authors",
+        "publishers": "Publishers",
+        "users": "Users",
+        "logout": "Logout",
+        "login": "Login",
+        "profile": "Profile",
+        "loggedAs": "Logged as"
+    },
+    "footer": {
+        "address": "10 Library Str., Sofia",
+        "info": "Library - Management System"
+    },
+    "hero": {
+        "header": "Find your next favorite story",
+        "paragraph": "The place where knowledge and imagination meet.",
+        "books": "Books",
+        "authors": "Authors",
+        "publishers": "Publishers"
+    },
+    "auth": {
+        "loginTitle": "Login",
+        "registerTitle": "Registration",
+        "login": {
+            "emailPlaceholder": "Email Address *",
+            "passwordPlaceholder": "Password *",
+            "forgottenPassword": "Forgot password",
+            "enterBtn": "Sign in"
+        },
+        "register": {
+            "firstNamePlaceholder": "First Name *",
+            "lastNamePlaceholder": "Last Name *",
+            "emailPlaceholder": "Email Address *",
+            "addressPlaceholder": "Address",
+            "phoneNumberPlaceholder": "Phone Number",
+            "passwordPlaceholder": "Password *",
+            "passwordAgainPlaceholder": "Repeat Password *",
+            "passwordHint": "At least 8 characters: uppercase and lowercase letters, numbers, and special symbols (!@#$).",
+            "registerBtn": "Sign Up"
+        }
+    },
+    "user": {
+        "forgottenPassword": {
+            "title": "Forgotten password",
+            "description": "We will send recovery instructions to the email you registered with.",
+            "emailPlaceholder": "Email Address *",
+            "sendBtn": "Send link"
+        }
+    },
+    "notification": {
+        "success": {
+            "login": "Welcome!",
+            "register": "Registration successful! Please log in to your account."
+        },
+        "info": {
+            "forgottenPasswordTitle": "Forgotten password",
+            "forgottenPassword": "A link to recover your password has been sent to the email address provided!"
+        }
+    },
+    "error": {
+        "title": "Error",
+        "detail": "An unexpected error occurred",
+        "unauthorized": "Unauthorized",
+        "forbidden": "Access Denied",
+        "notFound": "Not Found",
+        "notFoundMessage": "The requested resource does not exist."
+    }
+}

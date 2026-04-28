@@ -2,3 +2,11 @@
   --library-green: #2d5a27; 
   --library-light-green: #e9f0e8;
 }
+
+.mt-15 {
+  margin-top: 15px;
+}
+
+.center-modal-title .ant-modal-title {
+  text-align: center;
+}

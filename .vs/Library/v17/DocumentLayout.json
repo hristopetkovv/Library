@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "D:\\Work\\Library\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D064BEB5-A8EA-4535-B31A-F4EE9CAA7E67}|Library\\Library.csproj|d:\\work\\library\\library\\controllers\\libraries\\librariescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D064BEB5-A8EA-4535-B31A-F4EE9CAA7E67}|Library\\Library.csproj|solutionrelative:library\\controllers\\libraries\\librariescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|d:\\work\\library\\library.application\\users\\commands\\forgottenpassword\\forgottenpasswordcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|solutionrelative:library.application\\users\\commands\\forgottenpassword\\forgottenpasswordcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D064BEB5-A8EA-4535-B31A-F4EE9CAA7E67}|Library\\Library.csproj|d:\\work\\library\\library\\controllers\\users\\forgottenpasswordscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D064BEB5-A8EA-4535-B31A-F4EE9CAA7E67}|Library\\Library.csproj|solutionrelative:library\\controllers\\users\\forgottenpasswordscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D064BEB5-A8EA-4535-B31A-F4EE9CAA7E67}|Library\\Library.csproj|d:\\work\\library\\library\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D064BEB5-A8EA-4535-B31A-F4EE9CAA7E67}|Library\\Library.csproj|solutionrelative:library\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D064BEB5-A8EA-4535-B31A-F4EE9CAA7E67}|Library\\Library.csproj|d:\\work\\library\\library\\infrastructure\\handlers\\globalexceptionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D064BEB5-A8EA-4535-B31A-F4EE9CAA7E67}|Library\\Library.csproj|solutionrelative:library\\infrastructure\\handlers\\globalexceptionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,20 +22,46 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Work\\Library\\Library\\Program.cs",
               "RelativeDocumentMoniker": "Library\\Program.cs",
               "ToolTip": "D:\\Work\\Library\\Library\\Program.cs",
               "RelativeToolTip": "Library\\Program.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABYAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-08T06:33:11.416Z",
               "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ForgottenPasswordCommand.cs",
+              "DocumentMoniker": "D:\\Work\\Library\\Library.Application\\Users\\Commands\\ForgottenPassword\\ForgottenPasswordCommand.cs",
+              "RelativeDocumentMoniker": "Library.Application\\Users\\Commands\\ForgottenPassword\\ForgottenPasswordCommand.cs",
+              "ToolTip": "D:\\Work\\Library\\Library.Application\\Users\\Commands\\ForgottenPassword\\ForgottenPasswordCommand.cs",
+              "RelativeToolTip": "Library.Application\\Users\\Commands\\ForgottenPassword\\ForgottenPasswordCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-28T12:47:38.032Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ForgottenPasswordsController.cs",
+              "DocumentMoniker": "D:\\Work\\Library\\Library\\Controllers\\Users\\ForgottenPasswordsController.cs",
+              "RelativeDocumentMoniker": "Library\\Controllers\\Users\\ForgottenPasswordsController.cs",
+              "ToolTip": "D:\\Work\\Library\\Library\\Controllers\\Users\\ForgottenPasswordsController.cs",
+              "RelativeToolTip": "Library\\Controllers\\Users\\ForgottenPasswordsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-28T12:46:48.494Z",
               "EditorCaption": ""
             },
             {
@@ -77,32 +103,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:133:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "GlobalExceptionHandler.cs",
-              "DocumentMoniker": "D:\\Work\\Library\\Library\\Infrastructure\\Handlers\\GlobalExceptionHandler.cs",
-              "RelativeDocumentMoniker": "Library\\Infrastructure\\Handlers\\GlobalExceptionHandler.cs",
-              "ToolTip": "D:\\Work\\Library\\Library\\Infrastructure\\Handlers\\GlobalExceptionHandler.cs",
-              "RelativeToolTip": "Library\\Infrastructure\\Handlers\\GlobalExceptionHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T06:37:54.131Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "LibrariesController.cs",
-              "DocumentMoniker": "D:\\Work\\Library\\Library\\Controllers\\Libraries\\LibrariesController.cs",
-              "RelativeDocumentMoniker": "Library\\Controllers\\Libraries\\LibrariesController.cs",
-              "ToolTip": "D:\\Work\\Library\\Library\\Controllers\\Libraries\\LibrariesController.cs",
-              "RelativeToolTip": "Library\\Controllers\\Libraries\\LibrariesController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-23T13:19:10.864Z",
-              "EditorCaption": ""
             }
           ]
         }
