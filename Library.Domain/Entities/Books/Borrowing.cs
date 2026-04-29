@@ -28,7 +28,7 @@
 		public void MarkAsReturned()
 		{
 			if (Status == BorrowingStatus.Returned)
-				throw new DomainException("Book already returned.");
+				throw new DomainException(ValidationMessages.BorrowingBookAlreadyReturned);
 
 			ReturnDate = DateTime.UtcNow;
 			Status = BorrowingStatus.Returned;

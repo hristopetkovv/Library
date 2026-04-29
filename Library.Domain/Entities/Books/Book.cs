@@ -20,6 +20,7 @@
 		public int AvailableCopies { get; private set; }
 
 		public IReadOnlyList<Borrowing> Borrowings => borrowings.AsReadOnly();
+		public ICollection<Genre> Genres { get; private set; } = [];
 
 		public static Book Create(string title, int authorId, int publisherId, ISBN isbn, string? description, int pages, Language language, CoverType coverType, int publicationYear, int totalCopies)
 		{
@@ -54,12 +55,18 @@
 			AvailableCopies = availableCopies;
 		}
 
+		public void AddGenre(Genre genre)
+		{
+			if (!Genres.Any(g => g.Id == genre.Id))
+				Genres.Add(genre);
+		}
+
 		public bool CanBeBorrowed() => AvailableCopies > 0;
 
 		public void DecrementAvailableCopies()
 		{
 			if (AvailableCopies <= 0)
-				throw new DomainException($"No available copies of '{Title}'");
+				throw new DomainException(ValidationMessages.BookHasNoAvailableCopies);
 
 			AvailableCopies--;
 		}
@@ -67,7 +74,7 @@
 		public void IncrementAvailableCopies()
 		{
 			if (AvailableCopies >= TotalCopies)
-				throw new DomainException($"Available copies cannot exceed total copies");
+				throw new DomainException(ValidationMessages.BookAvailableCannotExceedTotalCopies);
 
 			AvailableCopies++;
 		}

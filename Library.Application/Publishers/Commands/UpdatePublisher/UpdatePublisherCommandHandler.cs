@@ -6,11 +6,11 @@
 		{
 			var publisher = await unitOfWork.Publishers.GetByIdForUpdateAsync(command.Id, cancellationToken);
 			if (publisher is null)
-				throw new NotFoundException(nameof(Publisher), command.Id);
+				throw new NotFoundException(ValidationMessages.PublisherNotFound);
 
 			var existingPublisher = await unitOfWork.Publishers.FirstOrDefaultAsync(p => p.Name == command.Name, cancellationToken);
 			if (existingPublisher is not null && existingPublisher.Id != command.Id)
-				throw new BadRequestException($"Another publisher with name '{command.Name}' already exists");
+				throw new BadRequestException(ValidationMessages.PublisherWithThatNameExists);
 
 			publisher.Update(command.Name);
 

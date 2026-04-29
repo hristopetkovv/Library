@@ -5,8 +5,8 @@
 		public CreatePublisherCommandValidator()
 		{
 			RuleFor(x => x.Name)
-				.NotEmpty().WithMessage("Publisher name is required")
-				.MaximumLength(200).WithMessage("Publisher name cannot exceed 200 characters");
+				.NotEmpty().WithMessage(ValidationMessages.PublisherNameRequired)
+				.MaximumLength(200).WithMessage(ValidationMessages.PublisherNameMaxLength);
 		}
 	}
 }

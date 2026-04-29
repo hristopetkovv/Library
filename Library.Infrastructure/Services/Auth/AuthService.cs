@@ -37,7 +37,7 @@
 			{
 				logger.LogWarning("Failed login attempt for email: {Email}", request.Email);
 
-				throw new UnauthorizedException("Invalid email or password.");
+				throw new UnauthorizedException(ValidationMessages.UserEmailOrPasswordInvalid);
 			}
 
 			logger.LogInformation("User {Email} logged in successfully", request.Email);
@@ -54,9 +54,8 @@
 			{
 				logger.LogWarning("Attempt to register with existing email: {Email}", request.Email);
 
-				throw new BadRequestException("Email already exists.");
+				throw new BadRequestException(ValidationMessages.UserEmailExists);
 			}
-				
 
 			var passwordHash = passwordHasher.HashPassword(request.Password, out var passwordSalt);
 

@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "D:\\Work\\Library\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|d:\\work\\library\\library.application\\users\\commands\\forgottenpassword\\forgottenpasswordcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|solutionrelative:library.application\\users\\commands\\forgottenpassword\\forgottenpasswordcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D064BEB5-A8EA-4535-B31A-F4EE9CAA7E67}|Library\\Library.csproj|d:\\work\\library\\library\\controllers\\auth\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D064BEB5-A8EA-4535-B31A-F4EE9CAA7E67}|Library\\Library.csproj|solutionrelative:library\\controllers\\auth\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D064BEB5-A8EA-4535-B31A-F4EE9CAA7E67}|Library\\Library.csproj|d:\\work\\library\\library\\controllers\\users\\forgottenpasswordscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D064BEB5-A8EA-4535-B31A-F4EE9CAA7E67}|Library\\Library.csproj|solutionrelative:library\\controllers\\users\\forgottenpasswordscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D064BEB5-A8EA-4535-B31A-F4EE9CAA7E67}|Library\\Library.csproj|d:\\work\\library\\library\\infrastructure\\handlers\\globalexceptionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D064BEB5-A8EA-4535-B31A-F4EE9CAA7E67}|Library\\Library.csproj|solutionrelative:library\\infrastructure\\handlers\\globalexceptionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D064BEB5-A8EA-4535-B31A-F4EE9CAA7E67}|Library\\Library.csproj|d:\\work\\library\\library\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -32,7 +32,7 @@
               "RelativeDocumentMoniker": "Library\\Program.cs",
               "ToolTip": "D:\\Work\\Library\\Library\\Program.cs",
               "RelativeToolTip": "Library\\Program.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-08T06:33:11.416Z",
               "IsPinned": true,
@@ -41,27 +41,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ForgottenPasswordCommand.cs",
-              "DocumentMoniker": "D:\\Work\\Library\\Library.Application\\Users\\Commands\\ForgottenPassword\\ForgottenPasswordCommand.cs",
-              "RelativeDocumentMoniker": "Library.Application\\Users\\Commands\\ForgottenPassword\\ForgottenPasswordCommand.cs",
-              "ToolTip": "D:\\Work\\Library\\Library.Application\\Users\\Commands\\ForgottenPassword\\ForgottenPasswordCommand.cs",
-              "RelativeToolTip": "Library.Application\\Users\\Commands\\ForgottenPassword\\ForgottenPasswordCommand.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "D:\\Work\\Library\\Library\\Controllers\\Auth\\AuthController.cs",
+              "RelativeDocumentMoniker": "Library\\Controllers\\Auth\\AuthController.cs",
+              "ToolTip": "D:\\Work\\Library\\Library\\Controllers\\Auth\\AuthController.cs",
+              "RelativeToolTip": "Library\\Controllers\\Auth\\AuthController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T12:47:38.032Z",
+              "WhenOpened": "2026-04-29T12:45:36.859Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ForgottenPasswordsController.cs",
-              "DocumentMoniker": "D:\\Work\\Library\\Library\\Controllers\\Users\\ForgottenPasswordsController.cs",
-              "RelativeDocumentMoniker": "Library\\Controllers\\Users\\ForgottenPasswordsController.cs",
-              "ToolTip": "D:\\Work\\Library\\Library\\Controllers\\Users\\ForgottenPasswordsController.cs",
-              "RelativeToolTip": "Library\\Controllers\\Users\\ForgottenPasswordsController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Title": "GlobalExceptionHandler.cs",
+              "DocumentMoniker": "D:\\Work\\Library\\Library\\Infrastructure\\Handlers\\GlobalExceptionHandler.cs",
+              "RelativeDocumentMoniker": "Library\\Infrastructure\\Handlers\\GlobalExceptionHandler.cs",
+              "ToolTip": "D:\\Work\\Library\\Library\\Infrastructure\\Handlers\\GlobalExceptionHandler.cs",
+              "RelativeToolTip": "Library\\Infrastructure\\Handlers\\GlobalExceptionHandler.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAowCAAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T12:46:48.494Z",
+              "WhenOpened": "2026-04-29T12:32:48.732Z",
               "EditorCaption": ""
             },
             {

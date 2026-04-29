@@ -4,6 +4,6 @@
 	{
 		public ReturnBookCommandValidator()
 			=> RuleFor(x => x.BorrowingId)
-				.GreaterThan(0).WithMessage("Borrowing ID must be greater than 0.");
+				.GreaterThan(0).WithMessage(ValidationMessages.BorrowingInvalidId);
 	}
 }

@@ -5,10 +5,10 @@
 		public ChangeUserRoleCommandValidator()
 		{
 			RuleFor(x => x.Id)
-				.GreaterThan(0).WithMessage("Valid User ID is required");
+				.GreaterThan(0).WithMessage(ValidationMessages.UserInvalidId);
 
 			RuleFor(x => x.NewRole)
-				.NotNull().WithMessage("New role is required");
+				.NotNull().WithMessage(ValidationMessages.UserRoleRequired);
 		}
 	}
 }

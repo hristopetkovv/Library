@@ -6,10 +6,10 @@
 		{
 			var user = await unitOfWork.Users.GetByIdAsync(query.Id, cancellationToken);
 			if (user is null)
-				throw new NotFoundException($"User with ID {query.Id} not found.");
+				throw new NotFoundException(ValidationMessages.UserNotFound);
 
 			if (query.Id != userContext.UserId && user?.Role != UserRole.Admin)
-				throw new ForbiddenException("You can only view your own profile");
+				throw new ForbiddenException(ValidationMessages.UserViewOwnProfileOnly);
 
 			return user.Adapt<UserDetailDto>();
 		}

@@ -5,11 +5,11 @@
 		public async Task<Unit> Handle(ChangeUserRoleCommand command, CancellationToken cancellationToken)
 		{
 			if (userContext.UserId == command.Id)
-				throw new ForbiddenException("Users cannot change your own role.");
+				throw new ForbiddenException(ValidationMessages.UserCannotChangeOwnRole);
 
 			var user = await unitOfWork.Users.GetByIdForUpdateAsync(command.Id, cancellationToken);
 			if (user is null)
-				throw new NotFoundException($"User with ID {command.Id} not found.");
+				throw new NotFoundException(ValidationMessages.UserNotFound);
 
 			user.UpdateRole(command.NewRole);
 

@@ -5,12 +5,12 @@
 		public CreateAuthorCommandValidator()
 		{
 			RuleFor(x => x.Name)
-				.NotEmpty().WithMessage("Author name is required")
-				.MaximumLength(200).WithMessage("Author name cannot exceed 200 characters");
+				.NotEmpty().WithMessage(ValidationMessages.AuthorNameRequired)
+				.MaximumLength(200).WithMessage(ValidationMessages.AuthorNameMaxLength);
 
 			RuleFor(x => x.Biography)
-				.NotEmpty().WithMessage("Biography is required")
-				.MaximumLength(2000).WithMessage("Biography cannot exceed 2000 characters");
+				.NotEmpty().WithMessage(ValidationMessages.AuthorBiographyRequired)
+				.MaximumLength(2000).WithMessage(ValidationMessages.AuthorBiographyMaxLength);
 		}
 	}
 }

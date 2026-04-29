@@ -5,7 +5,7 @@
 		public DeleteAuthorCommandValidator()
 		{
 			RuleFor(x => x.Id)
-				.GreaterThan(0).WithMessage("Valid Author ID is required");
+				.GreaterThan(0).WithMessage(ValidationMessages.AuthorInvalidId);
 		}
 	}
 }

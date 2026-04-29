@@ -1,6 +1,4 @@
-﻿using Library.Domain.Entities.Authors;
-
-namespace Library.Infrastructure.Persistence.Configurations
+﻿namespace Library.Infrastructure.Persistence.Configurations
 {
 	public class AuthorConfiguration : IEntityTypeConfiguration<Author>
 	{
