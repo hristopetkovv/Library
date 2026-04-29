@@ -5,10 +5,10 @@
 		public LoginRequestValidator()
 		{
 			RuleFor(x => x.Email)
-				.NotEmpty().WithMessage("Email cannot be empty.");
+				.NotEmpty().WithMessage(ValidationMessages.UserEmailRequired);
 
 			RuleFor(x => x.Password)
-				.NotEmpty().WithMessage("Password cannot be empty.");
+				.NotEmpty().WithMessage(ValidationMessages.UserPasswordRequired);
 		}
 	}
 }

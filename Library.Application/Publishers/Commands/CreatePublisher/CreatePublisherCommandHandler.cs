@@ -6,7 +6,7 @@
 		{
 			var existingPublisher = await unitOfWork.Publishers.AnyAsync(p => p.Name == command.Name, cancellationToken);
 			if (existingPublisher)
-				throw new BadRequestException($"Publisher with name '{command.Name}' already exists");
+				throw new BadRequestException(ValidationMessages.PublisherWithThatNameExists);
 
 			var publisher = Publisher.Create(command.Name);
 

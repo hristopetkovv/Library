@@ -1,0 +1,688 @@
+2026-04-29 08:21:01.941 +03:00 [INF] Starting request GetLibraryStatsQuery with data: {"$type":"GetLibraryStatsQuery"} {"SourceContext":"Library.Application.Libraries.Queries.GetLibraryStats.GetLibraryStatsQuery","ActionId":"d35b940d-0916-4921-a92c-5bc8ae9162b5","ActionName":"Library.Controllers.Libraries.LibrariesController.GetLibraryStats (Library)","RequestId":"0HNL54MGSQ6D2:00000001","RequestPath":"/api/libraries/stats","ConnectionId":"0HNL54MGSQ6D2","IpAddress":"::1","TraceId":"0HNL54MGSQ6D2:00000001","UserId":"4"}
+2026-04-29 08:21:01.974 +03:00 [INF] Finished request GetLibraryStatsQuery in 20 ms with response: {"TotalBooks":3,"TotalAuthors":2,"TotalPublishers":2,"$type":"LibraryStatsDto"} {"SourceContext":"Library.Application.Libraries.Queries.GetLibraryStats.GetLibraryStatsQuery","ActionId":"d35b940d-0916-4921-a92c-5bc8ae9162b5","ActionName":"Library.Controllers.Libraries.LibrariesController.GetLibraryStats (Library)","RequestId":"0HNL54MGSQ6D2:00000001","RequestPath":"/api/libraries/stats","ConnectionId":"0HNL54MGSQ6D2","IpAddress":"::1","TraceId":"0HNL54MGSQ6D2:00000001","UserId":"4"}
+2026-04-29 08:21:01.986 +03:00 [INF] HTTP GET /api/libraries/stats responded 200 in 45.3388 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","IpAddress":"::1","TraceId":"0HNL54MGSQ6D2:00000001","UserId":"4","RequestId":"0HNL54MGSQ6D2:00000001","ConnectionId":"0HNL54MGSQ6D2"}
+2026-04-29 10:44:48.023 +03:00 [WRN] Failed to determine the https port for redirect. {"EventId":{"Id":3,"Name":"FailedToDeterminePort"},"SourceContext":"Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware","RequestId":"0HNL5OCO3VGVB:00000001","RequestPath":"/api/auth/login","ConnectionId":"0HNL5OCO3VGVB"}
+2026-04-29 10:44:49.443 +03:00 [WRN] Failed login attempt for email: test@test.testd {"SourceContext":"Library.Infrastructure.Services.Auth.AuthService","ActionId":"3c2c645d-4b63-4b5c-ac67-9e35f72fd6a2","ActionName":"Library.Controllers.Auth.AuthController.Login (Library)","RequestId":"0HNL5OCO3VGVB:00000001","RequestPath":"/api/auth/login","ConnectionId":"0HNL5OCO3VGVB","IpAddress":"::1","TraceId":"0HNL5OCO3VGVB:00000001","UserId":"0"}
+2026-04-29 10:44:49.455 +03:00 [ERR] HTTP POST /api/auth/login responded 500 in 145.7709 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","IpAddress":"::1","TraceId":"0HNL5OCO3VGVB:00000001","UserId":"0","RequestId":"0HNL5OCO3VGVB:00000001","ConnectionId":"0HNL5OCO3VGVB"}
+Library.Application.Common.Exceptions.UnauthorizedException: Invalid email or password.
+   at Library.Infrastructure.Services.Auth.AuthService.LoginAsync(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library.Infrastructure\Services\Auth\AuthService.cs:line 40
+   at Library.Controllers.Auth.AuthController.Login(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library\Controllers\Auth\AuthController.cs:line 10
+   at lambda_method12(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-04-29 10:44:49.473 +03:00 [ERR] An unhandled exception has occurred while executing the request. {"EventId":{"Id":1,"Name":"UnhandledException"},"SourceContext":"Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware","RequestId":"0HNL5OCO3VGVB:00000001","RequestPath":"/api/auth/login","ConnectionId":"0HNL5OCO3VGVB"}
+Library.Application.Common.Exceptions.UnauthorizedException: Invalid email or password.
+   at Library.Infrastructure.Services.Auth.AuthService.LoginAsync(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library.Infrastructure\Services\Auth\AuthService.cs:line 40
+   at Library.Controllers.Auth.AuthController.Login(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library\Controllers\Auth\AuthController.cs:line 10
+   at lambda_method12(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Library.Infrastructure.Middlewares.RequestLoggingMiddleware.InvokeAsync(HttpContext context, IUserContext userContext) in D:\Work\Library\Library\Infrastructure\Middlewares\RequestLoggingMiddleware.cs:line 11
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2026-04-29 13:44:36.574 +03:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license. {"SourceContext":"LuckyPennySoftware.MediatR.License","ActionId":"e7708657-5e5e-4ec5-be53-e1b10e63beb7","ActionName":"Library.Controllers.Libraries.LibrariesController.GetLibraryStats (Library)","RequestId":"0HNL5OCO3VGVC:00000001","RequestPath":"/api/libraries/stats","ConnectionId":"0HNL5OCO3VGVC","IpAddress":"::1","TraceId":"0HNL5OCO3VGVC:00000001","UserId":"0"}
+2026-04-29 13:44:36.617 +03:00 [INF] Starting request GetLibraryStatsQuery with data: {"$type":"GetLibraryStatsQuery"} {"SourceContext":"Library.Application.Libraries.Queries.GetLibraryStats.GetLibraryStatsQuery","ActionId":"e7708657-5e5e-4ec5-be53-e1b10e63beb7","ActionName":"Library.Controllers.Libraries.LibrariesController.GetLibraryStats (Library)","RequestId":"0HNL5OCO3VGVC:00000001","RequestPath":"/api/libraries/stats","ConnectionId":"0HNL5OCO3VGVC","IpAddress":"::1","TraceId":"0HNL5OCO3VGVC:00000001","UserId":"0"}
+2026-04-29 13:44:36.748 +03:00 [INF] Finished request GetLibraryStatsQuery in 106 ms with response: {"TotalBooks":3,"TotalAuthors":2,"TotalPublishers":2,"$type":"LibraryStatsDto"} {"SourceContext":"Library.Application.Libraries.Queries.GetLibraryStats.GetLibraryStatsQuery","ActionId":"e7708657-5e5e-4ec5-be53-e1b10e63beb7","ActionName":"Library.Controllers.Libraries.LibrariesController.GetLibraryStats (Library)","RequestId":"0HNL5OCO3VGVC:00000001","RequestPath":"/api/libraries/stats","ConnectionId":"0HNL5OCO3VGVC","IpAddress":"::1","TraceId":"0HNL5OCO3VGVC:00000001","UserId":"0"}
+2026-04-29 13:44:36.773 +03:00 [INF] HTTP GET /api/libraries/stats responded 200 in 214.4181 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","IpAddress":"::1","TraceId":"0HNL5OCO3VGVC:00000001","UserId":"0","RequestId":"0HNL5OCO3VGVC:00000001","ConnectionId":"0HNL5OCO3VGVC"}
+2026-04-29 13:45:18.523 +03:00 [INF] Starting request GetLibraryStatsQuery with data: {"$type":"GetLibraryStatsQuery"} {"SourceContext":"Library.Application.Libraries.Queries.GetLibraryStats.GetLibraryStatsQuery","ActionId":"e7708657-5e5e-4ec5-be53-e1b10e63beb7","ActionName":"Library.Controllers.Libraries.LibrariesController.GetLibraryStats (Library)","RequestId":"0HNL5OCO3VGVD:00000001","RequestPath":"/api/libraries/stats","ConnectionId":"0HNL5OCO3VGVD","IpAddress":"::1","TraceId":"0HNL5OCO3VGVD:00000001","UserId":"0"}
+2026-04-29 13:45:18.548 +03:00 [INF] Finished request GetLibraryStatsQuery in 5 ms with response: {"TotalBooks":3,"TotalAuthors":2,"TotalPublishers":2,"$type":"LibraryStatsDto"} {"SourceContext":"Library.Application.Libraries.Queries.GetLibraryStats.GetLibraryStatsQuery","ActionId":"e7708657-5e5e-4ec5-be53-e1b10e63beb7","ActionName":"Library.Controllers.Libraries.LibrariesController.GetLibraryStats (Library)","RequestId":"0HNL5OCO3VGVD:00000001","RequestPath":"/api/libraries/stats","ConnectionId":"0HNL5OCO3VGVD","IpAddress":"::1","TraceId":"0HNL5OCO3VGVD:00000001","UserId":"0"}
+2026-04-29 13:45:18.571 +03:00 [INF] HTTP GET /api/libraries/stats responded 200 in 49.0632 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","IpAddress":"::1","TraceId":"0HNL5OCO3VGVD:00000001","UserId":"0","RequestId":"0HNL5OCO3VGVD:00000001","ConnectionId":"0HNL5OCO3VGVD"}
+2026-04-29 15:42:48.189 +03:00 [INF] Starting request GetLibraryStatsQuery with data: {"$type":"GetLibraryStatsQuery"} {"SourceContext":"Library.Application.Libraries.Queries.GetLibraryStats.GetLibraryStatsQuery","ActionId":"e7708657-5e5e-4ec5-be53-e1b10e63beb7","ActionName":"Library.Controllers.Libraries.LibrariesController.GetLibraryStats (Library)","RequestId":"0HNL5OCO3VGVE:00000001","RequestPath":"/api/libraries/stats","ConnectionId":"0HNL5OCO3VGVE","IpAddress":"::1","TraceId":"0HNL5OCO3VGVE:00000001","UserId":"0"}
+2026-04-29 15:42:48.248 +03:00 [INF] Finished request GetLibraryStatsQuery in 44 ms with response: {"TotalBooks":3,"TotalAuthors":2,"TotalPublishers":2,"$type":"LibraryStatsDto"} {"SourceContext":"Library.Application.Libraries.Queries.GetLibraryStats.GetLibraryStatsQuery","ActionId":"e7708657-5e5e-4ec5-be53-e1b10e63beb7","ActionName":"Library.Controllers.Libraries.LibrariesController.GetLibraryStats (Library)","RequestId":"0HNL5OCO3VGVE:00000001","RequestPath":"/api/libraries/stats","ConnectionId":"0HNL5OCO3VGVE","IpAddress":"::1","TraceId":"0HNL5OCO3VGVE:00000001","UserId":"0"}
+2026-04-29 15:42:48.266 +03:00 [INF] HTTP GET /api/libraries/stats responded 200 in 78.9949 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","IpAddress":"::1","TraceId":"0HNL5OCO3VGVE:00000001","UserId":"0","RequestId":"0HNL5OCO3VGVE:00000001","ConnectionId":"0HNL5OCO3VGVE"}
+2026-04-29 15:42:48.412 +03:00 [INF] Starting request GetLibraryStatsQuery with data: {"$type":"GetLibraryStatsQuery"} {"SourceContext":"Library.Application.Libraries.Queries.GetLibraryStats.GetLibraryStatsQuery","ActionId":"e7708657-5e5e-4ec5-be53-e1b10e63beb7","ActionName":"Library.Controllers.Libraries.LibrariesController.GetLibraryStats (Library)","RequestId":"0HNL5OCO3VGVF:00000001","RequestPath":"/api/libraries/stats","ConnectionId":"0HNL5OCO3VGVF","IpAddress":"::1","TraceId":"0HNL5OCO3VGVF:00000001","UserId":"0"}
+2026-04-29 15:42:48.428 +03:00 [INF] Finished request GetLibraryStatsQuery in 3 ms with response: {"TotalBooks":3,"TotalAuthors":2,"TotalPublishers":2,"$type":"LibraryStatsDto"} {"SourceContext":"Library.Application.Libraries.Queries.GetLibraryStats.GetLibraryStatsQuery","ActionId":"e7708657-5e5e-4ec5-be53-e1b10e63beb7","ActionName":"Library.Controllers.Libraries.LibrariesController.GetLibraryStats (Library)","RequestId":"0HNL5OCO3VGVF:00000001","RequestPath":"/api/libraries/stats","ConnectionId":"0HNL5OCO3VGVF","IpAddress":"::1","TraceId":"0HNL5OCO3VGVF:00000001","UserId":"0"}
+2026-04-29 15:42:48.442 +03:00 [INF] HTTP GET /api/libraries/stats responded 200 in 29.5681 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","IpAddress":"::1","TraceId":"0HNL5OCO3VGVF:00000001","UserId":"0","RequestId":"0HNL5OCO3VGVF:00000001","ConnectionId":"0HNL5OCO3VGVF"}
+2026-04-29 15:42:54.210 +03:00 [WRN] Failed login attempt for email: test@test.testd {"SourceContext":"Library.Infrastructure.Services.Auth.AuthService","ActionId":"3c2c645d-4b63-4b5c-ac67-9e35f72fd6a2","ActionName":"Library.Controllers.Auth.AuthController.Login (Library)","RequestId":"0HNL5OCO3VGVG:00000001","RequestPath":"/api/auth/login","ConnectionId":"0HNL5OCO3VGVG","IpAddress":"::1","TraceId":"0HNL5OCO3VGVG:00000001","UserId":"0"}
+2026-04-29 15:42:54.218 +03:00 [ERR] HTTP POST /api/auth/login responded 500 in 16.2794 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","IpAddress":"::1","TraceId":"0HNL5OCO3VGVG:00000001","UserId":"0","RequestId":"0HNL5OCO3VGVG:00000001","ConnectionId":"0HNL5OCO3VGVG"}
+Library.Application.Common.Exceptions.UnauthorizedException: Invalid email or password.
+   at Library.Infrastructure.Services.Auth.AuthService.LoginAsync(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library.Infrastructure\Services\Auth\AuthService.cs:line 40
+   at Library.Controllers.Auth.AuthController.Login(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library\Controllers\Auth\AuthController.cs:line 10
+   at lambda_method12(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-04-29 15:42:54.226 +03:00 [ERR] An unhandled exception has occurred while executing the request. {"EventId":{"Id":1,"Name":"UnhandledException"},"SourceContext":"Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware","RequestId":"0HNL5OCO3VGVG:00000001","RequestPath":"/api/auth/login","ConnectionId":"0HNL5OCO3VGVG"}
+Library.Application.Common.Exceptions.UnauthorizedException: Invalid email or password.
+   at Library.Infrastructure.Services.Auth.AuthService.LoginAsync(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library.Infrastructure\Services\Auth\AuthService.cs:line 40
+   at Library.Controllers.Auth.AuthController.Login(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library\Controllers\Auth\AuthController.cs:line 10
+   at lambda_method12(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Library.Infrastructure.Middlewares.RequestLoggingMiddleware.InvokeAsync(HttpContext context, IUserContext userContext) in D:\Work\Library\Library\Infrastructure\Middlewares\RequestLoggingMiddleware.cs:line 11
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2026-04-29 15:44:06.871 +03:00 [WRN] Failed to determine the https port for redirect. {"EventId":{"Id":3,"Name":"FailedToDeterminePort"},"SourceContext":"Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware","RequestId":"0HNL5TK08SMC7:00000001","RequestPath":"/api/auth/login","ConnectionId":"0HNL5TK08SMC7"}
+2026-04-29 15:44:08.342 +03:00 [WRN] Failed login attempt for email: test@test.testd {"SourceContext":"Library.Infrastructure.Services.Auth.AuthService","ActionId":"05d3e429-93ca-48f3-a69b-a34de951e069","ActionName":"Library.Controllers.Auth.AuthController.Login (Library)","RequestId":"0HNL5TK08SMC7:00000001","RequestPath":"/api/auth/login","ConnectionId":"0HNL5TK08SMC7","IpAddress":"::1","TraceId":"0HNL5TK08SMC7:00000001","UserId":"0"}
+2026-04-29 15:44:08.353 +03:00 [ERR] HTTP POST /api/auth/login responded 500 in 130.1296 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","IpAddress":"::1","TraceId":"0HNL5TK08SMC7:00000001","UserId":"0","RequestId":"0HNL5TK08SMC7:00000001","ConnectionId":"0HNL5TK08SMC7"}
+Library.Application.Common.Exceptions.UnauthorizedException: UserEmailOrPasswordInvalid
+   at Library.Infrastructure.Services.Auth.AuthService.LoginAsync(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library.Infrastructure\Services\Auth\AuthService.cs:line 40
+   at Library.Controllers.Auth.AuthController.Login(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library\Controllers\Auth\AuthController.cs:line 10
+   at lambda_method12(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-04-29 15:44:08.376 +03:00 [ERR] An unhandled exception has occurred while executing the request. {"EventId":{"Id":1,"Name":"UnhandledException"},"SourceContext":"Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware","RequestId":"0HNL5TK08SMC7:00000001","RequestPath":"/api/auth/login","ConnectionId":"0HNL5TK08SMC7"}
+Library.Application.Common.Exceptions.UnauthorizedException: UserEmailOrPasswordInvalid
+   at Library.Infrastructure.Services.Auth.AuthService.LoginAsync(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library.Infrastructure\Services\Auth\AuthService.cs:line 40
+   at Library.Controllers.Auth.AuthController.Login(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library\Controllers\Auth\AuthController.cs:line 10
+   at lambda_method12(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Library.Infrastructure.Middlewares.RequestLoggingMiddleware.InvokeAsync(HttpContext context, IUserContext userContext) in D:\Work\Library\Library\Infrastructure\Middlewares\RequestLoggingMiddleware.cs:line 11
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2026-04-29 15:46:03.806 +03:00 [WRN] Failed to determine the https port for redirect. {"EventId":{"Id":3,"Name":"FailedToDeterminePort"},"SourceContext":"Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware","RequestId":"0HNL5TL342I2N:00000001","RequestPath":"/api/auth/login","ConnectionId":"0HNL5TL342I2N"}
+2026-04-29 15:46:03.912 +03:00 [ERR] HTTP POST /api/auth/login responded 500 in 54.5078 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","IpAddress":"::1","TraceId":"0HNL5TL342I2N:00000001","UserId":"0","RequestId":"0HNL5TL342I2N:00000001","ConnectionId":"0HNL5TL342I2N"}
+System.InvalidOperationException: Operation is not valid due to the current state of the object.
+   at Library.Controllers.Auth.AuthController.Login(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library\Controllers\Auth\AuthController.cs:line 11
+   at lambda_method12(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-04-29 15:46:03.940 +03:00 [ERR] An unhandled exception has occurred while executing the request. {"EventId":{"Id":1,"Name":"UnhandledException"},"SourceContext":"Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware","RequestId":"0HNL5TL342I2N:00000001","RequestPath":"/api/auth/login","ConnectionId":"0HNL5TL342I2N"}
+System.InvalidOperationException: Operation is not valid due to the current state of the object.
+   at Library.Controllers.Auth.AuthController.Login(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library\Controllers\Auth\AuthController.cs:line 11
+   at lambda_method12(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Library.Infrastructure.Middlewares.RequestLoggingMiddleware.InvokeAsync(HttpContext context, IUserContext userContext) in D:\Work\Library\Library\Infrastructure\Middlewares\RequestLoggingMiddleware.cs:line 11
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2026-04-29 15:48:09.616 +03:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license. {"SourceContext":"LuckyPennySoftware.MediatR.License","ActionId":"422d5426-e0e0-405b-ab85-e23e9fcdf6d1","ActionName":"Library.Controllers.Libraries.LibrariesController.GetLibraryStats (Library)","RequestId":"0HNL5TL342I2O:00000001","RequestPath":"/api/libraries/stats","ConnectionId":"0HNL5TL342I2O","IpAddress":"::1","TraceId":"0HNL5TL342I2O:00000001","UserId":"0"}
+2026-04-29 15:48:09.634 +03:00 [INF] Starting request GetLibraryStatsQuery with data: {"$type":"GetLibraryStatsQuery"} {"SourceContext":"Library.Application.Libraries.Queries.GetLibraryStats.GetLibraryStatsQuery","ActionId":"422d5426-e0e0-405b-ab85-e23e9fcdf6d1","ActionName":"Library.Controllers.Libraries.LibrariesController.GetLibraryStats (Library)","RequestId":"0HNL5TL342I2O:00000001","RequestPath":"/api/libraries/stats","ConnectionId":"0HNL5TL342I2O","IpAddress":"::1","TraceId":"0HNL5TL342I2O:00000001","UserId":"0"}
+2026-04-29 15:48:09.794 +03:00 [INF] Finished request GetLibraryStatsQuery in 147 ms with response: {"TotalBooks":3,"TotalAuthors":2,"TotalPublishers":2,"$type":"LibraryStatsDto"} {"SourceContext":"Library.Application.Libraries.Queries.GetLibraryStats.GetLibraryStatsQuery","ActionId":"422d5426-e0e0-405b-ab85-e23e9fcdf6d1","ActionName":"Library.Controllers.Libraries.LibrariesController.GetLibraryStats (Library)","RequestId":"0HNL5TL342I2O:00000001","RequestPath":"/api/libraries/stats","ConnectionId":"0HNL5TL342I2O","IpAddress":"::1","TraceId":"0HNL5TL342I2O:00000001","UserId":"0"}
+2026-04-29 15:48:09.816 +03:00 [INF] HTTP GET /api/libraries/stats responded 200 in 216.6568 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","IpAddress":"::1","TraceId":"0HNL5TL342I2O:00000001","UserId":"0","RequestId":"0HNL5TL342I2O:00000001","ConnectionId":"0HNL5TL342I2O"}
+2026-04-29 15:48:18.540 +03:00 [ERR] HTTP POST /api/auth/login responded 500 in 3.7116 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","IpAddress":"::1","TraceId":"0HNL5TL342I2P:00000001","UserId":"0","RequestId":"0HNL5TL342I2P:00000001","ConnectionId":"0HNL5TL342I2P"}
+System.InvalidOperationException: Operation is not valid due to the current state of the object.
+   at Library.Controllers.Auth.AuthController.Login(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library\Controllers\Auth\AuthController.cs:line 11
+   at lambda_method12(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-04-29 15:48:18.552 +03:00 [ERR] An unhandled exception has occurred while executing the request. {"EventId":{"Id":1,"Name":"UnhandledException"},"SourceContext":"Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware","RequestId":"0HNL5TL342I2P:00000001","RequestPath":"/api/auth/login","ConnectionId":"0HNL5TL342I2P"}
+System.InvalidOperationException: Operation is not valid due to the current state of the object.
+   at Library.Controllers.Auth.AuthController.Login(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library\Controllers\Auth\AuthController.cs:line 11
+   at lambda_method12(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Library.Infrastructure.Middlewares.RequestLoggingMiddleware.InvokeAsync(HttpContext context, IUserContext userContext) in D:\Work\Library\Library\Infrastructure\Middlewares\RequestLoggingMiddleware.cs:line 11
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2026-04-29 15:49:15.506 +03:00 [WRN] Failed to determine the https port for redirect. {"EventId":{"Id":3,"Name":"FailedToDeterminePort"},"SourceContext":"Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware","RequestId":"0HNL5TMS80BTJ:00000001","RequestPath":"/api/libraries/stats","ConnectionId":"0HNL5TMS80BTJ"}
+2026-04-29 15:49:15.637 +03:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license. {"SourceContext":"LuckyPennySoftware.MediatR.License","ActionId":"1d1c9b53-2fb3-4e21-840f-f57e735d9418","ActionName":"Library.Controllers.Libraries.LibrariesController.GetLibraryStats (Library)","RequestId":"0HNL5TMS80BTJ:00000001","RequestPath":"/api/libraries/stats","ConnectionId":"0HNL5TMS80BTJ","IpAddress":"::1","TraceId":"0HNL5TMS80BTJ:00000001","UserId":"0"}
+2026-04-29 15:49:15.667 +03:00 [INF] Starting request GetLibraryStatsQuery with data: {"$type":"GetLibraryStatsQuery"} {"SourceContext":"Library.Application.Libraries.Queries.GetLibraryStats.GetLibraryStatsQuery","ActionId":"1d1c9b53-2fb3-4e21-840f-f57e735d9418","ActionName":"Library.Controllers.Libraries.LibrariesController.GetLibraryStats (Library)","RequestId":"0HNL5TMS80BTJ:00000001","RequestPath":"/api/libraries/stats","ConnectionId":"0HNL5TMS80BTJ","IpAddress":"::1","TraceId":"0HNL5TMS80BTJ:00000001","UserId":"0"}
+2026-04-29 15:49:15.791 +03:00 [INF] Finished request GetLibraryStatsQuery in 113 ms with response: {"TotalBooks":3,"TotalAuthors":2,"TotalPublishers":2,"$type":"LibraryStatsDto"} {"SourceContext":"Library.Application.Libraries.Queries.GetLibraryStats.GetLibraryStatsQuery","ActionId":"1d1c9b53-2fb3-4e21-840f-f57e735d9418","ActionName":"Library.Controllers.Libraries.LibrariesController.GetLibraryStats (Library)","RequestId":"0HNL5TMS80BTJ:00000001","RequestPath":"/api/libraries/stats","ConnectionId":"0HNL5TMS80BTJ","IpAddress":"::1","TraceId":"0HNL5TMS80BTJ:00000001","UserId":"0"}
+2026-04-29 15:49:15.819 +03:00 [INF] HTTP GET /api/libraries/stats responded 200 in 213.0111 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","IpAddress":"::1","TraceId":"0HNL5TMS80BTJ:00000001","UserId":"0","RequestId":"0HNL5TMS80BTJ:00000001","ConnectionId":"0HNL5TMS80BTJ"}
+2026-04-29 15:49:22.404 +03:00 [ERR] HTTP POST /api/auth/login responded 500 in 77.7248 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","IpAddress":"::1","TraceId":"0HNL5TMS80BTK:00000001","UserId":"0","RequestId":"0HNL5TMS80BTK:00000001","ConnectionId":"0HNL5TMS80BTK"}
+Library.Application.Common.Exceptions.UnauthorizedException: test
+   at Library.Controllers.Auth.AuthController.Login(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library\Controllers\Auth\AuthController.cs:line 11
+   at lambda_method41(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-04-29 15:49:22.422 +03:00 [ERR] An unhandled exception has occurred while executing the request. {"EventId":{"Id":1,"Name":"UnhandledException"},"SourceContext":"Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware","RequestId":"0HNL5TMS80BTK:00000001","RequestPath":"/api/auth/login","ConnectionId":"0HNL5TMS80BTK"}
+Library.Application.Common.Exceptions.UnauthorizedException: test
+   at Library.Controllers.Auth.AuthController.Login(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library\Controllers\Auth\AuthController.cs:line 11
+   at lambda_method41(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Library.Infrastructure.Middlewares.RequestLoggingMiddleware.InvokeAsync(HttpContext context, IUserContext userContext) in D:\Work\Library\Library\Infrastructure\Middlewares\RequestLoggingMiddleware.cs:line 11
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2026-04-29 15:52:08.987 +03:00 [INF] Starting request GetLibraryStatsQuery with data: {"$type":"GetLibraryStatsQuery"} {"SourceContext":"Library.Application.Libraries.Queries.GetLibraryStats.GetLibraryStatsQuery","ActionId":"1d1c9b53-2fb3-4e21-840f-f57e735d9418","ActionName":"Library.Controllers.Libraries.LibrariesController.GetLibraryStats (Library)","RequestId":"0HNL5TMS80BTL:00000001","RequestPath":"/api/libraries/stats","ConnectionId":"0HNL5TMS80BTL","IpAddress":"::1","TraceId":"0HNL5TMS80BTL:00000001","UserId":"0"}
+2026-04-29 15:52:09.011 +03:00 [INF] Finished request GetLibraryStatsQuery in 8 ms with response: {"TotalBooks":3,"TotalAuthors":2,"TotalPublishers":2,"$type":"LibraryStatsDto"} {"SourceContext":"Library.Application.Libraries.Queries.GetLibraryStats.GetLibraryStatsQuery","ActionId":"1d1c9b53-2fb3-4e21-840f-f57e735d9418","ActionName":"Library.Controllers.Libraries.LibrariesController.GetLibraryStats (Library)","RequestId":"0HNL5TMS80BTL:00000001","RequestPath":"/api/libraries/stats","ConnectionId":"0HNL5TMS80BTL","IpAddress":"::1","TraceId":"0HNL5TMS80BTL:00000001","UserId":"0"}
+2026-04-29 15:52:09.031 +03:00 [INF] HTTP GET /api/libraries/stats responded 200 in 46.1955 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","IpAddress":"::1","TraceId":"0HNL5TMS80BTL:00000001","UserId":"0","RequestId":"0HNL5TMS80BTL:00000001","ConnectionId":"0HNL5TMS80BTL"}
+2026-04-29 15:52:13.500 +03:00 [ERR] HTTP POST /api/auth/login responded 500 in 2.7111 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","IpAddress":"::1","TraceId":"0HNL5TMS80BTM:00000001","UserId":"0","RequestId":"0HNL5TMS80BTM:00000001","ConnectionId":"0HNL5TMS80BTM"}
+Library.Application.Common.Exceptions.UnauthorizedException: test
+   at Library.Controllers.Auth.AuthController.Login(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library\Controllers\Auth\AuthController.cs:line 11
+   at lambda_method41(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-04-29 15:52:13.510 +03:00 [ERR] An unhandled exception has occurred while executing the request. {"EventId":{"Id":1,"Name":"UnhandledException"},"SourceContext":"Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware","RequestId":"0HNL5TMS80BTM:00000001","RequestPath":"/api/auth/login","ConnectionId":"0HNL5TMS80BTM"}
+Library.Application.Common.Exceptions.UnauthorizedException: test
+   at Library.Controllers.Auth.AuthController.Login(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library\Controllers\Auth\AuthController.cs:line 11
+   at lambda_method41(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Library.Infrastructure.Middlewares.RequestLoggingMiddleware.InvokeAsync(HttpContext context, IUserContext userContext) in D:\Work\Library\Library\Infrastructure\Middlewares\RequestLoggingMiddleware.cs:line 11
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2026-04-29 15:56:00.069 +03:00 [INF] Starting request GetLibraryStatsQuery with data: {"$type":"GetLibraryStatsQuery"} {"SourceContext":"Library.Application.Libraries.Queries.GetLibraryStats.GetLibraryStatsQuery","ActionId":"1d1c9b53-2fb3-4e21-840f-f57e735d9418","ActionName":"Library.Controllers.Libraries.LibrariesController.GetLibraryStats (Library)","RequestId":"0HNL5TMS80BTN:00000001","RequestPath":"/api/libraries/stats","ConnectionId":"0HNL5TMS80BTN","IpAddress":"::1","TraceId":"0HNL5TMS80BTN:00000001","UserId":"0"}
+2026-04-29 15:56:00.107 +03:00 [INF] Finished request GetLibraryStatsQuery in 26 ms with response: {"TotalBooks":3,"TotalAuthors":2,"TotalPublishers":2,"$type":"LibraryStatsDto"} {"SourceContext":"Library.Application.Libraries.Queries.GetLibraryStats.GetLibraryStatsQuery","ActionId":"1d1c9b53-2fb3-4e21-840f-f57e735d9418","ActionName":"Library.Controllers.Libraries.LibrariesController.GetLibraryStats (Library)","RequestId":"0HNL5TMS80BTN:00000001","RequestPath":"/api/libraries/stats","ConnectionId":"0HNL5TMS80BTN","IpAddress":"::1","TraceId":"0HNL5TMS80BTN:00000001","UserId":"0"}
+2026-04-29 15:56:00.121 +03:00 [INF] HTTP GET /api/libraries/stats responded 200 in 52.6317 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","IpAddress":"::1","TraceId":"0HNL5TMS80BTN:00000001","UserId":"0","RequestId":"0HNL5TMS80BTN:00000001","ConnectionId":"0HNL5TMS80BTN"}
+2026-04-29 15:56:04.128 +03:00 [ERR] HTTP POST /api/auth/login responded 500 in 3.8442 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","IpAddress":"::1","TraceId":"0HNL5TMS80BTO:00000001","UserId":"0","RequestId":"0HNL5TMS80BTO:00000001","ConnectionId":"0HNL5TMS80BTO"}
+Library.Application.Common.Exceptions.UnauthorizedException: test
+   at Library.Controllers.Auth.AuthController.Login(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library\Controllers\Auth\AuthController.cs:line 11
+   at lambda_method41(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-04-29 15:56:04.141 +03:00 [ERR] An unhandled exception has occurred while executing the request. {"EventId":{"Id":1,"Name":"UnhandledException"},"SourceContext":"Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware","RequestId":"0HNL5TMS80BTO:00000001","RequestPath":"/api/auth/login","ConnectionId":"0HNL5TMS80BTO"}
+Library.Application.Common.Exceptions.UnauthorizedException: test
+   at Library.Controllers.Auth.AuthController.Login(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library\Controllers\Auth\AuthController.cs:line 11
+   at lambda_method41(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Library.Infrastructure.Middlewares.RequestLoggingMiddleware.InvokeAsync(HttpContext context, IUserContext userContext) in D:\Work\Library\Library\Infrastructure\Middlewares\RequestLoggingMiddleware.cs:line 11
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2026-04-29 15:56:31.097 +03:00 [INF] Starting request GetLibraryStatsQuery with data: {"$type":"GetLibraryStatsQuery"} {"SourceContext":"Library.Application.Libraries.Queries.GetLibraryStats.GetLibraryStatsQuery","ActionId":"1d1c9b53-2fb3-4e21-840f-f57e735d9418","ActionName":"Library.Controllers.Libraries.LibrariesController.GetLibraryStats (Library)","RequestId":"0HNL5TMS80BTP:00000001","RequestPath":"/api/libraries/stats","ConnectionId":"0HNL5TMS80BTP","IpAddress":"::1","TraceId":"0HNL5TMS80BTP:00000001","UserId":"0"}
+2026-04-29 15:56:31.124 +03:00 [INF] Finished request GetLibraryStatsQuery in 13 ms with response: {"TotalBooks":3,"TotalAuthors":2,"TotalPublishers":2,"$type":"LibraryStatsDto"} {"SourceContext":"Library.Application.Libraries.Queries.GetLibraryStats.GetLibraryStatsQuery","ActionId":"1d1c9b53-2fb3-4e21-840f-f57e735d9418","ActionName":"Library.Controllers.Libraries.LibrariesController.GetLibraryStats (Library)","RequestId":"0HNL5TMS80BTP:00000001","RequestPath":"/api/libraries/stats","ConnectionId":"0HNL5TMS80BTP","IpAddress":"::1","TraceId":"0HNL5TMS80BTP:00000001","UserId":"0"}
+2026-04-29 15:56:31.137 +03:00 [INF] HTTP GET /api/libraries/stats responded 200 in 40.0724 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","IpAddress":"::1","TraceId":"0HNL5TMS80BTP:00000001","UserId":"0","RequestId":"0HNL5TMS80BTP:00000001","ConnectionId":"0HNL5TMS80BTP"}
+2026-04-29 15:56:34.373 +03:00 [ERR] HTTP POST /api/auth/login responded 500 in 1.4377 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","IpAddress":"::1","TraceId":"0HNL5TMS80BTQ:00000001","UserId":"0","RequestId":"0HNL5TMS80BTQ:00000001","ConnectionId":"0HNL5TMS80BTQ"}
+Library.Application.Common.Exceptions.UnauthorizedException: test
+   at Library.Controllers.Auth.AuthController.Login(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library\Controllers\Auth\AuthController.cs:line 11
+   at lambda_method41(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-04-29 15:56:34.384 +03:00 [ERR] An unhandled exception has occurred while executing the request. {"EventId":{"Id":1,"Name":"UnhandledException"},"SourceContext":"Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware","RequestId":"0HNL5TMS80BTQ:00000001","RequestPath":"/api/auth/login","ConnectionId":"0HNL5TMS80BTQ"}
+Library.Application.Common.Exceptions.UnauthorizedException: test
+   at Library.Controllers.Auth.AuthController.Login(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library\Controllers\Auth\AuthController.cs:line 11
+   at lambda_method41(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Library.Infrastructure.Middlewares.RequestLoggingMiddleware.InvokeAsync(HttpContext context, IUserContext userContext) in D:\Work\Library\Library\Infrastructure\Middlewares\RequestLoggingMiddleware.cs:line 11
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2026-04-29 15:57:30.258 +03:00 [WRN] Failed to determine the https port for redirect. {"EventId":{"Id":3,"Name":"FailedToDeterminePort"},"SourceContext":"Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware","RequestId":"0HNL5TRFMG7O7:00000001","RequestPath":"/api/auth/login","ConnectionId":"0HNL5TRFMG7O7"}
+2026-04-29 15:57:30.422 +03:00 [ERR] HTTP POST /api/auth/login responded 500 in 108.9773 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","IpAddress":"::1","TraceId":"0HNL5TRFMG7O7:00000001","UserId":"0","RequestId":"0HNL5TRFMG7O7:00000001","ConnectionId":"0HNL5TRFMG7O7"}
+Library.Application.Common.Exceptions.NotFoundException: test
+   at Library.Controllers.Auth.AuthController.Login(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library\Controllers\Auth\AuthController.cs:line 11
+   at lambda_method12(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-04-29 15:57:30.468 +03:00 [ERR] An unhandled exception has occurred while executing the request. {"EventId":{"Id":1,"Name":"UnhandledException"},"SourceContext":"Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware","RequestId":"0HNL5TRFMG7O7:00000001","RequestPath":"/api/auth/login","ConnectionId":"0HNL5TRFMG7O7"}
+Library.Application.Common.Exceptions.NotFoundException: test
+   at Library.Controllers.Auth.AuthController.Login(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library\Controllers\Auth\AuthController.cs:line 11
+   at lambda_method12(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Library.Infrastructure.Middlewares.RequestLoggingMiddleware.InvokeAsync(HttpContext context, IUserContext userContext) in D:\Work\Library\Library\Infrastructure\Middlewares\RequestLoggingMiddleware.cs:line 11
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2026-04-29 16:05:12.902 +03:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license. {"SourceContext":"LuckyPennySoftware.MediatR.License","ActionId":"1b33aa24-05af-40b7-a6e1-dd9a9cb148d7","ActionName":"Library.Controllers.Libraries.LibrariesController.GetLibraryStats (Library)","RequestId":"0HNL5TRFMG7O8:00000001","RequestPath":"/api/libraries/stats","ConnectionId":"0HNL5TRFMG7O8","IpAddress":"::1","TraceId":"0HNL5TRFMG7O8:00000001","UserId":"0"}
+2026-04-29 16:05:12.924 +03:00 [INF] Starting request GetLibraryStatsQuery with data: {"$type":"GetLibraryStatsQuery"} {"SourceContext":"Library.Application.Libraries.Queries.GetLibraryStats.GetLibraryStatsQuery","ActionId":"1b33aa24-05af-40b7-a6e1-dd9a9cb148d7","ActionName":"Library.Controllers.Libraries.LibrariesController.GetLibraryStats (Library)","RequestId":"0HNL5TRFMG7O8:00000001","RequestPath":"/api/libraries/stats","ConnectionId":"0HNL5TRFMG7O8","IpAddress":"::1","TraceId":"0HNL5TRFMG7O8:00000001","UserId":"0"}
+2026-04-29 16:05:13.084 +03:00 [INF] Finished request GetLibraryStatsQuery in 150 ms with response: {"TotalBooks":3,"TotalAuthors":2,"TotalPublishers":2,"$type":"LibraryStatsDto"} {"SourceContext":"Library.Application.Libraries.Queries.GetLibraryStats.GetLibraryStatsQuery","ActionId":"1b33aa24-05af-40b7-a6e1-dd9a9cb148d7","ActionName":"Library.Controllers.Libraries.LibrariesController.GetLibraryStats (Library)","RequestId":"0HNL5TRFMG7O8:00000001","RequestPath":"/api/libraries/stats","ConnectionId":"0HNL5TRFMG7O8","IpAddress":"::1","TraceId":"0HNL5TRFMG7O8:00000001","UserId":"0"}
+2026-04-29 16:05:13.107 +03:00 [INF] HTTP GET /api/libraries/stats responded 200 in 228.4893 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","IpAddress":"::1","TraceId":"0HNL5TRFMG7O8:00000001","UserId":"0","RequestId":"0HNL5TRFMG7O8:00000001","ConnectionId":"0HNL5TRFMG7O8"}
+2026-04-29 16:05:18.121 +03:00 [ERR] HTTP POST /api/auth/login responded 500 in 3.6385 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","IpAddress":"::1","TraceId":"0HNL5TRFMG7O9:00000001","UserId":"0","RequestId":"0HNL5TRFMG7O9:00000001","ConnectionId":"0HNL5TRFMG7O9"}
+Library.Application.Common.Exceptions.NotFoundException: test
+   at Library.Controllers.Auth.AuthController.Login(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library\Controllers\Auth\AuthController.cs:line 11
+   at lambda_method12(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-04-29 16:05:18.133 +03:00 [ERR] An unhandled exception has occurred while executing the request. {"EventId":{"Id":1,"Name":"UnhandledException"},"SourceContext":"Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware","RequestId":"0HNL5TRFMG7O9:00000001","RequestPath":"/api/auth/login","ConnectionId":"0HNL5TRFMG7O9"}
+Library.Application.Common.Exceptions.NotFoundException: test
+   at Library.Controllers.Auth.AuthController.Login(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library\Controllers\Auth\AuthController.cs:line 11
+   at lambda_method12(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Library.Infrastructure.Middlewares.RequestLoggingMiddleware.InvokeAsync(HttpContext context, IUserContext userContext) in D:\Work\Library\Library\Infrastructure\Middlewares\RequestLoggingMiddleware.cs:line 11
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2026-04-29 16:05:29.252 +03:00 [ERR] HTTP POST /api/auth/login responded 500 in 8.4450 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","IpAddress":"::1","TraceId":"0HNL5TRFMG7OA:00000001","UserId":"0","RequestId":"0HNL5TRFMG7OA:00000001","ConnectionId":"0HNL5TRFMG7OA"}
+Library.Application.Common.Exceptions.NotFoundException: test
+   at Library.Controllers.Auth.AuthController.Login(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library\Controllers\Auth\AuthController.cs:line 11
+   at lambda_method12(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-04-29 16:05:29.263 +03:00 [ERR] An unhandled exception has occurred while executing the request. {"EventId":{"Id":1,"Name":"UnhandledException"},"SourceContext":"Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware","RequestId":"0HNL5TRFMG7OA:00000001","RequestPath":"/api/auth/login","ConnectionId":"0HNL5TRFMG7OA"}
+Library.Application.Common.Exceptions.NotFoundException: test
+   at Library.Controllers.Auth.AuthController.Login(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library\Controllers\Auth\AuthController.cs:line 11
+   at lambda_method12(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Library.Infrastructure.Middlewares.RequestLoggingMiddleware.InvokeAsync(HttpContext context, IUserContext userContext) in D:\Work\Library\Library\Infrastructure\Middlewares\RequestLoggingMiddleware.cs:line 11
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2026-04-29 16:05:49.743 +03:00 [WRN] Failed to determine the https port for redirect. {"EventId":{"Id":3,"Name":"FailedToDeterminePort"},"SourceContext":"Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware","RequestId":"0HNL5U04I226C:00000001","RequestPath":"/api/auth/login","ConnectionId":"0HNL5U04I226C"}
+2026-04-29 16:05:49.902 +03:00 [ERR] HTTP POST /api/auth/login responded 500 in 90.8904 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","IpAddress":"::1","TraceId":"0HNL5U04I226C:00000001","UserId":"0","RequestId":"0HNL5U04I226C:00000001","ConnectionId":"0HNL5U04I226C"}
+Library.Application.Common.Exceptions.BadRequestException: test
+   at Library.Controllers.Auth.AuthController.Login(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library\Controllers\Auth\AuthController.cs:line 11
+   at lambda_method12(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-04-29 16:05:49.938 +03:00 [ERR] An unhandled exception has occurred while executing the request. {"EventId":{"Id":1,"Name":"UnhandledException"},"SourceContext":"Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware","RequestId":"0HNL5U04I226C:00000001","RequestPath":"/api/auth/login","ConnectionId":"0HNL5U04I226C"}
+Library.Application.Common.Exceptions.BadRequestException: test
+   at Library.Controllers.Auth.AuthController.Login(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library\Controllers\Auth\AuthController.cs:line 11
+   at lambda_method12(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Library.Infrastructure.Middlewares.RequestLoggingMiddleware.InvokeAsync(HttpContext context, IUserContext userContext) in D:\Work\Library\Library\Infrastructure\Middlewares\RequestLoggingMiddleware.cs:line 11
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2026-04-29 16:06:54.658 +03:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license. {"SourceContext":"LuckyPennySoftware.MediatR.License","ActionId":"f4f6bbea-803b-407e-b0af-48891ed24eae","ActionName":"Library.Controllers.Libraries.LibrariesController.GetLibraryStats (Library)","RequestId":"0HNL5U04I226D:00000001","RequestPath":"/api/libraries/stats","ConnectionId":"0HNL5U04I226D","IpAddress":"::1","TraceId":"0HNL5U04I226D:00000001","UserId":"0"}
+2026-04-29 16:06:54.680 +03:00 [INF] Starting request GetLibraryStatsQuery with data: {"$type":"GetLibraryStatsQuery"} {"SourceContext":"Library.Application.Libraries.Queries.GetLibraryStats.GetLibraryStatsQuery","ActionId":"f4f6bbea-803b-407e-b0af-48891ed24eae","ActionName":"Library.Controllers.Libraries.LibrariesController.GetLibraryStats (Library)","RequestId":"0HNL5U04I226D:00000001","RequestPath":"/api/libraries/stats","ConnectionId":"0HNL5U04I226D","IpAddress":"::1","TraceId":"0HNL5U04I226D:00000001","UserId":"0"}
+2026-04-29 16:06:54.830 +03:00 [INF] Finished request GetLibraryStatsQuery in 139 ms with response: {"TotalBooks":3,"TotalAuthors":2,"TotalPublishers":2,"$type":"LibraryStatsDto"} {"SourceContext":"Library.Application.Libraries.Queries.GetLibraryStats.GetLibraryStatsQuery","ActionId":"f4f6bbea-803b-407e-b0af-48891ed24eae","ActionName":"Library.Controllers.Libraries.LibrariesController.GetLibraryStats (Library)","RequestId":"0HNL5U04I226D:00000001","RequestPath":"/api/libraries/stats","ConnectionId":"0HNL5U04I226D","IpAddress":"::1","TraceId":"0HNL5U04I226D:00000001","UserId":"0"}
+2026-04-29 16:06:54.855 +03:00 [INF] HTTP GET /api/libraries/stats responded 200 in 215.7801 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","IpAddress":"::1","TraceId":"0HNL5U04I226D:00000001","UserId":"0","RequestId":"0HNL5U04I226D:00000001","ConnectionId":"0HNL5U04I226D"}
+2026-04-29 16:06:57.287 +03:00 [ERR] HTTP POST /api/auth/login responded 500 in 3.6711 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","IpAddress":"::1","TraceId":"0HNL5U04I226E:00000001","UserId":"0","RequestId":"0HNL5U04I226E:00000001","ConnectionId":"0HNL5U04I226E"}
+Library.Application.Common.Exceptions.BadRequestException: test
+   at Library.Controllers.Auth.AuthController.Login(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library\Controllers\Auth\AuthController.cs:line 11
+   at lambda_method12(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-04-29 16:06:57.301 +03:00 [ERR] An unhandled exception has occurred while executing the request. {"EventId":{"Id":1,"Name":"UnhandledException"},"SourceContext":"Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware","RequestId":"0HNL5U04I226E:00000001","RequestPath":"/api/auth/login","ConnectionId":"0HNL5U04I226E"}
+Library.Application.Common.Exceptions.BadRequestException: test
+   at Library.Controllers.Auth.AuthController.Login(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library\Controllers\Auth\AuthController.cs:line 11
+   at lambda_method12(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Library.Infrastructure.Middlewares.RequestLoggingMiddleware.InvokeAsync(HttpContext context, IUserContext userContext) in D:\Work\Library\Library\Infrastructure\Middlewares\RequestLoggingMiddleware.cs:line 11
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2026-04-29 16:07:23.251 +03:00 [WRN] Failed to determine the https port for redirect. {"EventId":{"Id":3,"Name":"FailedToDeterminePort"},"SourceContext":"Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware","RequestId":"0HNL5U10DMNQ6:00000001","RequestPath":"/api/auth/login","ConnectionId":"0HNL5U10DMNQ6"}
+2026-04-29 16:07:23.411 +03:00 [ERR] HTTP POST /api/auth/login responded 500 in 90.7135 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","IpAddress":"::1","TraceId":"0HNL5U10DMNQ6:00000001","UserId":"0","RequestId":"0HNL5U10DMNQ6:00000001","ConnectionId":"0HNL5U10DMNQ6"}
+Library.Application.Common.Exceptions.ForbiddenException: test
+   at Library.Controllers.Auth.AuthController.Login(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library\Controllers\Auth\AuthController.cs:line 11
+   at lambda_method12(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-04-29 16:07:23.449 +03:00 [ERR] An unhandled exception has occurred while executing the request. {"EventId":{"Id":1,"Name":"UnhandledException"},"SourceContext":"Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware","RequestId":"0HNL5U10DMNQ6:00000001","RequestPath":"/api/auth/login","ConnectionId":"0HNL5U10DMNQ6"}
+Library.Application.Common.Exceptions.ForbiddenException: test
+   at Library.Controllers.Auth.AuthController.Login(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library\Controllers\Auth\AuthController.cs:line 11
+   at lambda_method12(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Library.Infrastructure.Middlewares.RequestLoggingMiddleware.InvokeAsync(HttpContext context, IUserContext userContext) in D:\Work\Library\Library\Infrastructure\Middlewares\RequestLoggingMiddleware.cs:line 11
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2026-04-29 16:07:51.766 +03:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license. {"SourceContext":"LuckyPennySoftware.MediatR.License","ActionId":"f5bdec48-888d-478e-896f-c07b72693b05","ActionName":"Library.Controllers.Libraries.LibrariesController.GetLibraryStats (Library)","RequestId":"0HNL5U10DMNQ7:00000001","RequestPath":"/api/libraries/stats","ConnectionId":"0HNL5U10DMNQ7","IpAddress":"::1","TraceId":"0HNL5U10DMNQ7:00000001","UserId":"0"}
+2026-04-29 16:07:51.784 +03:00 [INF] Starting request GetLibraryStatsQuery with data: {"$type":"GetLibraryStatsQuery"} {"SourceContext":"Library.Application.Libraries.Queries.GetLibraryStats.GetLibraryStatsQuery","ActionId":"f5bdec48-888d-478e-896f-c07b72693b05","ActionName":"Library.Controllers.Libraries.LibrariesController.GetLibraryStats (Library)","RequestId":"0HNL5U10DMNQ7:00000001","RequestPath":"/api/libraries/stats","ConnectionId":"0HNL5U10DMNQ7","IpAddress":"::1","TraceId":"0HNL5U10DMNQ7:00000001","UserId":"0"}
+2026-04-29 16:07:51.929 +03:00 [INF] Finished request GetLibraryStatsQuery in 132 ms with response: {"TotalBooks":3,"TotalAuthors":2,"TotalPublishers":2,"$type":"LibraryStatsDto"} {"SourceContext":"Library.Application.Libraries.Queries.GetLibraryStats.GetLibraryStatsQuery","ActionId":"f5bdec48-888d-478e-896f-c07b72693b05","ActionName":"Library.Controllers.Libraries.LibrariesController.GetLibraryStats (Library)","RequestId":"0HNL5U10DMNQ7:00000001","RequestPath":"/api/libraries/stats","ConnectionId":"0HNL5U10DMNQ7","IpAddress":"::1","TraceId":"0HNL5U10DMNQ7:00000001","UserId":"0"}
+2026-04-29 16:07:51.952 +03:00 [INF] HTTP GET /api/libraries/stats responded 200 in 202.3622 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","IpAddress":"::1","TraceId":"0HNL5U10DMNQ7:00000001","UserId":"0","RequestId":"0HNL5U10DMNQ7:00000001","ConnectionId":"0HNL5U10DMNQ7"}
+2026-04-29 16:07:56.885 +03:00 [ERR] HTTP POST /api/auth/login responded 500 in 4.4966 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","IpAddress":"::1","TraceId":"0HNL5U10DMNQ8:00000001","UserId":"0","RequestId":"0HNL5U10DMNQ8:00000001","ConnectionId":"0HNL5U10DMNQ8"}
+Library.Application.Common.Exceptions.ForbiddenException: test
+   at Library.Controllers.Auth.AuthController.Login(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library\Controllers\Auth\AuthController.cs:line 11
+   at lambda_method12(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-04-29 16:07:56.897 +03:00 [ERR] An unhandled exception has occurred while executing the request. {"EventId":{"Id":1,"Name":"UnhandledException"},"SourceContext":"Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware","RequestId":"0HNL5U10DMNQ8:00000001","RequestPath":"/api/auth/login","ConnectionId":"0HNL5U10DMNQ8"}
+Library.Application.Common.Exceptions.ForbiddenException: test
+   at Library.Controllers.Auth.AuthController.Login(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library\Controllers\Auth\AuthController.cs:line 11
+   at lambda_method12(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Library.Infrastructure.Middlewares.RequestLoggingMiddleware.InvokeAsync(HttpContext context, IUserContext userContext) in D:\Work\Library\Library\Infrastructure\Middlewares\RequestLoggingMiddleware.cs:line 11
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2026-04-29 16:08:08.985 +03:00 [WRN] Failed to determine the https port for redirect. {"EventId":{"Id":3,"Name":"FailedToDeterminePort"},"SourceContext":"Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware","RequestId":"0HNL5U1E1VIKG:00000001","RequestPath":"/api/auth/login","ConnectionId":"0HNL5U1E1VIKG"}
+2026-04-29 16:08:09.079 +03:00 [ERR] HTTP POST /api/auth/login responded 500 in 49.8571 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","IpAddress":"::1","TraceId":"0HNL5U1E1VIKG:00000001","UserId":"0","RequestId":"0HNL5U1E1VIKG:00000001","ConnectionId":"0HNL5U1E1VIKG"}
+Library.Application.Common.Exceptions.NotFoundException: test
+   at Library.Controllers.Auth.AuthController.Login(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library\Controllers\Auth\AuthController.cs:line 11
+   at lambda_method12(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-04-29 16:08:09.101 +03:00 [ERR] An unhandled exception has occurred while executing the request. {"EventId":{"Id":1,"Name":"UnhandledException"},"SourceContext":"Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware","RequestId":"0HNL5U1E1VIKG:00000001","RequestPath":"/api/auth/login","ConnectionId":"0HNL5U1E1VIKG"}
+Library.Application.Common.Exceptions.NotFoundException: test
+   at Library.Controllers.Auth.AuthController.Login(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library\Controllers\Auth\AuthController.cs:line 11
+   at lambda_method12(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Library.Infrastructure.Middlewares.RequestLoggingMiddleware.InvokeAsync(HttpContext context, IUserContext userContext) in D:\Work\Library\Library\Infrastructure\Middlewares\RequestLoggingMiddleware.cs:line 11
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2026-04-29 16:08:46.591 +03:00 [WRN] Failed to determine the https port for redirect. {"EventId":{"Id":3,"Name":"FailedToDeterminePort"},"SourceContext":"Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware","RequestId":"0HNL5U1P8K9RL:00000001","RequestPath":"/api/auth/login","ConnectionId":"0HNL5U1P8K9RL"}
+2026-04-29 16:08:46.757 +03:00 [WRN] Failed login attempt for email: test@test.testsd {"SourceContext":"Library.Infrastructure.Services.Auth.AuthService","ActionId":"fa747fc3-057c-4e75-8718-b170649fd8be","ActionName":"Library.Controllers.Auth.AuthController.Login (Library)","RequestId":"0HNL5U1P8K9RL:00000001","RequestPath":"/api/auth/login","ConnectionId":"0HNL5U1P8K9RL","IpAddress":"::1","TraceId":"0HNL5U1P8K9RL:00000001","UserId":"0"}
+2026-04-29 16:08:46.769 +03:00 [ERR] HTTP POST /api/auth/login responded 500 in 134.9179 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","IpAddress":"::1","TraceId":"0HNL5U1P8K9RL:00000001","UserId":"0","RequestId":"0HNL5U1P8K9RL:00000001","ConnectionId":"0HNL5U1P8K9RL"}
+Library.Application.Common.Exceptions.UnauthorizedException: UserEmailOrPasswordInvalid
+   at Library.Infrastructure.Services.Auth.AuthService.LoginAsync(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library.Infrastructure\Services\Auth\AuthService.cs:line 40
+   at Library.Controllers.Auth.AuthController.Login(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library\Controllers\Auth\AuthController.cs:line 10
+   at lambda_method12(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-04-29 16:08:46.787 +03:00 [ERR] An unhandled exception has occurred while executing the request. {"EventId":{"Id":1,"Name":"UnhandledException"},"SourceContext":"Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware","RequestId":"0HNL5U1P8K9RL:00000001","RequestPath":"/api/auth/login","ConnectionId":"0HNL5U1P8K9RL"}
+Library.Application.Common.Exceptions.UnauthorizedException: UserEmailOrPasswordInvalid
+   at Library.Infrastructure.Services.Auth.AuthService.LoginAsync(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library.Infrastructure\Services\Auth\AuthService.cs:line 40
+   at Library.Controllers.Auth.AuthController.Login(LoginRequest request, CancellationToken cancellationToken) in D:\Work\Library\Library\Controllers\Auth\AuthController.cs:line 10
+   at lambda_method12(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Library.Infrastructure.Middlewares.RequestLoggingMiddleware.InvokeAsync(HttpContext context, IUserContext userContext) in D:\Work\Library\Library\Infrastructure\Middlewares\RequestLoggingMiddleware.cs:line 11
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)

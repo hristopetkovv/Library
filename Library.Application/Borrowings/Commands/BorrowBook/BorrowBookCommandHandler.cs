@@ -36,16 +36,16 @@
 				throw new NotFoundException(nameof(Book), command.BookId);
 
 			if (!book.CanBeBorrowed())
-				throw new BadRequestException($"Book '{book.Title}' has no available copies");
+				throw new BadRequestException(ValidationMessages.BookHasNoAvailableCopies);
 
 			if (user is null)
-				throw new NotFoundException(nameof(User), command.UserId);
+				throw new NotFoundException(ValidationMessages.UserNotFound);
 
 			if (!user.CanBorrow())
-				throw new BadRequestException("User cannot borrow more books.");
+				throw new BadRequestException(ValidationMessages.UserCannotBorrowMore);
 
 			if (user.HasOverdueBooks())
-				throw new BadRequestException("User has overdue books and cannot borrow until they are returned");
+				throw new BadRequestException(ValidationMessages.UserHasOverdueBooks);
 		}
 	}
 }

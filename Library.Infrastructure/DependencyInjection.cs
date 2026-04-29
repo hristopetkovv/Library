@@ -35,8 +35,9 @@
             services.AddScoped<IBorrowingRepository, BorrowingRepository>();
             services.AddScoped<IAuthorRepository, AuthorRepository>();
             services.AddScoped<IPublisherRepository, PublisherRepository>();
+            services.AddScoped<IGenreRepository, GenreRepository>();
 
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
+			services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddScoped<IUserContext, UserContext>();
 			services.AddScoped<IAuthService, AuthService>();

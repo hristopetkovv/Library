@@ -6,10 +6,10 @@
 		{
 			var book = await unitOfWork.Books.GetByIdAsync(command.Id, cancellationToken, b => b.Borrowings);
 			if (book is null)
-				throw new NotFoundException(nameof(Book), command.Id);
+				throw new NotFoundException(ValidationMessages.BookNotFound);
 
 			if (book.Borrowings.Any(b => b.Status == BorrowingStatus.Borrowed))
-				throw new BadRequestException("Cannot delete a book with active borrowings.");
+				throw new BadRequestException(ValidationMessages.BookHasActiveBorrowings);
 
 			unitOfWork.Books.Remove(book);
 			await unitOfWork.SaveChangesAsync(cancellationToken);

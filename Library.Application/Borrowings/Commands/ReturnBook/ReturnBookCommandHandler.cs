@@ -6,7 +6,7 @@
 		{
 			var borrowing = await unitOfWork.Borrowings.GetByIdForUpdateAsync(command.BorrowingId, cancellationToken, b => b.Book);
 			if (borrowing is null)
-				throw new NotFoundException(nameof(Borrowing), command.BorrowingId);
+				throw new NotFoundException(ValidationMessages.BorrowingNotFound);
 
 			await unitOfWork.BeginTransactionAsync(cancellationToken);
 

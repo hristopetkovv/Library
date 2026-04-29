@@ -5,7 +5,7 @@
 		public DeleteBookCommandValidator()
 		{
 			RuleFor(x => x.Id)
-				.GreaterThan(0).WithMessage("Valid Book ID is required");
+				.GreaterThan(0).WithMessage(ValidationMessages.BookInvalidId);
 		}
 	}
 }

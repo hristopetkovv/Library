@@ -15,7 +15,7 @@
 			var cleaned = isbn.Replace("-", "").Replace(" ", "");
 
 			if (!IsValidISBN(cleaned))
-				throw new ArgumentException("Invalid ISBN format");
+				throw new ArgumentException(ValidationMessages.BookISBNInvalidFormat);
 
 			return new ISBN(cleaned);
 		}

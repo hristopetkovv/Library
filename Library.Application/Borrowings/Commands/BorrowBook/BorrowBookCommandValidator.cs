@@ -5,10 +5,10 @@
 		public BorrowBookCommandValidator()
 		{
 			RuleFor(x => x.BookId)
-				.GreaterThan(0).WithMessage("Valid Book ID is required");
+				.GreaterThan(0).WithMessage(ValidationMessages.BookInvalidId);
 
 			RuleFor(x => x.UserId)
-				.GreaterThan(0).WithMessage("Valid User ID is required");
+				.GreaterThan(0).WithMessage(ValidationMessages.UserInvalidId);
 		}
 	}
 }

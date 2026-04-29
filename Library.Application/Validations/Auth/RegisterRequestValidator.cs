@@ -5,31 +5,31 @@
 		public RegisterRequestValidator()
 		{
 			RuleFor(x => x.Email)
-				.NotEmpty().WithMessage("Email cannot be empty.")
+				.NotEmpty().WithMessage(ValidationMessages.UserEmailRequired)
 				.Matches(ValidationRegexes.Email);
 
 			RuleFor(x => x.Password)
-				.NotEmpty().WithMessage("Password cannot be empty.")
-				.Matches(ValidationRegexes.Password).WithMessage("Password does not meet the requirements.");
+				.NotEmpty().WithMessage(ValidationMessages.UserPasswordRequired)
+				.Matches(ValidationRegexes.Password).WithMessage(ValidationMessages.UserPasswordInvalidRequirements);
 
 			RuleFor(x => x.PasswordAgain)
-				.NotEmpty().WithMessage("Password confirmation cannot be empty.")
-				.Equal(x => x.Password).WithMessage("Passwords do not match.");
+				.NotEmpty().WithMessage(ValidationMessages.UserPasswordAgainRequired)
+				.Equal(x => x.Password).WithMessage(ValidationMessages.UserPasswordsMissMatch);
 
 			RuleFor(x => x.FirstName)
-				.NotEmpty().WithMessage("First name name is required")
-				.MaximumLength(100).WithMessage("First name cannot exceed 50 characters");
+				.NotEmpty().WithMessage(ValidationMessages.UserFirstNameRequired)
+				.MaximumLength(100).WithMessage(ValidationMessages.UserFirstNameMaxLength);
 
 			RuleFor(x => x.LastName)
-				.NotEmpty().WithMessage("Last name name is required")
-				.MaximumLength(100).WithMessage("Last name cannot exceed 50 characters");
+				.NotEmpty().WithMessage(ValidationMessages.UserLastNameRequired)
+				.MaximumLength(100).WithMessage(ValidationMessages.UserLastNameMaxLength);
 
 			RuleFor(x => x.Address)
-				.MaximumLength(500).WithMessage("Address cannot exceed 500 characters")
+				.MaximumLength(500).WithMessage(ValidationMessages.UserAddressMaxLength)
 				.When(x => !string.IsNullOrWhiteSpace(x.Address));
 
 			RuleFor(x => x.PhoneNumber)
-				.MaximumLength(20).WithMessage("Phone number cannot exceed 20 characters")
+				.MaximumLength(20).WithMessage(ValidationMessages.UserPhoneNumberMaxLength)
 				.When(x => !string.IsNullOrWhiteSpace(x.PhoneNumber));
 		}
 	}

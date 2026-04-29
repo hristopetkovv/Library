@@ -6,11 +6,11 @@
 		{
 			var user = await unitOfWork.Users.GetByIdForUpdateAsync(userContext.UserId, cancellationToken);
 			if (user is null)
-				throw new NotFoundException($"User with ID {userContext.UserId} not found.");
+				throw new NotFoundException(ValidationMessages.UserNotFound);
 
 			var emailExists = await unitOfWork.Users.AnyAsync(u => u.Email.Value == command.Email && u.Id != userContext.UserId, cancellationToken);
 			if (emailExists)
-				throw new BadRequestException($"Email '{command.Email}' is already in use by another user.");
+				throw new BadRequestException(ValidationMessages.UserEmailExists);
 
 			user.Update(
 				Email.Create(command.Email), 

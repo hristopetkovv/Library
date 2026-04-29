@@ -15,10 +15,10 @@
 		public static ContactInfo Create(string address, string phoneNumber)
 		{
 			if (string.IsNullOrWhiteSpace(address))
-				throw new DomainException("Address is required");
+				throw new DomainException(ValidationMessages.UserAddressRequired);
 
 			if (string.IsNullOrWhiteSpace(phoneNumber))
-				throw new DomainException("Phone number is required");
+				throw new DomainException(ValidationMessages.UserPhoneNumberRequired);
 
 			return new ContactInfo(address, phoneNumber);
 		}

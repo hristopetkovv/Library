@@ -7,6 +7,7 @@
         IBorrowingRepository Borrowings { get; }
         IAuthorRepository Authors { get; }
         IPublisherRepository Publishers { get; }
+        IGenreRepository Genres { get; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
         Task BeginTransactionAsync(CancellationToken cancellationToken = default);

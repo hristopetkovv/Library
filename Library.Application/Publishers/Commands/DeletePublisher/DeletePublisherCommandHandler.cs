@@ -6,10 +6,10 @@
 		{
 			var publisher = await unitOfWork.Publishers.GetByIdAsync(command.Id, cancellationToken, p => p.Books);
 			if (publisher is null)
-				throw new NotFoundException(nameof(Publisher), command.Id);
+				throw new NotFoundException(ValidationMessages.PublisherNotFound);
 
 			if (publisher.Books.Any())
-				throw new BadRequestException("Cannot delete a publisher that has associated books");
+				throw new BadRequestException(ValidationMessages.PublisherHasAssociatedBooks);
 
 			unitOfWork.Publishers.Remove(publisher);
 			await unitOfWork.SaveChangesAsync(cancellationToken);

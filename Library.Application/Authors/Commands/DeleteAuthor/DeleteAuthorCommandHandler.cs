@@ -6,10 +6,10 @@
 		{
 			var author = await unitOfWork.Authors.GetByIdAsync(command.Id, cancellationToken, a => a.Books);
 			if (author is null)
-				throw new NotFoundException(nameof(Author), command.Id);
+				throw new NotFoundException(ValidationMessages.AuthorNotFound);
 
 			if (author.Books.Any())
-				throw new BadRequestException("Cannot delete an author that has associated books");
+				throw new BadRequestException(ValidationMessages.AuthorHasAssociatedBooks);
 
 			unitOfWork.Authors.Remove(author);
 			await unitOfWork.SaveChangesAsync(cancellationToken);

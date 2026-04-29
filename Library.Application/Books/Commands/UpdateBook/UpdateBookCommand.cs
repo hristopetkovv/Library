@@ -12,6 +12,7 @@
 		CoverType CoverType,
 		int PublicationYear,
 		int TotalCopies,
-		int AvailableCopies
+		int AvailableCopies,
+		List<int> GenreIds
 	) : ICommand<BookDetailDto>;
 }

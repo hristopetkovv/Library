@@ -7,6 +7,7 @@
 		public DbSet<Author> Authors => Set<Author>();
 		public DbSet<Publisher> Publishers => Set<Publisher>();
 		public DbSet<Borrowing> Borrowings => Set<Borrowing>();
+		public DbSet<Genre> Genres => Set<Genre>();
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{

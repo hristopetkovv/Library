@@ -5,7 +5,7 @@
 		public ForgottenPasswordCommandValidator()
 		{
 			RuleFor(x => x.Email)
-				.NotEmpty().WithMessage("Email is required")
+				.NotEmpty().WithMessage(ValidationMessages.UserEmailRequired)
 				.Matches(ValidationRegexes.Email);
 		}
 	}

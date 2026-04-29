@@ -5,11 +5,11 @@
 		public UpdatePublisherCommandValidator()
 		{
 			RuleFor(x => x.Id)
-				.GreaterThan(0).WithMessage("Valid Publisher ID is required");
+				.GreaterThan(0).WithMessage(ValidationMessages.PublisherInvalidId);
 
 			RuleFor(x => x.Name)
-				.NotEmpty().WithMessage("Publisher name is required")
-				.MaximumLength(200).WithMessage("Publisher name cannot exceed 200 characters");
+				.NotEmpty().WithMessage(ValidationMessages.PublisherNameRequired)
+				.MaximumLength(200).WithMessage(ValidationMessages.PublisherNameMaxLength);
 		}
 	}
 }
