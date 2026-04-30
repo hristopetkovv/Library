@@ -2,7 +2,7 @@ import { HttpErrorResponse, HttpInterceptorFn } from '@angular/common/http';
 import { inject, Injector } from '@angular/core';
 import { catchError, throwError } from 'rxjs';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
-import { AuthService } from '../services/auth/auth.service';
+import { AuthService } from '../../features/auth/services/auth.service';
 import { TranslateService } from '@ngx-translate/core';
 
 export const errorInterceptor: HttpInterceptorFn = (req, next) => {

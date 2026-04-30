@@ -11,6 +11,8 @@
 		CoverType CoverType,
 		int PublicationYear,
 		int TotalCopies,
-		List<int> GenreIds
+		int AvailableCopies,
+		List<int> GenreIds,
+		FileUploadDto? CoverImage
 		) : ICommand<BookDetailDto>;
 }

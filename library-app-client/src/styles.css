@@ -10,3 +10,15 @@
 .center-modal-title .ant-modal-title {
   text-align: center;
 }
+
+nz-select .ant-select-selector {
+  border-color: #e9f0e8 !important;
+  background: #f4f8f3 !important;
+  border-radius: 20px !important;
+  font-size: 13px;
+}
+
+nz-select.ant-select-focused .ant-select-selector {
+  border-color: #2d5a27 !important;
+  box-shadow: 0 0 0 2px rgba(45, 90, 39, 0.12) !important;
+}

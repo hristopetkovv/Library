@@ -20,6 +20,8 @@ if (app.Environment.IsDevelopment())
 app.MapOpenApi().AllowAnonymous();
 app.MapScalarApiReference().AllowAnonymous();
 
+app.UseStaticFiles();
+
 app.UseHttpsRedirection();
 
 app.UseExceptionHandler();

@@ -1,4 +1,9 @@
 {
+    "common": {
+        "filter": "Filters",
+        "clearFilter": "Clear all",
+        "loading": "Loading..."
+    },
     "header": {
         "title": "Library",
         "books": "Books",
@@ -58,6 +63,24 @@
         "info": {
             "forgottenPasswordTitle": "Forgotten password",
             "forgottenPassword": "A link to recover your password has been sent to the email address provided!"
+        }
+    },
+    "book": {
+        "available": "Available",
+        "unavailable": "Unavailable",
+        "filter": {
+            "searchTextPlaceholder": "Search by title, author, ISBN...",
+            "availableOnly": "Available only",
+            "genre": "Genre",
+            "language": "Language",
+            "coverType": "Cover type",
+            "sortTitleAsc": "By title (A-Z)",
+            "sortTitleDesc": "By title (Z-A)",
+            "sortAuthor": "By author"
+        },
+        "list": {
+            "booksFound": "books found",
+            "empty": "No books found matching the selected criteria"
         }
     },
     "error": {
@@ -128,5 +151,19 @@
         "UserAddressRequired": "Address is required",
         "UserPhoneNumberRequired": "Phone number is required",
         "UserEmailInvalidFormat": "Email format is invalid"
+    },
+    "enums": {
+        "language": {
+            "Bulgarian": "Bulgarian",
+            "English": "English",
+            "German": "German",
+            "Russian": "Russian",
+            "French": "French",
+            "Spanish": "Spanish"
+        },
+        "coverType": {
+            "Hardcover": "Hard",
+            "Softcover": "Soft"
+        }
     }
 }

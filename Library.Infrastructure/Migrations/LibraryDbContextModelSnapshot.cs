@@ -101,6 +101,10 @@ namespace Library.Infrastructure.Migrations
                         .HasColumnType("integer")
                         .HasColumnName("available_copies");
 
+                    b.Property<string>("CoverImageUrl")
+                        .HasColumnType("text")
+                        .HasColumnName("cover_image_url");
+
                     b.Property<string>("CoverType")
                         .IsRequired()
                         .HasColumnType("text")

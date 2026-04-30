@@ -1,0 +1,56 @@
+<div class="page-layout">
+
+    <aside class="sidebar">
+        <app-book-filters [genres]="genres()"
+                          (filterChange)="onFilterChange($event)"></app-book-filters>
+    </aside>
+
+    <main class="content">
+
+        <div class="toolbar">
+            <span class="result-count">
+                <strong>{{ totalBooks() }}</strong> {{ 'book.list.booksFound' | translate }}
+            </span>
+            <nz-select [ngModel]="sortBy()"
+                       (ngModelChange)="sortBy.set($event); onSortChange()"
+                       class="sort-select"
+                       nzBorderless>
+                @for (opt of sortOptions; track opt.value) {
+                <nz-option [nzValue]="opt.value"
+                           [nzLabel]="opt.label"></nz-option>
+                }
+            </nz-select>
+        </div>
+
+        <nz-spin [nzSpinning]="isLoading()"
+                 nzTip="{{ 'common.loading' | translate }}">
+
+            @if (!isLoading() && totalBooks() === 0) {
+            <div class="empty-state">
+                <nz-empty nzNotFoundContent="{{ 'book.list.empty' | translate }}"></nz-empty>
+            </div>
+            }
+
+            @if (totalBooks() > 0) {
+            <div class="books-grid">
+                @for (book of pagedBooks(); track book.id) {
+                <app-book-card [book]="book"></app-book-card>
+                }
+            </div>
+            }
+
+        </nz-spin>
+
+        @if (totalBooks() > pageSize()) {
+        <div class="pagination-wrapper">
+            <nz-pagination [nzTotal]="totalBooks()"
+                           [nzPageIndex]="pageIndex()"
+                           [nzPageSize]="pageSize()"
+                           [nzShowSizeChanger]="false"
+                           (nzPageIndexChange)="onPageChange($event)"></nz-pagination>
+        </div>
+        }
+
+    </main>
+
+</div>

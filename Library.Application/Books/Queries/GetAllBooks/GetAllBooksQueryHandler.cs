@@ -4,7 +4,7 @@
 	{
 		public async Task<List<BookListDto>> Handle(GetAllBooksQuery query, CancellationToken cancellationToken)
 		{
-			var books = await unitOfWork.Books.GetAllAsync(cancellationToken, b => b.Author, b => b.Publisher);
+			var books = await unitOfWork.Books.GetAllFilteredAsync(query.Filter.Predicate(), cancellationToken, b => b.Author, b => b.Publisher, b => b.Genres);
 
 			return books.Adapt<List<BookListDto>>();
 		}

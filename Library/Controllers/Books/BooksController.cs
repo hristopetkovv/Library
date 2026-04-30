@@ -6,28 +6,28 @@
 	{
 		[HttpGet]
 		[AllowAnonymous]
-		public async Task<ActionResult<List<BookListDto>>> GetAll(CancellationToken cancellationToken)
-			=> Ok(await mediator.Send(new GetAllBooksQuery(), cancellationToken));
+		public async Task<ActionResult<List<BookListDto>>> GetAll([FromQuery] SearchBooksFilterDto filter, CancellationToken cancellationToken)
+			=> Ok(await mediator.Send(new GetAllBooksQuery(filter), cancellationToken));
 
 		[HttpGet("{id:int}")]
 		[AllowAnonymous]
 		public async Task<ActionResult<BookDetailDto>> GetById([FromRoute] int id, CancellationToken cancellationToken)
 			=> Ok(await mediator.Send(new GetBookByIdQuery(id), cancellationToken));
 
-		[HttpGet("available")]
-		[AllowAnonymous]
-		public async Task<ActionResult<List<BookListDto>>> GetAvailable(CancellationToken cancellationToken)
-			=> Ok(await mediator.Send(new GetAvailableBooksQuery(), cancellationToken));
-
-		[HttpGet("search")]
-		[AllowAnonymous]
-		public async Task<ActionResult<List<BookListDto>>> Search([FromQuery] string term, CancellationToken cancellationToken)
-			=> Ok(await mediator.Send(new SearchBooksQuery(term), cancellationToken));
-
 		[HttpPost]
 		[AuthorizeRoles(UserRole.Admin)]
-		public async Task<ActionResult<BookDetailDto>> CreateBook([FromBody] CreateBookCommand command, CancellationToken cancellationToken)
+		public async Task<ActionResult<BookDetailDto>> CreateBook([FromForm] CreateBookRequest request, CancellationToken cancellationToken)
 		{
+			var command = request.Adapt<UpdateBookCommand>() with
+			{
+				CoverImage = request.CoverImage is not null
+				? new FileUploadDto(
+					request.CoverImage.OpenReadStream(),
+					request.CoverImage.FileName,
+					request.CoverImage.ContentType)
+				: null
+			};
+
 			var book = await mediator.Send(command, cancellationToken);
 
 			return CreatedAtAction(nameof(GetById), new { id = book.Id }, book);
@@ -35,9 +35,18 @@
 
 		[HttpPut("{id:int}")]
 		[AuthorizeRoles(UserRole.Admin)]
-		public async Task<ActionResult<BookDetailDto>> Update([FromRoute] int id, [FromBody] UpdateBookRequest request, CancellationToken cancellationToken)
+		public async Task<ActionResult<BookDetailDto>> Update([FromRoute] int id, [FromForm] UpdateBookRequest request, CancellationToken cancellationToken)
 		{
-			var command = request.Adapt<UpdateBookCommand>() with { Id = id };
+			var command = request.Adapt<UpdateBookCommand>() with
+			{
+				Id = id,
+				CoverImage = request.CoverImage is not null
+				? new FileUploadDto(
+					request.CoverImage.OpenReadStream(),
+					request.CoverImage.FileName,
+					request.CoverImage.ContentType)
+				: null
+			};
 
 			return Ok(await mediator.Send(command, cancellationToken));
 		}

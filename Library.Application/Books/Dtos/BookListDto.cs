@@ -6,6 +6,7 @@
 		string AuthorName,
 		string PublisherName,
 		string ISBN,
-		int AvailableCopies
+		int AvailableCopies,
+		string? CoverImageUrl
 	);
 }

@@ -95,14 +95,14 @@
 			await context.SaveChangesAsync();
 
 			// Seed Books
-			var lotr = Book.Create("The Lord of the Rings", author1.Id, publisher1.Id, ISBN.Create("9780544003415"), "Epic high fantasy novel", 1178, Language.English, CoverType.Hardcover, 1954, 5);
+			var lotr = Book.Create("The Lord of the Rings", author1.Id, publisher1.Id, ISBN.Create("9780544003415"), "Epic high fantasy novel", 1178, Language.English, CoverType.Hardcover, 1954, 5, null);
 			lotr.CreatedByUserId = 1;
 			lotr.CreatedDate = dateTimeNow;
 
 			lotr.AddGenre(genres.First(g => g.Name == "Fantasy"));
 			lotr.AddGenre(genres.First(g => g.Name == "World Classics"));
 
-			var hp = Book.Create("Harry Potter and the Philosopher's Stone", author2.Id, publisher2.Id, ISBN.Create("9780747532699"), "First book in the Harry Potter series", 223, Language.English, CoverType.Softcover, 1997, 3);
+			var hp = Book.Create("Harry Potter and the Philosopher's Stone", author2.Id, publisher2.Id, ISBN.Create("9780747532699"), "First book in the Harry Potter series", 223, Language.English, CoverType.Softcover, 1997, 3, null);
 			hp.CreatedByUserId = 1;
 			hp.CreatedDate = dateTimeNow;
 

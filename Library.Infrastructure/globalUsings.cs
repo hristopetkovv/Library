@@ -42,3 +42,4 @@ global using Microsoft.Extensions.Hosting;
 global using Serilog;
 global using Microsoft.Extensions.Logging;
 global using Library.Domain.Constants;
+global using Microsoft.AspNetCore.Hosting;

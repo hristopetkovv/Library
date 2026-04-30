@@ -3,7 +3,6 @@
 	public enum CoverType
 	{
 		Hardcover = 1,
-		Softcover = 2,
-		Ebook = 3
+		Softcover = 2
 	}
 }

@@ -1,4 +1,9 @@
 {
+    "common": {
+        "filter": "Филтри",
+        "clearFilter": "Изчисти всички",
+        "loading": "Зареждане..."
+    },
     "header": {
         "title": "Библиотека",
         "books": "Книги",
@@ -48,6 +53,24 @@
             "description": "Ще изпратим инструкции за възстановяване на имейла, с който сте регистрирани.",
             "emailPlaceholder": "Електронна поща *",
             "sendBtn": "Изпрати линк"
+        }
+    },
+    "book": {
+        "available": "Налична",
+        "unavailable": "Изчерпана",
+        "filter": {
+            "searchTextPlaceholder": "Търси заглавие, автор, ISBN...",
+            "availableOnly": "Само налични",
+            "genre": "Жанр",
+            "language": "Език",
+            "coverType": "Вид корица",
+            "sortTitleAsc": "По заглавие (А-Я)",
+            "sortTitleDesc": "По заглавие (Я-А)",
+            "sortAuthor": "По автор"
+        },
+        "list": {
+            "booksFound": "книги намерени",
+            "empty": "Няма намерени книги по зададените критерии"
         }
     },
     "notification": {
@@ -128,5 +151,19 @@
         "UserAddressRequired": "Адресът е задължителен",
         "UserPhoneNumberRequired": "Телефонът е задължителен",
         "UserEmailInvalidFormat": "Форматът на имейл адреса е невалиден"
+    },
+    "enums": {
+        "language": {
+            "Bulgarian": "Български",
+            "English": "Английски",
+            "German": "Немски",
+            "Russian": "Руски",
+            "French": "Френски",
+            "Spanish": "Испански"
+        },
+        "coverType": {
+            "Hardcover": "Твърда",
+            "Softcover": "Мека"
+        }
     }
 }

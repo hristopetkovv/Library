@@ -18,11 +18,12 @@
 		public int PublicationYear { get; private set; }
 		public int TotalCopies { get; private set; }
 		public int AvailableCopies { get; private set; }
+		public string? CoverImageUrl { get; private set; }
 
 		public IReadOnlyList<Borrowing> Borrowings => borrowings.AsReadOnly();
 		public ICollection<Genre> Genres { get; private set; } = [];
 
-		public static Book Create(string title, int authorId, int publisherId, ISBN isbn, string? description, int pages, Language language, CoverType coverType, int publicationYear, int totalCopies)
+		public static Book Create(string title, int authorId, int publisherId, ISBN isbn, string? description, int pages, Language language, CoverType coverType, int publicationYear, int totalCopies, string? coverImageUrl)
 		{
 			return new Book
 			{
@@ -36,11 +37,12 @@
 				CoverType = coverType,
 				PublicationYear = publicationYear,
 				TotalCopies = totalCopies,
-				AvailableCopies = totalCopies
+				AvailableCopies = totalCopies,
+				CoverImageUrl = coverImageUrl
 			};
 		}
 
-		public void Update(string title, int authorId, int publisherId, ISBN isbn, string? description, int pages, Language language, CoverType coverType, int publicationYear, int totalCopies, int availableCopies)
+		public void Update(string title, int authorId, int publisherId, ISBN isbn, string? description, int pages, Language language, CoverType coverType, int publicationYear, int totalCopies, int availableCopies, string? coverImageUrl)
 		{
 			Title = title;
 			AuthorId = authorId;
@@ -53,6 +55,7 @@
 			PublicationYear = publicationYear;
 			TotalCopies = totalCopies;
 			AvailableCopies = availableCopies;
+			CoverImageUrl = coverImageUrl;
 		}
 
 		public void AddGenre(Genre genre)
