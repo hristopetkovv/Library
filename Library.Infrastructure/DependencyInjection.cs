@@ -43,6 +43,7 @@
 			services.AddScoped<IAuthService, AuthService>();
 			services.AddScoped<IPasswordHasher, PasswordHasher>();
 			services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
+			services.AddScoped<IFileStorageService, LocalFileStorageService>();
 		}
 
 		public static async Task SeedDatabaseAsync(this IServiceProvider sp)

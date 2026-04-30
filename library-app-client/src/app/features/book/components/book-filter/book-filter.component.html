@@ -1,0 +1,91 @@
+<div class="filters-container">
+
+    <div class="filters-header">
+        <span class="filters-title">{{ 'common.filter' | translate}}</span>
+        @if (hasActiveFilters()) {
+        <button nz-button
+                nzType="link"
+                nzSize="small"
+                class="clear-btn"
+                (click)="clearAll()">
+            {{ 'common.clearFilter' | translate}}
+        </button>
+        }
+    </div>
+
+    <div class="search-wrapper">
+        <span nz-icon
+              nzType="search"
+              nzTheme="outline"
+              class="search-icon"></span>
+        <input nz-input
+               placeholder="{{ 'book.filter.searchTextPlaceholder' | translate }}"
+               [ngModel]="term()"
+               (ngModelChange)="onTermChange($event)"
+               class="search-input" />
+    </div>
+    <ng-template #searchIcon><span nz-icon
+              nzType="search"></span></ng-template>
+
+    <div class="available-switch">
+        <nz-switch [ngModel]="availableOnly()"
+                   (ngModelChange)="availableOnly.set($event); emit()"
+                   nzSize="small"></nz-switch>
+        <span class="switch-label">{{ 'book.filter.availableOnly' | translate }}</span>
+    </div>
+
+    <nz-collapse [nzBordered]="false"
+                 class="filter-collapse">
+
+        <nz-collapse-panel nzHeader="{{ 'book.filter.genre' | translate }}"
+                           [nzActive]="false"
+                           class="filter-panel">
+            <div class="filter-options">
+                @for (genre of genres(); track genre.id) {
+                <div class="filter-option">
+                    <label nz-checkbox
+                           [ngModel]="selectedGenreIds().includes(genre.id)"
+                           (ngModelChange)="onGenreChange(genre.id, $event)">
+                        {{ genre.name }}
+                    </label>
+                    <span class="option-count">{{ genre.count }}</span>
+                </div>
+                }
+            </div>
+        </nz-collapse-panel>
+
+        <nz-collapse-panel nzHeader="{{ 'book.filter.language' | translate }}"
+                           [nzActive]="false"
+                           class="filter-panel">
+            <div class="filter-options">
+                @for (lang of languages; track lang) {
+                <div class="filter-option">
+                    <label nz-checkbox
+                           [ngModel]="selectedLanguages().includes(lang)"
+                           (ngModelChange)="onLanguageChange(lang, $event)">
+                        {{ 'enums.language.' + languageEnum[lang] | translate }}
+                    </label>
+                </div>
+                }
+            </div>
+        </nz-collapse-panel>
+
+        <nz-collapse-panel nzHeader="{{ 'book.filter.coverType' | translate }}"
+                           [nzActive]="false"
+                           class="filter-panel">
+            <div class="filter-options">
+                @for (type of coverTypes; track type) {
+                <div class="filter-option">
+                    <label nz-checkbox
+                           [ngModel]="selectedCoverTypes().includes(type)"
+                           (ngModelChange)="onCoverTypeChange(type, $event)">
+                        {{ 'enums.coverType.' + coverTypeEnum[type] | translate }}
+                    </label>
+                </div>
+                }
+            </div>
+        </nz-collapse-panel>
+
+    </nz-collapse>
+
+</div>

@@ -1,0 +1,104 @@
+.page-layout {
+  display: flex;
+  gap: 28px;
+  padding: 28px 32px;
+  min-height: calc(100vh - 64px);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+ 
+.sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 80px;
+  align-self: flex-start;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  padding-right: 4px;
+ 
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #c8dbc5;
+    border-radius: 4px;
+  }
+}
+ 
+.content {
+  flex: 1;
+  min-width: 0;
+}
+ 
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e9f0e8;
+}
+ 
+.result-count {
+  font-size: 14px;
+  color: #666;
+ 
+  strong {
+    color: #1a1a1a;
+    font-weight: 600;
+  }
+}
+ 
+.sort-select {
+  width: 200px;
+  font-size: 13px;
+}
+ 
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+  gap: 18px;
+  align-items: stretch;
+}
+ 
+.empty-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+ 
+.pagination-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  padding-bottom: 40px;
+ 
+  ::ng-deep {
+    .ant-pagination-item-active {
+      border-color: #2d5a27;
+ 
+      a {
+        color: #2d5a27;
+      }
+    }
+ 
+    .ant-pagination-item:hover {
+      border-color: #2d5a27;
+ 
+      a {
+        color: #2d5a27;
+      }
+    }
+ 
+    .ant-pagination-prev:hover .ant-pagination-item-link,
+    .ant-pagination-next:hover .ant-pagination-item-link {
+      color: #2d5a27;
+      border-color: #2d5a27;
+    }
+  }
+}

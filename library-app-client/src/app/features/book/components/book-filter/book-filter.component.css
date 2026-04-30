@@ -1,0 +1,170 @@
+.search-wrapper {
+  position: relative;
+
+  .search-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #2d5a27;
+    z-index: 1;
+  }
+
+  .search-input {
+    padding-left: 30px;
+    border-radius: 20px !important;
+  }
+}
+
+.filters-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+ 
+.filters-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e9f0e8;
+}
+ 
+.filters-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e3d1a;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+ 
+.clear-btn {
+  font-size: 12px;
+  color: #2d5a27 !important;
+  padding: 0 !important;
+  height: auto !important;
+ 
+  &:hover {
+    text-decoration: underline;
+  }
+}
+ 
+.search-input {
+  .ant-input {
+    font-size: 13px;
+  }
+ 
+  .ant-input-group-addon,
+  .ant-input-prefix {
+    color: #2d5a27;
+  }
+ 
+  &:focus-within {
+    .ant-input {
+      border-color: #2d5a27;
+      box-shadow: 0 0 0 2px rgba(45, 90, 39, 0.12);
+    }
+  }
+}
+ 
+.available-switch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: #e9f0e8;
+  border-radius: 8px;
+  border: 1px solid #c8dbc5;
+  cursor: pointer;
+ 
+  nz-switch {
+    ::ng-deep .ant-switch-checked {
+      background: #2d5a27;
+    }
+  }
+}
+ 
+.switch-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1e3d1a;
+}
+ 
+.filter-collapse {
+  background: transparent;
+ 
+  ::ng-deep {
+    .ant-collapse-header {
+      padding: 10px 12px !important;
+      font-size: 13px;
+      font-weight: 600;
+      color: #1e3d1a !important;
+      background: #e9f0e8;
+      border-radius: 8px !important;
+      border: 1px solid #c8dbc5;
+ 
+      &:hover {
+        background: #dcebd9;
+      }
+    }
+ 
+    .ant-collapse-content {
+      background: transparent;
+      border: none;
+    }
+ 
+    .ant-collapse-content-box {
+      padding: 8px 4px 4px !important;
+    }
+ 
+    .ant-collapse-item {
+      border: none !important;
+      margin-bottom: 8px;
+    }
+ 
+    .ant-collapse-arrow {
+      color: #2d5a27 !important;
+    }
+  }
+}
+ 
+.filter-options {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+ 
+.filter-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3px 4px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.15s;
+ 
+  &:hover {
+    background: #f4f8f3;
+  }
+ 
+  ::ng-deep {
+    .ant-checkbox-checked .ant-checkbox-inner {
+      background: #2d5a27;
+      border-color: #2d5a27;
+    }
+ 
+    .ant-checkbox-wrapper {
+      font-size: 13px;
+      color: #333;
+    }
+  }
+}
+ 
+.option-count {
+  font-size: 11px;
+  color: #888;
+  background: #f0f0f0;
+  padding: 1px 6px;
+  border-radius: 10px;
+  margin-left: auto;
+}

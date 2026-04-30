@@ -12,6 +12,8 @@
 		CoverType CoverType,
 		int PublicationYear,
 		int TotalCopies,
-		int AvailableCopies
+		int AvailableCopies,
+		List<int> Genres,
+		string? CoverImageUrl
 	);
 }

@@ -1,4 +1,4 @@
 ﻿namespace Library.Application.Books.Queries.GetAllBooks
 {
-	public record GetAllBooksQuery : IRequest<List<BookListDto>>;
+	public record GetAllBooksQuery(SearchBooksFilterDto? Filter = null) : IRequest<List<BookListDto>>;
 }

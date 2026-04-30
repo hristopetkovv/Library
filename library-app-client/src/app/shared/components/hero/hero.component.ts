@@ -1,8 +1,8 @@
 import { Component, inject, OnInit, signal } from "@angular/core";
 import { CountUpDirective } from "ngx-countup";
-import { LibraryStatsDto } from "../../../core/dtos/stats/library-stats.dto";
-import { LibraryResource } from "../../../core/resources/library/library.resource";
+import { LibraryStatsDto } from "../../../features/library/dtos/library-stats.dto";
 import { TranslatePipe } from "@ngx-translate/core";
+import { LibraryResource } from "../../../features/library/resources/library.resource";
 
 @Component({
   selector: 'app-hero',

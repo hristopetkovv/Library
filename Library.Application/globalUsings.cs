@@ -26,4 +26,8 @@ global using Library.Domain.Entities.Publishers;
 global using Microsoft.Extensions.Logging;
 global using System.Diagnostics;
 global using Library.Application.Libraries.Dtos;
+global using Library.Application.Dtos.Helpers;
+global using Library.Application.Interfaces.Helpers;
+global using System.Linq.Expressions;
+
 
