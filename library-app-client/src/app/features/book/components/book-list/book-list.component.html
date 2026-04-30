@@ -17,7 +17,7 @@
                        nzBorderless>
                 @for (opt of sortOptions; track opt.value) {
                 <nz-option [nzValue]="opt.value"
-                           [nzLabel]="opt.label"></nz-option>
+                           nzLabel="{{ 'book.filter.' + opt.value| translate }}"></nz-option>
                 }
             </nz-select>
         </div>

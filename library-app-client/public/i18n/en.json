@@ -74,9 +74,9 @@
             "genre": "Genre",
             "language": "Language",
             "coverType": "Cover type",
-            "sortTitleAsc": "By title (A-Z)",
-            "sortTitleDesc": "By title (Z-A)",
-            "sortAuthor": "By author"
+            "titleAsc": "By title (A-Z)",
+            "titleDesc": "By title (Z-A)",
+            "author": "By author"
         },
         "list": {
             "booksFound": "books found",
