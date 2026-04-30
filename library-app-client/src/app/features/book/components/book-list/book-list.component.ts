@@ -13,7 +13,7 @@ import { NzEmptyModule } from "ng-zorro-antd/empty";
 import { NzSpinModule } from "ng-zorro-antd/spin";
 import { TranslatePipe, TranslateService } from "@ngx-translate/core";
 
-type SortOption = 'title-asc' | 'title-desc' | 'author';
+type SortOption = 'titleAsc' | 'titleDesc' | 'author';
 
 @Component({
   selector: 'app-book-list',
@@ -28,24 +28,24 @@ export class BookListComponent implements OnInit {
  
   readonly books = signal<BookListDto[]>([]);
   readonly isLoading = signal(false);
-  readonly sortBy = signal<SortOption>('title-asc');
+  readonly sortBy = signal<SortOption>('titleAsc');
   readonly pageIndex = signal(1);
   readonly pageSize = signal(20);
   readonly genres = signal<GenreOption[]>([]);
  
   private currentFilter: SearchBooksFilterDto = {};
  
-  readonly sortOptions: { value: SortOption; label: string }[] = [
-    { value: 'title-asc', label: this.translate.instant("book.filter.sortTitleAsc") },
-    { value: 'title-desc', label: this.translate.instant("book.filter.sortTitleDesc") },
-    { value: 'author', label: this.translate.instant("book.filter.sortAuthor") }
+  readonly sortOptions: { value: SortOption; }[] = [
+    { value: 'titleAsc' },
+    { value: 'titleDesc' },
+    { value: 'author' }
   ];
  
   readonly sorted = computed(() =>
     [...this.books()].sort((a, b) => {
       switch (this.sortBy()) {
-        case 'title-asc': return a.title.localeCompare(b.title, 'bg');
-        case 'title-desc': return b.title.localeCompare(a.title, 'bg');
+        case 'titleAsc': return a.title.localeCompare(b.title, 'bg');
+        case 'titleDesc': return b.title.localeCompare(a.title, 'bg');
         case 'author': return a.authorName.localeCompare(b.authorName, 'bg');
         default: return 0;
       }

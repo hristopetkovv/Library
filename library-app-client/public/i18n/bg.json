@@ -64,9 +64,9 @@
             "genre": "Жанр",
             "language": "Език",
             "coverType": "Вид корица",
-            "sortTitleAsc": "По заглавие (А-Я)",
-            "sortTitleDesc": "По заглавие (Я-А)",
-            "sortAuthor": "По автор"
+            "titleAsc": "По заглавие (А-Я)",
+            "titleDesc": "По заглавие (Я-А)",
+            "author": "По автор"
         },
         "list": {
             "booksFound": "книги намерени",
