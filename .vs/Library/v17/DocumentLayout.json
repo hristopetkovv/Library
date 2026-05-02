@@ -1,14 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Work\\Library\\",
+  "WorkspaceRootPath": "D:\\GitHub\\Library\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D064BEB5-A8EA-4535-B31A-F4EE9CAA7E67}|Library\\Library.csproj|d:\\work\\library\\library\\controllers\\books\\bookscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D064BEB5-A8EA-4535-B31A-F4EE9CAA7E67}|Library\\Library.csproj|solutionrelative:library\\controllers\\books\\bookscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|d:\\github\\library\\library.infrastructure\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|solutionrelative:library.infrastructure\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|d:\\work\\library\\library.application\\books\\dtos\\searchbooksfilterdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|solutionrelative:library.application\\books\\dtos\\searchbooksfilterdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|d:\\github\\library\\library.infrastructure\\services\\helpers\\localfilestorageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|solutionrelative:library.infrastructure\\services\\helpers\\localfilestorageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|d:\\github\\library\\library.infrastructure\\persistence\\seed\\seedhelpers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|solutionrelative:library.infrastructure\\persistence\\seed\\seedhelpers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D064BEB5-A8EA-4535-B31A-F4EE9CAA7E67}|Library\\Library.csproj|d:\\github\\library\\library\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D064BEB5-A8EA-4535-B31A-F4EE9CAA7E67}|Library\\Library.csproj|solutionrelative:library\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|d:\\github\\library\\library.infrastructure\\persistence\\extensions\\contextextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|solutionrelative:library.infrastructure\\persistence\\extensions\\contextextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,33 +30,71 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SearchBooksFilterDto.cs",
-              "DocumentMoniker": "D:\\Work\\Library\\Library.Application\\Books\\Dtos\\SearchBooksFilterDto.cs",
-              "RelativeDocumentMoniker": "Library.Application\\Books\\Dtos\\SearchBooksFilterDto.cs",
-              "ToolTip": "D:\\Work\\Library\\Library.Application\\Books\\Dtos\\SearchBooksFilterDto.cs",
-              "RelativeToolTip": "Library.Application\\Books\\Dtos\\SearchBooksFilterDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAOAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "DependencyInjection.cs",
+              "DocumentMoniker": "D:\\GitHub\\Library\\Library.Infrastructure\\DependencyInjection.cs",
+              "RelativeDocumentMoniker": "Library.Infrastructure\\DependencyInjection.cs",
+              "ToolTip": "D:\\GitHub\\Library\\Library.Infrastructure\\DependencyInjection.cs",
+              "RelativeToolTip": "Library.Infrastructure\\DependencyInjection.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAnwDEAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-30T06:54:37.54Z",
-              "IsPinned": true,
+              "WhenOpened": "2026-05-02T08:49:21.919Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "BooksController.cs",
-              "DocumentMoniker": "D:\\Work\\Library\\Library\\Controllers\\Books\\BooksController.cs",
-              "RelativeDocumentMoniker": "Library\\Controllers\\Books\\BooksController.cs",
-              "ToolTip": "D:\\Work\\Library\\Library\\Controllers\\Books\\BooksController.cs",
-              "RelativeToolTip": "Library\\Controllers\\Books\\BooksController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAASAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "LocalFileStorageService.cs",
+              "DocumentMoniker": "D:\\GitHub\\Library\\Library.Infrastructure\\Services\\Helpers\\LocalFileStorageService.cs",
+              "RelativeDocumentMoniker": "Library.Infrastructure\\Services\\Helpers\\LocalFileStorageService.cs",
+              "ToolTip": "D:\\GitHub\\Library\\Library.Infrastructure\\Services\\Helpers\\LocalFileStorageService.cs",
+              "RelativeToolTip": "Library.Infrastructure\\Services\\Helpers\\LocalFileStorageService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-30T07:47:09.902Z",
+              "WhenOpened": "2026-05-02T08:41:56.887Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SeedHelpers.cs",
+              "DocumentMoniker": "D:\\GitHub\\Library\\Library.Infrastructure\\Persistence\\Seed\\SeedHelpers.cs",
+              "RelativeDocumentMoniker": "Library.Infrastructure\\Persistence\\Seed\\SeedHelpers.cs",
+              "ToolTip": "D:\\GitHub\\Library\\Library.Infrastructure\\Persistence\\Seed\\SeedHelpers.cs",
+              "RelativeToolTip": "Library.Infrastructure\\Persistence\\Seed\\SeedHelpers.cs",
+              "ViewState": "AgIAAKAAAAAAAAAAAAAAAK4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-01T13:16:14.21Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ContextExtensions.cs",
+              "DocumentMoniker": "D:\\GitHub\\Library\\Library.Infrastructure\\Persistence\\Extensions\\ContextExtensions.cs",
+              "RelativeDocumentMoniker": "Library.Infrastructure\\Persistence\\Extensions\\ContextExtensions.cs",
+              "ToolTip": "D:\\GitHub\\Library\\Library.Infrastructure\\Persistence\\Extensions\\ContextExtensions.cs",
+              "RelativeToolTip": "Library.Infrastructure\\Persistence\\Extensions\\ContextExtensions.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAAACkAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-01T13:04:14.717Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\GitHub\\Library\\Library\\Program.cs",
+              "RelativeDocumentMoniker": "Library\\Program.cs",
+              "ToolTip": "D:\\GitHub\\Library\\Library\\Program.cs",
+              "RelativeToolTip": "Library\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-01T13:01:56.405Z",
               "EditorCaption": ""
             },
             {
