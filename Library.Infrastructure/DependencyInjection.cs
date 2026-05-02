@@ -49,8 +49,13 @@
 		public static async Task SeedDatabaseAsync(this IServiceProvider sp)
 		{
 			using var scope = sp.CreateScope();
-			var context = scope.ServiceProvider.GetRequiredService<LibraryDbContext>();
-			await ContextExtensions.SeedAsync(context);
+
+            var context = scope.ServiceProvider.GetRequiredService<LibraryDbContext>();
+            var fileStorage = scope.ServiceProvider.GetRequiredService<IFileStorageService>();
+            var httpClientFactory = scope.ServiceProvider.GetRequiredService<IHttpClientFactory>();
+			var logger = scope.ServiceProvider.GetRequiredService<ILogger<LibraryDbContext>>();
+
+            await ContextExtensions.SeedAsync(context, fileStorage, httpClientFactory, logger);
 		}
 
 		private static void AddConfiguration(this IServiceCollection services, IConfiguration configuration)

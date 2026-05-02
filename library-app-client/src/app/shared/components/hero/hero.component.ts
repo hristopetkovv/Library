@@ -14,11 +14,11 @@ import { LibraryResource } from "../../../features/library/resources/library.res
 export class HeroComponent implements OnInit {
   private libraryResource = inject(LibraryResource);
 
-  stats = signal<LibraryStatsDto>({ totalBooks: 1200, totalAuthors: 500, totalPublishers: 45 });
+  stats = signal<LibraryStatsDto>({ totalBooks: 0, totalAuthors: 0, totalPublishers: 0 });
 
   ngOnInit(): void {
     this.libraryResource.getLibraryStats().subscribe({
-      //next: (data) => this.stats.set(data)
+      next: (data) => this.stats.set(data)
     });
   }
 }
