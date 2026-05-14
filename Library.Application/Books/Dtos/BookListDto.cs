@@ -7,6 +7,7 @@
 		string PublisherName,
 		string ISBN,
 		int AvailableCopies,
-		string? CoverImageUrl
+		string? CoverImageUrl,
+		List<GenreDto> Genres
 	);
 }

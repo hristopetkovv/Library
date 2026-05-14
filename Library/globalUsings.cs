@@ -58,3 +58,4 @@ global using Library.Application.Libraries.Dtos;
 global using Library.Application.Libraries.Queries.GetLibraryStats;
 global using Library.Application.Users.Commands.ForgottenPassword;
 global using Library.Application.Dtos.Helpers;
+global using Library.Application.Books.Queries.GetAllGenres;

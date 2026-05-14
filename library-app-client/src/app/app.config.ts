@@ -12,6 +12,8 @@ import { errorInterceptor } from './core/interceptors/error-interceptor';
 import { provideTranslateService } from "@ngx-translate/core";
 import { provideTranslateHttpLoader } from "@ngx-translate/http-loader";
 import { NzConfig, provideNzConfig } from 'ng-zorro-antd/core/config';
+import { provideLottieOptions } from 'ngx-lottie';
+import player from 'lottie-web';
 
 registerLocaleData(en);
 
@@ -33,7 +35,10 @@ export const appConfig: ApplicationConfig = {
       fallbackLang: 'bg',
       lang: 'bg'
     }),
-    provideNzConfig(ngZorroConfig)
+    provideNzConfig(ngZorroConfig),
+    provideLottieOptions({
+      player: () => player,
+    })
   ],
 };
 

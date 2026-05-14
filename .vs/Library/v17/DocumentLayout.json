@@ -3,24 +3,20 @@
   "WorkspaceRootPath": "D:\\GitHub\\Library\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|d:\\github\\library\\library.infrastructure\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|solutionrelative:library.infrastructure\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D064BEB5-A8EA-4535-B31A-F4EE9CAA7E67}|Library\\Library.csproj|d:\\github\\library\\library\\controllers\\books\\genrescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D064BEB5-A8EA-4535-B31A-F4EE9CAA7E67}|Library\\Library.csproj|solutionrelative:library\\controllers\\books\\genrescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|d:\\github\\library\\library.infrastructure\\services\\helpers\\localfilestorageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|solutionrelative:library.infrastructure\\services\\helpers\\localfilestorageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|d:\\github\\library\\library.application\\books\\queries\\getallgenres\\getallgenresqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|solutionrelative:library.application\\books\\queries\\getallgenres\\getallgenresqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|d:\\github\\library\\library.infrastructure\\persistence\\seed\\seedhelpers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|solutionrelative:library.infrastructure\\persistence\\seed\\seedhelpers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D064BEB5-A8EA-4535-B31A-F4EE9CAA7E67}|Library\\Library.csproj|d:\\github\\library\\library\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D064BEB5-A8EA-4535-B31A-F4EE9CAA7E67}|Library\\Library.csproj|solutionrelative:library\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D064BEB5-A8EA-4535-B31A-F4EE9CAA7E67}|Library\\Library.csproj|d:\\github\\library\\library\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D064BEB5-A8EA-4535-B31A-F4EE9CAA7E67}|Library\\Library.csproj|solutionrelative:library\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|d:\\github\\library\\library.infrastructure\\persistence\\extensions\\contextextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1359DB2B-6EFE-4BD3-8EA7-38C3C5E00D39}|Library.Infrastructure\\Library.Infrastructure.csproj|solutionrelative:library.infrastructure\\persistence\\extensions\\contextextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D064BEB5-A8EA-4535-B31A-F4EE9CAA7E67}|Library\\Library.csproj|d:\\github\\library\\library\\controllers\\books\\bookscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D064BEB5-A8EA-4535-B31A-F4EE9CAA7E67}|Library\\Library.csproj|solutionrelative:library\\controllers\\books\\bookscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,71 +26,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DependencyInjection.cs",
-              "DocumentMoniker": "D:\\GitHub\\Library\\Library.Infrastructure\\DependencyInjection.cs",
-              "RelativeDocumentMoniker": "Library.Infrastructure\\DependencyInjection.cs",
-              "ToolTip": "D:\\GitHub\\Library\\Library.Infrastructure\\DependencyInjection.cs",
-              "RelativeToolTip": "Library.Infrastructure\\DependencyInjection.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAAnwDEAAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-02T08:49:21.919Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "LocalFileStorageService.cs",
-              "DocumentMoniker": "D:\\GitHub\\Library\\Library.Infrastructure\\Services\\Helpers\\LocalFileStorageService.cs",
-              "RelativeDocumentMoniker": "Library.Infrastructure\\Services\\Helpers\\LocalFileStorageService.cs",
-              "ToolTip": "D:\\GitHub\\Library\\Library.Infrastructure\\Services\\Helpers\\LocalFileStorageService.cs",
-              "RelativeToolTip": "Library.Infrastructure\\Services\\Helpers\\LocalFileStorageService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-02T08:41:56.887Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "SeedHelpers.cs",
-              "DocumentMoniker": "D:\\GitHub\\Library\\Library.Infrastructure\\Persistence\\Seed\\SeedHelpers.cs",
-              "RelativeDocumentMoniker": "Library.Infrastructure\\Persistence\\Seed\\SeedHelpers.cs",
-              "ToolTip": "D:\\GitHub\\Library\\Library.Infrastructure\\Persistence\\Seed\\SeedHelpers.cs",
-              "RelativeToolTip": "Library.Infrastructure\\Persistence\\Seed\\SeedHelpers.cs",
-              "ViewState": "AgIAAKAAAAAAAAAAAAAAAK4AAAAAAAAAAAAAAA==",
+              "Title": "globalUsings.cs",
+              "DocumentMoniker": "D:\\GitHub\\Library\\Library\\globalUsings.cs",
+              "RelativeDocumentMoniker": "Library\\globalUsings.cs",
+              "ToolTip": "D:\\GitHub\\Library\\Library\\globalUsings.cs",
+              "RelativeToolTip": "Library\\globalUsings.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAADwAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-01T13:16:14.21Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ContextExtensions.cs",
-              "DocumentMoniker": "D:\\GitHub\\Library\\Library.Infrastructure\\Persistence\\Extensions\\ContextExtensions.cs",
-              "RelativeDocumentMoniker": "Library.Infrastructure\\Persistence\\Extensions\\ContextExtensions.cs",
-              "ToolTip": "D:\\GitHub\\Library\\Library.Infrastructure\\Persistence\\Extensions\\ContextExtensions.cs",
-              "RelativeToolTip": "Library.Infrastructure\\Persistence\\Extensions\\ContextExtensions.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAAACkAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-01T13:04:14.717Z",
+              "WhenOpened": "2026-05-14T18:21:09.157Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\GitHub\\Library\\Library\\Program.cs",
-              "RelativeDocumentMoniker": "Library\\Program.cs",
-              "ToolTip": "D:\\GitHub\\Library\\Library\\Program.cs",
-              "RelativeToolTip": "Library\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Title": "BooksController.cs",
+              "DocumentMoniker": "D:\\GitHub\\Library\\Library\\Controllers\\Books\\BooksController.cs",
+              "RelativeDocumentMoniker": "Library\\Controllers\\Books\\BooksController.cs",
+              "ToolTip": "D:\\GitHub\\Library\\Library\\Controllers\\Books\\BooksController.cs",
+              "RelativeToolTip": "Library\\Controllers\\Books\\BooksController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-01T13:01:56.405Z",
+              "WhenOpened": "2026-05-14T18:20:21.566Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GenresController.cs",
+              "DocumentMoniker": "D:\\GitHub\\Library\\Library\\Controllers\\Books\\GenresController.cs",
+              "RelativeDocumentMoniker": "Library\\Controllers\\Books\\GenresController.cs",
+              "ToolTip": "D:\\GitHub\\Library\\Library\\Controllers\\Books\\GenresController.cs",
+              "RelativeToolTip": "Library\\Controllers\\Books\\GenresController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T18:20:14.678Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GetAllGenresQueryHandler.cs",
+              "DocumentMoniker": "D:\\GitHub\\Library\\Library.Application\\Books\\Queries\\GetAllGenres\\GetAllGenresQueryHandler.cs",
+              "RelativeDocumentMoniker": "Library.Application\\Books\\Queries\\GetAllGenres\\GetAllGenresQueryHandler.cs",
+              "ToolTip": "D:\\GitHub\\Library\\Library.Application\\Books\\Queries\\GetAllGenres\\GetAllGenresQueryHandler.cs",
+              "RelativeToolTip": "Library.Application\\Books\\Queries\\GetAllGenres\\GetAllGenresQueryHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T18:10:17.938Z",
               "EditorCaption": ""
             },
             {

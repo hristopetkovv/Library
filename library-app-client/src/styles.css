@@ -22,3 +22,26 @@ nz-select.ant-select-focused .ant-select-selector {
   border-color: #2d5a27 !important;
   box-shadow: 0 0 0 2px rgba(45, 90, 39, 0.12) !important;
 }
+
+/* Pagination */
+.ant-pagination-item-active {
+  border-color: #2d5a27 !important;
+}
+
+.ant-pagination-item-active a {
+  color: #2d5a27 !important;
+}
+
+.ant-pagination-item:hover {
+  border-color: #2d5a27 !important;
+}
+
+.ant-pagination-item:hover a {
+  color: #2d5a27 !important;
+}
+
+.ant-pagination-prev:hover .ant-pagination-item-link,
+.ant-pagination-next:hover .ant-pagination-item-link {
+  color: #2d5a27 !important;
+  border-color: #2d5a27 !important;
+}

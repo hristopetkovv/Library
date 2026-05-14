@@ -4,34 +4,35 @@ import { NzPaginationModule } from "ng-zorro-antd/pagination";
 import { NzSelectModule } from "ng-zorro-antd/select";
 import { BookResource } from "../../resources/book.resource";
 import { BookListDto } from "../../dtos/book-list.dto";
-import { GenreOption } from "../../dtos/genre-option";
 import { SearchBooksFilterDto } from "../../dtos/search-books-filter.dto";
 import { finalize } from "rxjs";
 import { BookCardComponent } from "../book-search-card/book-search-card.component";
 import { BookFiltersComponent } from "../book-filter/book-filter.component";
 import { NzEmptyModule } from "ng-zorro-antd/empty";
-import { NzSpinModule } from "ng-zorro-antd/spin";
-import { TranslatePipe, TranslateService } from "@ngx-translate/core";
+import { TranslatePipe } from "@ngx-translate/core";
+import { LoadingComponent } from "../../../../shared/components/loading/loading.component";
+import { GenreDto } from "../../dtos/genre.dto";
+import { GenreResource } from "../../resources/genre.resource";
 
 type SortOption = 'titleAsc' | 'titleDesc' | 'author';
 
 @Component({
   selector: 'app-book-list',
   standalone: true,
-  imports: [FormsModule, NzPaginationModule, NzSelectModule, NzEmptyModule, NzSpinModule, BookCardComponent, BookFiltersComponent, TranslatePipe],
+  imports: [FormsModule, NzPaginationModule, NzSelectModule, NzEmptyModule, BookCardComponent, BookFiltersComponent, LoadingComponent, TranslatePipe],
   templateUrl: './book-list.component.html',
   styleUrl: './book-list.component.css',
 })
 export class BookListComponent implements OnInit {
   private readonly bookResource = inject(BookResource);
-  private readonly translate = inject(TranslateService);
+  private readonly genreResource = inject(GenreResource);
  
   readonly books = signal<BookListDto[]>([]);
   readonly isLoading = signal(false);
   readonly sortBy = signal<SortOption>('titleAsc');
   readonly pageIndex = signal(1);
   readonly pageSize = signal(20);
-  readonly genres = signal<GenreOption[]>([]);
+  readonly genres = signal<GenreDto[]>([]);
  
   private currentFilter: SearchBooksFilterDto = {};
  
@@ -60,6 +61,7 @@ export class BookListComponent implements OnInit {
   readonly totalBooks = computed(() => this.books().length);
  
   ngOnInit(): void {
+    this.loadGenres();
     this.loadBooks();
   }
  
@@ -80,6 +82,7 @@ export class BookListComponent implements OnInit {
  
   private loadBooks(): void {
     this.isLoading.set(true);
+    
     this.bookResource.getAll(this.currentFilter)
     .pipe(
              finalize(() => this.isLoading.set(false))
@@ -87,19 +90,13 @@ export class BookListComponent implements OnInit {
     .subscribe({
       next: (books) => {
         this.books.set(books);
-        this.extractGenres(books);
       }
     });
   }
- 
-  private extractGenres(books: BookListDto[]): void {
-    const counts = new Map<string, number>();
-    books.forEach(b => b.genres?.forEach(g => counts.set(g, (counts.get(g) ?? 0) + 1)));
-    this.genres.set(
-      Array.from(counts.entries())
-        .map(([name, count], id) => ({ id, name, count }))
-        .sort((a, b) => b.count - a.count)
-    );
+
+  private loadGenres(): void {
+    this.genreResource.getAll().subscribe({
+      next: (genres) => this.genres.set(genres)
+    });
   }
-    
 }

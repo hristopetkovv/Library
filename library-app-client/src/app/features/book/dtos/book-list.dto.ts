@@ -1,3 +1,5 @@
+import { GenreDto } from "./genre.dto";
+
 export interface BookListDto {
     id: number;
     title: string;
@@ -5,6 +7,6 @@ export interface BookListDto {
     publisherName: string;
     isbn: string;
     availableCopies: number;
-    genres: string[];
+    genres: GenreDto[];
     coverImageUrl: string;
 }

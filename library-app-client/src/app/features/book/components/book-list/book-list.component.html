@@ -22,24 +22,19 @@
             </nz-select>
         </div>
 
-        <nz-spin [nzSpinning]="isLoading()"
-                 nzTip="{{ 'common.loading' | translate }}">
-
-            @if (!isLoading() && totalBooks() === 0) {
+        @if (isLoading()) {
+                <app-loading message="{{ 'common.loading' | translate }}" />
+        } @else if (totalBooks() === 0) {        
             <div class="empty-state">
                 <nz-empty nzNotFoundContent="{{ 'book.list.empty' | translate }}"></nz-empty>
             </div>
-            }
-
-            @if (totalBooks() > 0) {
+        } @else {                              
             <div class="books-grid">
                 @for (book of pagedBooks(); track book.id) {
-                <app-book-card [book]="book"></app-book-card>
+                    <app-book-card [book]="book"></app-book-card>
                 }
             </div>
-            }
-
-        </nz-spin>
+        }
 
         @if (totalBooks() > pageSize()) {
         <div class="pagination-wrapper">
