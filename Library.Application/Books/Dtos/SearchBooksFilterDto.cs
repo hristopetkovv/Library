@@ -14,7 +14,7 @@
 		public Expression<Func<Book, bool>> Predicate()
 		{
 			return b =>
-			(string.IsNullOrEmpty(Term) || b.Title.Contains(Term) || b.Author.Name.Contains(Term) || b.ISBN.Value.Contains(Term))
+			(string.IsNullOrEmpty(Term) || b.Title.ToLower().Contains(Term.ToLower()) || b.Author.Name.ToLower().Contains(Term) || b.ISBN.Value.Contains(Term))
 			&& (AuthorId == null || b.AuthorId == AuthorId)
 			&& (PublisherId == null || b.PublisherId == PublisherId)
 			&& (Language == null || b.Language == Language)

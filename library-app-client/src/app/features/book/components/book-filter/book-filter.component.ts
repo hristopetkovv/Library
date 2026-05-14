@@ -1,4 +1,4 @@
-import { Component, computed, input, OnDestroy, OnInit, output, signal } from "@angular/core";
+import { Component, computed, inject, input, OnDestroy, OnInit, output, signal } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { NzButtonModule } from "ng-zorro-antd/button";
 import { NzCheckboxModule } from "ng-zorro-antd/checkbox";
@@ -6,12 +6,13 @@ import { NzCollapseModule } from "ng-zorro-antd/collapse";
 import { NzIconModule } from "ng-zorro-antd/icon";
 import { NzInputModule } from "ng-zorro-antd/input";
 import { NzSwitchModule } from "ng-zorro-antd/switch";
-import { GenreOption } from "../../dtos/genre-option";
 import { SearchBooksFilterDto } from "../../dtos/search-books-filter.dto";
 import { debounceTime, distinctUntilChanged, Subject, takeUntil } from "rxjs";
 import { CoverType } from "../../enums/cover-type.enum";
 import { Language } from "../../enums/language.enum";
-import { TranslatePipe } from "@ngx-translate/core";
+import { TranslatePipe, TranslateService } from "@ngx-translate/core";
+import { GenreDto } from "../../dtos/genre.dto";
+import { Category } from "../../enums/category.enum";
 
 @Component({
   selector: 'app-book-filters',
@@ -30,7 +31,18 @@ import { TranslatePipe } from "@ngx-translate/core";
   styleUrl: './book-filter.component.css',
 })
 export class BookFiltersComponent implements OnInit, OnDestroy {
-  readonly genres = input<GenreOption[]>([]);
+  private readonly translate = inject(TranslateService);
+
+  readonly genres = input<GenreDto[]>([]);
+  readonly fictionGenres = computed(() =>
+    this.genres().filter(g => g.category === Category.Fiction)
+  );
+  readonly nonFictionGenres = computed(() =>
+    this.genres().filter(g => g.category === Category.NonFiction)
+  );
+  
+  readonly currentLang = computed(() => this.translate.getCurrentLang());
+
   readonly filterChange = output<SearchBooksFilterDto>();
  
   private readonly destroy$ = new Subject<void>();
@@ -81,6 +93,10 @@ export class BookFiltersComponent implements OnInit, OnDestroy {
       checked ? [...ids, id] : ids.filter(g => g !== id)
     );
     this.emit();
+  }
+
+  genreLabel(genre: GenreDto): string {
+    return this.currentLang() === 'bg' ? genre.nameBg : genre.name;
   }
  
   onLanguageChange(lang: Language, checked: boolean): void {

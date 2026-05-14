@@ -37,22 +37,37 @@
     <nz-collapse [nzBordered]="false"
                  class="filter-collapse">
 
-        <nz-collapse-panel nzHeader="{{ 'book.filter.genre' | translate }}"
-                           [nzActive]="false"
-                           class="filter-panel">
-            <div class="filter-options">
-                @for (genre of genres(); track genre.id) {
-                <div class="filter-option">
-                    <label nz-checkbox
-                           [ngModel]="selectedGenreIds().includes(genre.id)"
-                           (ngModelChange)="onGenreChange(genre.id, $event)">
-                        {{ genre.name }}
-                    </label>
-                    <span class="option-count">{{ genre.count }}</span>
-                </div>
-                }
-            </div>
-        </nz-collapse-panel>
+        <nz-collapse-panel nzHeader="{{ 'book.filter.fictionGenres' | translate }}"
+                   [nzActive]="false"
+                   class="filter-panel">
+  <div class="filter-options">
+    @for (genre of fictionGenres(); track genre.id) {
+      <div class="filter-option">
+        <label nz-checkbox
+               [ngModel]="selectedGenreIds().includes(genre.id)"
+               (ngModelChange)="onGenreChange(genre.id, $event)">
+          {{ genreLabel(genre) }}
+        </label>
+      </div>
+    }
+  </div>
+</nz-collapse-panel>
+
+<nz-collapse-panel nzHeader="{{ 'book.filter.nonFictionGenres' | translate }}"
+                   [nzActive]="false"
+                   class="filter-panel">
+  <div class="filter-options">
+    @for (genre of nonFictionGenres(); track genre.id) {
+      <div class="filter-option">
+        <label nz-checkbox
+               [ngModel]="selectedGenreIds().includes(genre.id)"
+               (ngModelChange)="onGenreChange(genre.id, $event)">
+          {{ genreLabel(genre) }}
+        </label>
+      </div>
+    }
+  </div>
+</nz-collapse-panel>
 
         <nz-collapse-panel nzHeader="{{ 'book.filter.language' | translate }}"
                            [nzActive]="false"

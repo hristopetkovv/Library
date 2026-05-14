@@ -76,7 +76,9 @@
             "coverType": "Cover type",
             "titleAsc": "By title (A-Z)",
             "titleDesc": "By title (Z-A)",
-            "author": "By author"
+            "author": "By author",
+            "fictionGenres": "Fiction",
+            "nonFictionGenres": "Non-Fiction"
         },
         "list": {
             "booksFound": "books found",
