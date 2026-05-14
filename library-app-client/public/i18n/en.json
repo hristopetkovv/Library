@@ -83,6 +83,18 @@
         "list": {
             "booksFound": "books found",
             "empty": "No books found matching the selected criteria"
+        },
+        "detail": {
+            "availableCopies": "Available copies",
+            "publisher": "Publisher",
+            "isbn": "ISBN",
+            "pages": "Pages",
+            "year": "Year",
+            "language": "Language",
+            "coverType": "Cover type",
+            "fictionGenres": "Fiction genres",
+            "nonFictionGenres":"Non-fiction genres",
+            "modalTitle": "Book information"
         }
     },
     "error": {

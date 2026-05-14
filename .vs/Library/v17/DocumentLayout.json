@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "D:\\GitHub\\Library\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D064BEB5-A8EA-4535-B31A-F4EE9CAA7E67}|Library\\Library.csproj|d:\\github\\library\\library\\controllers\\books\\genrescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D064BEB5-A8EA-4535-B31A-F4EE9CAA7E67}|Library\\Library.csproj|solutionrelative:library\\controllers\\books\\genrescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|d:\\github\\library\\library.application\\books\\dtos\\bookdetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|solutionrelative:library.application\\books\\dtos\\bookdetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|d:\\github\\library\\library.application\\books\\queries\\getallgenres\\getallgenresqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|solutionrelative:library.application\\books\\queries\\getallgenres\\getallgenresqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|d:\\github\\library\\library.application\\books\\queries\\getbookbyid\\getbookbyidqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|solutionrelative:library.application\\books\\queries\\getbookbyid\\getbookbyidqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D064BEB5-A8EA-4535-B31A-F4EE9CAA7E67}|Library\\Library.csproj|d:\\github\\library\\library\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D064BEB5-A8EA-4535-B31A-F4EE9CAA7E67}|Library\\Library.csproj|solutionrelative:library\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FCD7760B-BDA6-4DB4-92B6-431F659F8E12}|Library.Domain\\Library.Domain.csproj|d:\\github\\library\\library.domain\\entities\\books\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FCD7760B-BDA6-4DB4-92B6-431F659F8E12}|Library.Domain\\Library.Domain.csproj|solutionrelative:library.domain\\entities\\books\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D064BEB5-A8EA-4535-B31A-F4EE9CAA7E67}|Library\\Library.csproj|d:\\github\\library\\library\\controllers\\books\\bookscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D064BEB5-A8EA-4535-B31A-F4EE9CAA7E67}|Library\\Library.csproj|solutionrelative:library\\controllers\\books\\bookscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|d:\\github\\library\\library.application\\books\\queries\\getbookbyid\\getbookbyidquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34A7B87C-04CB-46CC-8DCB-159142D32E4B}|Library.Application\\Library.Application.csproj|solutionrelative:library.application\\books\\queries\\getbookbyid\\getbookbyidquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,58 +26,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "globalUsings.cs",
-              "DocumentMoniker": "D:\\GitHub\\Library\\Library\\globalUsings.cs",
-              "RelativeDocumentMoniker": "Library\\globalUsings.cs",
-              "ToolTip": "D:\\GitHub\\Library\\Library\\globalUsings.cs",
-              "RelativeToolTip": "Library\\globalUsings.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAAADwAAAAHAAAAAAAAAA==",
+              "Title": "Book.cs",
+              "DocumentMoniker": "D:\\GitHub\\Library\\Library.Domain\\Entities\\Books\\Book.cs",
+              "RelativeDocumentMoniker": "Library.Domain\\Entities\\Books\\Book.cs",
+              "ToolTip": "D:\\GitHub\\Library\\Library.Domain\\Entities\\Books\\Book.cs",
+              "RelativeToolTip": "Library.Domain\\Entities\\Books\\Book.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-14T18:21:09.157Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "BooksController.cs",
-              "DocumentMoniker": "D:\\GitHub\\Library\\Library\\Controllers\\Books\\BooksController.cs",
-              "RelativeDocumentMoniker": "Library\\Controllers\\Books\\BooksController.cs",
-              "ToolTip": "D:\\GitHub\\Library\\Library\\Controllers\\Books\\BooksController.cs",
-              "RelativeToolTip": "Library\\Controllers\\Books\\BooksController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-14T18:20:21.566Z",
+              "WhenOpened": "2026-05-14T19:21:26.279Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "GenresController.cs",
-              "DocumentMoniker": "D:\\GitHub\\Library\\Library\\Controllers\\Books\\GenresController.cs",
-              "RelativeDocumentMoniker": "Library\\Controllers\\Books\\GenresController.cs",
-              "ToolTip": "D:\\GitHub\\Library\\Library\\Controllers\\Books\\GenresController.cs",
-              "RelativeToolTip": "Library\\Controllers\\Books\\GenresController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABDAAAAAAAAAA==",
+              "Title": "BookDetailDto.cs",
+              "DocumentMoniker": "D:\\GitHub\\Library\\Library.Application\\Books\\Dtos\\BookDetailDto.cs",
+              "RelativeDocumentMoniker": "Library.Application\\Books\\Dtos\\BookDetailDto.cs",
+              "ToolTip": "D:\\GitHub\\Library\\Library.Application\\Books\\Dtos\\BookDetailDto.cs",
+              "RelativeToolTip": "Library.Application\\Books\\Dtos\\BookDetailDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-14T18:20:14.678Z",
+              "WhenOpened": "2026-05-14T19:20:53.768Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "GetAllGenresQueryHandler.cs",
-              "DocumentMoniker": "D:\\GitHub\\Library\\Library.Application\\Books\\Queries\\GetAllGenres\\GetAllGenresQueryHandler.cs",
-              "RelativeDocumentMoniker": "Library.Application\\Books\\Queries\\GetAllGenres\\GetAllGenresQueryHandler.cs",
-              "ToolTip": "D:\\GitHub\\Library\\Library.Application\\Books\\Queries\\GetAllGenres\\GetAllGenresQueryHandler.cs",
-              "RelativeToolTip": "Library.Application\\Books\\Queries\\GetAllGenres\\GetAllGenresQueryHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAyAAAAAAAAAA==",
+              "Title": "GetBookByIdQueryHandler.cs",
+              "DocumentMoniker": "D:\\GitHub\\Library\\Library.Application\\Books\\Queries\\GetBookById\\GetBookByIdQueryHandler.cs",
+              "RelativeDocumentMoniker": "Library.Application\\Books\\Queries\\GetBookById\\GetBookByIdQueryHandler.cs",
+              "ToolTip": "D:\\GitHub\\Library\\Library.Application\\Books\\Queries\\GetBookById\\GetBookByIdQueryHandler.cs",
+              "RelativeToolTip": "Library.Application\\Books\\Queries\\GetBookById\\GetBookByIdQueryHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-14T18:10:17.938Z",
+              "WhenOpened": "2026-05-14T19:12:53.684Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "GetBookByIdQuery.cs",
+              "DocumentMoniker": "D:\\GitHub\\Library\\Library.Application\\Books\\Queries\\GetBookById\\GetBookByIdQuery.cs",
+              "RelativeDocumentMoniker": "Library.Application\\Books\\Queries\\GetBookById\\GetBookByIdQuery.cs",
+              "ToolTip": "D:\\GitHub\\Library\\Library.Application\\Books\\Queries\\GetBookById\\GetBookByIdQuery.cs",
+              "RelativeToolTip": "Library.Application\\Books\\Queries\\GetBookById\\GetBookByIdQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAIAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T18:32:23.496Z",
               "EditorCaption": ""
             },
             {
