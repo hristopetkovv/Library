@@ -1,0 +1,92 @@
+<div class="detail-layout">
+ 
+  <div class="cover-section">
+    @if (book().coverImageUrl) {
+      <img [src]="book().coverImageUrl" [alt]="book().title" class="cover-img" />
+    } @else {
+      <div class="cover-placeholder" [style.background]="placeholderColor() + '12'">
+        <div class="cover-icon"
+             [style.border-left-color]="placeholderColor()"
+             [style.background]="placeholderColor() + '20'">
+          <svg viewBox="0 0 24 24" [style.fill]="placeholderColor()" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 2h14a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm0 2v16h14V4H4zm2 2h10v2H6V6zm0 4h10v2H6v-2zm0 4h7v2H6v-2z"/>
+          </svg>
+        </div>
+        <span class="cover-initials" [style.color]="placeholderColor()">{{ initials() }}</span>
+      </div>
+    }
+ 
+    <span class="availability-badge" [class.available]="isAvailable()" [class.unavailable]="!isAvailable()">
+      {{ (isAvailable() ? 'book.available' : 'book.unavailable') | translate }}
+    </span>
+ 
+    <div class="copies-info">
+      <span class="copies-label">{{ 'book.detail.availableCopies' | translate }}</span>
+      <span class="copies-value">{{ book().availableCopies }} / {{ book().totalCopies }}</span>
+    </div>
+  </div>
+ 
+  <div class="info-section">
+    <h2 class="book-title">{{ book().title }}</h2>
+    <p class="book-author">{{ book().author.name }}</p>
+ 
+    @if (book().description) {
+      <p class="book-description">{{ book().description }}</p>
+    }
+ 
+    <nz-divider></nz-divider>
+ 
+    <div class="meta-grid">
+      <div class="meta-item">
+        <span class="meta-label">{{ 'book.detail.publisher' | translate }}</span>
+        <span class="meta-value">{{ book().publisher.name }}</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">{{ 'book.detail.isbn' | translate }}</span>
+        <span class="meta-value">{{ book().isbn }}</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">{{ 'book.detail.pages' | translate }}</span>
+        <span class="meta-value">{{ book().pages }}</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">{{ 'book.detail.year' | translate }}</span>
+        <span class="meta-value">{{ book().publicationYear }}</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">{{ 'book.detail.language' | translate }}</span>
+        <span class="meta-value">{{ 'enums.language.' + languages[book().language] | translate }}</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">{{ 'book.detail.coverType' | translate }}</span>
+        <span class="meta-value">{{ 'enums.coverType.' + coverTypes[book().coverType] | translate }}</span>
+      </div>
+    </div>
+ 
+    @if (fictionGenres().length > 0) {
+      <nz-divider></nz-divider>
+      <div class="genres-section">
+        <span class="meta-label">{{ 'book.filter.fictionGenres' | translate }}</span>
+        <div class="genre-tags">
+          @for (genre of fictionGenres(); track genre.id) {
+            <nz-tag class="genre-tag">{{ genreLabel(genre) }}</nz-tag>
+          }
+        </div>
+      </div>
+    }
+ 
+    @if (nonFictionGenres().length > 0) {
+      <nz-divider></nz-divider>
+      <div class="genres-section">
+        <span class="meta-label">{{ 'book.filter.nonFictionGenres' | translate }}</span>
+        <div class="genre-tags">
+          @for (genre of nonFictionGenres(); track genre.id) {
+            <nz-tag class="genre-tag">{{ genreLabel(genre) }}</nz-tag>
+          }
+        </div>
+      </div>
+    }
+ 
+  </div>
+ 
+</div>

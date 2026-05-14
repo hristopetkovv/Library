@@ -13,7 +13,7 @@
 		int PublicationYear,
 		int TotalCopies,
 		int AvailableCopies,
-		List<int> Genres,
+		List<GenreDto> Genres,
 		string? CoverImageUrl
 	);
 }

@@ -1,4 +1,4 @@
-import { Component, computed, input, Input } from "@angular/core";
+import { Component, computed, input, Input, output } from "@angular/core";
 import { RouterLink } from "@angular/router";
 import { NzTagModule } from "ng-zorro-antd/tag";
 import { NzTooltipModule } from "ng-zorro-antd/tooltip";
@@ -14,6 +14,7 @@ import { TranslatePipe } from "@ngx-translate/core";
 })
 export class BookCardComponent {
   readonly book = input.required<BookListDto>();
+  readonly cardClick = output<number>();
  
   readonly isAvailable = computed(() => this.book().availableCopies > 0);
  
@@ -33,4 +34,8 @@ export class BookCardComponent {
       .join('')
       .toUpperCase()
   );
+
+  onClick(): void {
+    this.cardClick.emit(this.book().id);
+  }
 }

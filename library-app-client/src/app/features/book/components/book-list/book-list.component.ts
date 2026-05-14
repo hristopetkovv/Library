@@ -9,10 +9,13 @@ import { finalize } from "rxjs";
 import { BookCardComponent } from "../book-search-card/book-search-card.component";
 import { BookFiltersComponent } from "../book-filter/book-filter.component";
 import { NzEmptyModule } from "ng-zorro-antd/empty";
-import { TranslatePipe } from "@ngx-translate/core";
+import { TranslatePipe, TranslateService } from "@ngx-translate/core";
 import { LoadingComponent } from "../../../../shared/components/loading/loading.component";
 import { GenreDto } from "../../dtos/genre.dto";
 import { GenreResource } from "../../resources/genre.resource";
+import { NzModalService } from "ng-zorro-antd/modal";
+import { BookDetailDto } from "../../dtos/book-detail.dto";
+import { BookDetailComponent } from "../book-detail/book-detail-modal.component";
 
 type SortOption = 'titleAsc' | 'titleDesc' | 'author';
 
@@ -26,6 +29,8 @@ type SortOption = 'titleAsc' | 'titleDesc' | 'author';
 export class BookListComponent implements OnInit {
   private readonly bookResource = inject(BookResource);
   private readonly genreResource = inject(GenreResource);
+  private readonly modal = inject(NzModalService);
+  private readonly translate = inject(TranslateService);
  
   readonly books = signal<BookListDto[]>([]);
   readonly isLoading = signal(false);
@@ -33,6 +38,8 @@ export class BookListComponent implements OnInit {
   readonly pageIndex = signal(1);
   readonly pageSize = signal(20);
   readonly genres = signal<GenreDto[]>([]);
+  readonly selectedBook = signal<BookDetailDto | null>(null);
+  readonly modalLoading = signal(false);
  
   private currentFilter: SearchBooksFilterDto = {};
  
@@ -79,6 +86,21 @@ export class BookListComponent implements OnInit {
     this.pageIndex.set(page);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+
+  onBookClick(bookId: number): void {
+  this.modalLoading.set(true);
+ 
+  this.bookResource.getById(bookId)
+  .pipe(
+    finalize(() => this.modalLoading.set(false))
+  )
+  .subscribe({
+    next: (book) => {
+      this.selectedBook.set(book);
+      this.openModal();
+      }
+    });
+  }
  
   private loadBooks(): void {
     this.isLoading.set(true);
@@ -97,6 +119,20 @@ export class BookListComponent implements OnInit {
   private loadGenres(): void {
     this.genreResource.getAll().subscribe({
       next: (genres) => this.genres.set(genres)
+    });
+  }
+
+  private openModal(): void {
+  const book = this.selectedBook();
+  if (!book) return;
+ 
+  this.modal.create({
+      nzTitle: this.translate.instant('book.detail.modalTitle'),
+      nzContent: BookDetailComponent,
+      nzData: { book },           // предаваш данните
+      nzWidth: 720,
+      nzFooter: null,
+      nzBodyStyle: { padding: '24px' },
     });
   }
 }

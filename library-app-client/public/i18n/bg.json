@@ -73,6 +73,18 @@
         "list": {
             "booksFound": "книги намерени",
             "empty": "Няма намерени книги по зададените критерии"
+        },
+        "detail": {
+            "availableCopies": "Налични копия",
+            "publisher": "Издател",
+            "isbn": "ISBN",
+            "pages": "Страници",
+            "year": "Година на издаване",
+            "language": "Език",
+            "coverType": "Вид корица",
+            "fictionGenres": "Художествена литература",
+            "nonFictionGenres":"Нехудожествена литература",
+            "modalTitle": "Информация за книга"
         }
     },
     "notification": {

@@ -1,4 +1,4 @@
-<a [routerLink]="['/books', book().id]"
+<div class="book-card" (click)="onClick()"
    class="book-card">
 
     <div class="book-cover">
@@ -38,4 +38,4 @@
         <p class="book-author">{{ book().authorName }}</p>
     </div>
 
-</a>
+</div>

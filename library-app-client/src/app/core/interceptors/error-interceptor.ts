@@ -67,7 +67,7 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
         }
 
       if (errorMessage.startsWith("validation.")) {
-        errorMessage = translate.instant("error.detail");
+        errorMessage = translate.instant("error.message");
       }
 
       notification.error(errorTitle, errorMessage, { nzDuration: 5000 });
