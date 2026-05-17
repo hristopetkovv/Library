@@ -1,0 +1,58 @@
+<div class="detail-layout">
+ 
+  <div class="header-section">
+    <div class="author-avatar" [style.background]="avatarColor() + '18'">
+      <span class="avatar-initials" [style.color]="avatarColor()">{{ initials() }}</span>
+      <div class="avatar-ring" [style.border-color]="avatarColor() + '40'"></div>
+    </div>
+ 
+    <div class="author-meta">
+      <h2 class="author-name">{{ author().name }}</h2>
+      <div class="author-stats">
+        <div class="stat">
+          <span class="stat-value">{{ author().books.length }}</span>
+          <span class="stat-label">{{ 'author.detail.totalBooks' | translate }}</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-value available">{{ availableBooks() }}</span>
+          <span class="stat-label">{{ 'author.detail.availableBooks' | translate }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  @if (author().biography) {
+    <nz-divider></nz-divider>
+    <div class="biography-section">
+      <span class="section-label">{{ 'author.detail.biography' | translate }}</span>
+      <p class="biography-text">{{ author().biography }}</p>
+    </div>
+  }
+ 
+  <nz-divider></nz-divider>
+ 
+  <div class="books-section">
+    <span class="section-label">{{ 'author.detail.books' | translate }}</span>
+    <div class="books-list">
+      @for (book of author().books; track book.id) {
+        <div class="book-row">
+          <div class="book-row-info">
+            <span class="book-row-title">{{ book.title }}</span>
+            <span class="book-row-isbn">ISBN: {{ book.isbn }}</span>
+          </div>
+          <span class="book-row-badge"
+                [class.available]="book.availableCopies > 0"
+                [class.unavailable]="book.availableCopies === 0">
+            @if (book.availableCopies > 0) {
+              {{ book.availableCopies }} {{ 'author.detail.copies' | translate }}
+            } @else {
+              {{ 'book.unavailable' | translate }}
+            }
+          </span>
+        </div>
+      }
+    </div>
+  </div>
+ 
+</div>
