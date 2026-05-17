@@ -1,0 +1,17 @@
+<div class="author-card" (click)="onClick()">
+ 
+  <div class="author-avatar" [style.background]="avatarColor() + '18'">
+    <span class="avatar-initials" [style.color]="avatarColor()">{{ initials() }}</span>
+    <div class="avatar-ring" [style.border-color]="avatarColor() + '40'"></div>
+  </div>
+ 
+  <div class="author-info">
+    <p class="author-name" nz-tooltip [nzTooltipTitle]="author().name">
+      {{ author().name }}
+    </p>
+    <p class="author-books-count">
+      {{ author().booksCount }} {{ 'author.card.booksCount' | translate }}
+    </p>
+  </div>
+ 
+</div>

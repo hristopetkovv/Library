@@ -87,6 +87,24 @@
             "modalTitle": "Информация за книга"
         }
     },
+    "author": {
+        "list": {
+            "searchPlaceholder": "Търси по име...",
+            "authorsFound": "автори намерени",
+            "empty": "Няма намерени автори"
+        },
+        "detail": {
+            "modalTitle": "Информация за автор",
+            "biography": "Биография",
+            "books": "Книги",
+            "totalBooks": "Общо книги",
+            "availableBooks": "Налични книги",
+            "copies": "налични"
+        },
+        "card": {
+            "booksCount": "книги"
+        }
+    },
     "notification": {
         "success": {
             "login": "Добре дошли!",
