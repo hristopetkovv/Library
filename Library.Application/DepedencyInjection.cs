@@ -14,6 +14,8 @@
 				cfg.AddOpenBehavior(typeof(LoggingBehavior<,>));
 				cfg.AddOpenBehavior(typeof(ValidationCommandBehavior<,>));
 			});
-		}
+
+			MappingConfig.Configure();
+        }
 	}
 }

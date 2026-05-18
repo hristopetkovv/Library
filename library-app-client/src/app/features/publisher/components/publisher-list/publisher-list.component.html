@@ -1,0 +1,53 @@
+<div class="page-layout">
+ 
+  <div class="content">
+ 
+    <div class="toolbar">
+      <div class="search-wrapper">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input
+          class="search-input"
+          [ngModel]="term()"
+          (ngModelChange)="onTermChange($event)"
+          placeholder="{{ 'publisher.list.searchPlaceholder' | translate }}"
+        />
+      </div>
+      <span class="result-count">
+        <strong>{{ totalPublishers() }}</strong> {{ 'publisher.list.publishersFound' | translate }}
+      </span>
+    </div>
+ 
+    @if (isLoading()) {
+      <app-loading message="{{ 'common.loading' | translate }}" />
+    } @else if (totalPublishers() === 0) {
+      <div class="empty-state">
+        <nz-empty nzNotFoundContent="{{ 'publisher.list.empty' | translate }}"></nz-empty>
+      </div>
+    } @else {
+      <div class="publishers-grid">
+        @for (publisher of pagedPublishers(); track publisher.id) {
+          <app-publisher-card
+            [publisher]="publisher"
+            (cardClick)="onPublisherClick($event)"
+          ></app-publisher-card>
+        }
+      </div>
+    }
+ 
+    @if (totalPublishers() > pageSize()) {
+      <div class="pagination-wrapper">
+        <nz-pagination
+          [nzTotal]="totalPublishers()"
+          [nzPageIndex]="pageIndex()"
+          [nzPageSize]="pageSize()"
+          [nzShowSizeChanger]="false"
+          (nzPageIndexChange)="onPageChange($event)"
+        ></nz-pagination>
+      </div>
+    }
+ 
+  </div>
+ 
+</div>
