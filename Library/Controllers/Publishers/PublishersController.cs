@@ -6,8 +6,8 @@
 	{
 		[HttpGet]
 		[AllowAnonymous]
-		public async Task<ActionResult<List<PublisherListDto>>> GetAll(CancellationToken cancellationToken)
-			=> Ok(await mediator.Send(new GetAllPublishersQuery(), cancellationToken));
+		public async Task<ActionResult<List<PublisherListDto>>> GetAll([FromQuery] string publisherName, CancellationToken cancellationToken)
+			=> Ok(await mediator.Send(new GetAllPublishersQuery(publisherName), cancellationToken));
 
 		[HttpGet("{id:int}")]
 		[AllowAnonymous]

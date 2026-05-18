@@ -4,12 +4,16 @@
 	{
 		public async Task<List<PublisherListDto>> Handle(GetAllPublishersQuery query, CancellationToken cancellationToken)
 		{
-			var publishers = await unitOfWork.Publishers.GetAllAsync(cancellationToken, p => p.Books);
+			var publishers = await unitOfWork.Publishers.GetAllFilteredAsync(p =>
+            string.IsNullOrWhiteSpace(query.PublisherName) || p.Name.ToLower().Contains(query.PublisherName.ToLower()),
+                cancellationToken, 
+				p => p.Books
+			);
 
-			return [.. publishers.Select(a => new PublisherListDto(
-				a.Id,
-				a.Name,
-				a.Books.Count
+			return [.. publishers.Select(p => new PublisherListDto(
+				p.Id,
+				p.Name,
+				p.Books.Count
 			))];
 		}
 	}

@@ -115,6 +115,23 @@
             "booksCount": "books"
         }
     },
+    "publisher": {
+        "list": {
+            "searchPlaceholder": "Search by name...",
+            "publishersFound": "publishers found",
+            "empty": "No publishers found matching the selected criteria"
+        },
+        "detail": {
+            "modalTitle": "Information about the publisher",
+            "books": "books",
+            "totalBooks": "Total books",
+            "availableBooks": "Available books",
+            "copies": "available"
+        },
+        "card": {
+            "booksCount": "books"
+        }
+    },
     "error": {
         "title": "An unexpected error occurred",
         "detail": "If the error continue, please contact an administrator",

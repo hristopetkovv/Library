@@ -105,6 +105,23 @@
             "booksCount": "книги"
         }
     },
+    "publisher": {
+        "list": {
+            "searchPlaceholder": "Търси по име...",
+            "publishersFound": "издатели намерени",
+            "empty": "Няма намерени издатели"
+        },
+        "detail": {
+            "modalTitle": "Информация за издател",
+            "books": "Книги",
+            "totalBooks": "Общо книги",
+            "availableBooks": "Налични книги",
+            "copies": "налични"
+        },
+        "card": {
+            "booksCount": "книги"
+        }
+    },
     "notification": {
         "success": {
             "login": "Добре дошли!",

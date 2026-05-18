@@ -1,49 +1,49 @@
-import { Component, OnInit, inject, signal, computed } from '@angular/core';
+import { Component, OnDestroy, OnInit, computed, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, finalize, Subject, takeUntil } from 'rxjs';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { NzPaginationModule } from 'ng-zorro-antd/pagination';
 import { NzEmptyModule } from 'ng-zorro-antd/empty';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
-import { AuthorResource } from '../../resources/author.resource';
+import { PublisherCardComponent } from '../publisher-card/publisher-card.component';
+import { PublisherDetailComponent } from '../publisher-detail/publisher-detail.component';
 import { LoadingComponent } from '../../../../shared/components/loading/loading.component';
-import { AuthorListDto } from '../../dtos/author-list.dto';
-import { AuthorCardComponent } from '../author-card/author-card.component';
-import { AuthorDetailComponent } from '../author-detail/author-detail.component';
+import { PublisherResource } from '../../resources/publisher.resource';
+import { PublisherListDto } from '../../dtos/publisher-list.dto';
  
 @Component({
-  selector: 'app-author-list',
+  selector: 'app-publisher-list',
   standalone: true,
   imports: [
     FormsModule,
     NzPaginationModule,
     NzEmptyModule,
     TranslatePipe,
-    AuthorCardComponent,
+    PublisherCardComponent,
     LoadingComponent,
   ],
-  templateUrl: './author-list.component.html',
-  styleUrl: './author-list.component.css',
+  templateUrl: './publisher-list.component.html',
+  styleUrl: './publisher-list.component.css',
 })
-export class AuthorListComponent implements OnInit {
-  private readonly authorResource = inject(AuthorResource);
+export class PublisherListComponent implements OnInit, OnDestroy {
+  private readonly publisherResource = inject(PublisherResource);
   private readonly modal = inject(NzModalService);
   private readonly translate = inject(TranslateService);
  
   private readonly destroy$ = new Subject<void>();
   private readonly termSubject = new Subject<string>();
  
-  readonly authors = signal<AuthorListDto[]>([]);
+  readonly publishers = signal<PublisherListDto[]>([]);
   readonly isLoading = signal(false);
   readonly term = signal('');
   readonly pageIndex = signal(1);
   readonly pageSize = signal(24);
  
-  readonly totalAuthors = computed(() => this.authors().length);
+  readonly totalPublishers = computed(() => this.publishers().length);
  
-  readonly pagedAuthors = computed(() => {
+  readonly pagedPublishers = computed(() => {
     const start = (this.pageIndex() - 1) * this.pageSize();
-    return this.authors().slice(start, start + this.pageSize());
+    return this.publishers().slice(start, start + this.pageSize());
   });
  
   ngOnInit(): void {
@@ -51,9 +51,9 @@ export class AuthorListComponent implements OnInit {
       debounceTime(350),
       distinctUntilChanged(),
       takeUntil(this.destroy$)
-    ).subscribe(() => this.loadAuthors());
+    ).subscribe(() => this.loadPublishers());
  
-    this.loadAuthors();
+    this.loadPublishers();
   }
  
   ngOnDestroy(): void {
@@ -67,13 +67,13 @@ export class AuthorListComponent implements OnInit {
     this.pageIndex.set(1);
   }
  
-  onAuthorClick(authorId: number): void {
-    this.authorResource.getById(authorId).subscribe({
-      next: (author) => {
+  onPublisherClick(publisherId: number): void {
+    this.publisherResource.getById(publisherId).subscribe({
+      next: (publisher) => {
         this.modal.create({
-          nzTitle: this.translate.instant('author.detail.modalTitle'),
-          nzContent: AuthorDetailComponent,
-          nzData: { author },
+          nzTitle: this.translate.instant('publisher.detail.modalTitle'),
+          nzContent: PublisherDetailComponent,
+          nzData: { publisher },
           nzWidth: 640,
           nzFooter: null,
           nzBodyStyle: { padding: '24px' },
@@ -87,12 +87,12 @@ export class AuthorListComponent implements OnInit {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
  
-  private loadAuthors(): void {
+  private loadPublishers(): void {
     this.isLoading.set(true);
-    this.authorResource.getAll(this.term())
+    this.publisherResource.getAll(this.term())
       .pipe(finalize(() => this.isLoading.set(false)))
       .subscribe({
-        next: (authors) => this.authors.set(authors),
+        next: (publishers) => this.publishers.set(publishers),
       });
   }
 }

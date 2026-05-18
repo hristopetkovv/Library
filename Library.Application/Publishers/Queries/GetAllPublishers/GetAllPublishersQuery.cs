@@ -1,4 +1,4 @@
 ﻿namespace Library.Application.Publishers.Queries.GetAllPublishers
 {
-	public record GetAllPublishersQuery : IRequest<List<PublisherListDto>>;
+	public record GetAllPublishersQuery(string PublisherName) : IRequest<List<PublisherListDto>>;
 }
