@@ -61,6 +61,8 @@
                 options.AddDocumentTransformer((document, context, cancellationToken) =>
                 {
                     document.Components ??= new OpenApiComponents();
+                    document.Components.SecuritySchemes ??= (IDictionary<string, IOpenApiSecurityScheme>)new Dictionary<string, OpenApiSecurityScheme>();
+
                     document.Components.SecuritySchemes.Add("Bearer", new OpenApiSecurityScheme
                     {
                         Type = SecuritySchemeType.Http,
@@ -70,18 +72,12 @@
                         Description = "Enter your JWT token"
                     });
 
-                    document.SecurityRequirements.Add(new OpenApiSecurityRequirement
+                    document.Security ??= [];
+                    document.Security.Add(new OpenApiSecurityRequirement
                     {
                         {
-                            new OpenApiSecurityScheme
-                            {
-                                Reference = new OpenApiReference
-                                {
-                                    Type = ReferenceType.SecurityScheme,
-                                    Id = "Bearer"
-                                }
-                            },
-                            Array.Empty<string>()
+                            new OpenApiSecuritySchemeReference("Bearer"),
+                            new List<string>()
                         }
                     });
 
