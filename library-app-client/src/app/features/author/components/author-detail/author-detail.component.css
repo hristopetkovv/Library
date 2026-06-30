@@ -14,7 +14,7 @@
   position: relative;
   width: 80px;
   height: 80px;
-  border-radius: 50%;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,7 +24,7 @@
 .avatar-ring {
   position: absolute;
   inset: -3px;
-  border-radius: 50%;
+  border-radius: 14px;
   border: 2px solid;
 }
  
