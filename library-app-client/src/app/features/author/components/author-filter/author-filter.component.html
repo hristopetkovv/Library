@@ -1,0 +1,28 @@
+<div class="filters-container">
+
+    <div class="filters-header">
+        <span class="filters-title">{{ 'common.filter' | translate }}</span>
+        @if (hasActiveFilters()) {
+        <button nz-button
+                nzType="link"
+                nzSize="small"
+                class="clear-btn"
+                (click)="clearAll()">
+            {{ 'common.clearFilter' | translate }}
+        </button>
+        }
+    </div>
+
+    <div class="search-wrapper">
+        <span nz-icon
+              nzType="search"
+              nzTheme="outline"
+              class="search-icon"></span>
+        <input nz-input
+               class="search-input"
+               placeholder="{{ 'author.list.searchPlaceholder' | translate }}"
+               [ngModel]="term()"
+               (ngModelChange)="onTermChange($event)" />
+    </div>
+
+</div>

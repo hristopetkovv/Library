@@ -64,9 +64,6 @@
             "genre": "Жанр",
             "language": "Език",
             "coverType": "Вид корица",
-            "titleAsc": "По заглавие (А-Я)",
-            "titleDesc": "По заглавие (Я-А)",
-            "author": "По автор",
             "fictionGenres": "Художествена литература",
             "nonFictionGenres": "Нехудожествена литература"
         },
@@ -85,6 +82,11 @@
             "fictionGenres": "Художествена литература",
             "nonFictionGenres":"Нехудожествена литература",
             "modalTitle": "Информация за книга"
+        },
+        "sort": {
+            "titleAsc": "По заглавие (А-Я)",
+            "titleDesc": "По заглавие (Я-А)",
+            "author": "По автор"
         }
     },
     "author": {
@@ -103,6 +105,12 @@
         },
         "card": {
             "booksCount": "книги"
+        },
+        "sort": {
+            "nameAsc": "По име (А-Я)",
+            "nameDesc": "По име (Я-А)",
+            "booksDesc": "По брой книги (низходящо)",
+            "booksAsc": "По брой книги (възходящо)"
         }
     },
     "publisher": {
@@ -120,6 +128,12 @@
         },
         "card": {
             "booksCount": "книги"
+        },
+        "sort": {
+            "nameAsc": "По име (А-Я)",
+            "nameDesc": "По име (Я-А)",
+            "booksDesc": "По брой книги (низходящо)",
+            "booksAsc": "По брой книги (възходящо)"
         }
     },
     "notification": {

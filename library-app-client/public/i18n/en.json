@@ -74,9 +74,6 @@
             "genre": "Genre",
             "language": "Language",
             "coverType": "Cover type",
-            "titleAsc": "By title (A-Z)",
-            "titleDesc": "By title (Z-A)",
-            "author": "By author",
             "fictionGenres": "Fiction",
             "nonFictionGenres": "Non-Fiction"
         },
@@ -95,6 +92,11 @@
             "fictionGenres": "Fiction genres",
             "nonFictionGenres":"Non-fiction genres",
             "modalTitle": "Book information"
+        },
+        "sort": {
+            "titleAsc": "By title (A-Z)",
+            "titleDesc": "By title (Z-A)",
+            "author": "By author"
         }
     },
     "author": {
@@ -113,6 +115,12 @@
         },
         "card": {
             "booksCount": "books"
+        },
+        "sort": {
+            "nameAsc": "Name-asc",
+            "nameDesc": "Name-desc",
+            "booksDesc": "Books-desc",
+            "booksAsc": "Books-asc"
         }
     },
     "publisher": {
@@ -130,6 +138,12 @@
         },
         "card": {
             "booksCount": "books"
+        },
+        "sort": {
+            "nameAsc": "Name-asc",
+            "nameDesc": "Name-desc",
+            "booksDesc": "Books-desc",
+            "booksAsc": "Books-asc"
         }
     },
     "error": {
