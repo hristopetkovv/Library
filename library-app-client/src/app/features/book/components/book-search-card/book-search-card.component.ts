@@ -1,5 +1,4 @@
-import { Component, computed, input, Input, output } from "@angular/core";
-import { RouterLink } from "@angular/router";
+import { Component, computed, input, output } from "@angular/core";
 import { NzTagModule } from "ng-zorro-antd/tag";
 import { NzTooltipModule } from "ng-zorro-antd/tooltip";
 import { BookListDto } from "../../dtos/book-list.dto";
@@ -8,7 +7,7 @@ import { TranslatePipe } from "@ngx-translate/core";
 @Component({
   selector: 'app-book-card',
   standalone: true,
-  imports: [RouterLink, NzTagModule, NzTooltipModule, TranslatePipe],
+  imports: [NzTagModule, NzTooltipModule, TranslatePipe],
   templateUrl: './book-search-card.component.html',
   styleUrl: './book-search-card.component.css',
 })

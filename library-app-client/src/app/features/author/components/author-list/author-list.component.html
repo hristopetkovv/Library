@@ -1,53 +1,45 @@
 <div class="page-layout">
- 
-  <div class="content">
- 
+
+  <aside class="sidebar">
+    <app-author-filters (filterChange)="onFilterChange($event)"></app-author-filters>
+  </aside>
+
+  <main class="content">
+
     <div class="toolbar">
-      <div class="search-wrapper">
-        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-        </svg>
-        <input
-          class="search-input"
-          [ngModel]="term()"
-          (ngModelChange)="onTermChange($event)"
-          placeholder="{{ 'author.list.searchPlaceholder' | translate }}"
-        />
-      </div>
       <span class="result-count">
         <strong>{{ totalAuthors() }}</strong> {{ 'author.list.authorsFound' | translate }}
       </span>
+      <app-sort-select [options]="sortOptions"
+                       [value]="sortBy()"
+                       (valueChange)="onSortChange($event)"></app-sort-select>
     </div>
- 
+
     @if (isLoading()) {
-      <app-loading message="{{ 'common.loading' | translate }}" />
+    <app-loading message="{{ 'common.loading' | translate }}" />
     } @else if (totalAuthors() === 0) {
-      <div class="empty-state">
-        <nz-empty nzNotFoundContent="{{ 'author.list.empty' | translate }}"></nz-empty>
-      </div>
+    <div class="empty-state">
+      <nz-empty nzNotFoundContent="{{ 'author.empty' | translate }}"></nz-empty>
+    </div>
     } @else {
-      <div class="authors-grid">
-        @for (author of pagedAuthors(); track author.id) {
-          <app-author-card
-            [author]="author"
-            (cardClick)="onAuthorClick($event)"
-          ></app-author-card>
-        }
-      </div>
+    <div class="authors-grid">
+      @for (author of pagedAuthors(); track author.id) {
+      <app-author-card [author]="author"
+                       (cardClick)="onAuthorClick($event)"></app-author-card>
+      }
+    </div>
     }
- 
+
     @if (totalAuthors() > pageSize()) {
-      <div class="pagination-wrapper">
-        <nz-pagination
-          [nzTotal]="totalAuthors()"
-          [nzPageIndex]="pageIndex()"
-          [nzPageSize]="pageSize()"
-          [nzShowSizeChanger]="false"
-          (nzPageIndexChange)="onPageChange($event)"
-        ></nz-pagination>
-      </div>
+    <div class="pagination-wrapper">
+      <nz-pagination [nzTotal]="totalAuthors()"
+                     [nzPageIndex]="pageIndex()"
+                     [nzPageSize]="pageSize()"
+                     [nzShowSizeChanger]="false"
+                     (nzPageIndexChange)="onPageChange($event)"></nz-pagination>
+    </div>
     }
- 
-  </div>
- 
+
+  </main>
+
 </div>

@@ -1,0 +1,9 @@
+<nz-select [ngModel]="value()"
+           (ngModelChange)="onChange($event)"
+           class="sort-select"
+           nzBorderless>
+    @for (opt of options(); track opt.value) {
+    <nz-option [nzValue]="opt.value"
+               [nzLabel]="opt.labelKey | translate"></nz-option>
+    }
+</nz-select>

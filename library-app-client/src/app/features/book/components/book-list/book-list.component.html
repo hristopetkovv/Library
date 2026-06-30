@@ -11,29 +11,24 @@
             <span class="result-count">
                 <strong>{{ totalBooks() }}</strong> {{ 'book.list.booksFound' | translate }}
             </span>
-            <nz-select [ngModel]="sortBy()"
-                       (ngModelChange)="sortBy.set($event); onSortChange()"
-                       class="sort-select"
-                       nzBorderless>
-                @for (opt of sortOptions; track opt.value) {
-                <nz-option [nzValue]="opt.value"
-                           nzLabel="{{ 'book.filter.' + opt.value| translate }}"></nz-option>
-                }
-            </nz-select>
+            <app-sort-select [options]="sortOptions"
+                             [value]="sortBy()"
+                             (valueChange)="onSortChange($event)"></app-sort-select>
         </div>
 
         @if (isLoading()) {
-                <app-loading message="{{ 'common.loading' | translate }}" />
-        } @else if (totalBooks() === 0) {        
-            <div class="empty-state">
-                <nz-empty nzNotFoundContent="{{ 'book.list.empty' | translate }}"></nz-empty>
-            </div>
-        } @else {                              
-            <div class="books-grid">
-                @for (book of pagedBooks(); track book.id) {
-                    <app-book-card [book]="book" (cardClick)="onBookClick($event)"></app-book-card>
-                }
-            </div>
+        <app-loading message="{{ 'common.loading' | translate }}" />
+        } @else if (totalBooks() === 0) {
+        <div class="empty-state">
+            <nz-empty nzNotFoundContent="{{ 'book.list.empty' | translate }}"></nz-empty>
+        </div>
+        } @else {
+        <div class="books-grid">
+            @for (book of pagedBooks(); track book.id) {
+            <app-book-card [book]="book"
+                           (cardClick)="onBookClick($event)"></app-book-card>
+            }
+        </div>
         }
 
         @if (totalBooks() > pageSize()) {

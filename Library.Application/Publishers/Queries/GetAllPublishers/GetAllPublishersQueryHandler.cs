@@ -14,7 +14,7 @@
 				p.Id,
 				p.Name,
 				p.Books.Count
-			))];
+			)).OrderBy(p => p.Name)];
 		}
 	}
 }

@@ -1,0 +1,17 @@
+.sort-select {
+  width: 220px;
+  font-size: 13px;
+}
+ 
+.sort-select ::ng-deep .ant-select-selector {
+  border-color: #e9f0e8 !important;
+  background: #f4f8f3 !important;
+  border-radius: 20px !important;
+  font-size: 13px;
+}
+ 
+.sort-select.ant-select-focused ::ng-deep .ant-select-selector {
+  border-color: #2d5a27 !important;
+  box-shadow: 0 0 0 2px rgba(45, 90, 39, 0.12) !important;
+}
+ 

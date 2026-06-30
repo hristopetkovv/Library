@@ -1,7 +1,6 @@
 import { Component, computed, inject, OnInit, signal } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { NzPaginationModule } from "ng-zorro-antd/pagination";
-import { NzSelectModule } from "ng-zorro-antd/select";
 import { BookResource } from "../../resources/book.resource";
 import { BookListDto } from "../../dtos/book-list.dto";
 import { SearchBooksFilterDto } from "../../dtos/search-books-filter.dto";
@@ -16,13 +15,15 @@ import { GenreResource } from "../../resources/genre.resource";
 import { NzModalService } from "ng-zorro-antd/modal";
 import { BookDetailDto } from "../../dtos/book-detail.dto";
 import { BookDetailComponent } from "../book-detail/book-detail-modal.component";
+import { SortSelectComponent } from "../../../../shared/components/sort-select/sort-select.component";
+import { SortOptionItem } from "../../../../shared/models/sort-option-item.model";
 
 type SortOption = 'titleAsc' | 'titleDesc' | 'author';
 
 @Component({
   selector: 'app-book-list',
   standalone: true,
-  imports: [FormsModule, NzPaginationModule, NzSelectModule, NzEmptyModule, BookCardComponent, BookFiltersComponent, LoadingComponent, TranslatePipe],
+  imports: [FormsModule, NzPaginationModule, NzEmptyModule, BookCardComponent, BookFiltersComponent, LoadingComponent, SortSelectComponent, TranslatePipe],
   templateUrl: './book-list.component.html',
   styleUrl: './book-list.component.css',
 })
@@ -43,10 +44,10 @@ export class BookListComponent implements OnInit {
  
   private currentFilter: SearchBooksFilterDto = {};
  
-  readonly sortOptions: { value: SortOption; }[] = [
-    { value: 'titleAsc' },
-    { value: 'titleDesc' },
-    { value: 'author' }
+  readonly sortOptions: SortOptionItem<SortOption>[] = [
+    { value: 'titleAsc', labelKey: 'book.sort.titleAsc' },
+    { value: 'titleDesc', labelKey: 'book.sort.titleDesc' },
+    { value: 'author', labelKey: 'book.sort.author' },
   ];
  
   readonly sorted = computed(() =>
@@ -78,7 +79,8 @@ export class BookListComponent implements OnInit {
     this.loadBooks();
   }
  
-  onSortChange(): void {
+  onSortChange(value: SortOption): void {
+    this.sortBy.set(value);
     this.pageIndex.set(1);
   }
  
