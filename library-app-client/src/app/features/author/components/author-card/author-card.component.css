@@ -1,3 +1,47 @@
+.author-card {
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  transition: box-shadow 0.22s ease, border-color 0.22s ease, transform 0.18s ease;
+  text-align: center;
+}
+ 
+.author-card:hover {
+  box-shadow: 0 6px 24px rgba(45, 90, 39, 0.13);
+  border-color: #a8c8a3;
+  transform: translateY(-3px);
+}
+ 
+.author-avatar {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ 
+.avatar-ring {
+  position: absolute;
+  inset: -3px;
+  border-radius: 14px;
+  border: 2px solid;
+}
+ 
+.avatar-initials {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  z-index: 1;
+}
+ 
 .author-info {
   display: flex;
   flex-direction: column;
