@@ -34,7 +34,6 @@
         },
         "frameworks": {
           "net10.0": {
-            "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
               "D:\\Work\\Library\\Library.Domain\\Library.Domain.csproj": {
@@ -57,7 +56,6 @@
       },
       "frameworks": {
         "net10.0": {
-          "framework": "net10.0",
           "targetAlias": "net10.0",
           "dependencies": {
             "FluentValidation.DependencyInjectionExtensions": {
@@ -397,7 +395,6 @@
         },
         "frameworks": {
           "net10.0": {
-            "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {}
           }
@@ -416,7 +413,6 @@
       },
       "frameworks": {
         "net10.0": {
-          "framework": "net10.0",
           "targetAlias": "net10.0",
           "imports": [
             "net461",
@@ -742,7 +738,6 @@
         },
         "frameworks": {
           "net10.0": {
-            "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
               "D:\\Work\\Library\\Library.Application\\Library.Application.csproj": {
@@ -765,7 +760,6 @@
       },
       "frameworks": {
         "net10.0": {
-          "framework": "net10.0",
           "targetAlias": "net10.0",
           "dependencies": {
             "EFCore.NamingConventions": {
@@ -1157,7 +1151,6 @@
         },
         "frameworks": {
           "net10.0": {
-            "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
               "D:\\Work\\Library\\Library.Application\\Library.Application.csproj": {
@@ -1183,7 +1176,6 @@
       },
       "frameworks": {
         "net10.0": {
-          "framework": "net10.0",
           "targetAlias": "net10.0",
           "dependencies": {
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
@@ -1200,9 +1192,13 @@
               "target": "Package",
               "version": "[10.0.9, )"
             },
+            "Microsoft.OpenApi": {
+              "target": "Package",
+              "version": "[2.9.0, )"
+            },
             "Scalar.AspNetCore": {
               "target": "Package",
-              "version": "[2.16.6, )"
+              "version": "[2.16.7, )"
             }
           },
           "imports": [

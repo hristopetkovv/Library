@@ -6,6 +6,8 @@ export interface BookListDto {
     authorName: string;
     publisherName: string;
     isbn: string;
+    pages: number;
+    totalCopies: number; 
     availableCopies: number;
     genres: GenreDto[];
     coverImageUrl: string;

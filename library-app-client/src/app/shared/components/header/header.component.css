@@ -59,6 +59,48 @@
   border-bottom-color: var(--library-green) !important;
 }
 
+/* Администрация submenu */
+::ng-deep .ant-menu-submenu-title {
+  color: var(--library-green) !important;
+  font-weight: 500;
+  transition: opacity 0.3s;
+}
+
+::ng-deep .ant-menu-horizontal > .ant-menu-submenu-selected > .ant-menu-submenu-title {
+  opacity: 0.7;
+}
+
+::ng-deep .ant-menu-submenu-open > .ant-menu-submenu-title,
+::ng-deep .ant-menu-submenu-active > .ant-menu-submenu-title {
+  color: #2d5a27 !important;
+  opacity: 0.7;
+}
+
+::ng-deep .ant-menu-submenu-title:hover {
+  color: var(--library-green) !important;
+  opacity: 0.7;
+}
+
+/* Dropdown items */
+::ng-deep .ant-menu-submenu-popup .ant-menu-item:hover {
+  color: var(--library-green) !important;
+  background: #e9f0e8 !important;
+  opacity: 0.7;
+}
+
+::ng-deep .ant-menu-submenu-popup .ant-menu-item-selected {
+  color: var(--library-green) !important;
+  background: #e9f0e8 !important;
+  opacity: 0.7;
+}
+
+/* Active underline indicator */
+::ng-deep .ant-menu-horizontal > .ant-menu-submenu-selected::after,
+::ng-deep .ant-menu-horizontal > .ant-menu-submenu-active::after,
+::ng-deep .ant-menu-horizontal > .ant-menu-submenu-open::after {
+  color: var(--library-green) !important;
+}
+
 .nav-menu [nz-icon] {
   font-size: 1.2rem;
 }

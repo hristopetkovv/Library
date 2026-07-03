@@ -104,8 +104,7 @@
             Dictionary<string, Author> authors,
             Dictionary<string, Publisher> publishers,
             List<Genre> genres,
-            IFileStorageService fileStorageService,
-            IHttpClientFactory httpClientFactory,
+            ICoverService coverService,
             int adminId,
             DateTime now
         )
@@ -124,7 +123,7 @@
                     continue;
                 }
 
-                var coverImageUrl = await TryDownloadCoverAsync(bookData.ISBN, fileStorageService, httpClientFactory);
+                var coverImageUrl = await coverService.TryDownloadCoverAsync(bookData.ISBN);
 
                 var book = Book.Create(
                     bookData.Title,
@@ -155,43 +154,6 @@
 
             await context.Books.AddRangeAsync(books);
             await context.SaveChangesAsync();
-        }
-
-        private static async Task<string?> TryDownloadCoverAsync(
-            string isbn,
-            IFileStorageService fileStorageService,
-            IHttpClientFactory httpClientFactory
-        )
-        {
-            try
-            {
-                var client = httpClientFactory.CreateClient("OpenLibrary");
-                var url = $"https://covers.openlibrary.org/b/isbn/{isbn}-L.jpg";
-
-                var response = await client.GetAsync(url);
-
-                if (!response.IsSuccessStatusCode)
-                    return null;
-
-                // OpenLibrary връща 1x1 gif ако няма снимка
-                var contentType = response.Content.Headers.ContentType?.MediaType;
-                if (contentType is null || !contentType.StartsWith("image/jpeg"))
-                    return null;
-
-                var contentLength = response.Content.Headers.ContentLength;
-                if (contentLength is < 1000) // под 1KB = placeholder gif
-                    return null;
-
-                await using var stream = await response.Content.ReadAsStreamAsync();
-
-                var savedUrl = await fileStorageService.SaveFileAsync(stream, $"{isbn}.jpg", "image/jpeg");
-
-                return savedUrl;
-            }
-            catch (Exception ex)
-            {
-                throw new InvalidOperationException(ex.Message);
-            }
         }
     }
 }

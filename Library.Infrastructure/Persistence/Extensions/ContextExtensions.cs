@@ -10,8 +10,7 @@
 
         public static async Task SeedAsync(
             LibraryDbContext context,
-            IFileStorageService fileStorageService,
-            IHttpClientFactory httpClientFactory,
+            ICoverService coverService,
             ILogger<LibraryDbContext> logger
         )
         {
@@ -46,7 +45,7 @@
             // Seed Books
             await SeedHelpers.SeedBooksAsync(
                 context, authors, publishers, genres,
-                fileStorageService, httpClientFactory,
+                coverService,
                 user.Id, dateTimeNow
             );
 

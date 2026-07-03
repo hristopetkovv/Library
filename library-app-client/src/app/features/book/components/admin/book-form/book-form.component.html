@@ -1,0 +1,242 @@
+<form nz-form
+      [formGroup]="form"
+      nzLayout="vertical"
+      (ngSubmit)="onSubmit()">
+
+    <div class="form-grid">
+
+        <!-- Заглавие -->
+        <nz-form-item class="col-span-2">
+            <nz-form-label nzRequired>{{ 'admin.book.title' | translate }}</nz-form-label>
+            <nz-form-control [nzErrorTip]="titleError">
+                <input nz-input
+                       formControlName="title"
+                       placeholder="{{ 'admin.book.titlePlaceholder' | translate }}" />
+                <ng-template #titleError
+                             let-control>
+                    @if (control.errors?.['required']) { {{ 'validation.required' | translate }} }
+                    @else if (control.errors?.['maxlength']) { {{ 'validation.maxLength' | translate: { max: 300 } }} }
+                </ng-template>
+            </nz-form-control>
+        </nz-form-item>
+
+        <!-- Автор -->
+        <nz-form-item>
+            <nz-form-label nzRequired>{{ 'admin.book.author' | translate }}</nz-form-label>
+            <nz-form-control [nzErrorTip]="'validation.required' | translate">
+                <nz-select formControlName="authorId"
+                           nzShowSearch
+                           nzAllowClear
+                           nzPlaceHolder="{{ 'admin.book.selectAuthor' | translate }}">
+                    @for (author of authors(); track author.id) {
+                    <nz-option [nzValue]="author.id"
+                               [nzLabel]="author.name"></nz-option>
+                    }
+                </nz-select>
+            </nz-form-control>
+        </nz-form-item>
+
+        <!-- Издателство -->
+        <nz-form-item>
+            <nz-form-label nzRequired>{{ 'admin.book.publisher' | translate }}</nz-form-label>
+            <nz-form-control [nzErrorTip]="'validation.required' | translate">
+                <nz-select formControlName="publisherId"
+                           nzShowSearch
+                           nzAllowClear
+                           nzPlaceHolder="{{ 'admin.book.selectPublisher' | translate }}">
+                    @for (publisher of publishers(); track publisher.id) {
+                    <nz-option [nzValue]="publisher.id"
+                               [nzLabel]="publisher.name"></nz-option>
+                    }
+                </nz-select>
+            </nz-form-control>
+        </nz-form-item>
+
+        <!-- ISBN -->
+        <nz-form-item>
+            <nz-form-label nzRequired>ISBN</nz-form-label>
+            <nz-form-control [nzErrorTip]="isbnError">
+                <input nz-input
+                       formControlName="isbn"
+                       placeholder="9780261102217" />
+                <ng-template #isbnError
+                             let-control>
+                    @if (control.errors?.['required']) { {{ 'validation.required' | translate }} }
+                    @else if (control.errors?.['invalidIsbn']) { {{ 'validation.invalidIsbn' | translate }} }
+                </ng-template>
+            </nz-form-control>
+        </nz-form-item>
+
+        <!-- Страници -->
+        <nz-form-item>
+            <nz-form-label nzRequired>{{ 'admin.book.pages' | translate }}</nz-form-label>
+            <nz-form-control [nzErrorTip]="'validation.greaterThanZero' | translate">
+                <nz-input-number formControlName="pages"
+                                 [nzMin]="1"
+                                 [nzStep]="1"
+                                 class="w-full"></nz-input-number>
+            </nz-form-control>
+        </nz-form-item>
+
+        <!-- Година -->
+        <nz-form-item>
+            <nz-form-label nzRequired>{{ 'admin.book.year' | translate }}</nz-form-label>
+            <nz-form-control [nzErrorTip]="yearError">
+                <nz-input-number formControlName="publicationYear"
+                                 [nzMin]="1001"
+                                 [nzMax]="currentYear"
+                                 [nzStep]="1"
+                                 class="w-full"></nz-input-number>
+                <ng-template #yearError
+                             let-control>
+                    @if (control.errors?.['min']) { {{ 'validation.yearMin' | translate }} }
+                    @else if (control.errors?.['max']) { {{ 'validation.yearMax' | translate: { max: currentYear } }} }
+                </ng-template>
+            </nz-form-control>
+        </nz-form-item>
+
+        <!-- Език -->
+        <nz-form-item>
+            <nz-form-label nzRequired>{{ 'admin.book.language' | translate }}</nz-form-label>
+            <nz-form-control [nzErrorTip]="'validation.required' | translate">
+                <nz-select formControlName="language"
+                           nzPlaceHolder="{{ 'admin.book.selectLanguage' | translate }}">
+                    @for (lang of languages; track lang.value) {
+                    <nz-option [nzValue]="lang.value"
+                               [nzLabel]="lang.labelKey | translate"></nz-option>
+                    }
+                </nz-select>
+            </nz-form-control>
+        </nz-form-item>
+
+        <!-- Вид корица -->
+        <nz-form-item>
+            <nz-form-label nzRequired>{{ 'admin.book.coverType' | translate }}</nz-form-label>
+            <nz-form-control [nzErrorTip]="'validation.required' | translate">
+                <nz-select formControlName="coverType"
+                           nzPlaceHolder="{{ 'admin.book.selectCoverType' | translate }}">
+                    @for (ct of coverTypes; track ct.value) {
+                    <nz-option [nzValue]="ct.value"
+                               [nzLabel]="ct.labelKey | translate"></nz-option>
+                    }
+                </nz-select>
+            </nz-form-control>
+        </nz-form-item>
+
+        <!-- Общо копия -->
+        <nz-form-item>
+            <nz-form-label nzRequired>{{ 'admin.book.totalCopies' | translate }}</nz-form-label>
+            <nz-form-control [nzErrorTip]="'validation.nonNegative' | translate">
+                <nz-input-number formControlName="totalCopies"
+                                 [nzMin]="0"
+                                 [nzStep]="1"
+                                 class="w-full"></nz-input-number>
+            </nz-form-control>
+        </nz-form-item>
+
+        <!-- Налични копия -->
+        <nz-form-item>
+            <nz-form-label nzRequired>{{ 'admin.book.availableCopies' | translate }}</nz-form-label>
+            <nz-form-control [nzErrorTip]="'validation.nonNegative' | translate">
+                <nz-input-number formControlName="availableCopies"
+                                 [nzMin]="0"
+                                 [nzStep]="1"
+                                 class="w-full"></nz-input-number>
+            </nz-form-control>
+        </nz-form-item>
+
+        <!-- Жанрове -->
+        <nz-form-item class="col-span-2">
+            <nz-form-label nzRequired>{{ 'admin.book.genres' | translate }}</nz-form-label>
+            <nz-form-control [nzErrorTip]="'validation.genreRequired' | translate">
+                <nz-select formControlName="genreIds"
+                           nzMode="multiple"
+                           nzShowSearch
+                           nzPlaceHolder="{{ 'admin.book.selectGenres' | translate }}">
+                    @if (fictionGenres().length > 0) {
+                    <nz-option-group nzLabel="{{ 'book.filter.fictionGenres' | translate }}">
+                        @for (genre of fictionGenres(); track genre.id) {
+                        <nz-option [nzValue]="genre.id"
+                                   [nzLabel]="genre.name"></nz-option>
+                        }
+                    </nz-option-group>
+                    }
+                    @if (nonFictionGenres().length > 0) {
+                    <nz-option-group nzLabel="{{ 'book.filter.nonFictionGenres' | translate }}">
+                        @for (genre of nonFictionGenres(); track genre.id) {
+                        <nz-option [nzValue]="genre.id"
+                                   [nzLabel]="genre.name"></nz-option>
+                        }
+                    </nz-option-group>
+                    }
+                </nz-select>
+            </nz-form-control>
+        </nz-form-item>
+
+        <!-- Описание -->
+        <nz-form-item class="col-span-2">
+            <nz-form-label>{{ 'admin.book.description' | translate }}</nz-form-label>
+            <nz-form-control [nzErrorTip]="'validation.descriptionMaxLength' | translate">
+                <textarea nz-input
+                          formControlName="description"
+                          [nzAutosize]="{ minRows: 3, maxRows: 6 }"
+                          placeholder="{{ 'admin.book.descriptionPlaceholder' | translate }}">
+        </textarea>
+            </nz-form-control>
+        </nz-form-item>
+
+        <!-- Cover Image Upload (само при edit) -->
+        @if (isEditMode()) {
+        <nz-form-item class="col-span-2">
+            <nz-form-label>{{ 'admin.book.coverImage' | translate }}</nz-form-label>
+            <nz-form-control>
+                <div class="cover-upload-area">
+                    @if (coverPreviewUrl()) {
+                    <div class="cover-preview">
+                        <img [src]="coverPreviewUrl()!"
+                             alt="cover preview"
+                             class="preview-img" />
+                        <button type="button"
+                                nz-button
+                                nzType="text"
+                                nzDanger
+                                class="remove-cover-btn"
+                                (click)="removeCover()">
+                            <span nz-icon
+                                  nzType="delete"></span>
+                        </button>
+                    </div>
+                    }
+                    <label class="upload-btn">
+                        <span nz-icon
+                              nzType="upload"></span>
+                        {{ 'admin.book.uploadCover' | translate }}
+                        <input type="file"
+                               accept="image/jpeg,image/png,image/webp"
+                               (change)="onFileSelected($event)"
+                               hidden />
+                    </label>
+                </div>
+            </nz-form-control>
+        </nz-form-item>
+        }
+
+    </div>
+
+    <div class="form-footer">
+        <button nz-button
+                nzType="default"
+                type="button"
+                (click)="onCancel()">
+            {{ 'common.cancel' | translate }}
+        </button>
+        <button nz-button
+                nzType="primary"
+                type="submit"
+                [nzLoading]="isSubmitting()"
+                class="submit-btn">
+            {{ (isEditMode() ? 'common.save' : 'common.create') | translate }}
+        </button>
+    </div>
+
+</form>

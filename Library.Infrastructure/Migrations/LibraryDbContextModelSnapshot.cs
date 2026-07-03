@@ -17,7 +17,7 @@ namespace Library.Infrastructure.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.14")
+                .HasAnnotation("ProductVersion", "10.0.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -401,7 +401,7 @@ namespace Library.Infrastructure.Migrations
                                 .IsUnique()
                                 .HasDatabaseName("ix_books_isbn");
 
-                            b1.ToTable("books");
+                            b1.ToTable("books", (string)null);
 
                             b1.WithOwner()
                                 .HasForeignKey("BookId")
@@ -459,7 +459,7 @@ namespace Library.Infrastructure.Migrations
 
                             b1.HasKey("UserId");
 
-                            b1.ToTable("users");
+                            b1.ToTable("users", (string)null);
 
                             b1.WithOwner()
                                 .HasForeignKey("UserId")
@@ -484,7 +484,7 @@ namespace Library.Infrastructure.Migrations
                                 .IsUnique()
                                 .HasDatabaseName("ix_users_email");
 
-                            b1.ToTable("users");
+                            b1.ToTable("users", (string)null);
 
                             b1.WithOwner()
                                 .HasForeignKey("UserId")
@@ -511,7 +511,7 @@ namespace Library.Infrastructure.Migrations
 
                             b1.HasKey("UserId");
 
-                            b1.ToTable("users");
+                            b1.ToTable("users", (string)null);
 
                             b1.WithOwner()
                                 .HasForeignKey("UserId")

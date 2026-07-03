@@ -61,7 +61,7 @@
                 options.AddDocumentTransformer((document, context, cancellationToken) =>
                 {
                     document.Components ??= new OpenApiComponents();
-                    document.Components.SecuritySchemes ??= (IDictionary<string, IOpenApiSecurityScheme>)new Dictionary<string, OpenApiSecurityScheme>();
+                    document.Components.SecuritySchemes ??= new Dictionary<string, IOpenApiSecurityScheme>();
 
                     document.Components.SecuritySchemes.Add("Bearer", new OpenApiSecurityScheme
                     {

@@ -16,17 +16,9 @@
 
 		[HttpPost]
 		[AuthorizeRoles(UserRole.Admin)]
-		public async Task<ActionResult<BookDetailDto>> CreateBook([FromForm] CreateBookRequest request, CancellationToken cancellationToken)
+		public async Task<ActionResult<BookDetailDto>> Create([FromForm] CreateBookRequest request, CancellationToken cancellationToken)
 		{
-			var command = request.Adapt<UpdateBookCommand>() with
-			{
-				CoverImage = request.CoverImage is not null
-				? new FileUploadDto(
-					request.CoverImage.OpenReadStream(),
-					request.CoverImage.FileName,
-					request.CoverImage.ContentType)
-				: null
-			};
+			var command = request.Adapt<CreateBookCommand>();
 
 			var book = await mediator.Send(command, cancellationToken);
 

@@ -1,12 +1,12 @@
 ﻿namespace Library.Application.Books.Commands.CreateBook
 {
-	public class CreateBookCommandHandler(IUnitOfWork unitOfWork, IFileStorageService fileStorageService) : IRequestHandler<CreateBookCommand, BookDetailDto>
+	public class CreateBookCommandHandler(IUnitOfWork unitOfWork, ICoverService coverService) : IRequestHandler<CreateBookCommand, BookDetailDto>
 	{
 		public async Task<BookDetailDto> Handle(CreateBookCommand command, CancellationToken cancellationToken)
 		{
 			await ValidatePropertiesExisting(command, cancellationToken);
 
-			var coverImageUrl = await GetCoverImageUrl(command.CoverImage, cancellationToken);
+			var coverImage = await coverService.TryDownloadCoverAsync(command.ISBN);
 
 			var book = Book.Create(
 				command.Title, 
@@ -19,8 +19,8 @@
 				command.CoverType, 
 				command.PublicationYear, 
 				command.TotalCopies,
-				coverImageUrl
-			);
+                coverImage
+            );
 
 			await AddGenres(book, command.GenreIds, cancellationToken);
 
@@ -39,20 +39,6 @@
 			var publisher = await unitOfWork.Publishers.GetByIdAsync(command.PublisherId, cancellationToken);
 			if (publisher is null)
 				throw new NotFoundException(ValidationMessages.PublisherNotFound);
-		}
-
-		private async Task<string?> GetCoverImageUrl(FileUploadDto? coverImage, CancellationToken cancellationToken)
-		{
-			string? coverImageUrl = null;
-
-			if (coverImage is not null)
-				coverImageUrl = await fileStorageService.SaveFileAsync(
-					coverImage.Content,
-					coverImage.FileName,
-					coverImage.ContentType,
-					cancellationToken);
-
-			return coverImageUrl;
 		}
 
 		private async Task AddGenres(Book book, List<int> genreIds, CancellationToken cancellationToken)
