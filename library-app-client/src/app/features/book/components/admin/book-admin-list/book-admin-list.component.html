@@ -1,0 +1,74 @@
+<div class="admin-header">
+    <h2 class="admin-title">{{ 'admin.book.title' | translate }}</h2>
+    <button nz-button
+            nzType="primary"
+            class="create-btn"
+            (click)="openCreateModal()">
+        <span nz-icon
+              nzType="plus"></span>
+        {{ 'admin.book.create' | translate }}
+    </button>
+</div>
+
+@if (isLoading()) {
+<app-loading />
+} @else {
+<nz-table #table
+          [nzData]="books()"
+          [nzPageSize]="20"
+          nzSize="middle"
+          style="margin-top: 3em">
+    <thead>
+        <tr>
+            <th>{{ 'admin.book.titleCol' | translate }}</th>
+            <th nzWidth="240px">{{ 'admin.book.author' | translate }}</th>
+            <th nzWidth="240px">{{ 'admin.book.publisher' | translate }}</th>
+            <th nzWidth="140px">ISBN</th>
+            <th nzWidth="90px">{{ 'admin.book.copies' | translate }}</th>
+            <th nzWidth="110px"
+                nzRight>{{ 'common.actions' | translate }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (book of table.data; track book.id) {
+        <tr>
+            <td>
+                <span class="book-title">{{ book.title }}</span>
+            </td>
+            <td>{{ book.authorName }}</td>
+            <td>{{ book.publisherName }}</td>
+            <td>
+                <span class="isbn-text">{{ book.isbn }}</span>
+            </td>
+            <td>
+                <nz-tag [nzColor]="book.availableCopies > 0 ? 'success' : 'default'">
+                    {{ book.availableCopies }} / {{ book.totalCopies }}
+                </nz-tag>
+            </td>
+            <td nzRight>
+                <div class="action-btns">
+                    <button nz-button
+                            nzType="text"
+                            nzSize="small"
+                            (click)="openEditModal(book.id)">
+                        <span nz-icon
+                              nzType="edit"></span>
+                    </button>
+                    <button nz-button
+                            nzType="text"
+                            nzSize="small"
+                            nzDanger
+                            nz-popconfirm
+                            nzPopconfirmTitle="{{ 'admin.book.deleteConfirm' | translate }}"
+                            nzPopconfirmPlacement="left"
+                            (nzOnConfirm)="deleteBook(book.id)">
+                        <span nz-icon
+                              nzType="delete"></span>
+                    </button>
+                </div>
+            </td>
+        </tr>
+        }
+    </tbody>
+</nz-table>
+}

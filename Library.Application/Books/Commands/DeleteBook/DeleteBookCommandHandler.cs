@@ -4,7 +4,7 @@
 	{
 		public async Task<Unit> Handle(DeleteBookCommand command, CancellationToken cancellationToken)
 		{
-			var book = await unitOfWork.Books.GetByIdAsync(command.Id, cancellationToken, b => b.Borrowings);
+			var book = await unitOfWork.Books.GetByIdAsync(command.Id, cancellationToken, b => b.Borrowings, b => b.Genres);
 			if (book is null)
 				throw new NotFoundException(ValidationMessages.BookNotFound);
 

@@ -9,6 +9,7 @@
         "books": "Books",
         "authors": "Authors",
         "publishers": "Publishers",
+        "admin": "Administration",
         "users": "Users",
         "logout": "Logout",
         "login": "Login",

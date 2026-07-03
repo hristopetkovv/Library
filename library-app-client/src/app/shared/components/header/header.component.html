@@ -36,12 +36,31 @@
                 </li>
 
                 @if (authService.currentUser()?.role == userRole.admin) {
-                <li nz-menu-item
-                    routerLink="/admin/users"
-                    nzMatchRouter>
-                    <div class="menu-item-content">
-                        <span class="menu-text">{{ 'header.users' | translate }}</span>
-                    </div>
+                <li nz-submenu
+                    nzTitle="{{ 'header.admin' | translate }}"
+                    class="menu-text">
+                    <ul>
+                        <li nz-menu-item
+                            routerLink="/admin/books"
+                            nzMatchRouter>
+                            {{ 'header.books' | translate }}
+                        </li>
+                        <li nz-menu-item
+                            routerLink="/admin/authors"
+                            nzMatchRouter>
+                            {{ 'header.authors' | translate }}
+                        </li>
+                        <li nz-menu-item
+                            routerLink="/admin/publishers"
+                            nzMatchRouter>
+                            {{ 'header.publishers' | translate }}
+                        </li>
+                        <li nz-menu-item
+                            routerLink="/admin/users"
+                            nzMatchRouter>
+                            {{ 'header.users' | translate }}
+                        </li>
+                    </ul>
                 </li>
                 }
             </ul>

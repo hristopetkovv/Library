@@ -59,3 +59,4 @@ global using Library.Application.Users.Commands.ForgottenPassword;
 global using Library.Application.Dtos.Helpers;
 global using Library.Application.Books.Queries.GetAllGenres;
 global using Microsoft.OpenApi;
+global using Library.Application.Books.Commands.CreateBook;

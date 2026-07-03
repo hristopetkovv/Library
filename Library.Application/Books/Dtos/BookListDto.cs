@@ -6,6 +6,8 @@
 		string AuthorName,
 		string PublisherName,
 		string ISBN,
+		int Pages,
+		int TotalCopies,
 		int AvailableCopies,
 		string? CoverImageUrl,
 		List<GenreDto> Genres
