@@ -6,6 +6,7 @@ import { tap } from "rxjs";
 import { RegisterRequestDto } from "../dtos/register-request.dto";
 import { UserLoginInfoDto } from "../../user/dtos/user-login-info.dto";
 import { AuthResponseDto } from "../dtos/auth-response.dto";
+import { UserRole } from "../../../core/enums/users/user-role.enum";
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -14,6 +15,7 @@ export class AuthService {
 
     currentUser = signal<UserLoginInfoDto | null>(this.getUserFromStorage());
     isAuthenticated = computed(() => !!this.currentUser());
+    isAdmin = computed(() => this.currentUser()?.role === UserRole.admin);
 
     login(request: LoginRequestDto) {
         return this.authResource.login(request).pipe(
@@ -38,6 +40,10 @@ export class AuthService {
 
     getToken(): string | null {
         return localStorage.getItem('token');
+    }
+
+    hasRole(role: UserRole): boolean {
+        return this.currentUser()?.role === role;
     }
 
     private saveSession(token: string, user: UserLoginInfoDto) {

@@ -67,13 +67,13 @@ export class BookFormComponent implements OnInit {
   readonly fictionGenres = computed(() => this.genres().filter(g => g.category === 1));
   readonly nonFictionGenres = computed(() => this.genres().filter(g => g.category === 2));
  
-  readonly languages = Object.values(Language)
-    .filter(v => typeof v === 'number')
-    .map(v => ({ value: v as number, labelKey: `enums.language.${v}` }));
+  readonly languages = Object.entries(Language)
+    .filter(([, v]) => typeof v === 'number')
+    .map(([key, v]) => ({ value: v as number, labelKey: `enums.language.${key}` }));
  
-  readonly coverTypes = Object.values(CoverType)
-    .filter(v => typeof v === 'number')
-    .map(v => ({ value: v as number, labelKey: `enums.coverType.${v}` }));
+  readonly coverTypes = Object.entries(CoverType)
+    .filter(([, v]) => typeof v === 'number')
+    .map(([key, v]) => ({ value: v as number, labelKey: `enums.coverType.${key}` }));
  
   readonly currentYear = new Date().getFullYear();
  

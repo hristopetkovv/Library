@@ -3,18 +3,16 @@ import { CanActivateFn, Router } from "@angular/router";
 import { AuthService } from "../../features/auth/services/auth.service";
 import { UserRole } from "../enums/users/user-role.enum";
 
-export const roleGuard: CanActivateFn = (route, state) => {
-  const authService = inject(AuthService);
-  const router = inject(Router);
-  
-  const allowedRoles = route.data['role'] as Array<UserRole>;
-  const user = authService.currentUser();
+export const roleGuard = (roles: UserRole[]): CanActivateFn => {
+  return () => {
+    const authService = inject(AuthService);
+    const router = inject(Router);
 
-  if (user && allowedRoles.includes(user.role as UserRole)) {
-    return true;
-  }
+    if (roles.some(role => authService.hasRole(role))) {
+      return true;
+    }
 
-  router.navigate(['/books']);
-
-  return false;
+    router.navigate(['/']);
+    return false;
+  };
 };
