@@ -125,6 +125,11 @@
 
                 var coverImageUrl = await coverService.TryDownloadCoverAsync(bookData.ISBN);
 
+                var bookGenreIds = genres
+                    .Where(g => bookData.GenreNames.Contains(g.Name))
+                    .Select(g => g.Id)
+                    .ToList();
+
                 var book = Book.Create(
                     bookData.Title,
                     author.Id,
@@ -136,18 +141,12 @@
                     bookData.CoverType,
                     bookData.Year,
                     bookData.TotalCopies,
-                    coverImageUrl
+                    coverImageUrl,
+                    bookGenreIds
                 );
 
                 book.CreatedByUserId = adminId;
                 book.CreatedDate = now;
-
-                foreach (var genreName in bookData.GenreNames)
-                {
-                    var genre = genres.FirstOrDefault(g => g.Name == genreName);
-                    if (genre is not null)
-                        book.AddGenre(genre);
-                }
 
                 books.Add(book);
             }

@@ -8,17 +8,18 @@
 		public DbSet<Publisher> Publishers => Set<Publisher>();
 		public DbSet<Borrowing> Borrowings => Set<Borrowing>();
 		public DbSet<Genre> Genres => Set<Genre>();
+		public DbSet<BookGenre> BookGenres => Set<BookGenre>();
 
-		protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			base.OnModelCreating(modelBuilder);
-
-			modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
 			foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys().Where(fk => !fk.IsOwnership && fk.DeleteBehavior == DeleteBehavior.Cascade)))
 			{
 				relationship.DeleteBehavior = DeleteBehavior.Restrict;
 			}
-		}
-	}
+
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        }
+    }
 }
