@@ -3,8 +3,9 @@
 	public class Book : BaseAuditableEntity, IEntity
 	{
 		private readonly List<Borrowing> borrowings = [];
+		private readonly List<BookGenre> genres = [];
 
-		public int Id { get; private set; }
+        public int Id { get; private set; }
 		public string Title { get; private set; } = null!;
 		public int AuthorId { get; private set; }
 		public Author Author { get; private set; } = null!;
@@ -21,28 +22,35 @@
 		public string? CoverImageUrl { get; private set; }
 
 		public IReadOnlyList<Borrowing> Borrowings => borrowings.AsReadOnly();
-		public ICollection<Genre> Genres { get; private set; } = [];
+		public IReadOnlyList<BookGenre> Genres => genres.AsReadOnly();
 
-		public static Book Create(string title, int authorId, int publisherId, ISBN isbn, string? description, int pages, Language language, CoverType coverType, int publicationYear, int totalCopies, string? coverImageUrl)
+		public static Book Create(string title, int authorId, int publisherId, ISBN isbn, string? description, int pages, Language language, CoverType coverType, int publicationYear, int totalCopies, string? coverImageUrl, List<int> genreIds)
 		{
-			return new Book
+            var book = new Book
+            {
+                Title = title,
+                AuthorId = authorId,
+                PublisherId = publisherId,
+                ISBN = isbn,
+                Description = description,
+                Pages = pages,
+                Language = language,
+                CoverType = coverType,
+                PublicationYear = publicationYear,
+                TotalCopies = totalCopies,
+                AvailableCopies = totalCopies,
+                CoverImageUrl = coverImageUrl
+            };
+
+			foreach (var genreId in genreIds)
 			{
-				Title = title,
-				AuthorId = authorId,
-				PublisherId = publisherId,
-				ISBN = isbn,
-				Description = description,
-				Pages = pages,
-				Language = language,
-				CoverType = coverType,
-				PublicationYear = publicationYear,
-				TotalCopies = totalCopies,
-				AvailableCopies = totalCopies,
-				CoverImageUrl = coverImageUrl
-			};
+                book.AddGenre(genreId);
+            }
+
+			return book;
 		}
 
-		public void Update(string title, int authorId, int publisherId, ISBN isbn, string? description, int pages, Language language, CoverType coverType, int publicationYear, int totalCopies, int availableCopies, string? coverImageUrl)
+		public void Update(string title, int authorId, int publisherId, ISBN isbn, string? description, int pages, Language language, CoverType coverType, int publicationYear, int totalCopies, int availableCopies, string? coverImageUrl, List<int> genreIds)
 		{
 			Title = title;
 			AuthorId = authorId;
@@ -56,12 +64,23 @@
 			TotalCopies = totalCopies;
 			AvailableCopies = availableCopies;
 			CoverImageUrl = coverImageUrl;
-		}
 
-		public void AddGenre(Genre genre)
+            var genresToRemove = genres.Where(g => !genreIds.Contains(g.GenreId)).ToList();
+            foreach (var genreToRemove in genresToRemove)
+            {
+                genres.Remove(genreToRemove);
+            }
+
+            foreach (var genreId in genreIds)
+            {
+                AddGenre(genreId);
+            }
+        }
+
+		public void AddGenre(int genreId)
 		{
-			if (!Genres.Any(g => g.Id == genre.Id))
-				Genres.Add(genre);
+			if (!Genres.Any(g => g.GenreId == genreId))
+				genres.Add(BookGenre.Create(genreId));
 		}
 
 		public bool CanBeBorrowed() => AvailableCopies > 0;

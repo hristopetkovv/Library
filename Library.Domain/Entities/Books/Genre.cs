@@ -10,7 +10,7 @@
 
 		public Category Category { get; private set; }
 
-		public ICollection<Book> Books { get; private set; } = [];
+		public ICollection<BookGenre> Books { get; private set; } = [];
 
 		public static Genre Create(string name, string nameBg, Category category)
 		{

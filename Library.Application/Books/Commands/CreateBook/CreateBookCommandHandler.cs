@@ -19,10 +19,9 @@
 				command.CoverType, 
 				command.PublicationYear, 
 				command.TotalCopies,
-                coverImage
+                coverImage,
+				command.GenreIds
             );
-
-			await AddGenres(book, command.GenreIds, cancellationToken);
 
 			await unitOfWork.Books.AddAsync(book, cancellationToken);
 			await unitOfWork.SaveChangesAsync(cancellationToken);
@@ -39,15 +38,6 @@
 			var publisher = await unitOfWork.Publishers.GetByIdAsync(command.PublisherId, cancellationToken);
 			if (publisher is null)
 				throw new NotFoundException(ValidationMessages.PublisherNotFound);
-		}
-
-		private async Task AddGenres(Book book, List<int> genreIds, CancellationToken cancellationToken)
-		{
-			var genres = await unitOfWork.Genres.GetAllFilteredAsync(e => genreIds.Contains(e.Id), cancellationToken);
-			foreach (var genre in genres)
-			{
-				book.AddGenre(genre);
-			}
 		}
 	}
 }

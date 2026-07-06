@@ -53,6 +53,11 @@
 			builder.HasMany(b => b.Borrowings)
 				.WithOne(br => br.Book)
 				.HasForeignKey(br => br.BookId);
-		}
+
+            builder.HasMany(b => b.Genres)
+				.WithOne(bg => bg.Book)
+				.HasForeignKey(bg => bg.BookId)
+				.OnDelete(DeleteBehavior.Cascade);
+        }
 	}
 }

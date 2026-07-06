@@ -20,10 +20,9 @@
 				command.PublicationYear, 
 				command.TotalCopies,
 				command.AvailableCopies,
-				coverImageUrl
-			);
-
-			await AddGenres(book, command.GenreIds, cancellationToken);
+				coverImageUrl,
+				command.GenreIds
+            );
 
 			await unitOfWork.SaveChangesAsync(cancellationToken);
 
@@ -60,16 +59,6 @@
 			}
 
 			return book.CoverImageUrl;
-		}
-
-		private async Task AddGenres(Book book, List<int> genreIds, CancellationToken cancellationToken)
-		{
-			var newGenres = await unitOfWork.Genres.GetAllFilteredAsync(e => genreIds.Contains(e.Id), cancellationToken);
-			book.Genres.Clear();
-			foreach (var genre in newGenres)
-			{
-				book.Genres.Add(genre);
-			}
 		}
 	}
 }
