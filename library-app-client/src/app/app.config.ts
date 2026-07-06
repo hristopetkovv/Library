@@ -18,7 +18,10 @@ import player from 'lottie-web';
 registerLocaleData(en);
 
 const ngZorroConfig: NzConfig = {
-  notification: { nzPlacement: 'topRight', nzDuration: 2000 }
+  notification: { 
+    nzPlacement: 'topRight', 
+    nzDuration: 2000
+   }
 };
 
 export const appConfig: ApplicationConfig = {

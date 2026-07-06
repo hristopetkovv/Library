@@ -3,7 +3,6 @@ import { RouterLink } from "@angular/router";
 import { NzButtonModule } from "ng-zorro-antd/button";
 import { NzMenuModule } from "ng-zorro-antd/menu";
 import { AuthService } from "../../../features/auth/services/auth.service";
-import { UserRole } from "../../../core/enums/users/user-role.enum";
 import { NzLayoutModule } from "ng-zorro-antd/layout";
 import { NzModalService } from "ng-zorro-antd/modal";
 import { AuthModalComponent } from "../../../features/auth/components/auth-modal.component";
@@ -26,7 +25,6 @@ export class HeaderComponent {
   private nzI18n = inject(NzI18nService);
   public lang = signal<string>(localStorage.getItem('lang') || 'bg');
 
-  userRole = UserRole;
   isLangOpen = false;
   isUserOpen = false;
 

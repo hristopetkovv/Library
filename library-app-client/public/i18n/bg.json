@@ -151,7 +151,15 @@
             "publisher": "Издателство",
             "pages": "Страници",
             "copies": "Копия",
-            "deleteConfirm": "Сигурни ли сте, че искате да изтриете книгата"
+            "deleteConfirm": "Сигурни ли сте, че искате да изтриете книгата",
+            "bookTitle": "Заглавие",
+            "year": "Година на издаване",
+            "language": "Език",
+            "coverType": "Вид корица",
+            "totalCopies": "Общо копия",
+            "availableCopies": "Налични копия",
+            "genres": "Жанрове",
+            "description": "Описание"
         }
     },
     "notification": {
@@ -231,7 +239,11 @@
         "UserViewOwnProfileOnly": "Може да преглеждате само собствения си профил",
         "UserAddressRequired": "Адресът е задължителен",
         "UserPhoneNumberRequired": "Телефонът е задължителен",
-        "UserEmailInvalidFormat": "Форматът на имейл адреса е невалиден"
+        "UserEmailInvalidFormat": "Форматът на имейл адреса е невалиден",
+        "required": "Задължително",
+        "greaterThanZero": "Трябва да е по-голямо от 0",
+        "nonNegative": "Трябва да е положително",
+        "invalidIsbn": "Невалиден номер"
     },
     "enums": {
         "language": {
