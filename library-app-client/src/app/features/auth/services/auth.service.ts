@@ -46,6 +46,18 @@ export class AuthService {
         return this.currentUser()?.role === role;
     }
 
+    isTokenExpired(token: string) {
+        try {
+            if (token) {
+                const payload = JSON.parse(atob(token.split('.')[1]));
+                return payload.exp * 1000 < Date.now();
+            }
+            return true;
+        } catch {
+            return true;
+        }
+    }
+
     private saveSession(token: string, user: UserLoginInfoDto) {
         localStorage.setItem('token', token);
         localStorage.setItem('user', JSON.stringify(user));

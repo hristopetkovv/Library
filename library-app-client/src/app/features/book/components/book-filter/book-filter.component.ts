@@ -35,10 +35,10 @@ export class BookFiltersComponent implements OnInit, OnDestroy {
 
   readonly genres = input<GenreDto[]>([]);
   readonly fictionGenres = computed(() =>
-    this.genres().filter(g => g.category === Category.Fiction)
+    this.genres().filter(g => g.genreCategory === Category.Fiction)
   );
   readonly nonFictionGenres = computed(() =>
-    this.genres().filter(g => g.category === Category.NonFiction)
+    this.genres().filter(g => g.genreCategory === Category.NonFiction)
   );
   
   readonly currentLang = computed(() => this.translate.getCurrentLang());
@@ -96,7 +96,7 @@ export class BookFiltersComponent implements OnInit, OnDestroy {
   }
 
   genreLabel(genre: GenreDto): string {
-    return this.currentLang() === 'bg' ? genre.nameBg : genre.name;
+    return this.currentLang() === 'bg' ? genre.genreNameBg : genre.genreName;
   }
  
   onLanguageChange(lang: Language, checked: boolean): void {

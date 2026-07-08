@@ -16,7 +16,7 @@
 
 		[HttpPost]
 		[AuthorizeRoles(UserRole.Admin)]
-		public async Task<ActionResult<BookDetailDto>> Create([FromForm] CreateBookRequest request, CancellationToken cancellationToken)
+		public async Task<ActionResult<BookDetailDto>> Create([FromBody] CreateBookRequest request, CancellationToken cancellationToken)
 		{
 			var command = request.Adapt<CreateBookCommand>();
 
@@ -27,17 +27,11 @@
 
 		[HttpPut("{id:int}")]
 		[AuthorizeRoles(UserRole.Admin)]
-		public async Task<ActionResult<BookDetailDto>> Update([FromRoute] int id, [FromForm] UpdateBookRequest request, CancellationToken cancellationToken)
+		public async Task<ActionResult<BookDetailDto>> Update([FromRoute] int id, [FromBody] UpdateBookRequest request, CancellationToken cancellationToken)
 		{
 			var command = request.Adapt<UpdateBookCommand>() with
 			{
-				Id = id,
-				CoverImage = request.CoverImage is not null
-				? new FileUploadDto(
-					request.CoverImage.OpenReadStream(),
-					request.CoverImage.FileName,
-					request.CoverImage.ContentType)
-				: null
+				Id = id
 			};
 
 			return Ok(await mediator.Send(command, cancellationToken));

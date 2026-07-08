@@ -1,12 +1,12 @@
 ﻿namespace Library.Application.Books.Commands.UpdateBook
 {
-	public class UpdateBookCommandHandler(IUnitOfWork unitOfWork, IFileStorageService fileStorageService) : IRequestHandler<UpdateBookCommand, BookDetailDto>
+	public class UpdateBookCommandHandler(IUnitOfWork unitOfWork, ICoverService coverService) : IRequestHandler<UpdateBookCommand, BookDetailDto>
 	{
 		public async Task<BookDetailDto> Handle(UpdateBookCommand command, CancellationToken cancellationToken)
 		{
 			var book = await ValidatePropertiesExisting(command, cancellationToken);
 
-			var coverImageUrl = await GetNewCoverImageUrl(command.CoverImage, book, cancellationToken);
+            var coverImage = await coverService.TryDownloadCoverAsync(command.ISBN);
 
 			book.Update(
 				command.Title, 
@@ -20,7 +20,7 @@
 				command.PublicationYear, 
 				command.TotalCopies,
 				command.AvailableCopies,
-				coverImageUrl,
+                coverImage,
 				command.GenreIds
             );
 
@@ -44,21 +44,6 @@
 				throw new NotFoundException(ValidationMessages.PublisherNotFound);
 
 			return book;
-		}
-
-		private async Task<string?> GetNewCoverImageUrl(FileUploadDto? newCoverImage, Book book, CancellationToken cancellationToken)
-		{
-			if (newCoverImage is not null)
-			{
-				if (!string.IsNullOrEmpty(book.CoverImageUrl))
-					await fileStorageService.DeleteFileAsync(book.CoverImageUrl, cancellationToken);
-
-				var newCoverImageUrl = await fileStorageService.SaveFileAsync(newCoverImage.Content, newCoverImage.FileName, newCoverImage.ContentType, cancellationToken);
-
-				return newCoverImageUrl;
-			}
-
-			return book.CoverImageUrl;
 		}
 	}
 }
