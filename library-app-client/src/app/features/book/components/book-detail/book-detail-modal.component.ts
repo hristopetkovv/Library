@@ -41,17 +41,17 @@ export class BookDetailComponent {
   readonly isAvailable = computed(() => this.book().availableCopies > 0);
  
   readonly fictionGenres = computed(() =>
-    this.book().genres.filter(g => g.category === Category.Fiction)
+    this.book().genres.filter(g => g.genreCategory === Category.Fiction)
   );
  
   readonly nonFictionGenres = computed(() =>
-    this.book().genres.filter(g => g.category === Category.NonFiction)
+    this.book().genres.filter(g => g.genreCategory === Category.NonFiction)
   );
 
   languages = Language;
   coverTypes = CoverType;
  
-  genreLabel(genre: { name: string; nameBg: string }): string {
-    return this.translate.getCurrentLang() === 'bg' ? genre.nameBg : genre.name;
+  genreLabel(genre: { genreName: string; genreNameBg: string }): string {
+    return this.translate.getCurrentLang() === 'bg' ? genre.genreName : genre.genreNameBg;
   }
 }

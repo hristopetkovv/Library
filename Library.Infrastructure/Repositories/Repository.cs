@@ -5,7 +5,7 @@
     {
         protected readonly DbSet<T> dbSet = context.Set<T>();
 
-		public Task<T?> GetByIdAsync(int id, CancellationToken cancellationToken = default, params Expression<Func<T, object>>[] includes)
+		public virtual Task<T?> GetByIdAsync(int id, CancellationToken cancellationToken = default, params Expression<Func<T, object>>[] includes)
 		{
             IQueryable<T> query = dbSet.AsNoTracking();
 

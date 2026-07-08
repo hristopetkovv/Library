@@ -168,17 +168,17 @@
                                nzShowSearch>
                         @if (fictionGenres().length > 0) {
                         <nz-option-group nzLabel="{{ 'book.filter.fictionGenres' | translate }}">
-                            @for (genre of fictionGenres(); track genre.id) {
-                            <nz-option [nzValue]="genre.id"
-                                       [nzLabel]="genre.name"></nz-option>
+                            @for (genre of fictionGenres(); track genre.genreId) {
+                            <nz-option [nzValue]="genre.genreId"
+                                       [nzLabel]="genre.genreName"></nz-option>
                             }
                         </nz-option-group>
                         }
                         @if (nonFictionGenres().length > 0) {
                         <nz-option-group nzLabel="{{ 'book.filter.nonFictionGenres' | translate }}">
-                            @for (genre of nonFictionGenres(); track genre.id) {
-                            <nz-option [nzValue]="genre.id"
-                                       [nzLabel]="genre.name"></nz-option>
+                            @for (genre of nonFictionGenres(); track genre.genreId) {
+                            <nz-option [nzValue]="genre.genreId"
+                                       [nzLabel]="genre.genreName"></nz-option>
                             }
                         </nz-option-group>
                         }
@@ -202,46 +202,6 @@
             </nz-form-item>
         </nz-col>
     </nz-row>
-
-    <!-- Cover Image Upload (само при edit) -->
-    @if (isEditMode()) {
-    <nz-row [nzGutter]="16">
-        <nz-col [nzSpan]="24">
-            <nz-form-item>
-                <nz-form-label>{{ 'admin.book.coverImage' | translate }}</nz-form-label>
-                <nz-form-control>
-                    <div class="cover-upload-area">
-                        @if (coverPreviewUrl()) {
-                        <div class="cover-preview">
-                            <img [src]="coverPreviewUrl()!"
-                                 alt="cover preview"
-                                 class="preview-img" />
-                            <button type="button"
-                                    nz-button
-                                    nzType="text"
-                                    nzDanger
-                                    class="remove-cover-btn"
-                                    (click)="removeCover()">
-                                <span nz-icon
-                                      nzType="delete"></span>
-                            </button>
-                        </div>
-                        }
-                        <label class="upload-btn">
-                            <span nz-icon
-                                  nzType="upload"></span>
-                            {{ 'admin.book.uploadCover' | translate }}
-                            <input type="file"
-                                   accept="image/jpeg,image/png,image/webp"
-                                   (change)="onFileSelected($event)"
-                                   hidden />
-                        </label>
-                    </div>
-                </nz-form-control>
-            </nz-form-item>
-        </nz-col>
-    </nz-row>
-    }
 
     <div class="form-footer">
         <button nz-button

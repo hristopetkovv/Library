@@ -5,7 +5,8 @@
         "loading": "Зареждане...",
         "actions": "Действия",
         "create": "Добави",
-        "cancel": "Откажи"
+        "cancel": "Откажи",
+        "save": "Запази"
     },
     "header": {
         "title": "Библиотека",
@@ -159,7 +160,9 @@
             "totalCopies": "Общо копия",
             "availableCopies": "Налични копия",
             "genres": "Жанрове",
-            "description": "Описание"
+            "description": "Описание",
+            "coverImage": "Корица",
+            "uploadCover": "Прикачи снимка"
         }
     },
     "notification": {

@@ -22,6 +22,7 @@ import { Language } from '../../../enums/language.enum';
 import { CoverType } from '../../../enums/cover-type.enum';
 import { UpdateBookDto } from '../../../dtos/update-book.dto';
 import { CreateBookDto } from '../../../dtos/create-book.dto';
+import { NZ_MODAL_DATA } from 'ng-zorro-antd/modal';
  
 const isbnValidator = (control: AbstractControl): ValidationErrors | null => {
   const val = control.value?.replace(/-/g, '') ?? '';
@@ -47,25 +48,26 @@ const isbnValidator = (control: AbstractControl): ValidationErrors | null => {
   styleUrl: './book-form.component.css',
 })
 export class BookFormComponent implements OnInit {
-  readonly book = input<BookDetailDto | null>(null); // null = create, populated = edit
+  readonly modalData = inject<{ book: BookDetailDto }>(NZ_MODAL_DATA, { optional: true });
   readonly saved = output<void>();
   readonly cancelled = output<void>();
  
+  private readonly currentBook = this.modalData?.book ?? null;
   private readonly fb = inject(FormBuilder);
   private readonly bookResource = inject(BookResource);
   private readonly authorResource = inject(AuthorResource);
   private readonly publisherResource = inject(PublisherResource);
   private readonly genreResource = inject(GenreResource);
  
-  readonly isEditMode = computed(() => !!this.book());
+   readonly isEditMode = computed(() => !!this.currentBook);
   readonly isSubmitting = signal(false);
  
   readonly authors = signal<AuthorListDto[]>([]);
   readonly publishers = signal<PublisherListDto[]>([]);
   readonly genres = signal<GenreDto[]>([]);
  
-  readonly fictionGenres = computed(() => this.genres().filter(g => g.category === 1));
-  readonly nonFictionGenres = computed(() => this.genres().filter(g => g.category === 2));
+  readonly fictionGenres = computed(() => this.genres().filter(g => g.genreCategory === 1));
+  readonly nonFictionGenres = computed(() => this.genres().filter(g => g.genreCategory === 2));
  
   readonly languages = Object.entries(Language)
     .filter(([, v]) => typeof v === 'number')
@@ -76,10 +78,6 @@ export class BookFormComponent implements OnInit {
     .map(([key, v]) => ({ value: v as number, labelKey: `enums.coverType.${key}` }));
  
   readonly currentYear = new Date().getFullYear();
- 
-  // Upload за edit mode
-  coverImageFile = signal<File | null>(null);
-  coverPreviewUrl = signal<string | null>(null);
  
   readonly form = this.fb.group({
     title: ['', [Validators.required, Validators.maxLength(300)]],
@@ -99,43 +97,22 @@ export class BookFormComponent implements OnInit {
   ngOnInit(): void {
     this.loadDropdowns();
  
-    const book = this.book();
-    if (book) {
+    if (this.currentBook) {
       this.form.patchValue({
-        title: book.title,
-        authorId: book.author.id,
-        publisherId: book.publisher.id,
-        isbn: book.isbn,
-        description: book.description,
-        pages: book.pages,
-        language: book.language,
-        coverType: book.coverType,
-        publicationYear: book.publicationYear,
-        totalCopies: book.totalCopies,
-        availableCopies: book.availableCopies,
-        genreIds: book.genres.map(g => g.id),
+        title: this.currentBook.title,
+        authorId: this.currentBook.author.id,
+        publisherId: this.currentBook.publisher.id,
+        isbn: this.currentBook.isbn,
+        description: this.currentBook.description,
+        pages: this.currentBook.pages,
+        language: this.currentBook.language,
+        coverType: this.currentBook.coverType,
+        publicationYear: this.currentBook.publicationYear,
+        totalCopies: this.currentBook.totalCopies,
+        availableCopies: this.currentBook.availableCopies,
+        genreIds: this.currentBook.genres.map(g => g.genreId),
       });
- 
-      if (book.coverImageUrl) {
-        this.coverPreviewUrl.set(book.coverImageUrl);
-      }
     }
-  }
- 
-  onFileSelected(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    const file = input.files?.[0];
-    if (!file) return;
- 
-    this.coverImageFile.set(file);
-    const reader = new FileReader();
-    reader.onload = () => this.coverPreviewUrl.set(reader.result as string);
-    reader.readAsDataURL(file);
-  }
- 
-  removeCover(): void {
-    this.coverImageFile.set(null);
-    this.coverPreviewUrl.set(null);
   }
  
   onSubmit(): void {
@@ -143,10 +120,10 @@ export class BookFormComponent implements OnInit {
       this.form.markAllAsTouched();
       return;
     }
- 
+
     const val = this.form.getRawValue();
     this.isSubmitting.set(true);
- 
+
     if (this.isEditMode()) {
       const dto: UpdateBookDto = {
         title: val.title!,
@@ -161,10 +138,9 @@ export class BookFormComponent implements OnInit {
         totalCopies: val.totalCopies!,
         availableCopies: val.availableCopies!,
         genreIds: val.genreIds ?? [],
-        coverImage: this.coverImageFile(),
       };
- 
-      this.bookResource.update(this.book()!.id, dto)
+
+      this.bookResource.update(this.currentBook!.id, dto)
         .pipe(finalize(() => this.isSubmitting.set(false)))
         .subscribe({ next: () => this.saved.emit() });
     } else {
@@ -182,7 +158,7 @@ export class BookFormComponent implements OnInit {
         availableCopies: val.availableCopies!,
         genreIds: val.genreIds ?? [],
       };
- 
+
       this.bookResource.create(dto)
         .pipe(finalize(() => this.isSubmitting.set(false)))
         .subscribe({ next: () => this.saved.emit() });

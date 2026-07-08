@@ -1,4 +1,4 @@
 ﻿namespace Library.Application.Books.Dtos
 {
-    public record GenreDto(int Id, string Name, string NameBg, Category Category);
+    public record GenreDto(int GenreId, string GenreName, string GenreNameBg, Category GenreCategory);
 }

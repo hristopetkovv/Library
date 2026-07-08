@@ -24,22 +24,6 @@ export class BookResource extends BaseResource {
     }
 
     update(id: number, request: UpdateBookDto): Observable<BookDetailDto> {
-        if (request.coverImage) {
-            const formData = new FormData();
-
-            Object.entries(request).forEach(([key, value]) => {
-                if (key === 'coverImage' && value instanceof File) {
-                    formData.append(key, value);
-                } else if (key === 'genreIds' && Array.isArray(value)) {
-                    value.forEach(id => formData.append('genreIds', String(id)));
-                } else if (value !== null && value !== undefined) {
-                    formData.append(key, String(value));
-                }
-            });
-
-            return this.http.put<BookDetailDto>(`${this.baseUrl}/${id}`, formData);
-        }
- 
         return this.http.put<BookDetailDto>(`${this.baseUrl}/${id}`, request);
     }
 
