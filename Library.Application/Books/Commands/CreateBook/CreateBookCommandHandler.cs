@@ -1,8 +1,8 @@
 ﻿namespace Library.Application.Books.Commands.CreateBook
 {
-	public class CreateBookCommandHandler(IUnitOfWork unitOfWork, ICoverService coverService) : IRequestHandler<CreateBookCommand, BookDetailDto>
+	public class CreateBookCommandHandler(IUnitOfWork unitOfWork, ICoverService coverService) : IRequestHandler<CreateBookCommand, Unit>
 	{
-		public async Task<BookDetailDto> Handle(CreateBookCommand command, CancellationToken cancellationToken)
+		public async Task<Unit> Handle(CreateBookCommand command, CancellationToken cancellationToken)
 		{
 			await ValidatePropertiesExisting(command, cancellationToken);
 
@@ -26,7 +26,7 @@
 			await unitOfWork.Books.AddAsync(book, cancellationToken);
 			await unitOfWork.SaveChangesAsync(cancellationToken);
 
-			return book.Adapt<BookDetailDto>();
+			return Unit.Value;
 		}
 
 		private async Task ValidatePropertiesExisting(CreateBookCommand command, CancellationToken cancellationToken)

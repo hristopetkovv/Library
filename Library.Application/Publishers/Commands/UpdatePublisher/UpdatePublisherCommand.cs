@@ -3,5 +3,5 @@
 	public record UpdatePublisherCommand(
 		int Id,
 		string Name
-	) : ICommand<PublisherDetailDto>;
+	) : ICommand<Unit>;
 }

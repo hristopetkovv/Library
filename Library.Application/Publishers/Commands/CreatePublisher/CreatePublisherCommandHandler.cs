@@ -1,8 +1,8 @@
 ﻿namespace Library.Application.Publishers.Commands.CreatePublisher
 {
-	public class CreatePublisherCommandHandler(IUnitOfWork unitOfWork) : IRequestHandler<CreatePublisherCommand, PublisherDetailDto>
+	public class CreatePublisherCommandHandler(IUnitOfWork unitOfWork) : IRequestHandler<CreatePublisherCommand, Unit>
 	{
-		public async Task<PublisherDetailDto> Handle(CreatePublisherCommand command, CancellationToken cancellationToken)
+		public async Task<Unit> Handle(CreatePublisherCommand command, CancellationToken cancellationToken)
 		{
 			var existingPublisher = await unitOfWork.Publishers.AnyAsync(p => p.Name == command.Name, cancellationToken);
 			if (existingPublisher)
@@ -13,7 +13,7 @@
 			await unitOfWork.Publishers.AddAsync(publisher, cancellationToken);
 			await unitOfWork.SaveChangesAsync(cancellationToken);
 
-			return publisher.Adapt<PublisherDetailDto>();
+			return Unit.Value;
 		}
 	}
 }

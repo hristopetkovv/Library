@@ -1,8 +1,8 @@
 ﻿namespace Library.Application.Authors.Commands.CreateAuthor
 {
-	public class CreateAuthorCommandHandler(IUnitOfWork unitOfWork) : IRequestHandler<CreateAuthorCommand, AuthorDetailDto>
+	public class CreateAuthorCommandHandler(IUnitOfWork unitOfWork) : IRequestHandler<CreateAuthorCommand, Unit>
 	{
-		public async Task<AuthorDetailDto> Handle(CreateAuthorCommand command, CancellationToken cancellationToken)
+		public async Task<Unit> Handle(CreateAuthorCommand command, CancellationToken cancellationToken)
 		{
 			var existingAuthor = await unitOfWork.Authors.AnyAsync(a => a.Name == command.Name, cancellationToken);
 			if (existingAuthor)
@@ -13,7 +13,7 @@
 			await unitOfWork.Authors.AddAsync(author, cancellationToken);
 			await unitOfWork.SaveChangesAsync(cancellationToken);
 
-			return author.Adapt<AuthorDetailDto>();
+			return Unit.Value;
 		}
 	}
 }

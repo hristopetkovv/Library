@@ -13,5 +13,5 @@
 		int TotalCopies,
 		int AvailableCopies,
 		List<int> GenreIds
-		) : ICommand<BookDetailDto>;
+		) : ICommand<Unit>;
 }

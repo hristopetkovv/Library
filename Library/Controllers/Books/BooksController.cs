@@ -16,23 +16,18 @@
 
 		[HttpPost]
 		[AuthorizeRoles(UserRole.Admin)]
-		public async Task<ActionResult<BookDetailDto>> Create([FromBody] CreateBookRequest request, CancellationToken cancellationToken)
+		public async Task<IActionResult> Create([FromBody] CreateBookRequest request, CancellationToken cancellationToken)
 		{
 			var command = request.Adapt<CreateBookCommand>();
 
-			var book = await mediator.Send(command, cancellationToken);
-
-			return CreatedAtAction(nameof(GetById), new { id = book.Id }, book);
+			return Ok(await mediator.Send(command, cancellationToken));
 		}
 
 		[HttpPut("{id:int}")]
 		[AuthorizeRoles(UserRole.Admin)]
-		public async Task<ActionResult<BookDetailDto>> Update([FromRoute] int id, [FromBody] UpdateBookRequest request, CancellationToken cancellationToken)
+		public async Task<IActionResult> Update([FromRoute] int id, [FromBody] UpdateBookRequest request, CancellationToken cancellationToken)
 		{
-			var command = request.Adapt<UpdateBookCommand>() with
-			{
-				Id = id
-			};
+			var command = request.Adapt<UpdateBookCommand>() with { Id = id };
 
 			return Ok(await mediator.Send(command, cancellationToken));
 		}
