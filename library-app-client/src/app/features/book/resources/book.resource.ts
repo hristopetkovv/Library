@@ -19,12 +19,12 @@ export class BookResource extends BaseResource {
         return this.http.get<BookDetailDto>(`${this.baseUrl}/${id}`)
     }
 
-    create(request: CreateBookDto): Observable<BookDetailDto> {
-        return this.http.post<BookDetailDto>(this.baseUrl, request);
+    create(request: CreateBookDto): Observable<void> {
+        return this.http.post<void>(this.baseUrl, request);
     }
 
-    update(id: number, request: UpdateBookDto): Observable<BookDetailDto> {
-        return this.http.put<BookDetailDto>(`${this.baseUrl}/${id}`, request);
+    update(id: number, request: UpdateBookDto): Observable<void> {
+        return this.http.put<void>(`${this.baseUrl}/${id}`, request);
     }
 
     delete(id: number): Observable<void> {

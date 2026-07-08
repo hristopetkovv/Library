@@ -1,8 +1,8 @@
 ﻿namespace Library.Application.Books.Commands.UpdateBook
 {
-	public class UpdateBookCommandHandler(IUnitOfWork unitOfWork, ICoverService coverService) : IRequestHandler<UpdateBookCommand, BookDetailDto>
+	public class UpdateBookCommandHandler(IUnitOfWork unitOfWork, ICoverService coverService) : IRequestHandler<UpdateBookCommand, Unit>
 	{
-		public async Task<BookDetailDto> Handle(UpdateBookCommand command, CancellationToken cancellationToken)
+		public async Task<Unit> Handle(UpdateBookCommand command, CancellationToken cancellationToken)
 		{
 			var book = await ValidatePropertiesExisting(command, cancellationToken);
 
@@ -26,7 +26,7 @@
 
 			await unitOfWork.SaveChangesAsync(cancellationToken);
 
-			return book.Adapt<BookDetailDto>();
+			return Unit.Value;
 		}
 
 		private async Task<Book> ValidatePropertiesExisting(UpdateBookCommand command, CancellationToken cancellationToken)

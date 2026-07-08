@@ -16,16 +16,16 @@
 
 		[HttpPost]
 		[AuthorizeRoles(UserRole.Admin)]
-		public async Task<ActionResult<AuthorDetailDto>> Create([FromBody] CreateAuthorCommand command, CancellationToken cancellationToken)
+		public async Task<IActionResult> Create([FromBody] CreateAuthorRequest request, CancellationToken cancellationToken)
 		{
-			var author = await mediator.Send(command, cancellationToken);
+            var command = request.Adapt<CreateAuthorCommand>();
 
-			return CreatedAtAction(nameof(GetById), new { id = author.Id }, author);
+			return Ok(await mediator.Send(command, cancellationToken));
 		}
 
 		[HttpPut("{id:int}")]
 		[AuthorizeRoles(UserRole.Admin)]
-		public async Task<ActionResult<AuthorDetailDto>> Update([FromRoute] int id, [FromBody] UpdateAuthorRequest request, CancellationToken cancellationToken)
+		public async Task<IActionResult> Update([FromRoute] int id, [FromBody] UpdateAuthorRequest request, CancellationToken cancellationToken)
 		{
 			var command = request.Adapt<UpdateAuthorCommand>() with { Id = id };
 

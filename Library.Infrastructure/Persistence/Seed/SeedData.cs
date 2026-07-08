@@ -60,7 +60,7 @@
             new("Colibri"),
             new("Janet 45"),
             new("Hermes"),
-            new("Enthusiast"),
+            new("Enthusiast")
         ];
 
         public static readonly List<BookData> Books =

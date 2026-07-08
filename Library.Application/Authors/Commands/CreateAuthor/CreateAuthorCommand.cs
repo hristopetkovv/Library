@@ -3,5 +3,5 @@
 	public record CreateAuthorCommand(
 		string Name,
 		string Biography
-	) : ICommand<AuthorDetailDto>;
+	) : ICommand<Unit>;
 }
