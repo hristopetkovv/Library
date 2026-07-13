@@ -66,5 +66,6 @@
 		public const string UserAddressRequired = nameof(UserAddressRequired);
 		public const string UserPhoneNumberRequired = nameof(UserPhoneNumberRequired);
 		public const string UserEmailInvalidFormat = nameof(UserEmailInvalidFormat);
+		public const string UserHasActiveBorrowings = nameof(UserHasActiveBorrowings);
 	}
 }

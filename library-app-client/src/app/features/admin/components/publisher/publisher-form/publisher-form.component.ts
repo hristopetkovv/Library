@@ -7,12 +7,12 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { FormsModule } from '@angular/forms';
 import { finalize } from 'rxjs';
 import { NZ_MODAL_DATA } from 'ng-zorro-antd/modal';
-import { AuthorDetailDto } from '../../../dtos/author-detail.dto';
-import { AuthorDto } from '../../../dtos/author.dto';
-import { AuthorResource } from '../../../resources/author.resource';
+import { PublisherDetailDto } from '../../../../publisher/dtos/publisher-detail.dto';
+import { PublisherResource } from '../../../../publisher/resources/publisher.resource';
+import { PublisherDto } from '../../../../publisher/dtos/publisher.dto';
 
 @Component({
-  selector: 'app-author-form',
+  selector: 'app-publisher-form',
   standalone: true,
   imports: [
     ReactiveFormsModule,
@@ -22,31 +22,29 @@ import { AuthorResource } from '../../../resources/author.resource';
     NzInputModule,
     NzButtonModule,
   ],
-  templateUrl: './author-form.component.html',
-  styleUrl: './author-form.component.css',
+  templateUrl: './publisher-form.component.html',
+  styleUrl: './publisher-form.component.css',
 })
-export class AuthorFormComponent implements OnInit {
-  readonly modalData = inject<{ author: AuthorDetailDto }>(NZ_MODAL_DATA, { optional: true });
+export class PublisherFormComponent implements OnInit {
+  readonly modalData = inject<{ publisher: PublisherDetailDto }>(NZ_MODAL_DATA, { optional: true });
   readonly saved = output<void>();
   readonly cancelled = output<void>();
 
-  private readonly currentAuthor = this.modalData?.author ?? null;
+  private readonly currentPublisher = this.modalData?.publisher ?? null;
   private readonly fb = inject(FormBuilder);
-  private readonly authorResource = inject(AuthorResource);
+  private readonly publisherResource = inject(PublisherResource);
 
-  readonly isEditMode = computed(() => !!this.currentAuthor);
+  readonly isEditMode = computed(() => !!this.currentPublisher);
   readonly isSubmitting = signal(false);
 
   readonly form = this.fb.group({
-    name: ['', [Validators.required, Validators.maxLength(200)]],
-    biography: [null as string | null, [Validators.maxLength(2000)]],
+    name: ['', [Validators.required, Validators.maxLength(255)]],
   });
 
   ngOnInit(): void {
-    if (this.currentAuthor) {
+    if (this.currentPublisher) {
       this.form.patchValue({
-        name: this.currentAuthor.name,
-        biography: this.currentAuthor.biography,
+        name: this.currentPublisher.name,
       });
     }
   }
@@ -58,18 +56,15 @@ export class AuthorFormComponent implements OnInit {
     }
 
     const val = this.form.getRawValue();
-    const dto: AuthorDto = {
-      name: val.name!,
-      biography: val.biography ?? '',
-    };
+    const dto: PublisherDto = { name: val.name! };
     this.isSubmitting.set(true);
 
     if (this.isEditMode()) {
-      this.authorResource.update(this.currentAuthor!.id, dto)
+      this.publisherResource.update(this.currentPublisher!.id, dto)
         .pipe(finalize(() => this.isSubmitting.set(false)))
         .subscribe({ next: () => this.saved.emit() });
     } else {
-      this.authorResource.create(dto)
+      this.publisherResource.create(dto)
         .pipe(finalize(() => this.isSubmitting.set(false)))
         .subscribe({ next: () => this.saved.emit() });
     }

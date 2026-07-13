@@ -8,78 +8,78 @@ import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 import { NzTagModule } from 'ng-zorro-antd/tag';
 import { finalize } from 'rxjs';
 import { LoadingComponent } from '../../../../../shared/components/loading/loading.component';
-import { BookResource } from '../../../resources/book.resource';
-import { BookListDto } from '../../../dtos/book-list.dto';
-import { BookFormComponent } from '../book-form/book-form.component';
- 
+import { AuthorResource } from '../../../../author/resources/author.resource';
+import { AuthorListDto } from '../../../../author/dtos/author-list.dto';
+import { AuthorFormComponent } from '../author-form/author-form.component';
+
 @Component({
-  selector: 'app-book-admin-list',
+  selector: 'app-author-admin-list',
   standalone: true,
   imports: [
     TranslatePipe, NzTableModule, NzButtonModule, NzIconModule, NzPopconfirmModule, NzTagModule, LoadingComponent,
   ],
-  templateUrl: './book-admin-list.component.html',
-  styleUrl: './book-admin-list.component.css',
+  templateUrl: './author-admin-list.component.html',
+  styleUrl: './author-admin-list.component.css',
 })
-export class BookAdminListComponent implements OnInit {
-  private readonly bookResource = inject(BookResource);
+export class AuthorAdminListComponent implements OnInit {
+  private readonly authorResource = inject(AuthorResource);
   private readonly modal = inject(NzModalService);
- 
-  readonly books = signal<BookListDto[]>([]);
+
+  readonly authors = signal<AuthorListDto[]>([]);
   readonly isLoading = signal(false);
- 
+
   ngOnInit(): void {
-    this.loadBooks();
+    this.loadAuthors();
   }
- 
+
   openCreateModal(): void {
     const ref = this.modal.create({
-      nzTitle: 'Добавяне на книга',
-      nzContent: BookFormComponent,
-      nzData: { book: null },
-      nzWidth: 800,
+      nzTitle: 'Добавяне на автор',
+      nzContent: AuthorFormComponent,
+      nzData: { author: null },
+      nzWidth: 700,
       nzFooter: null,
     });
- 
+
     ref.getContentComponent().saved.subscribe(() => {
       ref.close();
-      this.loadBooks();
+      this.loadAuthors();
     });
- 
+
     ref.getContentComponent().cancelled.subscribe(() => ref.close());
   }
- 
-  openEditModal(bookId: number): void {
-    this.bookResource.getById(bookId).subscribe({
-      next: (book) => {
+
+  openEditModal(authorId: number): void {
+    this.authorResource.getById(authorId).subscribe({
+      next: (author) => {
         const ref = this.modal.create({
-          nzTitle: 'Редактиране на книга',
-          nzContent: BookFormComponent,
-          nzData: { book },
-          nzWidth: 800,
+          nzTitle: 'Редактиране на автор',
+          nzContent: AuthorFormComponent,
+          nzData: { author },
+          nzWidth: 700,
           nzFooter: null,
         });
- 
+
         ref.getContentComponent().saved.subscribe(() => {
           ref.close();
-          this.loadBooks();
+          this.loadAuthors();
         });
- 
+
         ref.getContentComponent().cancelled.subscribe(() => ref.close());
       },
     });
   }
- 
-  deleteBook(bookId: number): void {
-    this.bookResource.delete(bookId).subscribe({
-      next: () => this.loadBooks(),
+
+  deleteAuthor(authorId: number): void {
+    this.authorResource.delete(authorId).subscribe({
+      next: () => this.loadAuthors(),
     });
   }
- 
-  private loadBooks(): void {
+
+  private loadAuthors(): void {
     this.isLoading.set(true);
-    this.bookResource.getAll({})
+    this.authorResource.getAll('')
       .pipe(finalize(() => this.isLoading.set(false)))
-      .subscribe({ next: (books) => this.books.set(books) });
+      .subscribe({ next: (authors) => this.authors.set(authors) });
   }
 }

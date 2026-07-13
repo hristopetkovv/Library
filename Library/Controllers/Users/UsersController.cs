@@ -6,8 +6,8 @@
 	{
 		[HttpGet]
 		[AuthorizeRoles(UserRole.Admin)]
-		public async Task<ActionResult<List<UserListDto>>> GetAll(CancellationToken cancellationToken)
-			=> Ok(await mediator.Send(new GetAllUsersQuery(), cancellationToken));
+		public async Task<ActionResult<List<UserListDto>>> GetAll([FromQuery] SearchUsersFilterDto? filter, CancellationToken cancellationToken)
+			=> Ok(await mediator.Send(new GetAllUsersQuery(filter), cancellationToken));
 
 		[HttpGet("{id:int}")]
 		[AuthorizeRoles(UserRole.Admin, UserRole.Member)]
@@ -30,6 +30,15 @@
 			var command = request.Adapt<ChangeUserRoleCommand>() with { Id = id };
 
 			return Ok(await mediator.Send(command, cancellationToken));
+		}
+
+		[HttpDelete("{id:int}")]
+		[AuthorizeRoles(UserRole.Admin)]
+		public async Task<IActionResult> Delete([FromRoute] int id, CancellationToken cancellationToken)
+		{
+			await mediator.Send(new DeleteUserCommand(id), cancellationToken);
+
+			return NoContent();
 		}
 	}
 }
