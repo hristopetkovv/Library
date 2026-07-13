@@ -10,19 +10,19 @@ import { NzUploadModule } from 'ng-zorro-antd/upload';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { FormsModule } from '@angular/forms';
 import { finalize } from 'rxjs';
-import { BookDetailDto } from '../../../dtos/book-detail.dto';
-import { BookResource } from '../../../resources/book.resource';
 import { AuthorResource } from '../../../../author/resources/author.resource';
 import { PublisherResource } from '../../../../publisher/resources/publisher.resource';
-import { GenreResource } from '../../../resources/genre.resource';
 import { AuthorListDto } from '../../../../author/dtos/author-list.dto';
 import { PublisherListDto } from '../../../../publisher/dtos/publisher-list.dto';
-import { GenreDto } from '../../../dtos/genre.dto';
-import { Language } from '../../../enums/language.enum';
-import { CoverType } from '../../../enums/cover-type.enum';
-import { UpdateBookDto } from '../../../dtos/update-book.dto';
-import { CreateBookDto } from '../../../dtos/create-book.dto';
 import { NZ_MODAL_DATA } from 'ng-zorro-antd/modal';
+import { BookDetailDto } from '../../../../book/dtos/book-detail.dto';
+import { BookResource } from '../../../../book/resources/book.resource';
+import { GenreResource } from '../../../../book/resources/genre.resource';
+import { GenreDto } from '../../../../book/dtos/genre.dto';
+import { Language } from '../../../../book/enums/language.enum';
+import { CoverType } from '../../../../book/enums/cover-type.enum';
+import { UpdateBookDto } from '../../../../book/dtos/update-book.dto';
+import { CreateBookDto } from '../../../../book/dtos/create-book.dto';
  
 const isbnValidator = (control: AbstractControl): ValidationErrors | null => {
   const val = control.value?.replace(/-/g, '') ?? '';

@@ -8,9 +8,9 @@ import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 import { NzTagModule } from 'ng-zorro-antd/tag';
 import { finalize } from 'rxjs';
 import { LoadingComponent } from '../../../../../shared/components/loading/loading.component';
-import { PublisherResource } from '../../../resources/publisher.resource';
-import { PublisherListDto } from '../../../dtos/publisher-list.dto';
 import { PublisherFormComponent } from '../publisher-form/publisher-form.component';
+import { PublisherResource } from '../../../../publisher/resources/publisher.resource';
+import { PublisherListDto } from '../../../../publisher/dtos/publisher-list.dto';
 
 @Component({
   selector: 'app-publisher-admin-list',

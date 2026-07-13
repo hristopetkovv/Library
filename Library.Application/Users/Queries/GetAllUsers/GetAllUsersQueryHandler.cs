@@ -4,7 +4,7 @@
 	{
 		public async Task<List<UserListDto>> Handle(GetAllUsersQuery query, CancellationToken cancellationToken)
 		{
-			var users = await unitOfWork.Users.GetAllAsync(cancellationToken);
+			var users = await unitOfWork.Users.GetAllFilteredAsync(query.Filter!.Predicate(), cancellationToken);
 
 			return users.Adapt<List<UserListDto>>();
 		}

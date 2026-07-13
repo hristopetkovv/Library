@@ -260,6 +260,7 @@
         "UserAddressRequired": "Адресът е задължителен",
         "UserPhoneNumberRequired": "Телефонът е задължителен",
         "UserEmailInvalidFormat": "Форматът на имейл адреса е невалиден",
+        "UserHasActiveBorrowings": "Потребителят има невърнати книги",
         "required": "Задължително",
         "greaterThanZero": "Трябва да е по-голямо от 0",
         "nonNegative": "Трябва да е положително",

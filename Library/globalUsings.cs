@@ -38,6 +38,7 @@ global using Mapster;
 global using Library.Contracts.Authors;
 global using Library.Contracts.Publishers;
 global using Library.Application.Users.Commands.ChangeUserRole;
+global using Library.Application.Users.Commands.DeleteUser;
 global using Library.Application.Users.Commands.UpdateUser;
 global using Library.Application.Users.Dtos;
 global using Library.Application.Users.Queries.GetAllUsers;
