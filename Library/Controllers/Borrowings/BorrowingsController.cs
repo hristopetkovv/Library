@@ -1,42 +1,28 @@
-﻿using Library.Application.Borrowings.Commands.BorrowBook;
-using Library.Application.Borrowings.Commands.ReturnBook;
-using Library.Application.Borrowings.Queries.GetAllActiveBorrowings;
-
-namespace Library.Controllers.Borrowings
+﻿namespace Library.Controllers.Borrowings
 {
 	[ApiController]
 	[Route("api/[controller]")]
 	public class BorrowingsController(IMediator mediator, IUserContext userContext) : ControllerBase
 	{
-		[HttpGet("my-active")]
+		[HttpGet("my")]
 		[AuthorizeRoles(UserRole.Admin, UserRole.Member)]
-		public async Task<ActionResult<List<BorrowingDetailDto>>> GetMyActive(CancellationToken cancellationToken)
-			=> Ok(await mediator.Send(new GetActiveBorrowingsByUserIdQuery(userContext.UserId), cancellationToken));
+		public async Task<ActionResult<List<BorrowingBasicDto>>> GetMy([FromQuery] BorrowingStatus? status, CancellationToken cancellationToken)
+			=> Ok(await mediator.Send(new GetBorrowingsByUserIdQuery(userContext.UserId, status), cancellationToken));
 
-		[HttpGet("user/{userId:int}/active")]
+		[HttpGet("user/{userId:int}")]
 		[AuthorizeRoles(UserRole.Admin)]
-		public async Task<ActionResult<List<BorrowingDetailDto>>> GetActiveByUserId([FromRoute] int userId, CancellationToken cancellationToken)
-			=> Ok(await mediator.Send(new GetActiveBorrowingsByUserIdQuery(userId), cancellationToken));
+		public async Task<ActionResult<List<BorrowingBasicDto>>> GetByUserId([FromRoute] int userId, [FromQuery] BorrowingStatus? status, CancellationToken cancellationToken)
+			=> Ok(await mediator.Send(new GetBorrowingsByUserIdQuery(userId, status), cancellationToken));
 
-		[HttpGet("my-history")]
-		[AuthorizeRoles(UserRole.Admin, UserRole.Member)]
-		public async Task<ActionResult<List<BorrowingDetailDto>>> GetMyHistory(CancellationToken cancellationToken)
-			=> Ok(await mediator.Send(new GetBorrowingHistoryByUserIdQuery(userContext.UserId), cancellationToken));
+        [HttpGet("active")]
+        [AuthorizeRoles(UserRole.Admin)]
+        public async Task<ActionResult<List<BorrowingDetailDto>>> GetAllActive(CancellationToken cancellationToken)
+            => Ok(await mediator.Send(new GetAllActiveBorrowingsQuery(), cancellationToken));
 
-		[HttpGet("user/{userId:int}/history")]
-		[AuthorizeRoles(UserRole.Admin)]
-		public async Task<ActionResult<List<BorrowingDetailDto>>> GetHistoryByUserId([FromRoute] int userId, CancellationToken cancellationToken)
-			=> Ok(await mediator.Send(new GetBorrowingHistoryByUserIdQuery(userId), cancellationToken));
-
-		[HttpGet("overdue")]
+        [HttpGet("overdue")]
 		[AuthorizeRoles(UserRole.Admin)]
 		public async Task<ActionResult<List<BorrowingDetailDto>>> GetAllOverdue(CancellationToken cancellationToken)
 			=> Ok(await mediator.Send(new GetOverdueBorrowingsQuery(), cancellationToken));
-
-		[HttpGet("active")]
-		[AuthorizeRoles(UserRole.Admin)]
-		public async Task<ActionResult<List<BorrowingDetailDto>>> GetAllActive(CancellationToken cancellationToken)
-			=> Ok(await mediator.Send(new GetAllActiveBorrowingsQuery(), cancellationToken));
 
 		[HttpPost("borrow")]
 		[AuthorizeRoles(UserRole.Admin)]

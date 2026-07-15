@@ -52,6 +52,14 @@
 			builder.HasMany(u => u.Borrowings)
 				.WithOne(b => b.User)
 				.HasForeignKey(b => b.UserId);
-		}
+
+            builder.Property(u => u.Status)
+				.IsRequired()
+				.HasConversion<string>();
+
+            builder.Property(u => u.FailedLoginAttempts)
+				.IsRequired()
+				.HasDefaultValue(0);
+        }
 	}
 }

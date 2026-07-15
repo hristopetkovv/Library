@@ -1,0 +1,39 @@
+.admin-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 16px;
+}
+
+.admin-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.filter-group {
+  display: flex;
+  gap: 10px;
+}
+
+.filter-input {
+  width: 220px;
+}
+
+.user-email {
+  font-weight: 500;
+  color: #1a1a1a;
+}
+
+.user-name {
+  color: #555;
+}
+
+.action-btns {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}

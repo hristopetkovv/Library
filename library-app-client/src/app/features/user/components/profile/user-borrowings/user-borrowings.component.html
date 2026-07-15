@@ -1,0 +1,42 @@
+<div class="section-header">
+    <h3>{{ 'user.profile.myBorrowings' | translate }}</h3>
+
+    <nz-select [ngModel]="statusFilter()"
+               (ngModelChange)="statusFilter.set($event)"
+               [nzPlaceHolder]="'user.borrowing.allStatuses' | translate"
+               nzAllowClear
+               style="width: 180px">
+        <nz-option [nzValue]="1"
+                   [nzLabel]="'user.borrowing.active' | translate"></nz-option>
+        <nz-option [nzValue]="2"
+                   [nzLabel]="'user.borrowing.returned' | translate"></nz-option>
+    </nz-select>
+</div>
+
+<nz-table [nzData]="borrowings()"
+          [nzLoading]="isLoading()"
+          [nzBordered]="true"
+          style="margin-top: 1em;">
+    <thead>
+        <tr>
+            <th>{{ 'user.borrowing.book' | translate }}</th>
+            <th>{{ 'user.borrowing.borrowDate' | translate }}</th>
+            <th>{{ 'user.borrowing.dueDate' | translate }}</th>
+            <th>{{ 'user.borrowing.status' | translate }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (b of borrowings(); track b.bookTitle) {
+        <tr>
+            <td>{{ b.bookTitle }}</td>
+            <td>{{ b.borrowDate | date: 'dd.MM.yyyy' }}</td>
+            <td>{{ b.dueDate | date: 'dd.MM.yyyy' }}</td>
+            <td>
+                <nz-tag [nzColor]="b.returnDate ? 'orange' : 'green'">
+                    {{ (b.returnDate ? 'borrowing.active' : 'borrowing.returned') | translate }}
+                </nz-tag>
+            </td>
+        </tr>
+        }
+    </tbody>
+</nz-table>

@@ -2,7 +2,9 @@
     "common": {
         "filter": "Filters",
         "clearFilter": "Clear all",
-        "loading": "Loading..."
+        "loading": "Loading...",
+        "save": "Save",
+        "cancel": "Cancel"
     },
     "header": {
         "title": "Library",
@@ -49,6 +51,14 @@
         }
     },
     "user": {
+        "profile": {
+            "title": "My Profile",
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "email": "Email",
+            "address": "Address",
+            "phoneNumber": "Phone Number"
+        },
         "forgottenPassword": {
             "title": "Forgotten password",
             "description": "We will send recovery instructions to the email you registered with.",

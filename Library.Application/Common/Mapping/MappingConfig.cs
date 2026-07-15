@@ -5,6 +5,7 @@
         public static void Configure()
         {
             BookMappingConfig.Configure();
+            UserMappingConfig.Configure();
         }
     }
 }

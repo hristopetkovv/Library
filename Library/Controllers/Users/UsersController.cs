@@ -1,4 +1,7 @@
-﻿namespace Library.Controllers.Users
+﻿using Library.Application.Users.Commands.ActivateUser;
+using Library.Application.Users.Commands.DeactivateUser;
+
+namespace Library.Controllers.Users
 {
 	[ApiController]
 	[Route("api/[controller]")]
@@ -32,7 +35,23 @@
 			return Ok(await mediator.Send(command, cancellationToken));
 		}
 
-		[HttpDelete("{id:int}")]
+        [HttpPut("{id:int}/activate")]
+        [AuthorizeRoles(UserRole.Admin)]
+        public async Task<IActionResult> Activate([FromRoute] int id, CancellationToken cancellationToken)
+        {
+            await mediator.Send(new ActivateUserCommand(id), cancellationToken);
+            return NoContent();
+        }
+
+        [HttpPut("{id:int}/deactivate")]
+        [AuthorizeRoles(UserRole.Admin)]
+        public async Task<IActionResult> Deactivate([FromRoute] int id, CancellationToken cancellationToken)
+        {
+            await mediator.Send(new DeactivateUserCommand(id), cancellationToken);
+            return NoContent();
+        }
+
+        [HttpDelete("{id:int}")]
 		[AuthorizeRoles(UserRole.Admin)]
 		public async Task<IActionResult> Delete([FromRoute] int id, CancellationToken cancellationToken)
 		{

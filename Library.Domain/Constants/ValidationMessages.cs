@@ -67,5 +67,7 @@
 		public const string UserPhoneNumberRequired = nameof(UserPhoneNumberRequired);
 		public const string UserEmailInvalidFormat = nameof(UserEmailInvalidFormat);
 		public const string UserHasActiveBorrowings = nameof(UserHasActiveBorrowings);
-	}
+		public const string UserAccountLocked = nameof(UserAccountLocked);
+		public const string UserAccountInactive = nameof(UserAccountInactive);
+    }
 }
