@@ -4,8 +4,9 @@
 	{
 		private readonly List<Borrowing> borrowings = [];
 		private const int MaxActiveBorrowings = 5;
+        private const int MaxFailedLoginAttempts = 5;
 
-		public int Id { get; private set; }
+        public int Id { get; private set; }
 		public string PasswordSalt { get ; private set; } = null!;
 		public string PasswordHash { get ; private set; } = null!;
 		// Used as username for login, so it must be unique and not null or empty
@@ -13,8 +14,11 @@
 		public UserRole Role { get; private set; }
 		public FullName FullName { get; private set; } = null!;
 		public ContactInfo? ContactInfo { get; private set; }
+        public UserStatus Status { get; private set; } = UserStatus.Active;
+        public int FailedLoginAttempts { get; private set; }
+        public DateTime? LockedAt { get; private set; }
 
-		public IReadOnlyList<Borrowing> Borrowings => borrowings.AsReadOnly();
+        public IReadOnlyList<Borrowing> Borrowings => borrowings.AsReadOnly();
 
 		public static User Create(string passwordSalt, string passwordHash, Email email, UserRole role, FullName fullName, ContactInfo? contactInfo)
 		{
@@ -25,8 +29,9 @@
 				Email = email,
 				Role = role,
 				FullName = fullName,
-				ContactInfo = contactInfo
-			};
+				ContactInfo = contactInfo,
+                FailedLoginAttempts = 0
+            };
 		}
 
 		public void Update(Email email, FullName fullName, ContactInfo? contactInfo)
@@ -51,5 +56,34 @@
 		public bool HasOverdueBooks() => borrowings.Any(b => b.IsOverdue());
 
 		public int GetActiveBorrowingsCount() => borrowings.Count(b => b.Status == BorrowingStatus.Borrowed);
-	}
+
+        public void RecordFailedLogin()
+        {
+            if (Status == UserStatus.Locked) return;
+
+            FailedLoginAttempts++;
+
+            if (FailedLoginAttempts >= MaxFailedLoginAttempts)
+            {
+                Status = UserStatus.Locked;
+                LockedAt = DateTime.UtcNow;
+            }
+        }
+
+		public void RecordSuccessfulLogin()
+			=> FailedLoginAttempts = 0;
+
+        public void Unlock()
+        {
+            Status = UserStatus.Active;
+            FailedLoginAttempts = 0;
+            LockedAt = null;
+        }
+
+        public void Deactivate()
+			=> Status = UserStatus.Inactive;
+
+        public void Activate()
+			=> Status = UserStatus.Active;
+    }
 }

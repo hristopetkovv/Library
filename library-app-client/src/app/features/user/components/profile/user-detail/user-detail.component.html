@@ -1,0 +1,71 @@
+@if (isLoading()) {
+<app-loading />
+} @else {
+<h3 class="section-title">{{ 'user.profile.personalDetails' | translate }}</h3>
+
+<form nz-form
+      [formGroup]="form"
+      nzLayout="vertical"
+      (ngSubmit)="onSubmit()">
+    <nz-row [nzGutter]="16">
+        <nz-col [nzSpan]="12">
+            <nz-form-item>
+                <nz-form-label nzRequired>{{ 'user.profile.firstName' | translate }}</nz-form-label>
+                <nz-form-control [nzErrorTip]="'validation.UserFirstNameRequired' | translate">
+                    <input nz-input
+                           formControlName="firstName" />
+                </nz-form-control>
+            </nz-form-item>
+        </nz-col>
+        <nz-col [nzSpan]="12">
+            <nz-form-item>
+                <nz-form-label nzRequired>{{ 'user.profile.lastName' | translate }}</nz-form-label>
+                <nz-form-control [nzErrorTip]="'validation.UserLastNameRequired' | translate">
+                    <input nz-input
+                           formControlName="lastName" />
+                </nz-form-control>
+            </nz-form-item>
+        </nz-col>
+    </nz-row>
+
+    <nz-form-item>
+        <nz-form-label nzRequired>{{ 'user.profile.email' | translate }}</nz-form-label>
+        <nz-form-control [nzErrorTip]="'validation.UserEmailRequired' | translate">
+            <input nz-input
+                   formControlName="email"
+                   type="email" />
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-row [nzGutter]="16">
+        <nz-col [nzSpan]="12">
+            <nz-form-item>
+                <nz-form-label>{{ 'user.profile.address' | translate }}</nz-form-label>
+                <nz-form-control>
+                    <input nz-input
+                           formControlName="address" />
+                </nz-form-control>
+            </nz-form-item>
+        </nz-col>
+        <nz-col [nzSpan]="12">
+            <nz-form-item>
+                <nz-form-label>{{ 'user.profile.phoneNumber' | translate }}</nz-form-label>
+                <nz-form-control>
+                    <input nz-input
+                           formControlName="phoneNumber"
+                           type="tel" />
+                </nz-form-control>
+            </nz-form-item>
+        </nz-col>
+    </nz-row>
+
+    <div class="form-actions">
+        <button nz-button
+                nzType="primary"
+                type="submit"
+                [nzLoading]="isSubmitting()">
+            {{ 'common.save' | translate }}
+        </button>
+    </div>
+</form>
+}

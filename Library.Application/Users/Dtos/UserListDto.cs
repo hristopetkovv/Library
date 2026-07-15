@@ -3,8 +3,8 @@
 	public record UserListDto(
 		int Id,
 		string Email,
-		string FirstName,
-		string LastName,
-		UserRole Role
+		string FullName,
+		UserRole Role,
+		UserStatus Status
 	);
 }

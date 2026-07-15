@@ -53,11 +53,32 @@
         }
     },
     "user": {
+        "profile": {
+            "title": "Моят профил",
+            "personalDetails": "Лични данни",
+            "myBorrowings": "Взети книги",
+            "firstName": "Име",
+            "lastName": "Фамилия",
+            "email": "Имейл",
+            "address": "Адрес",
+            "phoneNumber": "Телефон"
+        },
         "forgottenPassword": {
             "title": "Забравена парола",
             "description": "Ще изпратим инструкции за възстановяване на имейла, с който сте регистрирани.",
             "emailPlaceholder": "Електронна поща *",
             "sendBtn": "Изпрати линк"
+        },
+        "borrowing": {
+            "book": "Книга",
+            "borrowDate": "Дата на вземане",
+            "dueDate": "Крайна дата",
+            "returnDate": "Дата на връщане",
+            "status": "Статус",
+            "active": "Активно",
+            "returned": "Върната",
+            "noBorrowings": "Нямате взети книги в момента",
+            "allStatuses": "Всички статуси"
         }
     },
     "book": {
@@ -180,6 +201,24 @@
             "biography": "Биография",
             "booksCount": "Книги",
             "deleteConfirm": "Сигурни ли сте, че искате да изтриете автора?"
+        },
+        "user": {
+            "title": "Управление на потребители",
+            "emailCol": "Имейл",
+            "nameCol": "Име",
+            "roleCol": "Роля",
+            "role": "Роля",
+            "roleAdmin": "Администратор",
+            "roleMember": "Член",
+            "emailPlaceholder": "Търсене по имейл",
+            "fullNamePlaceholder": "Търсене по име",
+            "changeRole": "Промяна на роля",
+            "deleteUser": "Изтриване на потребител",
+            "deleteConfirm": "Сигурни ли сте, че искате да изтриете потребителя?",
+            "activate": "Активирай",
+            "activateConfirm": "Сигурни ли сте, че искате да активирате този потребител?",
+            "deactivate": "Деактивирай",
+            "deactivateConfirm": "Сигурни ли сте, че искате да деактивирате този потребител?"
         }
     },
     "notification": {
@@ -264,7 +303,9 @@
         "required": "Задължително",
         "greaterThanZero": "Трябва да е по-голямо от 0",
         "nonNegative": "Трябва да е положително",
-        "invalidIsbn": "Невалиден номер"
+        "invalidIsbn": "Невалиден номер",
+        "UserAccountLocked": "Профилът ви е блокиран!",
+        "UserAccountInactive": "Профилът ви е деактивиран!"
     },
     "enums": {
         "language": {

@@ -1,0 +1,34 @@
+<div class="profile-layout">
+    <aside class="profile-sidebar">
+        <div class="sidebar-user">
+            <div class="avatar">
+                {{ initials() }}
+            </div>
+            <p class="user-name">{{ currentUser()?.firstName }} {{ currentUser()?.lastName }}</p>
+            <p class="user-email">{{ currentUser()?.email }}</p>
+        </div>
+
+        <ul class="sidebar-menu">
+            <li [class.active]="activeTab() === 'details'"
+                (click)="activeTab.set('details')">
+                <span nz-icon
+                      nzType="user"></span>
+                {{ 'user.profile.personalDetails' | translate }}
+            </li>
+            <li [class.active]="activeTab() === 'borrowings'"
+                (click)="activeTab.set('borrowings')">
+                <span nz-icon
+                      nzType="book"></span>
+                {{ 'user.profile.myBorrowings' | translate }}
+            </li>
+        </ul>
+    </aside>
+
+    <main class="profile-content">
+        @if (activeTab() === 'details') {
+        <app-user-detail />
+        } @else {
+        <app-user-borrowings />
+        }
+    </main>
+</div>

@@ -30,19 +30,39 @@
 		{
 			await ValidateAsync(loginValidator, request, cancellationToken);
 
-			// TODO: implement User status and failed logic count for better security and user experience
 			var user = await unitOfWork.Users.FirstOrDefaultAsync(u => u.Email.Value == request.Email, cancellationToken);
 
-			if (user is null || !passwordHasher.VerifyPassword(request.Password, user.PasswordHash, user.PasswordSalt))
+			if (user is null)
 			{
 				logger.LogWarning("Failed login attempt for email: {Email}", request.Email);
 
 				throw new UnauthorizedException(ValidationMessages.UserEmailOrPasswordInvalid);
 			}
 
-			logger.LogInformation("User {Email} logged in successfully", request.Email);
+            if (user.Status == UserStatus.Locked)
+                throw new UnauthorizedException(ValidationMessages.UserAccountLocked);
 
-			return new AuthResponse(jwt.GenerateToken(user), new UserLoginInfoDto(user.FullName.FirstName, user.FullName.LastName, user.Email.Value, user.Role));
+            if (user.Status == UserStatus.Inactive)
+                throw new UnauthorizedException(ValidationMessages.UserAccountInactive);
+
+			if (!passwordHasher.VerifyPassword(request.Password, user.PasswordHash, user.PasswordSalt))
+			{
+				user.RecordFailedLogin();
+
+				await unitOfWork.SaveChangesAsync(cancellationToken);
+
+                logger.LogWarning("Failed login attempt for email: {Email}", request.Email);
+
+                throw new UnauthorizedException(ValidationMessages.UserEmailOrPasswordInvalid);
+            }
+
+			user.RecordSuccessfulLogin();
+
+            await unitOfWork.SaveChangesAsync(cancellationToken);
+
+            logger.LogInformation("User {Email} logged in successfully", request.Email);
+
+			return new AuthResponse(jwt.GenerateToken(user), new UserLoginInfoDto(user.Id, user.FullName.FirstName, user.FullName.LastName, user.Email.Value, user.Role));
 		}
 
 		public async Task RegisterAsync(RegisterRequest request, CancellationToken cancellationToken)

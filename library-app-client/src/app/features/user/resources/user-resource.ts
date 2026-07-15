@@ -5,6 +5,7 @@ import { SearchUsersFilterDto } from "../dtos/search-users-filter.dto";
 import { UserListDto } from "../dtos/user-list.dto";
 import { UserDetailDto } from "../dtos/user-detail.dto";
 import { UpdateUserDto } from "../dtos/update-user.dto";
+import { ChangeUserRoleDto } from "../dtos/change-user-role.dto";
 
 @Injectable({ providedIn: 'root' })
 export class UserResource  extends BaseResource{
@@ -18,8 +19,20 @@ export class UserResource  extends BaseResource{
         return this.http.get<UserDetailDto>(`${this.baseUrl}/${id}`)
     }
 
-    update(id: number, request: UpdateUserDto): Observable<void> {
-        return this.http.put<void>(`${this.baseUrl}/${id}`, request);
+    update(request: UpdateUserDto): Observable<UserDetailDto> {
+        return this.http.put<UserDetailDto>(`${this.baseUrl}`, request);
+    }
+
+    changeRole(id: number, request: ChangeUserRoleDto): Observable<void> {
+        return this.http.put<void>(`${this.baseUrl}/${id}/role`, request);
+    }
+
+    activate(id: number): Observable<void> {
+        return this.http.put<void>(`${this.baseUrl}/${id}/activate`, {});
+    }
+
+    deactivate(id: number): Observable<void> {
+        return this.http.put<void>(`${this.baseUrl}/${id}/deactivate`, {});
     }
 
     delete(id: number): Observable<void> {
