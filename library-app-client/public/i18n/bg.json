@@ -219,6 +219,27 @@
             "activateConfirm": "Сигурни ли сте, че искате да активирате този потребител?",
             "deactivate": "Деактивирай",
             "deactivateConfirm": "Сигурни ли сте, че искате да деактивирате този потребител?"
+        },
+        "borrowing": {
+            "title": "Управление на заемания",
+            "active": "Активни",
+            "overdue": "Просрочени",
+            "returned": "Върнати",
+            "book": "Книга",
+            "author": "Автор",
+            "user": "Потребител",
+            "borrowDate": "Дата на вземане",
+            "dueDate": "Крайна дата",
+            "returnDate": "Дата на връщане",
+            "returnBook": "Върни книга",
+            "returnConfirm": "Сигурни ли сте, че искате да върнете тази книга?",
+            "filterByTitle": "Търси по заглавие",
+            "filterByAuthor": "Търси по автор",
+            "filterByEmail": "Търси по имейл",
+            "filterByIsbn": "Търси по ISBN",
+            "empty": "Няма намерени заемания",
+            "borrow": "Заеми книга",
+            "borrowTitle": "Заемане на книга"
         }
     },
     "notification": {

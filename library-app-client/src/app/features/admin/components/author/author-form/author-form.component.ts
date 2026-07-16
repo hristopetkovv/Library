@@ -22,8 +22,7 @@ import { AuthorDto } from '../../../../author/dtos/author.dto';
     NzInputModule,
     NzButtonModule,
   ],
-  templateUrl: './author-form.component.html',
-  styleUrl: './author-form.component.css',
+  templateUrl: './author-form.component.html'
 })
 export class AuthorFormComponent implements OnInit {
   readonly modalData = inject<{ author: AuthorDetailDto }>(NZ_MODAL_DATA, { optional: true });

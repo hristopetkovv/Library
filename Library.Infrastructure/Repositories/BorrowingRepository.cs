@@ -6,42 +6,27 @@
         {
             return await dbSet
                 .AsNoTracking()
+                .Where(b => b.UserId == userId)
+                .Where(b => status == null || b.Status == status)
                 .Include(b => b.Book)
                     .ThenInclude(book => book.Author)
                 .Include(b => b.Book)
                     .ThenInclude(book => book.Publisher)
                 .Include(b => b.User)
-                .Where(b => b.UserId == userId)
-                .Where(b => status == null || b.Status == status)
                 .ToListAsync(cancellationToken);
         }
 
-        public async Task<List<Borrowing>> GetAllActiveBorrowingsAsync(CancellationToken cancellationToken = default)
-		{
-			return await dbSet
-				.AsNoTracking()
-				.Include(b => b.Book)
-					.ThenInclude(book => book.Author)
-				.Include(b => b.Book)
-					.ThenInclude(book => book.Publisher)
-				.Include(b => b.User)
-				.Where(b => b.Status == BorrowingStatus.Borrowed)
-				.OrderBy(b => b.DueDate)
-				.ToListAsync(cancellationToken);
-		}
-
-        public async Task<List<Borrowing>> GetOverdueBorrowingsAsync(CancellationToken cancellationToken = default)
+        public async Task<List<Borrowing>> GetBorrowingsAsync(Expression<Func<Borrowing, bool>> predicate, CancellationToken cancellationToken = default)
         {
-            var now = DateTime.UtcNow;
-
             return await dbSet
                 .AsNoTracking()
-				.Include(b => b.Book)
-					.ThenInclude(book => book.Author)
-				.Include(b => b.Book)
-					.ThenInclude(book => book.Publisher)
-				.Include(b => b.User)
-                .Where(b => b.Status == BorrowingStatus.Borrowed && b.DueDate < now)
+                .Where(predicate)
+                .Include(b => b.Book)
+                    .ThenInclude(book => book.Author)
+                .Include(b => b.Book)
+                    .ThenInclude(book => book.Publisher)
+                .Include(b => b.User)
+                .OrderBy(b => b.DueDate)
                 .ToListAsync(cancellationToken);
         }
     }

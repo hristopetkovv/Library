@@ -41,11 +41,6 @@
                     class="menu-text">
                     <ul>
                         <li nz-menu-item
-                            routerLink="/admin/books"
-                            nzMatchRouter>
-                            {{ 'header.books' | translate }}
-                        </li>
-                        <li nz-menu-item
                             routerLink="/admin/authors"
                             nzMatchRouter>
                             {{ 'header.authors' | translate }}
@@ -54,6 +49,16 @@
                             routerLink="/admin/publishers"
                             nzMatchRouter>
                             {{ 'header.publishers' | translate }}
+                        </li>
+                        <li nz-menu-item
+                            routerLink="/admin/books"
+                            nzMatchRouter>
+                            {{ 'header.books' | translate }}
+                        </li>
+                        <li nz-menu-item
+                            routerLink="/admin/borrowings"
+                            nzMatchRouter>
+                            {{ 'admin.borrowing.title' | translate }}
                         </li>
                         <li nz-menu-item
                             routerLink="/admin/users"

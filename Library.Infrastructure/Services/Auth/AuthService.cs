@@ -30,7 +30,7 @@
 		{
 			await ValidateAsync(loginValidator, request, cancellationToken);
 
-			var user = await unitOfWork.Users.FirstOrDefaultAsync(u => u.Email.Value == request.Email, cancellationToken);
+			var user = await unitOfWork.Users.FirstOrDefaultUpdateAsync(u => u.Email.Value == request.Email, cancellationToken);
 
 			if (user is null)
 			{

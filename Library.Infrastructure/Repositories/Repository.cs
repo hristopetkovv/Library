@@ -58,6 +58,9 @@
 		public Task<T?> FirstOrDefaultAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken = default)
             => dbSet.AsNoTracking().FirstOrDefaultAsync(predicate, cancellationToken);
 
+        public Task<T?> FirstOrDefaultUpdateAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken = default)
+            => dbSet.FirstOrDefaultAsync(predicate, cancellationToken);
+
         public async Task<T> AddAsync(T entity, CancellationToken cancellationToken = default)
         {
 			await dbSet.AddAsync(entity, cancellationToken);
