@@ -1,9 +1,9 @@
-import { BookListDto } from "../../book/dtos/book-list.dto";
+import { BookBorrowingDto } from "../../book/dtos/book-borrowing.dto";
 import { BorrowingStatus } from "../enums/borrowings-status.enum";
 
 export interface BorrowingDetailDto {
   id: number;
-  book: BookListDto;
+  book: BookBorrowingDto;
   userEmail: string;
   borrowDate: string;
   dueDate: string;

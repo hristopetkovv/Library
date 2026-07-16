@@ -1,7 +1,4 @@
-﻿using Library.Application.Users.Commands.ActivateUser;
-using Library.Application.Users.Commands.DeactivateUser;
-
-namespace Library.Controllers.Users
+﻿namespace Library.Controllers.Users
 {
 	[ApiController]
 	[Route("api/[controller]")]

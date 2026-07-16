@@ -22,8 +22,7 @@ import { PublisherDto } from '../../../../publisher/dtos/publisher.dto';
     NzInputModule,
     NzButtonModule,
   ],
-  templateUrl: './publisher-form.component.html',
-  styleUrl: './publisher-form.component.css',
+  templateUrl: './publisher-form.component.html'
 })
 export class PublisherFormComponent implements OnInit {
   readonly modalData = inject<{ publisher: PublisherDetailDto }>(NZ_MODAL_DATA, { optional: true });

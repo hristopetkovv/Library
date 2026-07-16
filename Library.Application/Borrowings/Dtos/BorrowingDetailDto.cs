@@ -2,7 +2,7 @@
 {
 	public record BorrowingDetailDto(
 		int Id,
-		BookListDto Book,
+        BookBorrowingDto Book,
 		string UserEmail,
 		DateTime BorrowDate,
 		DateTime DueDate,

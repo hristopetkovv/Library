@@ -1,0 +1,137 @@
+<div class="admin-page">
+    <div class="admin-header">
+        <h2>{{ 'admin.borrowing.title' | translate }}</h2>
+
+        <button nz-button
+                nzType="primary"
+                (click)="openBorrowModal()">
+            <span nz-icon
+                  nzType="plus"></span>
+            {{ 'admin.borrowing.borrow' | translate }}
+        </button>
+    </div>
+
+    <!-- Филтри -->
+    <nz-row [nzGutter]="16"
+            class="filters-row">
+        <nz-col [nzSpan]="6">
+            <input nz-input
+                   [placeholder]="'admin.borrowing.filterByTitle' | translate"
+                   [ngModel]="filter().bookTitle"
+                   (ngModelChange)="onFilterChange('bookTitle', $event)" />
+        </nz-col>
+        <nz-col [nzSpan]="6">
+            <input nz-input
+                   [placeholder]="'admin.borrowing.filterByAuthor' | translate"
+                   [ngModel]="filter().authorName"
+                   (ngModelChange)="onFilterChange('authorName', $event)" />
+        </nz-col>
+        <nz-col [nzSpan]="6">
+            <input nz-input
+                   [placeholder]="'admin.borrowing.filterByEmail' | translate"
+                   [ngModel]="filter().userEmail"
+                   (ngModelChange)="onFilterChange('userEmail', $event)" />
+        </nz-col>
+        <nz-col [nzSpan]="6">
+            <input nz-input
+                   [placeholder]="'admin.borrowing.filterByIsbn' | translate"
+                   [ngModel]="filter().isbn"
+                   (ngModelChange)="onFilterChange('isbn', $event)" />
+        </nz-col>
+    </nz-row>
+
+    <!-- Табове -->
+    <nz-tabs>
+        <!-- Активни -->
+        <nz-tab [nzTitle]="activeTitle">
+            <ng-template #activeTitle>
+                {{ 'admin.borrowing.active' | translate }}
+                <nz-tag nzColor="blue"
+                        class="tab-count">{{ activeBorrowings().length }}</nz-tag>
+            </ng-template>
+            <ng-template [ngTemplateOutlet]="borrowingsTable"
+                         [ngTemplateOutletContext]="{ data: activeBorrowings(), showReturn: true }">
+            </ng-template>
+        </nz-tab>
+
+        <!-- Просрочени -->
+        <nz-tab [nzTitle]="overdueTitle">
+            <ng-template #overdueTitle>
+                {{ 'admin.borrowing.overdue' | translate }}
+                <nz-tag nzColor="red"
+                        class="tab-count">{{ overdueBorrowings().length }}</nz-tag>
+            </ng-template>
+            <ng-template [ngTemplateOutlet]="borrowingsTable"
+                         [ngTemplateOutletContext]="{ data: overdueBorrowings(), showReturn: true }">
+            </ng-template>
+        </nz-tab>
+
+        <!-- Върнати -->
+        <nz-tab [nzTitle]="returnedTitle">
+            <ng-template #returnedTitle>
+                {{ 'admin.borrowing.returned' | translate }}
+                <nz-tag nzColor="green"
+                        class="tab-count">{{ returnedBorrowings().length }}</nz-tag>
+            </ng-template>
+            <ng-template [ngTemplateOutlet]="borrowingsTable"
+                         [ngTemplateOutletContext]="{ data: returnedBorrowings(), showReturn: false }">
+            </ng-template>
+        </nz-tab>
+    </nz-tabs>
+</div>
+
+<!-- Reusable таблица -->
+<ng-template #borrowingsTable
+             let-data="data"
+             let-showReturn="showReturn">
+    <nz-table [nzData]="data"
+              [nzLoading]="isLoading()"
+              [nzBordered]="true"
+              [nzPageSize]="20"
+              nzSize="middle">
+        <thead>
+            <tr>
+                <th>{{ 'admin.borrowing.book' | translate }}</th>
+                <th>{{ 'admin.borrowing.author' | translate }}</th>
+                <th nzWidth="140px">ISBN</th>
+                <th>{{ 'admin.borrowing.user' | translate }}</th>
+                <th nzWidth="130px">{{ 'admin.borrowing.borrowDate' | translate }}</th>
+                <th nzWidth="130px">{{ 'admin.borrowing.dueDate' | translate }}</th>
+                <th nzWidth="130px">{{ 'admin.borrowing.returnDate' | translate }}</th>
+                @if (showReturn) {
+                <th nzWidth="100px"
+                    nzRight>{{ 'common.actions' | translate }}</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @for (b of data; track b.id) {
+            <tr [class.overdue-row]="b.status === BorrowingStatus.Borrowed && b.dueDate < today">
+                <td>{{ b.book.title }}</td>
+                <td>{{ b.book.authorName }}</td>
+                <td>{{ b.book.isbn }}</td>
+                <td>{{ b.userEmail }}</td>
+                <td>{{ b.borrowDate | date: 'dd.MM.yyyy' }}</td>
+                <td>{{ b.dueDate | date: 'dd.MM.yyyy' }}</td>
+                <td>{{ b.returnDate ? (b.returnDate | date: 'dd.MM.yyyy') : '—' }}</td>
+                @if (showReturn) {
+                <td nzRight>
+                    <button nz-button
+                            nzType="text"
+                            nzSize="small"
+                            nz-popconfirm
+                            nz-tooltip
+                            nzTooltipTitle="{{ 'admin.borrowing.returnBook' | translate }}"
+                            nzPopconfirmTitle="{{ 'admin.borrowing.returnConfirm' | translate }}"
+                            nzPopconfirmPlacement="left"
+                            (nzOnConfirm)="returnBook(b.id)">
+                        <span nz-icon
+                              nzType="check-circle"></span>
+                    </button>
+                </td>
+                }
+            </tr>
+            }
+        </tbody>
+    </nz-table>
+</ng-template>

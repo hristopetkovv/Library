@@ -22,6 +22,11 @@
                 .Map(dest => dest.GenreName, src => src.Name)
                 .Map(dest => dest.GenreNameBg, src => src.NameBg)
                 .Map(dest => dest.GenreCategory, src => src.Category);
+
+            TypeAdapterConfig<Book, BookBorrowingDto>
+                .NewConfig()
+                .Map(dest => dest.Author, src => src.Author.Name)
+                .Map(dest => dest.Publisher, src => src.Publisher.Name);
         }
     }
 }
