@@ -85,5 +85,11 @@
 
         public void Activate()
 			=> Status = UserStatus.Active;
+
+        public void ChangePassword(string passwordHash, string passwordSalt)
+        {
+            PasswordHash = passwordHash;
+            PasswordSalt = passwordSalt;
+        }
     }
 }

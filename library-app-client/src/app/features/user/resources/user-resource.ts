@@ -6,6 +6,7 @@ import { UserListDto } from "../dtos/user-list.dto";
 import { UserDetailDto } from "../dtos/user-detail.dto";
 import { UpdateUserDto } from "../dtos/update-user.dto";
 import { ChangeUserRoleDto } from "../dtos/change-user-role.dto";
+import { ChangePasswordDto } from "../dtos/change-password.dto";
 
 @Injectable({ providedIn: 'root' })
 export class UserResource  extends BaseResource{
@@ -19,12 +20,12 @@ export class UserResource  extends BaseResource{
         return this.http.get<UserDetailDto>(`${this.baseUrl}/${id}`)
     }
 
-    update(request: UpdateUserDto): Observable<UserDetailDto> {
-        return this.http.put<UserDetailDto>(`${this.baseUrl}`, request);
+    update(dto: UpdateUserDto): Observable<UserDetailDto> {
+        return this.http.put<UserDetailDto>(`${this.baseUrl}`, dto);
     }
 
-    changeRole(id: number, request: ChangeUserRoleDto): Observable<void> {
-        return this.http.put<void>(`${this.baseUrl}/${id}/role`, request);
+    changeRole(id: number, dto: ChangeUserRoleDto): Observable<void> {
+        return this.http.put<void>(`${this.baseUrl}/${id}/role`, dto);
     }
 
     activate(id: number): Observable<void> {
@@ -33,6 +34,10 @@ export class UserResource  extends BaseResource{
 
     deactivate(id: number): Observable<void> {
         return this.http.put<void>(`${this.baseUrl}/${id}/deactivate`, {});
+    }
+
+    changePassword(dto: ChangePasswordDto): Observable<void> {
+        return this.http.put<void>(`${this.baseUrl}/change-password`, dto);
     }
 
     delete(id: number): Observable<void> {

@@ -5,11 +5,12 @@ import { AuthService } from "../../../auth/services/auth.service";
 import { Router } from "@angular/router";
 import { UserDetailComponent } from "./user-detail/user-detail.component";
 import { UserBorrowingsComponent } from "./user-borrowings/user-borrowings.component";
+import { ChangePasswordComponent } from "./change-password/change-password.component";
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [TranslatePipe, NzIconModule, UserDetailComponent, UserBorrowingsComponent],
+  imports: [TranslatePipe, NzIconModule, UserDetailComponent, UserBorrowingsComponent, ChangePasswordComponent],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css',
 })
@@ -17,7 +18,7 @@ export class ProfileComponent {
   private readonly authService = inject(AuthService);
   private readonly router = inject(Router);
 
-  readonly activeTab = signal<'details' | 'borrowings'>('details');
+  readonly activeTab = signal<'details' | 'borrowings' | 'password'>('details');
   readonly currentUser = this.authService.currentUser;
 
   readonly initials = computed(() => {

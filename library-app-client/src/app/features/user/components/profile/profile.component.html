@@ -15,6 +15,12 @@
                       nzType="user"></span>
                 {{ 'user.profile.personalDetails' | translate }}
             </li>
+            <li [class.active]="activeTab() === 'password'"
+                (click)="activeTab.set('password')">
+                <span nz-icon
+                      nzType="lock"></span>
+                {{ 'user.profile.changePassword' | translate }}
+            </li>
             <li [class.active]="activeTab() === 'borrowings'"
                 (click)="activeTab.set('borrowings')">
                 <span nz-icon
@@ -27,7 +33,10 @@
     <main class="profile-content">
         @if (activeTab() === 'details') {
         <app-user-detail />
-        } @else {
+        } @else if(activeTab() === 'password') {
+        <app-change-password />
+        }
+        @else if(activeTab() === 'borrowings') {
         <app-user-borrowings />
         }
     </main>
