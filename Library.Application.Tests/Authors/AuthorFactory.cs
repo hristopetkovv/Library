@@ -1,5 +1,3 @@
-using System.Reflection;
-
 namespace Library.Application.Tests.Authors;
 
 public static class AuthorFactory

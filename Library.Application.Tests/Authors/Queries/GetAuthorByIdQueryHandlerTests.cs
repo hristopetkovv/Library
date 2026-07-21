@@ -1,5 +1,3 @@
-using System.Linq.Expressions;
-
 namespace Library.Application.Tests.Authors.Queries;
 
 public class GetAuthorByIdQueryHandlerTests
