@@ -48,6 +48,14 @@
             return NoContent();
         }
 
+        [HttpPut("change-password")]
+        [AuthorizeRoles(UserRole.Admin, UserRole.Member)]
+        public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordRequest request, CancellationToken cancellationToken)
+        {
+            await mediator.Send(new ChangePasswordCommand(request.CurrentPassword, request.NewPassword), cancellationToken);
+            return NoContent();
+        }
+
         [HttpDelete("{id:int}")]
 		[AuthorizeRoles(UserRole.Admin)]
 		public async Task<IActionResult> Delete([FromRoute] int id, CancellationToken cancellationToken)

@@ -69,5 +69,6 @@
 		public const string UserHasActiveBorrowings = nameof(UserHasActiveBorrowings);
 		public const string UserAccountLocked = nameof(UserAccountLocked);
 		public const string UserAccountInactive = nameof(UserAccountInactive);
+		public const string InvalidCurrentPassword = nameof(InvalidCurrentPassword);
     }
 }

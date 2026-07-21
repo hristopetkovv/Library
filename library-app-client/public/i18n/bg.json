@@ -57,6 +57,7 @@
             "title": "Моят профил",
             "personalDetails": "Лични данни",
             "myBorrowings": "Взети книги",
+            "changePassword": "Смяна на парола",
             "firstName": "Име",
             "lastName": "Фамилия",
             "email": "Имейл",
@@ -79,6 +80,12 @@
             "returned": "Върната",
             "noBorrowings": "Нямате взети книги в момента",
             "allStatuses": "Всички статуси"
+        },
+        "changePassword": {
+            "title": "Смяна на парола",
+            "currentPassword": "Текуща парола",
+            "newPassword": "Нова парола",
+            "confirmPassword": "Потвърди парола"
         }
     },
     "book": {
@@ -326,7 +333,8 @@
         "nonNegative": "Трябва да е положително",
         "invalidIsbn": "Невалиден номер",
         "UserAccountLocked": "Профилът ви е блокиран!",
-        "UserAccountInactive": "Профилът ви е деактивиран!"
+        "UserAccountInactive": "Профилът ви е деактивиран!",
+        "InvalidCurrentPassword": "Сегашната ви парола не е вярна!"
     },
     "enums": {
         "language": {

@@ -1,0 +1,17 @@
+global using Xunit;
+global using Moq;
+global using FluentAssertions;
+global using MediatR;
+global using Library.Application.Authors.Commands.CreateAuthor;
+global using Library.Application.Authors.Commands.UpdateAuthor;
+global using Library.Application.Authors.Commands.DeleteAuthor;
+global using Library.Application.Authors.Queries.GetAllAuthors;
+global using Library.Application.Authors.Queries.GetAuthorById;
+global using Library.Application.Authors.Dtos;
+global using Library.Application.Common.Interfaces;
+global using Library.Domain.Interfaces.Common;
+global using Library.Domain.Interfaces.Repositories;
+global using Library.Domain.Entities.Authors;
+global using Library.Domain.Entities.Books;
+global using Library.Domain.Constants;
+global using Library.Application.Common.Exceptions;
