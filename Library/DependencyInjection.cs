@@ -20,10 +20,7 @@
                     .RequireAuthenticatedUser()
                     .Build());
 
-            services.AddHttpClient("OpenLibrary", client =>
-            {
-                client.Timeout = TimeSpan.FromSeconds(10);
-            });
+            services.AddHttpClients();
         }
 
         private static void AddJwtAuthentication(this IServiceCollection services, IConfiguration configuration)
@@ -83,6 +80,19 @@
 
                     return Task.CompletedTask;
                 });
+            });
+        }
+
+        private static void AddHttpClients(this IServiceCollection services)
+        {
+            services.AddHttpClient("OpenLibrary", client =>
+            {
+                client.Timeout = TimeSpan.FromSeconds(10);
+            });
+
+            services.AddHttpClient("GoogleBooks", client =>
+            {
+                client.Timeout = TimeSpan.FromSeconds(10);
             });
         }
     }

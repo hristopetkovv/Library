@@ -45,6 +45,7 @@
 			services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
 			services.AddScoped<IFileStorageService, LocalFileStorageService>();
 			services.AddScoped<ICoverService, CoverService>();
+			services.AddScoped<IDescriptionService, DescriptionService>();
         }
 
 		public static async Task SeedDatabaseAsync(this IServiceProvider sp)
@@ -61,7 +62,8 @@
 		private static void AddConfiguration(this IServiceCollection services, IConfiguration configuration)
 		{
 			services
-				.Configure<JwtConfiguration>(configuration.GetSection(JwtConfiguration.SectionName));
-		}
+				.Configure<JwtConfiguration>(configuration.GetSection(JwtConfiguration.SectionName))
+				.Configure<ExternalServicesConfiguration>(configuration.GetSection(ExternalServicesConfiguration.SectionName));
+        }
 	}
 }

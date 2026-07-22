@@ -44,3 +44,4 @@ global using Microsoft.Extensions.Logging;
 global using Library.Domain.Constants;
 global using Microsoft.AspNetCore.Hosting;
 global using Library.Infrastructure.Persistence.Seed;
+global using System.Text.Json;

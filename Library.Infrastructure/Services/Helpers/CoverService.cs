@@ -1,13 +1,15 @@
 ﻿namespace Library.Infrastructure.Services.Helpers
 {
-    public class CoverService(IFileStorageService fileStorageService, IHttpClientFactory httpClientFactory) : ICoverService
+    public class CoverService(IFileStorageService fileStorageService, IHttpClientFactory httpClientFactory, IOptions<ExternalServicesConfiguration> externalServicesOptions) : ICoverService
     {
+        private readonly ExternalServicesConfiguration externalServicesConfig = externalServicesOptions.Value;
+
         public async Task<string?> TryDownloadCoverAsync(string isbn)
         {
             try
             {
                 var client = httpClientFactory.CreateClient("OpenLibrary");
-                var url = $"https://covers.openlibrary.org/b/isbn/{isbn}-L.jpg";
+                var url = $"{externalServicesConfig.OpenLibraryApiCoverUrl}/isbn/{isbn}-L.jpg";
 
                 var response = await client.GetAsync(url);
 
