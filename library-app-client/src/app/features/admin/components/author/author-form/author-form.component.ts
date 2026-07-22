@@ -38,7 +38,7 @@ export class AuthorFormComponent implements OnInit {
 
   readonly form = this.fb.group({
     name: ['', [Validators.required, Validators.maxLength(200)]],
-    biography: [null as string | null, [Validators.maxLength(2000)]],
+    biography: ['', [Validators.required, Validators.maxLength(2000)]],
   });
 
   ngOnInit(): void {

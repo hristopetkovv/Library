@@ -17,12 +17,17 @@
     </nz-form-item>
 
     <nz-form-item>
-        <nz-form-label>{{ 'admin.author.biography' | translate }}</nz-form-label>
-        <nz-form-control [nzErrorTip]="'validation.maxLength' | translate: { max: 2000 }">
+        <nz-form-label nzRequired>{{ 'admin.author.biography' | translate }}</nz-form-label>
+        <nz-form-control [nzErrorTip]="authorError">
             <textarea nz-input
                       formControlName="biography"
                       [nzAutosize]="{ minRows: 3, maxRows: 6 }">
             </textarea>
+            <ng-template #authorError
+                         let-control>
+                @if (control.errors?.['required']) { {{ 'validation.required' | translate }} }
+                @else if (control.errors?.['maxlength']) { {{ 'validation.maxLength' | translate: { max: 2000 } }} }
+            </ng-template>
         </nz-form-control>
     </nz-form-item>
 

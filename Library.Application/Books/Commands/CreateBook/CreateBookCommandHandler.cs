@@ -1,6 +1,6 @@
 ﻿namespace Library.Application.Books.Commands.CreateBook
 {
-	public class CreateBookCommandHandler(IUnitOfWork unitOfWork, ICoverService coverService) : IRequestHandler<CreateBookCommand, Unit>
+	public class CreateBookCommandHandler(IUnitOfWork unitOfWork, ICoverService coverService, IDescriptionService descriptionService) : IRequestHandler<CreateBookCommand, Unit>
 	{
 		public async Task<Unit> Handle(CreateBookCommand command, CancellationToken cancellationToken)
 		{
@@ -8,12 +8,16 @@
 
 			var coverImage = await coverService.TryDownloadCoverAsync(command.ISBN);
 
-			var book = Book.Create(
+            var description = string.IsNullOrEmpty(command.Description)
+				? await descriptionService.TryGetDescriptionAsync(command.ISBN)
+				: command.Description;
+
+            var book = Book.Create(
 				command.Title, 
 				command.AuthorId, 
 				command.PublisherId, 
-				ISBN.Create(command.ISBN), 
-				command.Description, 
+				ISBN.Create(command.ISBN),
+                description, 
 				command.Pages, 
 				command.Language, 
 				command.CoverType, 
