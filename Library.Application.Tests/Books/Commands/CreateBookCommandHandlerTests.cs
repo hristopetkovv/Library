@@ -6,6 +6,7 @@ public class CreateBookCommandHandlerTests
     private readonly Mock<IAuthorRepository> authorRepo;
     private readonly Mock<IPublisherRepository> publisherRepo;
     private readonly Mock<ICoverService> coverService;
+    private readonly Mock<IDescriptionService> descriptionService;
     private readonly Mock<IUnitOfWork> unitOfWork;
     private readonly CreateBookCommandHandler handler;
 
@@ -15,13 +16,14 @@ public class CreateBookCommandHandlerTests
         authorRepo = new Mock<IAuthorRepository>();
         publisherRepo = new Mock<IPublisherRepository>();
         coverService = new Mock<ICoverService>();
+        descriptionService = new Mock<IDescriptionService>();
 
         unitOfWork = new Mock<IUnitOfWork>();
         unitOfWork.Setup(u => u.Books).Returns(bookRepo.Object);
         unitOfWork.Setup(u => u.Authors).Returns(authorRepo.Object);
         unitOfWork.Setup(u => u.Publishers).Returns(publisherRepo.Object);
 
-        handler = new CreateBookCommandHandler(unitOfWork.Object, coverService.Object);
+        handler = new CreateBookCommandHandler(unitOfWork.Object, coverService.Object, descriptionService.Object);
     }
 
     private static CreateBookCommand ValidCommand => new(
