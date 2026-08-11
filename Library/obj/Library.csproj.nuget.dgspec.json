@@ -10,7 +10,7 @@
         "projectUniqueName": "D:\\Work\\Library\\Library.Application\\Library.Application.csproj",
         "projectName": "Library.Application",
         "projectPath": "D:\\Work\\Library\\Library.Application\\Library.Application.csproj",
-        "packagesPath": "C:\\Users\\hristo.petkov\\.nuget\\packages\\",
+        "packagesPath": "D:\\Work\\.nuget\\packages",
         "outputPath": "D:\\Work\\Library\\Library.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
@@ -373,7 +373,7 @@
         "projectUniqueName": "D:\\Work\\Library\\Library.Domain\\Library.Domain.csproj",
         "projectName": "Library.Domain",
         "projectPath": "D:\\Work\\Library\\Library.Domain\\Library.Domain.csproj",
-        "packagesPath": "C:\\Users\\hristo.petkov\\.nuget\\packages\\",
+        "packagesPath": "D:\\Work\\.nuget\\packages",
         "outputPath": "D:\\Work\\Library\\Library.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
@@ -718,7 +718,7 @@
         "projectUniqueName": "D:\\Work\\Library\\Library.Infrastructure\\Library.Infrastructure.csproj",
         "projectName": "Library.Infrastructure",
         "projectPath": "D:\\Work\\Library\\Library.Infrastructure\\Library.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\hristo.petkov\\.nuget\\packages\\",
+        "packagesPath": "D:\\Work\\.nuget\\packages",
         "outputPath": "D:\\Work\\Library\\Library.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
@@ -1133,7 +1133,7 @@
         "projectUniqueName": "D:\\Work\\Library\\Library\\Library.csproj",
         "projectName": "Library",
         "projectPath": "D:\\Work\\Library\\Library\\Library.csproj",
-        "packagesPath": "C:\\Users\\hristo.petkov\\.nuget\\packages\\",
+        "packagesPath": "D:\\Work\\.nuget\\packages",
         "outputPath": "D:\\Work\\Library\\Library\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
