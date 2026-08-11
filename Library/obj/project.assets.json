@@ -3293,7 +3293,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\hristo.petkov\\.nuget\\packages\\": {},
+    "D:\\Work\\.nuget\\packages": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
@@ -3303,7 +3303,7 @@
       "projectUniqueName": "D:\\Work\\Library\\Library\\Library.csproj",
       "projectName": "Library",
       "projectPath": "D:\\Work\\Library\\Library\\Library.csproj",
-      "packagesPath": "C:\\Users\\hristo.petkov\\.nuget\\packages\\",
+      "packagesPath": "D:\\Work\\.nuget\\packages",
       "outputPath": "D:\\Work\\Library\\Library\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
