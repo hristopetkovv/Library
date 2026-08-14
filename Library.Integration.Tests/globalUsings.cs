@@ -25,3 +25,5 @@ global using Library.Domain.Entities.Users;
 global using Library.Domain.Enums.Users;
 global using Library.Domain.ValueObjects.Books;
 global using Library.Domain.ValueObjects.Users;
+global using System.Text.Json;
+global using Library.Domain.Constants;
