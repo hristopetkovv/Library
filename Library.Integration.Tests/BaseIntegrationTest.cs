@@ -129,18 +129,33 @@
             return book;
         }
 
-        protected async Task<User> SeedUserAsync(string email = "member@test.com", UserRole role = UserRole.Member)
+        protected async Task<User> SeedUserAsync(string email = "member@test.com", UserRole role = UserRole.Member,
+            string password = "Password123!", UserStatus status = UserStatus.Active)
         {
             using var scope = factory.Services.CreateScope();
             var db = scope.ServiceProvider.GetRequiredService<LibraryDbContext>();
+            var passwordHasher = scope.ServiceProvider.GetRequiredService<IPasswordHasher>();
+
+            var passwordHash = passwordHasher.HashPassword(password, out var passwordSalt);
 
             var user = User.Create(
-                "salt",
-                "hash",
+                passwordSalt,
+                passwordHash,
                 Email.Create(email),
                 role,
                 FullName.Create("Test", "User"),
                 ContactInfo.Create("Test Address", "0888123456"));
+
+            if (status == UserStatus.Inactive)
+                user.Deactivate();
+
+            if (status == UserStatus.Locked)
+            {
+                for (var i = 0; i < 5; i++)
+                {
+                    user.RecordFailedLogin();
+                }
+            }
 
             await db.Users.AddAsync(user);
             await db.SaveChangesAsync();
@@ -148,12 +163,12 @@
             return user;
         }
 
-        protected async Task<Borrowing> SeedBorrowingAsync(int bookId, int userId)
+        protected async Task<Borrowing> SeedBorrowingAsync(int bookId, int userId, int borrowPeriodDays = 30)
         {
             using var scope = factory.Services.CreateScope();
             var db = scope.ServiceProvider.GetRequiredService<LibraryDbContext>();
 
-            var borrowing = Borrowing.Create(bookId, userId);
+            var borrowing = Borrowing.Create(bookId, userId, borrowPeriodDays);
 
             await db.Borrowings.AddAsync(borrowing);
             await db.SaveChangesAsync();
