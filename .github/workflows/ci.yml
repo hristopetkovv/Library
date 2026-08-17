@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  push_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore Library.sln
+
+      - name: build
+        run: dotnet build Library.sln --no-restore --configuration Release
+
+      - name: Run unit tests
+        run: dotnet test Library.Application.Tests --no-build --configuration Release --verbosity normal
+
+      - name: Run integration tests
+        run: dotnet test Library.Integration.Tests --no-build --configuration Release --verbosity normal
