@@ -1,5 +1,3 @@
-using Library.Infrastructure.Services.Helpers;
-
 namespace Library.Application.Tests.Auth;
 
 public class PasswordHasherTests

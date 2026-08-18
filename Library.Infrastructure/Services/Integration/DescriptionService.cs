@@ -1,4 +1,4 @@
-﻿namespace Library.Infrastructure.Services.Helpers
+﻿namespace Library.Infrastructure.Services.Integration
 {
     public class DescriptionService(IHttpClientFactory httpClientFactory, IOptions<ExternalServicesConfiguration> externalServicesOptions) : IDescriptionService
     {

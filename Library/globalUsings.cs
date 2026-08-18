@@ -64,3 +64,4 @@ global using Library.Application.Users.Commands.ActivateUser;
 global using Library.Application.Users.Commands.DeactivateUser;
 global using Library.Application.Borrowings.Queries.GetAllBorrowings;
 global using Library.Application.Users.Commands.ChangePassword;
+global using Library.Application.Borrowings.Queries.GetEarliestReturn;

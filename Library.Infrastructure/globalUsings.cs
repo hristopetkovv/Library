@@ -45,3 +45,6 @@ global using Library.Domain.Constants;
 global using Microsoft.AspNetCore.Hosting;
 global using Library.Infrastructure.Persistence.Seed;
 global using System.Text.Json;
+global using Library.Application.Interfaces.Integration;
+global using Library.Infrastructure.Services.Integration;
+
