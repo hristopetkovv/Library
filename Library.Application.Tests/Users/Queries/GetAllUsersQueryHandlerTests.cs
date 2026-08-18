@@ -1,5 +1,3 @@
-using System.Linq.Expressions;
-
 namespace Library.Application.Tests.Users.Queries;
 
 public class GetAllUsersQueryHandlerTests

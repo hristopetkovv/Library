@@ -1,4 +1,4 @@
-﻿namespace Library.Application.Interfaces.Helpers
+﻿namespace Library.Application.Interfaces.Integration
 {
     public interface IDescriptionService
     {

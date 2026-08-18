@@ -27,3 +27,4 @@ global using Library.Domain.ValueObjects.Books;
 global using Library.Domain.ValueObjects.Users;
 global using System.Text.Json;
 global using Library.Domain.Constants;
+global using Library.Application.Interfaces.Integration;

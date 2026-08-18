@@ -1,9 +1,3 @@
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using Library.Infrastructure.Models.Configurations;
-using Library.Infrastructure.Services.Auth;
-using Microsoft.Extensions.Options;
-
 namespace Library.Application.Tests.Auth;
 
 public class JwtTokenGeneratorTests

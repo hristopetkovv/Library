@@ -1,5 +1,3 @@
-using System.Linq.Expressions;
-
 namespace Library.Application.Tests.Users.Commands;
 
 public class DeleteUserCommandHandlerTests
