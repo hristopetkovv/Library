@@ -94,6 +94,11 @@
             {
                 client.Timeout = TimeSpan.FromSeconds(10);
             });
+
+            services.AddHttpClient("Gemini", client =>
+            {
+                client.Timeout = TimeSpan.FromSeconds(60);
+            });
         }
     }
 }

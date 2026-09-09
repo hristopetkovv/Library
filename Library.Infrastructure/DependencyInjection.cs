@@ -46,6 +46,7 @@
 			services.AddScoped<IFileStorageService, LocalFileStorageService>();
 			services.AddScoped<ICoverService, CoverService>();
 			services.AddScoped<IDescriptionService, DescriptionService>();
+			services.AddScoped<IChatService, ChatService>();
         }
 
 		public static async Task SeedDatabaseAsync(this IServiceProvider sp)

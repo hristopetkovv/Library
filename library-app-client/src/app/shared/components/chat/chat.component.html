@@ -1,0 +1,64 @@
+@if (isAuthenticated()) {
+<div class="chat-widget">
+    <!-- Toggle бутон -->
+    <button class="chat-toggle"
+            (click)="toggleChat()">
+        <span nz-icon
+              [nzType]="isOpen() ? 'close' : 'message'"></span>
+    </button>
+
+    <!-- Чат прозорец -->
+    @if (isOpen()) {
+    <div class="chat-window">
+        <div class="chat-header">
+            <span nz-icon
+                  nzType="robot"></span>
+            {{ 'chat.title' | translate }}
+        </div>
+
+        <div class="chat-messages"
+             #messagesContainer>
+            @if (messages().length === 0) {
+            <div class="chat-welcome">
+                {{ 'chat.welcome' | translate }}
+            </div>
+            }
+            @for (msg of messages(); track $index) {
+            <div class="chat-message"
+                 [class.user]="msg.isUser"
+                 [class.bot]="!msg.isUser">
+                <div class="message-bubble">
+                    {{ msg.text }}
+                </div>
+            </div>
+            }
+            @if (isLoading()) {
+            <div class="chat-message bot">
+                <div class="message-bubble loading">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+            }
+        </div>
+
+        <div class="chat-input">
+            <textarea [placeholder]="'chat.placeholder' | translate"
+                      [ngModel]="inputMessage()"
+                      (ngModelChange)="inputMessage.set($event)"
+                      (keydown)="onKeyDown($event)"
+                      rows="1">
+          </textarea>
+            <button nz-button
+                    nzType="primary"
+                    [disabled]="!inputMessage().trim() || isLoading()"
+                    (click)="sendMessage()">
+                <span nz-icon
+                      nzType="send"></span>
+            </button>
+        </div>
+    </div>
+    }
+</div>
+}

@@ -47,4 +47,5 @@ global using Library.Infrastructure.Persistence.Seed;
 global using System.Text.Json;
 global using Library.Application.Interfaces.Integration;
 global using Library.Infrastructure.Services.Integration;
-
+global using Library.Application.Books.Dtos;
+global using System.Net.Http.Json;

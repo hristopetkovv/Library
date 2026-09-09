@@ -249,6 +249,12 @@
             "borrowTitle": "Заемане на книга"
         }
     },
+    "chat": {
+        "title": "Библиотечен асистент",
+        "welcome": "Здравейте! Как мога да ви помогна?",
+        "placeholder": "Напишете съобщение...",
+        "error": "Възникна грешка. Моля опитайте отново."
+    },
     "notification": {
         "success": {
             "login": "Добре дошли!",
@@ -334,7 +340,8 @@
         "invalidIsbn": "Невалиден номер",
         "UserAccountLocked": "Профилът ви е блокиран!",
         "UserAccountInactive": "Профилът ви е деактивиран!",
-        "InvalidCurrentPassword": "Сегашната ви парола не е вярна!"
+        "InvalidCurrentPassword": "Сегашната ви парола не е вярна!",
+        "minLength": "Минимум 8 символа"
     },
     "enums": {
         "language": {

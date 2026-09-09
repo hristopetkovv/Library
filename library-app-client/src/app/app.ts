@@ -6,10 +6,11 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { TranslateService } from '@ngx-translate/core';
 import { bg_BG, en_US, NzI18nService } from 'ng-zorro-antd/i18n';
+import { ChatComponent } from './shared/components/chat/chat.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NzLayoutModule, HeroComponent, HeaderComponent, FooterComponent],
+  imports: [RouterOutlet, NzLayoutModule, HeroComponent, HeaderComponent, FooterComponent, ChatComponent],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

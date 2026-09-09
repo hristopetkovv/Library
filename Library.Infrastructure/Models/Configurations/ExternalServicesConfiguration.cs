@@ -8,5 +8,7 @@
         public required string GoogleBooksApiKey { get; set; }
         public required string OpenLibraryApiBaseUrl { get; set; }
         public required string OpenLibraryApiCoverUrl { get; set; }
+        public required string GeminiApiKey { get; set; }
+        public required string GeminiApiBaseUrl { get; set; }
     }
 }

@@ -10,8 +10,8 @@
 	{
 		public Expression<Func<Book, bool>> Predicate()
 		{
-			return b =>
-			(string.IsNullOrEmpty(Term) || b.Title.ToLower().Contains(Term.ToLower()) || b.Author.Name.ToLower().Contains(Term) || b.ISBN.Value.Contains(Term))
+            return b =>
+			(string.IsNullOrEmpty(Term) || b.Title.ToLower().Contains(Term.ToLower()) || b.Author.Name.ToLower().Contains(Term.ToLower()) || b.ISBN.Value.Contains(Term.ToLower()))
 			&& (Language == null || b.Language == Language)
 			&& (CoverType == null || b.CoverType == CoverType)
 			&& (GenreIds == null || !GenreIds.Any() || b.Genres.Any(g => GenreIds.Contains(g.Id)))

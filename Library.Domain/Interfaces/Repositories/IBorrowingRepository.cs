@@ -4,5 +4,6 @@
     {
 		Task<List<Borrowing>> GetByUserIdAsync(int userId, BorrowingStatus? status, CancellationToken cancellationToken = default);
 		Task<List<Borrowing>> GetBorrowingsAsync(Expression<Func<Borrowing, bool>> predicate, CancellationToken cancellationToken = default);
+        Task<Borrowing?> GetEarliestReturnAsync(int bookId, CancellationToken cancellationToken = default);
     }
 }

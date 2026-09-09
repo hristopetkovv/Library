@@ -84,3 +84,4 @@ Library/obj/project.assets.json
 Library/obj/Library.csproj.nuget.g.props
 Library/Logs/log-20260502.txt
 /Library/Logs
+Library/appsettings.Development.json

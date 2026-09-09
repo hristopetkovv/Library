@@ -29,5 +29,14 @@
                 .OrderBy(b => b.DueDate)
                 .ToListAsync(cancellationToken);
         }
+
+        public async Task<Borrowing?> GetEarliestReturnAsync(int bookId, CancellationToken cancellationToken = default)
+        {
+            return await dbSet
+                .AsNoTracking()
+                .Where(b => b.BookId == bookId && b.Status == BorrowingStatus.Borrowed)
+                .OrderBy(b => b.DueDate)
+                .FirstOrDefaultAsync(cancellationToken);
+        }
     }
 }
