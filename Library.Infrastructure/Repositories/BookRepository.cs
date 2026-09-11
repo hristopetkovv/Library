@@ -15,5 +15,16 @@
 
             return await query.FirstOrDefaultAsync(b => b.Id == id, cancellationToken);
         }
+
+        public async Task<List<Book>> SearchByDescriptionAsync(string term, CancellationToken cancellationToken = default)
+        {
+            return await dbSet
+                .AsNoTracking()
+                .Where(b => b.Description != null && b.Description.ToLower().Contains(term.ToLower()))
+                .Include(b => b.Author)
+                .Take(5)
+                .OrderBy(b => b.Title)
+                .ToListAsync(cancellationToken);
+        }
     }
 }

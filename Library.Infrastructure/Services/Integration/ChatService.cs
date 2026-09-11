@@ -16,15 +16,14 @@
             var requestBody = BuildRequest(message, language, tools);
 
             var response = await client.PostAsJsonAsync($"{config.GeminiApiBaseUrl}?key={config.GeminiApiKey}", requestBody, cancellationToken);
-            var responseJson = await response.Content.ReadFromJsonAsync<JsonElement>(cancellationToken: cancellationToken);
+            var responseString = await response.Content.ReadAsStringAsync(cancellationToken);
+            var responseJson = JsonDocument.Parse(responseString).RootElement;
 
             return await ProcessResponseAsync(responseJson, client, message, language, cancellationToken, maxDepth: 10);
         }
 
         private async Task<string> ProcessResponseAsync(JsonElement responseJson, HttpClient client, string originalMessage, string language, CancellationToken cancellationToken, int maxDepth = 5)
         {
-            Console.WriteLine($"ProcessResponseAsync depth: {maxDepth}");
-
             if (maxDepth <= 0)
                 return "Не мога да намеря отговор на този въпрос.";
 
@@ -42,6 +41,8 @@
                 if (!content.TryGetProperty("parts", out var parts))
                     return "Не мога да отговоря на този въпрос.";
 
+                var functionCalls = new List<(string Name, JsonElement Args, string CallId, string? ThoughtSignature)>();
+
                 foreach (var part in parts.EnumerateArray())
                 {
                     if (part.TryGetProperty("functionCall", out var functionCall))
@@ -51,9 +52,7 @@
                         var callId = functionCall.TryGetProperty("id", out var id) ? id.GetString() : "call_id";
                         var thoughtSignature = part.TryGetProperty("thoughtSignature", out var ts) ? ts.GetString() : null;
 
-                        var functionResult = await ExecuteFunctionAsync(functionName!, args, cancellationToken);
-
-                        return await SendFunctionResultAsync(client, originalMessage, language, functionName!, callId!, functionResult, thoughtSignature, cancellationToken, maxDepth - 1);
+                        functionCalls.Add((functionName!, args, callId!, thoughtSignature));
                     }
 
                     if (part.TryGetProperty("text", out var textElement))
@@ -62,6 +61,11 @@
                         if (!string.IsNullOrEmpty(text))
                             return text;
                     }
+                }
+
+                if (functionCalls.Count > 0)
+                {
+                    return await SendMultipleFunctionResultsAsync(client, originalMessage, language, functionCalls, maxDepth - 1, cancellationToken);
                 }
 
                 return "Не мога да отговоря на този въпрос.";
@@ -78,6 +82,7 @@
             {
                 "searchBooks" => await SearchBooksAsync(args, cancellationToken),
                 "getEarliestReturnDate" => await GetEarliestReturnDateAsync(args, cancellationToken),
+                "searchBooksByDescription" => await SearchBooksByDescriptionAsync(args, cancellationToken),
                 _ => "Функцията не е намерена."
             };
         }
@@ -118,11 +123,63 @@
             return JsonSerializer.Serialize(new { borrowing.DueDate });
         }
 
-        private async Task<string> SendFunctionResultAsync(HttpClient client, string originalMessage, string language, string functionName, string callId, string functionResult, string? thoughtSignature, CancellationToken cancellationToken, int maxDepth)
+        private async Task<string> SearchBooksByDescriptionAsync(JsonElement args, CancellationToken cancellationToken)
         {
-            var modelPart = thoughtSignature != null
-                ? new object[] { new { functionCall = new { name = functionName, args = new { } }, thoughtSignature } }
-                : new object[] { new { functionCall = new { name = functionName, args = new { } } } };
+            var term = args.TryGetProperty("term", out var t) ? t.GetString() : null;
+
+            if (string.IsNullOrEmpty(term))
+                return "Няма намерени книги.";
+
+            var books = await unitOfWork.Books.SearchByDescriptionAsync(term, cancellationToken);
+
+            if (books.Count == 0)
+                return "Няма намерени книги.";
+
+            var result = books.Select(b => new
+            {
+                b.Id,
+                b.Title,
+                Author = b.Author.Name,
+                b.AvailableCopies,
+                b.TotalCopies
+            });
+
+            return JsonSerializer.Serialize(result);
+        }
+
+        private async Task<string> SendMultipleFunctionResultsAsync(
+            HttpClient client,
+            string originalMessage,
+            string language,
+            List<(string Name, JsonElement Args, string CallId, string? ThoughtSignature)> functionCalls,
+            int maxDepth,
+            CancellationToken cancellationToken)
+        {
+            var functionResults = new List<(string Name, string CallId, string? ThoughtSignature, JsonElement Args, string Result)>();
+
+            foreach (var (name, args, callId, thoughtSignature) in functionCalls)
+            {
+                var result = await ExecuteFunctionAsync(name, args, cancellationToken);
+                functionResults.Add((name, callId, thoughtSignature, args, result));
+            }
+
+            var modelParts = functionResults.Select(fr =>
+            {
+                if (fr.ThoughtSignature != null)
+                    return (object)new { functionCall = new { name = fr.Name, args = fr.Args, id = fr.CallId }, thoughtSignature = fr.ThoughtSignature };
+                else
+                    return (object)new { functionCall = new { name = fr.Name, args = fr.Args, id = fr.CallId } };
+            }).ToArray();
+
+            var responseParts = functionResults.Select(fr => (object)new
+            {
+                functionResponse = new
+                {
+                    name = fr.Name,
+                    id = fr.CallId,
+                    response = new { result = fr.Result }
+                }
+            }).ToArray();
 
             var requestBody = new
             {
@@ -133,43 +190,19 @@
                 contents = new object[]
                 {
             new { role = "user", parts = new[] { new { text = originalMessage } } },
-            new
-                {
-                    role = "model",
-                    parts = new object[]
-                    {
-                        new { functionCall = new { name = functionName, args = new { }, id = callId }, thoughtSignature }
-                    }
-                },
-            new
-            {
-                role = "user",
-                parts = new[]
-                {
-                    new
-                    {
-                        functionResponse = new
-                        {
-                            name = functionName,
-                            id = callId,
-                            response = new { result = functionResult }
-                        }
-                    }
-                }
-            }
+            new { role = "model", parts = modelParts },
+            new { role = "user", parts = responseParts }
                 },
                 tools = BuildTools()
             };
 
-            var response = await client.PostAsJsonAsync($"{config.GeminiApiBaseUrl}?key={config.GeminiApiKey}", requestBody, cancellationToken);
+            var response = await client.PostAsJsonAsync(
+                $"{config.GeminiApiBaseUrl}?key={config.GeminiApiKey}",
+                requestBody,
+                cancellationToken);
 
             var responseString = await response.Content.ReadAsStringAsync(cancellationToken);
             var responseJson = JsonDocument.Parse(responseString).RootElement;
-
-            var parts = responseJson
-                .GetProperty("candidates")[0]
-                .GetProperty("content")
-                .GetProperty("parts");
 
             return await ProcessResponseAsync(responseJson, client, originalMessage, language, cancellationToken, maxDepth);
         }
@@ -208,6 +241,19 @@
                                 },
                                 required = new[] { "bookId" }
                             }
+                        },
+                        new
+                        {
+                            name = "searchBooksByDescription",
+                            description = "Търси книги по описание - полезно когато потребителят търси по тема или жанр",
+                            parameters = new
+                            {
+                                type = "object",
+                                properties = new
+                                {
+                                    term = new { type = "string", description = "Тема или ключова дума за търсене в описанието" }
+                                }
+                            }
                         }
                     }
                 }
@@ -234,22 +280,24 @@
             You are a library assistant. Help users find books and check availability.
             {(language == "bg" ? "Отговаряй на български език." : "Reply in English.")}
             
-            When searching for books use the searchBooks function.
-            Books in the library may have English titles. If the user searches in Bulgarian, 
-            also try searching with the English translation.
+            SEARCHING RULES:
+            1. If user searches by title or author → use searchBooks
+            2. If user searches by topic, genre or theme → use searchBooksByDescription
+               - ALWAYS translate the topic to English and search with the English term
+               - Example: "войни" → search "war", "средновековие" → search "medieval", "любов" → search "love"
+               - Also try Bulgarian term simultaneously
+            3. If ANY search returns results → USE THEM IMMEDIATELY to answer. Do NOT search again.
+            4. If ALL searches return empty → tell the user no books were found in the library, 
+               then suggest 3-5 popular books on the topic from your own knowledge.
+               Make clear these suggestions are from your knowledge and may not be in the library.
             
-            When a user asks when a book will be available, first find it with searchBooks, 
-            then use getEarliestReturnDate with its ID.
+            AVAILABILITY RULES:
+            - If user asks when a book will be available → first find it with searchBooks, then use getEarliestReturnDate with its ID
             
-            IMPORTANT: If searchBooks returns no results or empty list:
-            - Do NOT call searchBooks again with the same term
-            - Tell the user no books were found matching their criteria
-            - Search for popular books related to their topic using searchBooks with English titles
-            - For example if user asks for medieval books, search for "Game of Thrones", "Pillars of the Earth", "Ivanhoe" etc.
-            - Only suggest books that are actually found in the library via searchBooks
-            - If none are found, then suggest titles from your knowledge but make clear they may not be in the library
-            
-            Never call the same function more than once with the same parameters.
+            IMPORTANT:
+            - If ANY search returns results, stop searching and answer immediately
+            - Never search again if you already have results
+            - Never call the same function with the same parameters more than once
             """;
-        }
+    }
 }

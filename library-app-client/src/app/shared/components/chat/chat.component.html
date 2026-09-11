@@ -50,13 +50,11 @@
                       (keydown)="onKeyDown($event)"
                       rows="1">
           </textarea>
-            <button nz-button
-                    nzType="primary"
-                    [disabled]="!inputMessage().trim() || isLoading()"
-                    (click)="sendMessage()">
-                <span nz-icon
-                      nzType="send"></span>
-            </button>
+            <span nz-icon
+                  nzType="send"
+                  class="send-icon"
+                  (click)="sendMessage()">
+            </span>
         </div>
     </div>
     }
