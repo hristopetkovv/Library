@@ -1,6 +1,6 @@
 ﻿namespace Library.Domain.Interfaces.Common
 {
-    public interface IRepository<T>
+    public interface IRepository<T> : IScopedService
         where T : class, IEntity
     {
 		Task<T?> GetByIdAsync(int id, CancellationToken cancellationToken = default, params Expression<Func<T, object>>[] includes);

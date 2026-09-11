@@ -29,24 +29,19 @@
 
 		private static void AddServices(this IServiceCollection services)
 		{
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddScoped<IBookRepository, BookRepository>();
-            services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<IBorrowingRepository, BorrowingRepository>();
-            services.AddScoped<IAuthorRepository, AuthorRepository>();
-            services.AddScoped<IPublisherRepository, PublisherRepository>();
-            services.AddScoped<IGenreRepository, GenreRepository>();
-
-			services.AddScoped<IUnitOfWork, UnitOfWork>();
-
-            services.AddScoped<IUserContext, UserContext>();
-			services.AddScoped<IAuthService, AuthService>();
-			services.AddScoped<IPasswordHasher, PasswordHasher>();
-			services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
 			services.AddScoped<IFileStorageService, LocalFileStorageService>();
-			services.AddScoped<ICoverService, CoverService>();
-			services.AddScoped<IDescriptionService, DescriptionService>();
-			services.AddScoped<IChatService, ChatService>();
+
+            services.Scan(scan => scan
+                .FromAssemblies(AppDomain.CurrentDomain.GetAssemblies())
+
+                .AddClasses(classes => classes.AssignableTo<IScopedService>())
+                .AsMatchingInterface()
+                .WithScopedLifetime()
+
+                .AddClasses(classes => classes.AssignableTo<ISingletonService>())
+                .AsMatchingInterface()
+                .WithSingletonLifetime()
+            );
         }
 
 		public static async Task SeedDatabaseAsync(this IServiceProvider sp)

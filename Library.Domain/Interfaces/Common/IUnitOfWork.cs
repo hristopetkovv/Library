@@ -1,6 +1,6 @@
 ﻿namespace Library.Domain.Interfaces.Common
 {
-    public interface IUnitOfWork
+    public interface IUnitOfWork : IScopedService
     {
         IBookRepository Books { get; }
         IUserRepository Users { get; }

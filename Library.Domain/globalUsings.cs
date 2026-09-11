@@ -13,3 +13,4 @@ global using Library.Domain.Constants;
 global using Library.Domain.Exceptions;
 global using Library.Domain.Entities.Authors;
 global using Library.Domain.Entities.Publishers;
+global using Library.Domain.Interfaces.Registration;

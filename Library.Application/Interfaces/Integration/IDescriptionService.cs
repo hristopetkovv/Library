@@ -1,6 +1,6 @@
 ﻿namespace Library.Application.Interfaces.Integration
 {
-    public interface IDescriptionService
+    public interface IDescriptionService : IScopedService
     {
         Task<string?> TryGetDescriptionAsync(string isbn);
     }
