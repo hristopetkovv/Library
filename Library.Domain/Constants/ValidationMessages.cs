@@ -70,5 +70,13 @@
 		public const string UserAccountLocked = nameof(UserAccountLocked);
 		public const string UserAccountInactive = nameof(UserAccountInactive);
 		public const string InvalidCurrentPassword = nameof(InvalidCurrentPassword);
+
+		// Review
+		public const string ReviewNotFound = nameof(ReviewNotFound);
+		public const string ReviewContentRequired = nameof(ReviewContentRequired);
+		public const string ReviewContentMaxLength = nameof(ReviewContentMaxLength);
+		public const string ReviewRatingRequired = nameof(ReviewRatingRequired);
+		public const string ReviewBookIdRequired = nameof(ReviewBookIdRequired);
+		public const string ReviewIdRequired = nameof(ReviewIdRequired);
     }
 }

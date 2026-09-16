@@ -6,6 +6,8 @@
         {
             BookMappingConfig.Configure();
             UserMappingConfig.Configure();
+            BorrowingMappingConfig.Configure();
+            ReviewMappingConfig.Configure();
         }
     }
 }

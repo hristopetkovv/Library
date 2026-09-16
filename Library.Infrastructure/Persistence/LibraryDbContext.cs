@@ -9,6 +9,7 @@
 		public DbSet<Borrowing> Borrowings => Set<Borrowing>();
 		public DbSet<Genre> Genres => Set<Genre>();
 		public DbSet<BookGenre> BookGenres => Set<BookGenre>();
+		public DbSet<Review> Reviews => Set<Review>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{

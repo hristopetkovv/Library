@@ -39,6 +39,13 @@
     <h2 class="book-title">{{ book().title }}</h2>
     <p class="book-author">{{ book().author.name }}</p>
 
+    @if (reviews().length > 0) {
+    <nz-rate [ngModel]="averageRating()"
+             nzDisabled
+             nzAllowHalf></nz-rate>
+    <span class="rating-count">({{ reviews().length }})</span>
+    }
+
     @if (book().description) {
     <p class="book-description">{{ book().description }}</p>
     }
@@ -95,6 +102,76 @@
       </div>
     </div>
     }
+
+    <nz-divider></nz-divider>
+    <div class="reviews-section">
+      <div class="reviews-header">
+        <span class="meta-label">{{ 'book.detail.reviews' | translate }}</span>
+      </div>
+
+      @if (authService.isAuthenticated()) {
+      <form [formGroup]="reviewForm"
+            (ngSubmit)="submitReview()"
+            class="review-form">
+        <nz-rate formControlName="rating"></nz-rate>
+        <nz-form-control [nzErrorTip]="'validation.required' | translate">
+          <textarea nz-input
+                    formControlName="content"
+                    [placeholder]="'book.detail.reviewPlaceholder' | translate"
+                    [nzAutosize]="{ minRows: 2, maxRows: 4 }"
+                    style="border-radius: 8px;">
+              </textarea>
+        </nz-form-control>
+        <button nz-button
+                nzType="primary"
+                type="submit"
+                [nzLoading]="isSubmitting()">
+          {{ 'book.detail.submitReview' | translate }}
+        </button>
+      </form>
+      }
+
+      @if (isLoadingReviews()) {
+      <nz-skeleton [nzActive]="true"></nz-skeleton>
+      } @else if (reviews().length === 0) {
+      <p class="no-reviews">{{ 'book.detail.noReviews' | translate }}</p>
+      } @else {
+      <div class="reviews-list">
+        @for (review of reviews(); track review.id) {
+        <div class="review-item">
+          <div class="review-header">
+            <div class="review-user">
+              <div class="review-avatar">{{ review.userFullName[0] }}</div>
+              <div>
+                <span class="review-name">{{ review.userFullName }}</span>
+                <span class="review-date">{{ review.createdAt | date: 'dd.MM.yyyy' }}</span>
+              </div>
+            </div>
+            <div class="review-actions">
+              <nz-rate [ngModel]="review.rating"
+                       nzDisabled></nz-rate>
+              @if (isAdmin()) {
+              <button nz-button
+                      nzType="text"
+                      nzDanger
+                      nzSize="small"
+                      [disabled]="reviewForm.invalid"
+                      nz-popconfirm
+                      [nzPopconfirmTitle]="'book.detail.deleteReviewConfirm' | translate"
+                      (nzOnConfirm)="deleteReview(review.id)">
+                <span nz-icon
+                      nzType="delete"></span>
+              </button>
+              }
+            </div>
+          </div>
+          <p class="review-content">{{ review.content }}</p>
+        </div>
+        }
+      </div>
+      }
+    </div>
+
 
   </div>
 

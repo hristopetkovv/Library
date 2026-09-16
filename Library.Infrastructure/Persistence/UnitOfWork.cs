@@ -12,7 +12,8 @@
 			IBorrowingRepository borrowingRepository,
 			IAuthorRepository authorRepository,
 			IPublisherRepository publisherRepository,
-			IGenreRepository genreRepository
+			IGenreRepository genreRepository,
+			IReviewRepository reviewRepository
 			)
 		{
 			this.context = context;
@@ -22,6 +23,7 @@
 			Authors = authorRepository;
 			Publishers = publisherRepository;
 			Genres = genreRepository;
+			Reviews = reviewRepository;
 		}
 
 		public IBookRepository Books { get; }
@@ -35,6 +37,8 @@
 		public IPublisherRepository Publishers { get; }
 
 		public IGenreRepository Genres { get; }
+
+		public IReviewRepository Reviews { get; }
 
 		public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
 			=> await context.SaveChangesAsync(cancellationToken);

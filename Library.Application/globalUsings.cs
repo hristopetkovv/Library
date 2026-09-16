@@ -31,5 +31,6 @@ global using System.Linq.Expressions;
 global using Library.Application.Common.Mapping;
 global using Library.Application.Interfaces.Integration;
 global using Library.Domain.Interfaces.Registration;
+global using Library.Application.Reviews.Dtos;
 
 

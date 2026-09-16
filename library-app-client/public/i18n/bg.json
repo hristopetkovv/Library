@@ -114,7 +114,12 @@
             "coverType": "Вид корица",
             "fictionGenres": "Художествена литература",
             "nonFictionGenres":"Нехудожествена литература",
-            "modalTitle": "Информация за книга"
+            "modalTitle": "Информация за книга",
+            "reviews": "Коментари",
+            "noReviews": "Все още няма коментари",
+            "reviewPlaceholder": "Напишете вашия коментар...",
+            "submitReview": "Публикувай",
+            "deleteReviewConfirm": "Сигурни ли сте, че искате да изтриете този коментар?"
         },
         "sort": {
             "titleAsc": "По заглавие (А-Я)",
@@ -341,7 +346,13 @@
         "UserAccountLocked": "Профилът ви е блокиран!",
         "UserAccountInactive": "Профилът ви е деактивиран!",
         "InvalidCurrentPassword": "Сегашната ви парола не е вярна!",
-        "minLength": "Минимум 8 символа"
+        "minLength": "Минимум 8 символа",
+        "ReviewNotFound": "Коментарът не е намерен!",
+        "ReviewContentRequired": "Моля, напишете коментар!",
+        "ReviewContentMaxLength": "Максималната дължина на коментара е 1000 символа!",
+        "ReviewRatingRequired": "Моля, оценете книгата!",
+        "ReviewBookIdRequired": "Книгата е задължителна!",
+        "ReviewIdRequired": "Коментарът е задължителен!"
     },
     "enums": {
         "language": {

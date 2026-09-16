@@ -4,6 +4,7 @@
 	{
 		private readonly List<Borrowing> borrowings = [];
 		private readonly List<BookGenre> genres = [];
+        private readonly List<Review> reviews = [];
 
         public int Id { get; private set; }
 		public string Title { get; private set; } = null!;
@@ -23,8 +24,9 @@
 
 		public IReadOnlyList<Borrowing> Borrowings => borrowings.AsReadOnly();
 		public IReadOnlyList<BookGenre> Genres => genres.AsReadOnly();
+        public IReadOnlyList<Review> Reviews => reviews.AsReadOnly();
 
-		public static Book Create(string title, int authorId, int publisherId, ISBN isbn, string? description, int pages, Language language, CoverType coverType, int publicationYear, int totalCopies, string? coverImageUrl, List<int> genreIds)
+        public static Book Create(string title, int authorId, int publisherId, ISBN isbn, string? description, int pages, Language language, CoverType coverType, int publicationYear, int totalCopies, string? coverImageUrl, List<int> genreIds)
 		{
             var book = new Book
             {

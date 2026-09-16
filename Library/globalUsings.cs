@@ -66,3 +66,8 @@ global using Library.Application.Borrowings.Queries.GetAllBorrowings;
 global using Library.Application.Users.Commands.ChangePassword;
 global using Library.Application.Interfaces.Integration;
 global using Library.Contracts.Chat;
+global using Library.Application.Reviews.Commands.CreateReview;
+global using Library.Application.Reviews.Commands.DeleteReview;
+global using Library.Application.Reviews.Dtos;
+global using Library.Application.Reviews.Queries.GetBookReviews;
+global using Library.Contracts.Reviews;
