@@ -14,6 +14,8 @@
 		int TotalCopies,
 		int AvailableCopies,
 		List<GenreDto> Genres,
-		string? CoverImageUrl
-	);
+		string? CoverImageUrl,
+		List<ReviewDto> Reviews,
+		bool IsFavorite
+    );
 }

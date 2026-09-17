@@ -62,7 +62,8 @@
             "lastName": "Фамилия",
             "email": "Имейл",
             "address": "Адрес",
-            "phoneNumber": "Телефон"
+            "phoneNumber": "Телефон",
+            "favorite": "Любими книги"
         },
         "forgottenPassword": {
             "title": "Забравена парола",
@@ -86,6 +87,12 @@
             "currentPassword": "Текуща парола",
             "newPassword": "Нова парола",
             "confirmPassword": "Потвърди парола"
+        },
+        "favorite": {
+            "title": "Книга",
+            "author": "Автор",
+            "publicationYear": "Година на издаване",
+            "createdAt": "Добавена в любими"
         }
     },
     "book": {

@@ -23,11 +23,28 @@
     </div>
     }
 
-    <span class="availability-badge"
-          [class.available]="isAvailable()"
-          [class.unavailable]="!isAvailable()">
-      {{ (isAvailable() ? 'book.available' : 'book.unavailable') | translate }}
-    </span>
+    <div class="availability-favorite">
+      <span class="availability-badge"
+            [class.available]="isAvailable()"
+            [class.unavailable]="!isAvailable()">
+        {{ (isAvailable() ? 'book.available' : 'book.unavailable') | translate }}
+      </span>
+
+      @if (authService.isAuthenticated()) {
+      <button nz-button
+              nzType="text"
+              nzShape="circle"
+              class="favorite-btn"
+              [nzLoading]="isTogglingFavorite()"
+              (click)="toggleFavorite()">
+        <span nz-icon
+              nzType="heart"
+              [nzTheme]="isFavorite() ? 'fill' : 'outline'"
+              [class.favorite-active]="isFavorite()"
+              class="favorite-icon"></span>
+      </button>
+      }
+    </div>
 
     <div class="copies-info">
       <span class="copies-label">{{ 'book.detail.availableCopies' | translate }}</span>
@@ -103,76 +120,78 @@
     </div>
     }
 
-    <nz-divider></nz-divider>
-    <div class="reviews-section">
-      <div class="reviews-header">
-        <span class="meta-label">{{ 'book.detail.reviews' | translate }}</span>
-      </div>
-
-      @if (authService.isAuthenticated()) {
-      <form [formGroup]="reviewForm"
-            (ngSubmit)="submitReview()"
-            class="review-form">
-        <nz-rate formControlName="rating"></nz-rate>
-        <nz-form-control [nzErrorTip]="'validation.required' | translate">
-          <textarea nz-input
-                    formControlName="content"
-                    [placeholder]="'book.detail.reviewPlaceholder' | translate"
-                    [nzAutosize]="{ minRows: 2, maxRows: 4 }"
-                    style="border-radius: 8px;">
-              </textarea>
-        </nz-form-control>
-        <button nz-button
-                nzType="primary"
-                type="submit"
-                [nzLoading]="isSubmitting()">
-          {{ 'book.detail.submitReview' | translate }}
-        </button>
-      </form>
-      }
-
-      @if (isLoadingReviews()) {
-      <nz-skeleton [nzActive]="true"></nz-skeleton>
-      } @else if (reviews().length === 0) {
-      <p class="no-reviews">{{ 'book.detail.noReviews' | translate }}</p>
-      } @else {
-      <div class="reviews-list">
-        @for (review of reviews(); track review.id) {
-        <div class="review-item">
-          <div class="review-header">
-            <div class="review-user">
-              <div class="review-avatar">{{ review.userFullName[0] }}</div>
-              <div>
-                <span class="review-name">{{ review.userFullName }}</span>
-                <span class="review-date">{{ review.createdAt | date: 'dd.MM.yyyy' }}</span>
-              </div>
-            </div>
-            <div class="review-actions">
-              <nz-rate [ngModel]="review.rating"
-                       nzDisabled></nz-rate>
-              @if (isAdmin()) {
-              <button nz-button
-                      nzType="text"
-                      nzDanger
-                      nzSize="small"
-                      [disabled]="reviewForm.invalid"
-                      nz-popconfirm
-                      [nzPopconfirmTitle]="'book.detail.deleteReviewConfirm' | translate"
-                      (nzOnConfirm)="deleteReview(review.id)">
-                <span nz-icon
-                      nzType="delete"></span>
-              </button>
-              }
-            </div>
-          </div>
-          <p class="review-content">{{ review.content }}</p>
-        </div>
-        }
-      </div>
-      }
-    </div>
-
-
   </div>
 
+</div>
+
+<nz-divider></nz-divider>
+
+<div class="reviews-section">
+  <div class="reviews-header">
+    <span class="meta-label">{{ 'book.detail.reviews' | translate }}</span>
+  </div>
+
+  @if (authService.isAuthenticated()) {
+  <form [formGroup]="reviewForm"
+        (ngSubmit)="submitReview()"
+        class="review-form">
+    <nz-rate formControlName="rating"></nz-rate>
+    <nz-form-control [nzErrorTip]="'validation.required' | translate">
+      <textarea nz-input
+                formControlName="content"
+                [placeholder]="'book.detail.reviewPlaceholder' | translate"
+                [nzAutosize]="{ minRows: 2, maxRows: 4 }"
+                style="border-radius: 8px;">
+              </textarea>
+    </nz-form-control>
+    <button nz-button
+            nzType="primary"
+            type="submit"
+            [disabled]="reviewForm.invalid"
+            [nzLoading]="isSubmitting()"
+            style="color:white">
+      {{ 'book.detail.submitReview' | translate }}
+    </button>
+  </form>
+  }
+
+  @if (isLoadingReviews()) {
+  <nz-skeleton [nzActive]="true"></nz-skeleton>
+  } @else if (reviews().length === 0) {
+  <p class="no-reviews">{{ 'book.detail.noReviews' | translate }}</p>
+  } @else {
+  <div class="reviews-list">
+    @for (review of reviews(); track review.id) {
+    <div class="review-item">
+      <div class="review-header">
+        <div class="review-user">
+          <div class="review-avatar">{{ review.userFullName[0] }}</div>
+          <div>
+            <span class="review-name">{{ review.userFullName }}</span>
+            <span class="review-date">{{ review.createdAt | date: 'dd.MM.yyyy' }}</span>
+          </div>
+        </div>
+        <nz-rate [ngModel]="review.rating"
+                 nzDisabled></nz-rate>
+      </div>
+      <div class="review-content-actions">
+        <p class="review-content">{{ review.content }}</p>
+
+        @if (authService.isAdmin()) {
+        <button nz-button
+                nzDanger
+                nzType="text"
+                nzSize="small"
+                nz-popconfirm
+                [nzPopconfirmTitle]="'book.detail.deleteReviewConfirm' | translate"
+                (nzOnConfirm)="deleteReview(review.id)">
+          <span nz-icon
+                nzType="delete"></span>
+        </button>
+        }
+      </div>
+    </div>
+    }
+  </div>
+  }
 </div>

@@ -1,4 +1,4 @@
-﻿namespace Library.Application.Reviews.Commands.DeleteReview
+﻿namespace Library.Application.Books.Commands.DeleteReview
 {
     public class DeleteReviewCommandValidator : AbstractValidator<DeleteReviewCommand>
     {

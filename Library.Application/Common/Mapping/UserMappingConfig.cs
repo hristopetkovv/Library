@@ -16,6 +16,12 @@
                 .Map(dest => dest.Email, src => src.Email.Value)
                 .Map(dest => dest.Address, src => src.ContactInfo != null ? src.ContactInfo.Address : null)
                 .Map(dest => dest.PhoneNumber, src => src.ContactInfo != null ? src.ContactInfo.PhoneNumber : null);
+
+            TypeAdapterConfig<UserFavoriteBook, UserFavoriteBookDto>
+                .NewConfig()
+                .Map(dest => dest.Author, src => src.Book.Author.Name)
+                .Map(dest => dest.Title, src => src.Book.Title)
+                .Map(dest => dest.PublicationYear, src => src.Book.PublicationYear);
         }
     }
 }

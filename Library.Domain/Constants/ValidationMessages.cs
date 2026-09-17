@@ -28,9 +28,10 @@
 		public const string BookHasActiveBorrowings = nameof(BookHasActiveBorrowings);
 		public const string BookHasNoAvailableCopies = nameof(BookHasNoAvailableCopies);
 		public const string BookAvailableCannotExceedTotalCopies = nameof(BookAvailableCannotExceedTotalCopies);
+		public const string BookUserFavoriteNotFound = nameof(BookUserFavoriteNotFound);
 
-		// Borrow
-		public const string BorrowingInvalidId = nameof(BorrowingInvalidId);
+        // Borrow
+        public const string BorrowingInvalidId = nameof(BorrowingInvalidId);
 		public const string BorrowingNotFound = nameof(BorrowingNotFound);
 		public const string BorrowingBookAlreadyReturned = nameof(BorrowingBookAlreadyReturned);
 

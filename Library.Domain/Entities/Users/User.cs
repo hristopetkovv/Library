@@ -3,7 +3,8 @@
 	public class User : BaseAuditableEntity, IEntity
 	{
 		private readonly List<Borrowing> borrowings = [];
-		private const int MaxActiveBorrowings = 5;
+		private readonly List<UserFavoriteBook> favoriteBooks = [];
+        private const int MaxActiveBorrowings = 5;
         private const int MaxFailedLoginAttempts = 5;
 
         public int Id { get; private set; }
@@ -19,8 +20,9 @@
         public DateTime? LockedAt { get; private set; }
 
         public IReadOnlyList<Borrowing> Borrowings => borrowings.AsReadOnly();
+        public IReadOnlyList<UserFavoriteBook> FavoriteBooks => favoriteBooks.AsReadOnly();
 
-		public static User Create(string passwordSalt, string passwordHash, Email email, UserRole role, FullName fullName, ContactInfo? contactInfo)
+        public static User Create(string passwordSalt, string passwordHash, Email email, UserRole role, FullName fullName, ContactInfo? contactInfo)
 		{
 			return new User
 			{

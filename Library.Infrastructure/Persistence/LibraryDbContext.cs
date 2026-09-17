@@ -10,6 +10,7 @@
 		public DbSet<Genre> Genres => Set<Genre>();
 		public DbSet<BookGenre> BookGenres => Set<BookGenre>();
 		public DbSet<Review> Reviews => Set<Review>();
+		public DbSet<UserFavoriteBook> UserFavoriteBooks => Set<UserFavoriteBook>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{

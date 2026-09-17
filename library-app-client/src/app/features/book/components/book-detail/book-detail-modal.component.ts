@@ -1,4 +1,4 @@
-import { Component, computed, inject, OnInit, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { NzTagModule } from 'ng-zorro-antd/tag';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
@@ -8,11 +8,9 @@ import { Category } from '../../enums/category.enum';
 import { NZ_MODAL_DATA } from 'ng-zorro-antd/modal';
 import { Language } from '../../enums/language.enum';
 import { CoverType } from '../../enums/cover-type.enum';
-import { ReviewResource } from '../../../review/resources/review.resource';
 import { AuthService } from '../../../auth/services/auth.service';
-import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ReviewDto } from '../../../review/dtos/review.dto';
+import { ReviewDto } from '../../dtos/review.dto';
 import { finalize } from 'rxjs';
 import { NzRateModule } from 'ng-zorro-antd/rate';
 import { DatePipe } from '@angular/common';
@@ -20,28 +18,32 @@ import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { ReviewResource } from '../../resources/review.resource';
+import { FavoriteBooksResource } from '../../resources/favorite-books.resource';
  
 @Component({
   selector: 'app-book-detail',
   standalone: true,
-  imports: [TranslatePipe, NzTagModule, NzDividerModule, NzInputModule, NzSkeletonModule, NzButtonModule, NzPopconfirmModule, NzFormModule, NzRateModule, ReactiveFormsModule, FormsModule, DatePipe],
+  imports: [TranslatePipe, NzTagModule, NzDividerModule, NzInputModule, NzSkeletonModule, NzButtonModule, NzPopconfirmModule, NzFormModule, NzIconModule, NzRateModule, ReactiveFormsModule, FormsModule, DatePipe],
   templateUrl: './book-detail-modal.component.html',
   styleUrl: './book-detail-modal.component.css',
 })
-export class BookDetailComponent implements OnInit {
+export class BookDetailComponent  {
   private readonly translate = inject(TranslateService);
   readonly modalData = inject(NZ_MODAL_DATA);
   private readonly reviewResource = inject(ReviewResource);
-  private readonly notification = inject(NzNotificationService);
   private readonly fb = inject(FormBuilder);
   public readonly authService = inject(AuthService);
+  private readonly favoriteBooksResource = inject(FavoriteBooksResource);
 
   readonly book = computed<BookDetailDto>(() => this.modalData.book);
 
   readonly reviews = signal<ReviewDto[]>([]);
   readonly isLoadingReviews = signal(false);
   readonly isSubmitting = signal(false);
-  readonly isAdmin = this.authService.isAdmin;
+  readonly isFavorite = signal(false);
+  readonly isTogglingFavorite = signal(false);
 
   readonly currentUserId = computed(() => this.authService.currentUser()?.id);
 
@@ -85,8 +87,11 @@ export class BookDetailComponent implements OnInit {
   languages = Language;
   coverTypes = CoverType;
 
-  ngOnInit(): void {
-    this.loadReviews();
+  constructor() {
+    const initialReviews = this.book().reviews ?? [];
+    this.reviews.set(initialReviews);
+
+    this.isFavorite.set(this.book().isFavorite ?? false);
   }
  
   genreLabel(genre: { genreName: string; genreNameBg: string }): string {
@@ -123,9 +128,29 @@ export class BookDetailComponent implements OnInit {
   }
 
   deleteReview(reviewId: number): void {
-    this.reviewResource.delete(reviewId).subscribe({
+    this.reviewResource.delete(this.book().id, reviewId).subscribe({
       next: () => this.loadReviews()
     });
+  }
+
+  toggleFavorite(): void {
+    if (this.isTogglingFavorite()) return;
+    
+    const wasFavorite = this.isFavorite();
+    const bookId = this.book().id;
+    
+    this.isFavorite.set(!wasFavorite);
+    this.isTogglingFavorite.set(true);
+    
+    const request$ = wasFavorite
+      ? this.favoriteBooksResource.remove(bookId)
+      : this.favoriteBooksResource.add(bookId);
+    
+    request$
+      .pipe(finalize(() => this.isTogglingFavorite.set(false)))
+      .subscribe({
+        error: () => this.isFavorite.set(wasFavorite),
+      });
   }
 
 }

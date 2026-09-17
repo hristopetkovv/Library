@@ -1,5 +1,6 @@
 import { AuthorBasicDto } from "../../author/dtos/author-basic.dto";
 import { PublisherBasicDto } from "../../publisher/dtos/publisher-basic.dto";
+import { ReviewDto } from "./review.dto";
 import { CoverType } from "../enums/cover-type.enum";
 import { Language } from "../enums/language.enum";
 import { GenreDto } from "./genre.dto";
@@ -19,4 +20,6 @@ export interface BookDetailDto {
     availableCopies: number;
     genres: GenreDto[];
     coverImageUrl: string;
+    reviews: ReviewDto[];
+    isFavorite: boolean;
 }

@@ -1,4 +1,4 @@
-﻿namespace Library.Application.Reviews.Dtos
+﻿namespace Library.Application.Books.Dtos
 {
     public record ReviewDto(
         int Id,

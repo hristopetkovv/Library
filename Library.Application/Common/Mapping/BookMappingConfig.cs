@@ -10,7 +10,8 @@
 
             TypeAdapterConfig<Book, BookDetailDto>
                 .NewConfig()
-                .Map(dest => dest.ISBN, src => src.ISBN.Value);
+                .Map(dest => dest.ISBN, src => src.ISBN.Value)
+                .Map(dest => dest.Reviews, src => src.Reviews.OrderByDescending(r => r.CreatedAt));
 
             TypeAdapterConfig<Book, BookListDto>
                 .NewConfig()

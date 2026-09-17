@@ -1,4 +1,4 @@
-﻿namespace Library.Controllers.Reviews
+﻿namespace Library.Controllers.Books
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -17,11 +17,11 @@
             return NoContent();
         }
 
-        [HttpDelete("{reviewId:int}")]
+        [HttpDelete("{bookId:int}/{reviewId:int}")]
         [AuthorizeRoles(UserRole.Admin)]
-        public async Task<IActionResult> Delete([FromRoute] int reviewId, CancellationToken cancellationToken)
+        public async Task<IActionResult> Delete([FromRoute] int bookId, [FromRoute] int reviewId, CancellationToken cancellationToken)
         {
-            await mediator.Send(new DeleteReviewCommand(reviewId), cancellationToken);
+            await mediator.Send(new DeleteReviewCommand(bookId, reviewId), cancellationToken);
             return NoContent();
         }
     }

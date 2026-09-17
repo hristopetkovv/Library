@@ -60,6 +60,11 @@
             builder.Property(u => u.FailedLoginAttempts)
 				.IsRequired()
 				.HasDefaultValue(0);
+
+            builder.HasMany(u => u.FavoriteBooks)
+                .WithOne(uf => uf.User)
+                .HasForeignKey(uf => uf.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
 	}
 }

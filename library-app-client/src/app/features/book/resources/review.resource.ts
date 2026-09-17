@@ -16,7 +16,7 @@ export class ReviewResource extends BaseResource {
         return this.http.post<void>(this.baseUrl, dto);
     }
 
-    delete(reviewId: number): Observable<void> {
-        return this.http.delete<void>(`${this.baseUrl}/${reviewId}`);
+    delete(bookId: number, reviewId: number): Observable<void> {
+        return this.http.delete<void>(`${this.baseUrl}/${bookId}/${reviewId}`);
     }
 }

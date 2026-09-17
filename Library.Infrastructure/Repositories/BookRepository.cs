@@ -6,7 +6,9 @@
         {
             IQueryable<Book> query = dbSet.AsNoTracking()
                 .Include(b => b.Genres)
-                    .ThenInclude(g => g.Genre);
+                    .ThenInclude(g => g.Genre)
+                .Include(b => b.Reviews)
+                    .ThenInclude(r => r.User);
 
             foreach (var include in includes)
             {
@@ -24,6 +26,17 @@
                 .Include(b => b.Author)
                 .Take(5)
                 .OrderBy(b => b.Title)
+                .ToListAsync(cancellationToken);
+        }
+
+        public async Task<List<Review>> GetReviewsAsync(int bookId, CancellationToken cancellationToken = default)
+        {
+            return await dbSet
+                .AsNoTracking()
+                .Where(b => b.Id == bookId)
+                .Include(b => b.Reviews)
+                    .ThenInclude(r => r.User)
+                .SelectMany(b => b.Reviews)
                 .ToListAsync(cancellationToken);
         }
     }

@@ -1,4 +1,4 @@
-﻿namespace Library.Application.Reviews.Commands.CreateReview
+﻿namespace Library.Application.Books.Commands.CreateReview
 {
     public class CreateReviewCommandValidator : AbstractValidator<CreateReviewCommand>
     {

@@ -1,12 +1,12 @@
-﻿namespace Library.Application.Reviews.Queries.GetBookReviews
+﻿namespace Library.Application.Books.Queries.GetBookReviews
 {
     public class GetBookReviewsQueryHandler(IUnitOfWork unitOfWork) : IRequestHandler<GetBookReviewsQuery, List<ReviewDto>>
     {
         public async Task<List<ReviewDto>> Handle(GetBookReviewsQuery query, CancellationToken cancellationToken)
         {
-            var reviews = await unitOfWork.Reviews.GetAllFilteredAsync(r => r.BookId == query.BookId, cancellationToken, r => r.User);
+            var reviews = await unitOfWork.Books.GetReviewsAsync(query.BookId, cancellationToken);
 
-            return reviews.Adapt<List<ReviewDto>>();
+            return reviews.OrderByDescending(r => r.CreatedAt).Adapt<List<ReviewDto>>();
         }
     }
 }

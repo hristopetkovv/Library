@@ -58,6 +58,16 @@
 				.WithOne(bg => bg.Book)
 				.HasForeignKey(bg => bg.BookId)
 				.OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasMany(b => b.UserFavorites)
+                .WithOne(uf => uf.Book)
+                .HasForeignKey(uf => uf.BookId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasMany(b => b.Reviews)
+                .WithOne(r => r.Book)
+                .HasForeignKey(r => r.BookId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
 	}
 }

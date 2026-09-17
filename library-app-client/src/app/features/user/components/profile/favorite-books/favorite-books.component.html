@@ -1,0 +1,27 @@
+<div class="section-header">
+    <h3>{{ 'user.profile.favorite' | translate }}</h3>
+</div>
+
+<nz-table [nzData]="favoriteBooks()"
+          [nzLoading]="isLoading()"
+          [nzBordered]="true"
+          style="margin-top: 1em;">
+    <thead>
+        <tr>
+            <th>{{ 'user.favorite.title' | translate }}</th>
+            <th>{{ 'user.favorite.author' | translate }}</th>
+            <th>{{ 'user.favorite.publicationYear' | translate }}</th>
+            <th>{{ 'user.favorite.createdAt' | translate }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (fb of favoriteBooks(); track fb.title) {
+        <tr>
+            <td>{{ fb.title }}</td>
+            <td>{{ fb.author }}</td>
+            <td>{{ fb.publicationYear }}</td>
+            <td>{{ fb.createdAt | date: 'dd.MM.yyyy' }}</td>
+        </tr>
+        }
+    </tbody>
+</nz-table>

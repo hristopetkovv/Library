@@ -27,6 +27,12 @@
                       nzType="book"></span>
                 {{ 'user.profile.myBorrowings' | translate }}
             </li>
+            <li [class.active]="activeTab() === 'favorite'"
+                (click)="activeTab.set('favorite')">
+                <span nz-icon
+                      nzType="heart"></span>
+                {{ 'user.profile.favorite' | translate }}
+            </li>
         </ul>
     </aside>
 
@@ -38,6 +44,9 @@
         }
         @else if(activeTab() === 'borrowings') {
         <app-user-borrowings />
+        }
+        @else if(activeTab() === 'favorite') {
+        <app-favorite-books />
         }
     </main>
 </div>
